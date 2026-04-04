@@ -810,7 +810,7 @@ body.is-logged-in .verification-banner.navbar-logged-in {
    8. Footer
    ============================================ */
 .footer {
-  background-color: var(--color-dark);
+  background-color: #000000;
   color: rgba(255, 255, 255, 0.8);
   padding-top: 60px;
 }
@@ -839,12 +839,11 @@ body.is-logged-in .verification-banner.navbar-logged-in {
 }
 
 .footer-brand {
-  text-align: right;
+  padding-left: 20px;
 }
 
 .footer-brand img {
   height: 60px;
-  margin-left: auto;
   margin-bottom: 16px;
 }
 
@@ -855,7 +854,7 @@ body.is-logged-in .verification-banner.navbar-logged-in {
 }
 
 .footer-contact a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   color: rgba(255, 255, 255, 0.7);
@@ -870,7 +869,6 @@ body.is-logged-in .verification-banner.navbar-logged-in {
   display: flex;
   gap: 12px;
   margin-top: 12px;
-  justify-content: flex-end;
 }
 
 .footer-social a {
@@ -931,11 +929,18 @@ body.is-logged-in .verification-banner.navbar-logged-in {
   background-color: var(--color-primary-hover);
 }
 
-.footer-certified {
+.footer-bottom-right {
   display: flex;
   align-items: center;
-  gap: 8px;
-  justify-content: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.footer-certified {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
 .footer-certified span {
@@ -954,14 +959,15 @@ body.is-logged-in .verification-banner.navbar-logged-in {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  align-items: flex-end;
 }
 
 .footer-app-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 8px 24px;
+  min-width: 200px;
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-md);
@@ -2420,9 +2426,15 @@ body.is-logged-in .verification-banner.navbar-logged-in {
 }
 
 .cta-teach-content h2 {
+  font-family: 'Poppins', sans-serif;
   font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 16px;
   line-height: 1.3;
+}
+
+.cta-teach-content h2 .text-highlight {
+  color: var(--color-primary);
 }
 
 .text-orange {
@@ -2457,18 +2469,18 @@ body.is-logged-in .verification-banner.navbar-logged-in {
 }
 
 .cta-card-1 {
-  top: 42%;
-  left: -18%;
+  top: 45%;
+  left: -10%;
 }
 
 .cta-card-2 {
-  top: 57%;
-  left: -8%;
+  top: 60%;
+  left: 0;
 }
 
 .cta-card-3 {
-  top: 72%;
-  left: 0;
+  top: 75%;
+  left: 8%;
 }
 
 .cta-visual .hero-card {
@@ -2547,17 +2559,13 @@ body.is-logged-in .verification-banner.navbar-logged-in {
 /* Why Choose Section */
 .why-choose-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 40px;
   margin-bottom: 48px;
 }
 
-.why-choose-item:nth-child(even) {
+.why-choose-item:nth-child(odd) {
   flex-direction: row-reverse;
-}
-
-.why-choose-item-text-only {
-  flex-direction: column !important;
 }
 
 .why-choose-img {
