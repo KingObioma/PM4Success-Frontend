@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM4Success - Profile & Settings</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <button class="navbar-toggle" aria-label="Toggle menu">
+          <i class="bi bi-list"></i>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/images/logo.png" alt="PM4Success">
+        </a>
+        <div class="navbar-search">
+          <i class="bi bi-mic search-icon-left"></i>
+          <input type="text" placeholder="search courses" aria-label="Search courses">
+          <i class="bi bi-search search-icon-right"></i>
+        </div>
+        <ul class="navbar-nav">
+          <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
+          <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <!-- Actions: Logged Out -->
+        <div class="navbar-actions navbar-logged-out">
+          <a href="login.html" class="nav-link nav-login-link">Login</a>
+          <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+        </div>
+
+        <div class="navbar-actions navbar-logged-in">
+          <a href="cart.html" class="nav-icon-btn">
+            <i class="bi bi-cart3"></i>
+            <span class="badge-count">0</span>
+          </a>
+          <a href="notifications.html" class="nav-icon-btn">
+            <i class="bi bi-bell"></i>
+          </a>
+          <div class="position-relative">
+            <div class="nav-avatar">
+              <span class="nav-avatar-initial">A</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="user-dropdown">
+              <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+              <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+              <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+              <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+              <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+              <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+              <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="assets/images/logo.png" alt="PM4Success">
+      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Logged out menu -->
+    <div class="mobile-menu-nav navbar-logged-out">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="login.html" class="signin-link">Login</a>
+      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
+    </div>
+
+    <div class="mobile-menu-nav navbar-logged-in">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
+      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+      <div class="menu-divider"></div>
+      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    </div>
+  </div>
+
+  <!-- ========== PROFILE & SETTINGS ========== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Profile & settings</h2>
+
+      <!-- Profile Tabs -->
+      <div class="tabs mb-4" data-tabs="profile">
+        <button class="tab-btn active" data-tab="info-tab">Info</button>
+        <button class="tab-btn" data-tab="password-tab">Password</button>
+      </div>
+
+      <!-- ===== INFO TAB ===== -->
+      <div class="tab-content active" id="info-tab">
+        <div class="row g-4">
+          <!-- Avatar Upload -->
+          <div class="col-lg-3">
+            <div class="profile-avatar-upload">
+              <div class="avatar-preview">
+                <img src="assets/images/avatars/instructor-avatar.png" alt="Profile Photo">
+                <div class="avatar-camera-overlay">
+                  <i class="bi bi-camera"></i>
+                </div>
+              </div>
+              <input type="file" id="avatar-upload" accept="image/*" hidden>
+              <label for="avatar-upload" class="btn btn-outline btn-sm mt-3">Change Photo</label>
+            </div>
+          </div>
+
+          <!-- Personal Information -->
+          <div class="col-lg-9">
+            <div class="profile-card">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="fw-semibold mb-0">Personal Information</h4>
+                <button class="btn btn-outline btn-sm"><i class="bi bi-pencil"></i> Edit</button>
+              </div>
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Fullname</label>
+                    <input type="text" class="form-control" value="Adeola Johnson" placeholder="Enter your fullname">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" value="adeola.johnson@email.com" placeholder="Enter your email">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" value="+234 812 345 6789" placeholder="Enter your phone number">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" value="12 Marina Road, Lagos" placeholder="Enter your address">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" value="1995-06-15">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Gender</label>
+                    <select class="form-select">
+                      <option value="female" selected>Female</option>
+                      <option value="male">Male</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Career Path Section -->
+        <div class="profile-card mt-4">
+          <h4 class="fw-semibold mb-2">Career Path</h4>
+          <p class="text-muted mb-3">Select the career path that aligns with your goals. You can update this at any time.</p>
+          <div class="mb-3">
+            <span class="career-tag">Data Analytics <button class="career-tag-remove"><i class="bi bi-x"></i></button></span>
+          </div>
+          <div>
+            <label class="form-label">Select Career Path</label>
+            <select class="form-select">
+              <option value="">Choose a career path...</option>
+              <option value="data-analytics" selected>Data Analytics</option>
+              <option value="data-science">Data Science</option>
+              <option value="machine-learning">Machine Learning</option>
+              <option value="software-development">Software Development</option>
+              <option value="ui-ux-design">UI/UX Design</option>
+              <option value="project-management">Project Management</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Verify Account Section -->
+        <div class="profile-card mt-4">
+          <h4 class="fw-semibold mb-2">Verify Account</h4>
+          <p class="text-muted mb-3">To verify your account, please provide a valid government-issued ID. This helps us maintain the integrity of our platform and your certificates.</p>
+          <ul class="mb-4">
+            <li>National ID Card (NIN)</li>
+            <li>International Passport</li>
+            <li>Driver's License</li>
+            <li>Voter's Card</li>
+          </ul>
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Fullname (as it appears on ID)</label>
+                <input type="text" class="form-control" placeholder="Enter your fullname">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Date of Birth</label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">ID Card Type</label>
+                <select class="form-select">
+                  <option value="">Select ID type...</option>
+                  <option value="nin">National ID Card (NIN)</option>
+                  <option value="passport">International Passport</option>
+                  <option value="drivers-license">Driver's License</option>
+                  <option value="voters-card">Voter's Card</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Upload ID</label>
+                <div class="file-upload-area">
+                  <i class="bi bi-cloud-arrow-up"></i>
+                  <p>Drag & drop or click to upload</p>
+                  <input type="file" accept="image/*,.pdf" hidden>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Verify account</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ===== PASSWORD TAB ===== -->
+      <div class="tab-content" id="password-tab">
+        <div class="profile-card password-card">
+          <h4 class="fw-semibold mb-4">Change Password</h4>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Current Password</label>
+              <div class="input-group">
+                <input type="password" class="form-control" placeholder="Enter current password">
+                <button type="button" class="input-group-text password-toggle"><i class="bi bi-eye-slash"></i></button>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">New Password</label>
+              <div class="input-group">
+                <input type="password" class="form-control" placeholder="Enter new password">
+                <button type="button" class="input-group-text password-toggle"><i class="bi bi-eye-slash"></i></button>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label">Confirm New Password</label>
+              <div class="input-group">
+                <input type="password" class="form-control" placeholder="Confirm new password">
+                <button type="button" class="input-group-text password-toggle"><i class="bi bi-eye-slash"></i></button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick Link</h5>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="course-catalogue.html">Course Catalogue</a>
+            <a href="learning-paths.html">My Learning Paths</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <h5 class="mt-4">More</h5>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="help-support.html">Help</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="#">Blog</a>
+            <a href="#">Alumni Community</a>
+            <a href="#">FAQs</a>
+          </div>
+          <h5 class="mt-4">Resources</h5>
+          <div class="footer-links">
+            <a href="#">Success Stories</a>
+            <a href="#">Career Support</a>
+            <a href="#">Webinars</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5>Join Us Today!</h5>
+          <div class="footer-links">
+            <a href="signup.html">Sign Up as a Learner</a>
+            <a href="#">Sign Up for Career Path</a>
+            <a href="#">Become an Instructor</a>
+            <a href="contact.html">Contact Us for License</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <div class="footer-contact">
+              <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
+              <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-newsletter">
+              <span class="text-white fw-600 text-small d-block mb-2">Signup to Newsletter</span>
+            </div>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Enter Your Email" aria-label="Email for newsletter">
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-certified">
+              <span>Certified</span>
+              <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-apps">
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+              </a>
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our iOS app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2024 PM4SUCCESS. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM4Success - Empowering Your Learning Journey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== PROMO BANNER ========== -->
+  <div class="promo-banner">
+    <div class="promo-banner-inner">
+      <span class="promo-label">FINAL OCTOBER SALE!</span>
+      <!-- <span class="promo-divider"></span> -->
+      <span class="promo-text">25% off digital certs &ndash; now on!</span>
+      <span class="promo-divider"></span>
+      <span class="promo-countdown">
+        <i class="bi bi-hourglass-split"></i>
+        Ends in <strong>0d</strong> : <strong>21h</strong> : <strong>43min</strong> : <strong>23s</strong>
+      </span>
+      <a href="#" class="promo-cta-btn">Claim Now</a>
+    </div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <!-- Hamburger -->
+        <button class="navbar-toggle" aria-label="Toggle menu">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/images/logo.png" alt="PM4Success">
+        </a>
+
+        <!-- Search -->
+        <div class="navbar-search">
+          <i class="bi bi-mic search-icon-left"></i>
+          <input type="text" placeholder="search courses" aria-label="Search courses">
+          <i class="bi bi-search search-icon-right"></i>
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="navbar-nav">
+          <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
+          <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Actions: Logged Out -->
+        <div class="navbar-actions navbar-logged-out">
+          <a href="login.html" class="nav-link nav-login-link">Login</a>
+          <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+        </div>
+
+        <!-- Actions: Logged In -->
+        <div class="navbar-actions navbar-logged-in">
+          <a href="cart.html" class="nav-icon-btn">
+            <i class="bi bi-cart3"></i>
+            <span class="badge-count">0</span>
+          </a>
+          <a href="notifications.html" class="nav-icon-btn">
+            <i class="bi bi-bell"></i>
+          </a>
+          <div class="position-relative">
+            <div class="nav-avatar">
+              <span class="nav-avatar-initial">A</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <!-- User Dropdown -->
+            <div class="user-dropdown">
+              <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+              <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+              <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+              <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+              <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+              <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+              <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== ACCOUNT VERIFICATION BANNER (Logged In) ========== -->
+  <div class="verification-banner navbar-logged-in">
+    <div class="container">
+      <p><i class="bi bi-exclamation-triangle"></i> <strong>Account not verified</strong> &mdash; To receive your certificate upon course completion, you must verify your account. Without verification, your certificate will not be issued.</p>
+    </div>
+  </div>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="assets/images/logo.png" alt="PM4Success">
+      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <!-- Logged out menu -->
+    <div class="mobile-menu-nav navbar-logged-out">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="login.html" class="signin-link">Login</a>
+      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
+    </div>
+
+    <!-- Logged in menu -->
+    <div class="mobile-menu-nav navbar-logged-in">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
+      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+      <div class="menu-divider"></div>
+      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    </div>
+  </div>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="hero-content">
+            <h1>Empowering Your <span class="text-highlight">Learning</span> Journey with Knowledge, Growth, and <span class="text-highlight">Innovation.</span></h1>
+            <p>Take charge of your career with PM4Success! Our expert-led courses equip you with the skills to excel, earn certifications, or break into a new field.</p>
+            <div class="hero-buttons">
+              <a href="course-catalogue.html" class="btn btn-primary btn-lg">Explore Courses</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image text-center">
+            <img src="assets/images/illustrations/develop-practice-advance.png" alt="Develop, Practice, Advance">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARTNERS ========== -->
+  <section class="partners">
+    <div class="container">
+      <p class="partners-text">Trusted by over 10,000 companies and millions of learners around the world</p>
+      <div class="partners-logos">
+        <img src="assets/images/partners/credly.jpg" alt="Crafty">
+        <img src="assets/images/partners/coursera.jpg" alt="Coursera">
+        <img src="assets/images/partners/ibm.jpg" alt="IBM">
+        <img src="assets/images/partners/google.jpg" alt="Google">
+        <img src="assets/images/partners/johns-hopkins.jpg" alt="Johns Hopkins">
+        <img src="assets/images/partners/vimeo.jpg" alt="Vimeo">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CHOOSE A PROGRAM ========== -->
+  <section class="section programs-section">
+    <div class="container">
+      <div class="row">
+        <!-- Left Sidebar -->
+        <div class="col-lg-3 mb-4 mb-lg-0">
+          <div class="section-heading">
+            <h2>Choose A Highly-Rated Program.</h2>
+          </div>
+          <div class="program-sidebar">
+            <button class="program-tab active" data-category="popular">
+              <i class="bi bi-star-fill"></i> Popular Courses (532)
+            </button>
+            <div class="program-radio-group">
+              <label class="program-radio">
+                <input type="radio" name="program-category" value="ai" checked>
+                <span>AI & Machine Learning (245)</span>
+              </label>
+              <label class="program-radio">
+                <input type="radio" name="program-category" value="data-science">
+                <span>Data Science & Business Analytics (92)</span>
+              </label>
+              <label class="program-radio">
+                <input type="radio" name="program-category" value="ux-design">
+                <span>UX Design (92)</span>
+              </label>
+              <label class="program-radio">
+                <input type="radio" name="program-category" value="management">
+                <span>Management (245)</span>
+              </label>
+            </div>
+            <a href="course-catalogue.html" class="program-show-more">Show more</a>
+          </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="col-lg-9">
+          <div class="programs-header">
+            <a href="course-catalogue.html" class="explore-courses-link">EXPLORE COURSES <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="row g-4">
+            <!-- Course Card 1 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Course Card 2 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Course Card 3 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Course Card 4 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-4.png" alt="Data Analytics" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Course Card 5 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-5.png" alt="UI Design" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Course Card 6 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-6.png" alt="Management" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Course Card 7 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-7.png" alt="Advanced Analytics" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Course Card 8 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-8.png" alt="Business Intelligence" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Course Card 9 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="course-card">
+                <img src="assets/images/courses/course-thumb-9.png" alt="Machine Learning" class="course-card-img">
+                <div class="course-card-body">
+                  <span class="course-card-provider">Bright Future University</span>
+                  <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <div class="course-card-meta">
+                    <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                    <span><i class="bi bi-laptop"></i> Online</span>
+                    <span><i class="bi bi-calendar3"></i> Weekdays</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(961,432)</span>
+                  </div>
+                  <div class="course-card-footer">
+                    <a href="course-details.html" class="course-card-link">View Program</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section section-bg">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Testimonial</h2>
+      </div>
+      <div class="carousel-wrapper testimonial-carousel">
+        <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
+        <div class="carousel-track" data-scroll-page="true">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 6 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 7 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 8 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 9 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+      <div class="carousel-dots">
+        <span class="carousel-dot active"></span>
+        <span class="carousel-dot"></span>
+        <span class="carousel-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TOP COURSES LEARNERS ARE VIEWING ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading-row">
+        <h2>Our Top Courses Learners Are Viewing</h2>
+        <div class="carousel-nav-btns">
+          <button class="carousel-btn carousel-btn-prev" data-target="top-courses-track"><i class="bi bi-chevron-left"></i></button>
+          <button class="carousel-btn carousel-btn-next" data-target="top-courses-track"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="carousel-wrapper top-courses-carousel">
+        <div class="carousel-track" id="top-courses-track">
+          <!-- Top Course 1 -->
+          <div class="course-card course-card-carousel">
+            <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-img">
+            <div class="course-card-body">
+              <div class="course-card-tags">
+                <span class="tag tag-blue">Online Study</span>
+                <span class="tag tag-gray">Academic</span>
+              </div>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-meta">
+                <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                <span><i class="bi bi-laptop"></i> Online</span>
+                <span><i class="bi bi-calendar3"></i> Weekdays</span>
+              </div>
+              <p class="course-card-instructor">Dr. Emily Thompson</p>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                </span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-price">$1,000</div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <!-- Top Course 2 -->
+          <div class="course-card course-card-carousel">
+            <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="course-card-img">
+            <div class="course-card-body">
+              <div class="course-card-tags">
+                <span class="tag tag-blue">Online Study</span>
+                <span class="tag tag-gray">Academic</span>
+              </div>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-meta">
+                <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                <span><i class="bi bi-laptop"></i> Online</span>
+                <span><i class="bi bi-calendar3"></i> Weekdays</span>
+              </div>
+              <p class="course-card-instructor">Dr. Emily Thompson</p>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                </span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-price">$1,000</div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <!-- Top Course 3 -->
+          <div class="course-card course-card-carousel">
+            <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="course-card-img">
+            <div class="course-card-body">
+              <div class="course-card-tags">
+                <span class="tag tag-blue">Online Study</span>
+                <span class="tag tag-gray">Academic</span>
+              </div>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-meta">
+                <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                <span><i class="bi bi-laptop"></i> Online</span>
+                <span><i class="bi bi-calendar3"></i> Weekdays</span>
+              </div>
+              <p class="course-card-instructor">Dr. Emily Thompson</p>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                </span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-price">$1,000</div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <!-- Top Course 4 -->
+          <div class="course-card course-card-carousel">
+            <img src="assets/images/courses/course-thumb-4.png" alt="Data Analytics" class="course-card-img">
+            <div class="course-card-body">
+              <div class="course-card-tags">
+                <span class="tag tag-blue">Online Study</span>
+                <span class="tag tag-gray">Academic</span>
+              </div>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-meta">
+                <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                <span><i class="bi bi-laptop"></i> Online</span>
+                <span><i class="bi bi-calendar3"></i> Weekdays</span>
+              </div>
+              <p class="course-card-instructor">Dr. Emily Thompson</p>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                </span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-price">$1,000</div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA: TEACH, MONETIZE ========== -->
+  <section class="cta-teach-section">
+    <div class="container">
+      <div class="cta-teach-inner">
+        <div class="cta-teach-content">
+          <h2>Teach, <span class="text-orange">Monetize,</span> and Expand Your Reach</h2>
+          <p>Empower your journey with PM4Success, build impactful courses, connect with learners, monetize your expertise, and begin to inspire innovation globally.</p>
+          <a href="contact.html" class="btn btn-dark btn-lg">Become an Instructor</a>
+        </div>
+        <div class="cta-teach-visual">
+          <div class="cta-instructor-bubble">
+            <img src="assets/images/avatars/instructor-avatar.png" alt="Instructor">
+            <div class="cta-instructor-info">
+              <span class="cta-instructor-name">Crafty</span>
+              <span class="cta-instructor-role">Become an instructor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE PM4SUCCESS ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Why Choose PM4Success</h2>
+      </div>
+
+      <div class="why-choose-item">
+        <div class="why-choose-img">
+          <img src="assets/images/misc/feature-1.jpg" alt="Learn from industry experts">
+        </div>
+        <div class="why-choose-content">
+          <span class="why-choose-label">CERTIFIED INSTRUCTORS</span>
+          <h3>Learn from industry experts who are passionate about teaching.</h3>
+          <p>Our instructors are top certified professionals, they bring years of real-world experience into the classroom. With practical insights and up-to-date knowledge, they are committed to helping you master the skills needed to thrive in your chosen field.</p>
+        </div>
+      </div>
+
+      <div class="why-choose-item">
+        <div class="why-choose-img">
+          <img src="assets/images/misc/feature-2.jpg" alt="Learn at your own pace">
+        </div>
+        <div class="why-choose-content">
+          <span class="why-choose-label">FLEXIBLE LEARNING</span>
+          <h3>Learn at your own pace, on your own schedule.</h3>
+          <p>Whether you're a full-time professional, a student, or managing other commitments, our flexible learning options allow you to access courses anytime, anywhere. With a variety of formats such as self-paced learning, live sessions, and recorded lectures, you can customize your learning experience to suit your lifestyle.</p>
+        </div>
+      </div>
+
+      <div class="why-choose-item">
+        <div class="why-choose-img">
+          <img src="assets/images/misc/why-choose-2.png" alt="Unlock opportunities">
+        </div>
+        <div class="why-choose-content">
+          <span class="why-choose-label">CAREER ADVANCEMENT</span>
+          <h3>Unlock new opportunities and accelerate your professional growth.</h3>
+          <p>Our courses are designed with your career growth in mind. From practical projects to real-world case studies, you'll acquire the skills employers are looking for. Many of our graduates have successfully transitioned into new roles, advanced their careers, or even launched their own businesses after completing our programs.</p>
+        </div>
+      </div>
+
+      <div class="why-choose-item why-choose-item-text-only">
+        <div class="why-choose-content">
+          <span class="why-choose-label">GLOBAL COMMUNITY</span>
+          <h3>Become part of a diverse and inclusive global network.</h3>
+          <p>When you join us, you're not just enrolling in a course - you're entering a vibrant global community of learners, professionals, and experts. Connect with other students from across the world, exchange ideas, collaborate on projects, and grow your network, all while getting a fresh perspective on your learning journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Quick Link -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick Link</h5>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="course-catalogue.html">Course Catalogue</a>
+            <a href="learning-paths.html">My Learning Paths</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <h5 class="mt-4">More</h5>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="help-support.html">Help</a>
+          </div>
+        </div>
+        <!-- Community & Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="#">Blog</a>
+            <a href="#">Alumni Community</a>
+            <a href="#">FAQs</a>
+          </div>
+          <h5 class="mt-4">Resources</h5>
+          <div class="footer-links">
+            <a href="#">Success Stories</a>
+            <a href="#">Career Support</a>
+            <a href="#">Webinars</a>
+          </div>
+        </div>
+        <!-- Join Us Today -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Join Us Today!</h5>
+          <div class="footer-links">
+            <a href="signup.html">Sign Up as a Learner</a>
+            <a href="#">Sign Up for Career Path</a>
+            <a href="#">Become an Instructor</a>
+            <a href="contact.html">Contact Us for License</a>
+          </div>
+        </div>
+        <!-- Brand & Contact -->
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <div class="footer-contact">
+              <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
+              <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-newsletter">
+              <span class="text-white fw-600 text-small d-block mb-2">Signup to Newsletter</span>
+            </div>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Enter Your Email" aria-label="Email for newsletter">
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-certified">
+              <span>Certified</span>
+              <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-apps">
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+              </a>
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our iOS app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2024 PM4SUCCESS. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Support - PM4Success</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <!-- Hamburger -->
+        <button class="navbar-toggle" aria-label="Toggle menu">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/images/logo.png" alt="PM4Success">
+        </a>
+
+        <!-- Search -->
+        <div class="navbar-search">
+          <i class="bi bi-mic search-icon-left"></i>
+          <input type="text" placeholder="search courses" aria-label="Search courses">
+          <i class="bi bi-search search-icon-right"></i>
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="navbar-nav">
+          <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
+          <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Actions: Logged Out -->
+        <div class="navbar-actions navbar-logged-out">
+          <a href="login.html" class="nav-link nav-login-link">Login</a>
+          <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+        </div>
+
+        <!-- Actions: Logged In -->
+        <div class="navbar-actions navbar-logged-in">
+          <a href="cart.html" class="nav-icon-btn">
+            <i class="bi bi-cart3"></i>
+            <span class="badge-count">0</span>
+          </a>
+          <a href="notifications.html" class="nav-icon-btn">
+            <i class="bi bi-bell"></i>
+          </a>
+          <div class="position-relative">
+            <div class="nav-avatar">
+              <span class="nav-avatar-initial">A</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <!-- User Dropdown -->
+            <div class="user-dropdown">
+              <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+              <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+              <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+              <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+              <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+              <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+              <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="assets/images/logo.png" alt="PM4Success">
+      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <!-- Logged out menu -->
+    <div class="mobile-menu-nav navbar-logged-out">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="login.html" class="signin-link">Login</a>
+      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
+    </div>
+
+    <!-- Logged in menu -->
+    <div class="mobile-menu-nav navbar-logged-in">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
+      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+      <div class="menu-divider"></div>
+      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    </div>
+  </div>
+
+  <!-- ========== HELP & SUPPORT HERO ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h2>Help & Support</h2>
+          <div class="help-search">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search for solutions" aria-label="Search for solutions">
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <img src="assets/images/illustrations/grades.png" alt="Help & Support" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ SECTION ========== -->
+  <section class="section">
+    <div class="container">
+      <h3>Frequently Asked Questions</h3>
+
+      <!-- FAQ Tabs -->
+      <div class="mb-4" data-tabs="faq-tabs">
+        <button class="btn btn-tab active" data-tab="learners">Learners</button>
+        <button class="btn btn-tab" data-tab="course-creator">Course Creator</button>
+      </div>
+
+      <div class="row">
+        <!-- FAQ Sidebar -->
+        <div class="col-lg-4">
+          <nav class="sidebar-nav">
+            <a href="#" class="faq-sidebar-item active"><i class="bi bi-question-circle"></i> Most Asked Questions</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-person-gear"></i> Account Management</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-signpost-split"></i> Career Path</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-star"></i> Premium Subscription</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-award"></i> Certificate</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-credit-card"></i> Payments</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-patch-check"></i> Accreditation</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-tools"></i> Technical Problem</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-file-earmark-text"></i> Documentation</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-people"></i> Community Forum</a>
+            <a href="#" class="faq-sidebar-item"><i class="bi bi-link-45deg"></i> Affiliate Programme</a>
+          </nav>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="col-lg-8">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What types of courses are offered on this platform?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>PM4Success offers a wide range of courses across various disciplines including Data Science, Project Management, AI & Innovation, Machine Learning, UI/UX Design, Development, and more. Our courses are designed by industry experts and cater to beginners, intermediate, and advanced learners.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I sign up for a course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>To sign up for a course, simply create an account on PM4Success, browse our course catalogue, select the course you're interested in, and click "Enroll." You can pay securely online and gain immediate access to the course materials.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Are the courses self-paced?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, most of our courses are self-paced, allowing you to learn at your own convenience. You can access course materials anytime, anywhere, and progress through the content at a speed that suits your schedule.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Will I receive a certificate after completing a course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, upon successful completion of a course, you will receive a digital certificate that you can share on your professional profile, resume, or social media. Our certificates are recognized by industry leaders and employers.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How much do the courses cost?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Course pricing varies depending on the program and level. We offer individual course purchases as well as subscription plans for unlimited access. Visit our course catalogue to see current pricing and any available promotional offers.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What if I have questions during a course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Each course includes a discussion forum where you can ask questions and interact with instructors and fellow learners. You can also reach out to our support team for additional assistance at any time.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I access the courses on my mobile device?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Absolutely! PM4Success is fully responsive and optimized for mobile devices. You can also download our Android and iOS apps for an enhanced mobile learning experience.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I reset my password?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>To reset your password, click on the "Sign In" button, then select "Forgot Password." Enter your registered email address and follow the instructions sent to your inbox to create a new password.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Troubleshooting common platform issues?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>If you're experiencing technical issues, try clearing your browser cache, updating your browser, or switching to a different browser. If the issue persists, please contact our support team with a detailed description of the problem and screenshots if possible.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HELP CTA ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="help-cta">
+        <h3>Need more personalized assistance?</h3>
+        <p>Our support team is here to help you with any questions or issues you may have. Reach out to us and we'll get back to you as soon as possible.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        <button class="btn btn-outline chat-btn">Chat with us</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROVIDE FEEDBACK ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h3>Provide Feedback</h3>
+        <p class="text-secondary">Your thoughts are valuable in helping improve our products</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="mb-3">
+            <textarea class="form-control" rows="5" placeholder="Ask Your Question Here..."></textarea>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="contactCheck">
+              <label class="form-check-label text-small" for="contactCheck">I may be contacted about this feedback. see our <a href="privacy-policy.html">privacy policy</a></label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="researchCheck">
+              <label class="form-check-label text-small" for="researchCheck">I'd like to help improve the products by joining the <a href="#">Research panel</a></label>
+            </div>
+          </div>
+
+          <h4>How did we do?</h4>
+          <p class="text-small text-secondary">Please let us know how we did by giving us your valuable feedback. Your Feedback Matters a lot to us. Please click 1 to 5 Rating</p>
+          <div class="star-rating" data-interactive>
+            <i class="bi bi-star" data-value="1"></i>
+            <i class="bi bi-star" data-value="2"></i>
+            <i class="bi bi-star" data-value="3"></i>
+            <i class="bi bi-star" data-value="4"></i>
+            <i class="bi bi-star" data-value="5"></i>
+            <input type="hidden" name="rating" value="">
+          </div>
+
+          <div class="mt-4">
+            <button class="btn btn-primary btn-block">Send feedback</button>
+          </div>
+        </div>
+        <div class="col-lg-5 d-flex align-items-center justify-content-center">
+          <img src="assets/images/illustrations/grades.png" alt="Feedback illustration" class="img-feedback">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CHAT FLOATING BUTTON ========== -->
+  <button class="chat-float-btn" aria-label="Chat with us">
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Quick Link -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick Link</h5>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="course-catalogue.html">Course Catalogue</a>
+            <a href="learning-paths.html">My Learning Paths</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <h5 class="mt-4">More</h5>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="help-support.html">Help</a>
+          </div>
+        </div>
+        <!-- Community & Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="#">Blog</a>
+            <a href="#">Alumni Community</a>
+            <a href="#">FAQs</a>
+          </div>
+          <h5 class="mt-4">Resources</h5>
+          <div class="footer-links">
+            <a href="#">Success Stories</a>
+            <a href="#">Career Support</a>
+            <a href="#">Webinars</a>
+          </div>
+        </div>
+        <!-- Join Us Today -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Join Us Today!</h5>
+          <div class="footer-links">
+            <a href="signup.html">Sign Up as a Learner</a>
+            <a href="#">Sign Up for Career Path</a>
+            <a href="#">Become an Instructor</a>
+            <a href="contact.html">Contact Us for License</a>
+          </div>
+        </div>
+        <!-- Brand & Contact -->
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <div class="footer-contact">
+              <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
+              <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-newsletter">
+              <span class="text-white fw-600 text-small d-block mb-2">Signup to Newsletter</span>
+            </div>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Enter Your Email" aria-label="Email for newsletter">
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-certified">
+              <span>Certified</span>
+              <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-apps">
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+              </a>
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our iOS app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2024 PM4SUCCESS. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

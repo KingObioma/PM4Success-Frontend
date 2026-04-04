@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - PM4Success</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <!-- Hamburger -->
+        <button class="navbar-toggle" aria-label="Toggle menu">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/images/logo.png" alt="PM4Success">
+        </a>
+
+        <!-- Search -->
+        <div class="navbar-search">
+          <i class="bi bi-mic search-icon-left"></i>
+          <input type="text" placeholder="search courses" aria-label="Search courses">
+          <i class="bi bi-search search-icon-right"></i>
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="navbar-nav">
+          <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
+          <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Actions: Logged Out -->
+        <div class="navbar-actions navbar-logged-out">
+          <a href="login.html" class="nav-link nav-login-link">Login</a>
+          <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+        </div>
+
+        <!-- Actions: Logged In -->
+        <div class="navbar-actions navbar-logged-in">
+          <a href="cart.html" class="nav-icon-btn">
+            <i class="bi bi-cart3"></i>
+            <span class="badge-count">0</span>
+          </a>
+          <a href="notifications.html" class="nav-icon-btn">
+            <i class="bi bi-bell"></i>
+          </a>
+          <div class="position-relative">
+            <div class="nav-avatar">
+              <span class="nav-avatar-initial">A</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <!-- User Dropdown -->
+            <div class="user-dropdown">
+              <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+              <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+              <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+              <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+              <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+              <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+              <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="assets/images/logo.png" alt="PM4Success">
+      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <!-- Logged out menu -->
+    <div class="mobile-menu-nav navbar-logged-out">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="login.html" class="signin-link">Login</a>
+      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
+    </div>
+
+    <!-- Logged in menu -->
+    <div class="mobile-menu-nav navbar-logged-in">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
+      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+      <div class="menu-divider"></div>
+      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    </div>
+  </div>
+
+  <!-- ========== ABOUT HERO SECTION ========== -->
+  <section class="about-hero about-hero-bg">
+    <div class="container">
+      <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-600">Our Mission</span>
+      <h1 class="mb-3 about-hero-title">Our Mission</h1>
+      <p class="about-hero-desc">To foster excellence through innovative learning experiences and expert guidance, shaping a brighter future for professionals across industries.</p>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE OFFER ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-start g-5">
+        <!-- Left Column -->
+        <div class="col-lg-6">
+          <h2 class="mb-3">What we offer</h2>
+          <p>Welcome to PM4Success, your trusted partner in professional development. We are committed to equipping individuals and organizations with the tools, knowledge, and confidence they need to thrive in today's dynamic landscape.</p>
+        </div>
+        <!-- Right Column -->
+        <div class="col-lg-6">
+          <ul class="list-unstyled list-spaced">
+            <li class="mb-3">
+              <strong>Training</strong>
+              <br>Entrepreneurship, Project Management, Strategic Leadership, Data Analysis, Engineering, and more.
+            </li>
+            <li class="mb-3">
+              <strong>Research</strong>
+              <br>Cutting-edge research for industry advancement.
+            </li>
+            <li class="mb-3">
+              <strong>Consultancy</strong>
+              <br>Tailored solutions for organizational success.
+            </li>
+            <li class="mb-3">
+              <strong>Recruitment</strong>
+              <br>Connecting top talent with opportunities.
+            </li>
+          </ul>
+          <a href="course-catalogue.html" class="btn btn-primary">Learn More About Our Programs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CERTIFICATE COURSE vs CAREER PATH ========== -->
+  <section class="section section-bg">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Certificate Course -->
+        <div class="col-lg-6">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <div class="card-body">
+              <i class="bi bi-clock icon-lg-primary"></i>
+              <p class="mt-3 mb-1 fw-600 text-muted">Average Hour Duration</p>
+              <h3 class="fw-bold mb-3">10-15 Hours</h3>
+              <h4 class="mb-3">Certificate Course</h4>
+              <p>Perfect for professionals looking to gain targeted skills quickly. Our certificate courses provide focused, practical knowledge you can apply immediately in your career.</p>
+              <a href="course-catalogue.html" class="btn btn-outline-dark mt-2">See all Certificate Courses</a>
+            </div>
+          </div>
+        </div>
+        <!-- Career Path -->
+        <div class="col-lg-6">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <div class="card-body">
+              <i class="bi bi-clock icon-lg-primary"></i>
+              <p class="mt-3 mb-1 fw-600 text-muted">Average Hour Duration</p>
+              <h3 class="fw-bold mb-3">+250 Hours</h3>
+              <h4 class="mb-3">Career Path</h4>
+              <p>A comprehensive learning journey designed to transform your career. Career paths combine multiple courses, hands-on projects, and mentorship to prepare you for a new role.</p>
+              <a href="learning-paths.html" class="btn btn-outline-dark mt-2">See all Career Paths</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Testimonial</h2>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
+        <div class="carousel-track">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-card-header">
+              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
+              <div>
+                <h5>Jessica Harpe</h5>
+              </div>
+            </div>
+            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
+            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Quick Link -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick Link</h5>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="course-catalogue.html">Course Catalogue</a>
+            <a href="learning-paths.html">My Learning Paths</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <h5 class="mt-4">More</h5>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="help-support.html">Help</a>
+          </div>
+        </div>
+        <!-- Community & Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="#">Blog</a>
+            <a href="#">Alumni Community</a>
+            <a href="#">FAQs</a>
+          </div>
+          <h5 class="mt-4">Resources</h5>
+          <div class="footer-links">
+            <a href="#">Success Stories</a>
+            <a href="#">Career Support</a>
+            <a href="#">Webinars</a>
+          </div>
+        </div>
+        <!-- Join Us Today -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Join Us Today!</h5>
+          <div class="footer-links">
+            <a href="signup.html">Sign Up as a Learner</a>
+            <a href="#">Sign Up for Career Path</a>
+            <a href="#">Become an Instructor</a>
+            <a href="contact.html">Contact Us for License</a>
+          </div>
+        </div>
+        <!-- Brand & Contact -->
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <div class="footer-contact">
+              <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
+              <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-newsletter">
+              <span class="text-white fw-600 text-small d-block mb-2">Signup to Newsletter</span>
+            </div>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Enter Your Email" aria-label="Email for newsletter">
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-certified">
+              <span>Certified</span>
+              <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-apps">
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+              </a>
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our iOS app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2024 PM4SUCCESS. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

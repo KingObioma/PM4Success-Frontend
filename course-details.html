@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Data Science and Statistic Methodology - PM4Success</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <!-- Hamburger -->
+        <button class="navbar-toggle" aria-label="Toggle menu">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/images/logo.png" alt="PM4Success">
+        </a>
+
+        <!-- Search -->
+        <div class="navbar-search">
+          <i class="bi bi-mic search-icon-left"></i>
+          <input type="text" placeholder="search courses" aria-label="Search courses">
+          <i class="bi bi-search search-icon-right"></i>
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="navbar-nav">
+          <li><a href="course-catalogue.html" class="nav-link active">Course Catalogue</a></li>
+          <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Actions: Logged Out -->
+        <div class="navbar-actions navbar-logged-out">
+          <a href="login.html" class="nav-link nav-login-link">Login</a>
+          <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+        </div>
+
+        <!-- Actions: Logged In -->
+        <div class="navbar-actions navbar-logged-in">
+          <a href="cart.html" class="nav-icon-btn">
+            <i class="bi bi-cart3"></i>
+            <span class="badge-count">0</span>
+          </a>
+          <a href="notifications.html" class="nav-icon-btn">
+            <i class="bi bi-bell"></i>
+          </a>
+          <div class="position-relative">
+            <div class="nav-avatar">
+              <span class="nav-avatar-initial">A</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <!-- User Dropdown -->
+            <div class="user-dropdown">
+              <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+              <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+              <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+              <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+              <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+              <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+              <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="assets/images/logo.png" alt="PM4Success">
+      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <!-- Logged out menu -->
+    <div class="mobile-menu-nav navbar-logged-out">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="login.html" class="signin-link">Login</a>
+      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
+    </div>
+
+    <!-- Logged in menu -->
+    <div class="mobile-menu-nav navbar-logged-in">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
+      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+      <div class="menu-divider"></div>
+      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    </div>
+  </div>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="separator"><i class="bi bi-chevron-right"></i></span>
+        <a href="course-catalogue.html">Course Catalogue</a>
+        <span class="separator"><i class="bi bi-chevron-right"></i></span>
+        <a href="course-catalogue.html">AI &amp; Machine Learning</a>
+        <span class="separator"><i class="bi bi-chevron-right"></i></span>
+        <span class="current">Introduction to Data Science and Statistic Methodology</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== COURSE DETAILS ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Left: Main Content -->
+        <div class="col-lg-8">
+
+          <!-- Course Header -->
+          <div class="course-details-header">
+            <h1>Introduction to Data Science and Statistic Methodology</h1>
+            <p class="description">This comprehensive course provides a solid foundation in data science and statistical methodology. You will learn how to collect, analyze, and interpret data using modern tools and techniques, preparing you for a career in one of the fastest-growing fields in technology.</p>
+
+            <!-- Instructor Info -->
+            <div class="instructor-info">
+              <img src="assets/images/avatars/instructor-avatar.png" alt="Dr. Emily Thompson">
+              <div>
+                <div class="name">Dr. Emily Thompson</div>
+                <div class="role">AI &amp; Data Science Instructor</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- What You'll Learn -->
+          <div class="learn-box">
+            <h3>What you'll learn</h3>
+            <ul class="learn-list">
+              <li>Understand the fundamentals of data science, including data collection, cleaning, and exploratory data analysis techniques.</li>
+              <li>Apply statistical methods such as hypothesis testing, regression analysis, and probability distributions to real-world datasets.</li>
+              <li>Build and evaluate predictive models using Python and popular data science libraries like Pandas, NumPy, and Scikit-learn.</li>
+              <li>Communicate data-driven insights effectively through compelling visualizations and well-structured reports.</li>
+              <li>Develop a portfolio-ready capstone project that demonstrates your ability to solve business problems with data.</li>
+            </ul>
+          </div>
+
+          <!-- Skills You'll Gain -->
+          <div class="skills-section">
+            <h3>Skills you'll gain</h3>
+            <div class="skills-tags mt-3">
+              <span class="tag tag-primary">Data Analysis</span>
+              <span class="tag tag-primary">Statistics</span>
+              <span class="tag tag-primary">Data Science</span>
+              <span class="tag tag-primary">Python basics</span>
+              <span class="tag tag-primary">Data Modeling</span>
+              <span class="tag tag-primary">Probability</span>
+              <span class="tag tag-primary">Communication</span>
+              <span class="tag tag-primary">Data Visualization</span>
+              <span class="tag tag-primary">Applied Math</span>
+            </div>
+          </div>
+
+          <!-- Course Content -->
+          <div class="mb-4">
+            <h3 class="mb-3">Course content</h3>
+
+            <!-- Module 1 -->
+            <div class="accordion-item active">
+              <button class="accordion-header">
+                <span>Module 1: Introduction to Data Science</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-body-inner">
+                  <ul class="learn-list">
+                    <li>What is Data Science?</li>
+                    <li>The Data Science Lifecycle</li>
+                    <li>Types Of Data</li>
+                    <li>Overview of Tools and Technologies</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Module 2: Foundations of Statistics</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-body-inner">
+                  <ul class="learn-list">
+                    <li>Descriptive Statistics and Data Summarization</li>
+                    <li>Probability Distributions</li>
+                    <li>Hypothesis Testing and Confidence Intervals</li>
+                    <li>Correlation and Regression Basics</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Module 3: Data Wrangling and Cleaning</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-body-inner">
+                  <ul class="learn-list">
+                    <li>Working with Missing and Inconsistent Data</li>
+                    <li>Data Transformation Techniques</li>
+                    <li>Using Pandas for Data Manipulation</li>
+                    <li>Merging and Reshaping Datasets</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Module 4: Data Visualization and Communication</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-body-inner">
+                  <ul class="learn-list">
+                    <li>Principles of Effective Data Visualization</li>
+                    <li>Visualization with Matplotlib and Seaborn</li>
+                    <li>Building Interactive Dashboards</li>
+                    <li>Storytelling with Data</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Module 5: Predictive Modeling and Capstone Project</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-body-inner">
+                  <ul class="learn-list">
+                    <li>Introduction to Machine Learning Concepts</li>
+                    <li>Building and Evaluating Predictive Models</li>
+                    <li>Model Selection and Validation</li>
+                    <li>Capstone Project: End-to-End Data Science Workflow</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Requirements -->
+          <div class="mb-4">
+            <h3 class="mb-3">Course Requirements</h3>
+            <ul class="learn-list">
+              <li>Basic understanding of mathematics (algebra and introductory calculus)</li>
+              <li>Familiarity with any programming language (Python recommended)</li>
+              <li>A computer with internet access and the ability to install software</li>
+              <li>No prior data science experience required -- this course starts from the fundamentals</li>
+            </ul>
+          </div>
+
+          <!-- Accreditation and Certificates -->
+          <div class="mb-4">
+            <h3 class="mb-3">Accreditation and Certificates</h3>
+            <p>Upon successful completion of this course, you will receive a verified certificate of completion from PM4Success, accredited by Bright Future University. This certificate demonstrates your proficiency in data science fundamentals and statistical methodology, and can be shared on your LinkedIn profile or included in your professional portfolio. Our accreditation is recognized by leading employers and academic institutions worldwide.</p>
+          </div>
+
+          <!-- Instructor's Bio -->
+          <div class="mb-4">
+            <h3 class="mb-3">Instructor</h3>
+            <div class="d-flex align-items-start gap-3 mb-3">
+              <img src="assets/images/avatars/instructor-avatar.png" alt="Dr. Emily Thompson" class="img-instructor">
+              <div>
+                <h5 class="mb-1">Dr. Emily Thompson</h5>
+                <p class="text-small text-color-secondary">Ph.D. in Computer Science | AI &amp; Data Science Instructor</p>
+              </div>
+            </div>
+            <p>Dr. Emily Thompson is an accomplished data scientist and educator with over 15 years of experience in academia and industry. She holds a Ph.D. in Computer Science from Stanford University and has published extensively in the fields of machine learning and statistical modeling. Dr. Thompson has previously worked as a senior data scientist at leading tech companies and now dedicates her time to helping students build practical, career-ready data science skills. Her teaching style emphasizes hands-on learning and real-world application.</p>
+          </div>
+
+          <!-- Similar Courses -->
+          <div class="mb-4">
+            <h3 class="mb-3">Similar Courses</h3>
+            <div class="carousel-wrapper">
+              <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
+              <div class="carousel-track">
+                <!-- Similar Course 1 -->
+                <div class="course-card course-card-fixed">
+                  <img src="assets/images/courses/course-thumb-2.png" alt="Advanced Data Analytics" class="course-card-img">
+                  <div class="course-card-body">
+                    <span class="course-card-provider">Bright Future University</span>
+                    <h5 class="course-card-title">Advanced Data Analytics and Visualization</h5>
+                    <div class="course-card-meta">
+                      <span><i class="bi bi-clock"></i> 10 Weeks</span>
+                      <span><i class="bi bi-laptop"></i> Online</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-rating">
+                      <span class="rating-score">4.5</span>
+                      <span class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </span>
+                      <span class="rating-count">(12,340)</span>
+                    </div>
+                    <div class="course-card-footer">
+                      <a href="course-details.html" class="course-card-link">View Program</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Similar Course 2 -->
+                <div class="course-card course-card-fixed">
+                  <img src="assets/images/courses/course-thumb-3.png" alt="Machine Learning Fundamentals" class="course-card-img">
+                  <div class="course-card-body">
+                    <span class="course-card-provider">Bright Future University</span>
+                    <h5 class="course-card-title">Machine Learning Fundamentals with Python</h5>
+                    <div class="course-card-meta">
+                      <span><i class="bi bi-clock"></i> 14 Weeks</span>
+                      <span><i class="bi bi-laptop"></i> Online</span>
+                    </div>
+                    <p class="course-card-instructor">Prof. James Carter</p>
+                    <div class="course-card-rating">
+                      <span class="rating-score">4.7</span>
+                      <span class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </span>
+                      <span class="rating-count">(8,215)</span>
+                    </div>
+                    <div class="course-card-footer">
+                      <a href="course-details.html" class="course-card-link">View Program</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Similar Course 3 -->
+                <div class="course-card course-card-fixed">
+                  <img src="assets/images/courses/course-thumb-4.png" alt="Statistical Analysis" class="course-card-img">
+                  <div class="course-card-body">
+                    <span class="course-card-provider">Bright Future University</span>
+                    <h5 class="course-card-title">Statistical Analysis for Business Decisions</h5>
+                    <div class="course-card-meta">
+                      <span><i class="bi bi-clock"></i> 8 Weeks</span>
+                      <span><i class="bi bi-laptop"></i> Online</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Sarah Mitchell</p>
+                    <div class="course-card-rating">
+                      <span class="rating-score">4.4</span>
+                      <span class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                      </span>
+                      <span class="rating-count">(5,672)</span>
+                    </div>
+                    <div class="course-card-footer">
+                      <a href="course-details.html" class="course-card-link">View Program</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Similar Course 4 -->
+                <div class="course-card course-card-fixed">
+                  <img src="assets/images/courses/course-thumb-5.png" alt="Python for Data Science" class="course-card-img">
+                  <div class="course-card-body">
+                    <span class="course-card-provider">Bright Future University</span>
+                    <h5 class="course-card-title">Python for Data Science and Automation</h5>
+                    <div class="course-card-meta">
+                      <span><i class="bi bi-clock"></i> 10 Weeks</span>
+                      <span><i class="bi bi-laptop"></i> Online</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-rating">
+                      <span class="rating-score">4.8</span>
+                      <span class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </span>
+                      <span class="rating-count">(15,890)</span>
+                    </div>
+                    <div class="course-card-footer">
+                      <a href="course-details.html" class="course-card-link">View Program</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Sidebar -->
+        <div class="col-lg-4">
+          <div class="course-sidebar">
+            <div class="course-sidebar-card">
+              <div class="course-sidebar-price">#44,000</div>
+              <a href="cart.html" class="btn btn-primary w-100 mb-2">Add to Cart</a>
+              <a href="#" class="btn btn-outline w-100 mb-3">Save to Watchlist</a>
+
+              <div class="course-sidebar-meta">
+                <div class="course-sidebar-meta-item">
+                  <i class="bi bi-patch-check"></i>
+                  <span>Certificate of Completion</span>
+                </div>
+                <div class="course-sidebar-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>12 Weeks Duration</span>
+                </div>
+                <div class="course-sidebar-meta-item">
+                  <i class="bi bi-bar-chart"></i>
+                  <span>Beginner Level</span>
+                </div>
+                <div class="course-sidebar-meta-item">
+                  <i class="bi bi-unlock"></i>
+                  <span>Full Lifetime Access</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Quick Link -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick Link</h5>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="course-catalogue.html">Course Catalogue</a>
+            <a href="learning-paths.html">My Learning Paths</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <h5 class="mt-4">More</h5>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="help-support.html">Help</a>
+          </div>
+        </div>
+        <!-- Community & Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="#">Blog</a>
+            <a href="#">Alumni Community</a>
+            <a href="#">FAQs</a>
+          </div>
+          <h5 class="mt-4">Resources</h5>
+          <div class="footer-links">
+            <a href="#">Success Stories</a>
+            <a href="#">Career Support</a>
+            <a href="#">Webinars</a>
+          </div>
+        </div>
+        <!-- Join Us Today -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Join Us Today!</h5>
+          <div class="footer-links">
+            <a href="signup.html">Sign Up as a Learner</a>
+            <a href="#">Sign Up for Career Path</a>
+            <a href="#">Become an Instructor</a>
+            <a href="contact.html">Contact Us for License</a>
+          </div>
+        </div>
+        <!-- Brand & Contact -->
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <div class="footer-contact">
+              <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
+              <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-newsletter">
+              <span class="text-white fw-600 text-small d-block mb-2">Signup to Newsletter</span>
+            </div>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Enter Your Email" aria-label="Email for newsletter">
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-certified">
+              <span>Certified</span>
+              <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-apps">
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+              </a>
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our iOS app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2024 PM4SUCCESS. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

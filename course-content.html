@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Content - PM4Success</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="is-logged-in">
+
+  <!-- COURSE PLAYER NAVBAR (simplified) -->
+  <nav class="navbar">
+    <div class="container-fluid px-3">
+      <div class="navbar-inner">
+        <button class="navbar-toggle" data-toggle="course-sidebar" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
+        <a href="index.html" class="navbar-brand"><img src="assets/images/logo.png" alt="PM4Success"></a>
+        <span class="d-none d-md-block text-small fw-500 course-player-title">Introduction to Data Science and Statistic Methodology</span>
+        <!-- Actions: Logged Out -->
+        <div class="navbar-actions navbar-logged-out">
+          <a href="login.html" class="nav-link nav-login-link">Login</a>
+          <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+        </div>
+
+        <div class="navbar-actions navbar-logged-in">
+          <div class="d-flex align-items-center gap-2 me-3">
+            <div class="progress-ring-wrapper progress-ring-sm">
+              <svg width="36" height="36">
+                <circle cx="18" cy="18" r="14" stroke="#e5e7eb" stroke-width="3" fill="none"/>
+                <circle class="progress-ring-circle" cx="18" cy="18" r="14" stroke="#1a5276" stroke-width="3" fill="none" data-percentage="55" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+              </svg>
+              <span class="progress-ring-text progress-ring-text-sm">55%</span>
+            </div>
+            <span class="text-small d-none d-lg-inline">Your Progress</span>
+          </div>
+          <a href="notifications.html" class="nav-icon-btn"><i class="bi bi-bell"></i></a>
+          <div class="position-relative">
+            <div class="nav-avatar"><span class="nav-avatar-initial">A</span><i class="bi bi-chevron-down"></i></div>
+            <div class="user-dropdown">
+              <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+              <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
+              <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+              <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+              <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+              <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+              <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- COURSE PLAYER LAYOUT -->
+  <div class="course-player-page">
+    <!-- LEFT SIDEBAR -->
+    <aside class="course-sidebar-panel">
+      <button class="course-sidebar-close d-md-none p-3"><i class="bi bi-x-lg"></i></button>
+      <div class="course-sidebar-header">
+        <h5>Course Material</h5>
+      </div>
+
+      <!-- Module 1 -->
+      <div class="module-item">
+        <button class="module-header">
+          <div>
+            <div>Module 1</div>
+            <div class="module-meta">5/5 &middot; 4Hours</div>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="module-body">
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Introduction to the Course <i class="bi bi-check-circle-fill completed-check"></i></div>
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Overview of Data Science <i class="bi bi-check-circle-fill completed-check"></i></div>
+        </div>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="module-item">
+        <button class="module-header">
+          <div>
+            <div>Module 2</div>
+            <div class="module-meta">6/6 &middot; 8Hours</div>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="module-body">
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Statistical Methods <i class="bi bi-check-circle-fill completed-check"></i></div>
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Data Distribution <i class="bi bi-check-circle-fill completed-check"></i></div>
+        </div>
+      </div>
+
+      <!-- Module 3 (Active) -->
+      <div class="module-item active">
+        <button class="module-header">
+          <div>
+            <div>Module 3</div>
+            <div class="module-meta">2/9 &middot; 6Hours</div>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="module-body">
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> What is Data Science? <i class="bi bi-check-circle-fill completed-check"></i></div>
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> The Data Science Lifecycle <i class="bi bi-check-circle-fill completed-check"></i></div>
+          <div class="lesson-item active"><i class="bi bi-play-circle lesson-icon"></i> Types Of Data</div>
+          <div class="lesson-item"><i class="bi bi-file-text lesson-icon"></i> Deep Dive in Data Science</div>
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Introduction to Big Data</div>
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Understanding Big Data</div>
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Introduction to Big Data</div>
+          <div class="lesson-item"><i class="bi bi-file-text lesson-icon"></i> Quiz</div>
+          <div class="lesson-item"><i class="bi bi-file-earmark lesson-icon"></i> Assignment</div>
+        </div>
+      </div>
+
+      <!-- Module 4 -->
+      <div class="module-item">
+        <button class="module-header">
+          <div>
+            <div>Module 4</div>
+            <div class="module-meta">0/5 &middot; 4Hours</div>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="module-body">
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Advanced Analytics</div>
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Predictive Modeling</div>
+        </div>
+      </div>
+
+      <!-- Module 5 -->
+      <div class="module-item">
+        <button class="module-header">
+          <div>
+            <div>Module 5</div>
+            <div class="module-meta">0/5 &middot; 4Hours</div>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="module-body">
+          <div class="lesson-item"><i class="bi bi-play-circle lesson-icon"></i> Capstone Project</div>
+          <div class="lesson-item"><i class="bi bi-file-earmark lesson-icon"></i> Final Assessment</div>
+        </div>
+      </div>
+
+      <!-- Course Info -->
+      <div class="course-info-sidebar">
+        <div class="info-item"><i class="bi bi-calendar3"></i> Start date: July 05, 2024</div>
+        <div class="info-item"><i class="bi bi-journal-text"></i> Your next lessons:</div>
+        <div class="info-item" class="info-item-indent">Training Corp. Driving Strategy and Innovation</div>
+        <div class="info-item-action">
+          <span class="tag tag-primary tag-sm">Check It</span>
+        </div>
+        <div class="info-item"><i class="bi bi-clipboard-check"></i> Graded Assignment:</div>
+        <div class="info-item" class="info-item-indent">Graded Quiz: Understanding Communication</div>
+        <div class="info-item-action">
+          <span class="tag tag-primary tag-sm">Save to Page</span>
+        </div>
+        <div class="info-item"><i class="bi bi-file-earmark-text"></i> Graded Assignment</div>
+        <div class="info-item"><i class="bi bi-calendar-check"></i> Estimated end date: October 7, 2024</div>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT -->
+    <main class="course-main-content">
+      <h3 class="mb-3">Types Of Data</h3>
+
+      <!-- Video Player -->
+      <div class="video-player">
+        <img src="assets/images/courses/course-banner-1.jpg" alt="Video: Types of Data">
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" data-tabs="course-tabs">
+        <button class="tab-btn active" data-tab="tab-lecture">Lecture Note</button>
+        <button class="tab-btn" data-tab="tab-discussion">Discussion Forum</button>
+        <button class="tab-btn" data-tab="tab-achievements">Achievements</button>
+      </div>
+
+      <div data-tab-content="course-tabs">
+        <!-- Lecture Note Tab -->
+        <div class="tab-content active" id="tab-lecture">
+          <h4 class="mb-3">Downloadable PDFs/Slides</h4>
+          <div class="d-flex gap-3 align-items-center p-3 border rounded mb-3">
+            <img src="assets/images/illustrations/sheet-done.png" alt="PDF" class="file-thumb">
+            <div>
+              <h5 class="mb-1" class="text-small fw-600">Lecture note</h5>
+              <p class="mb-0 text-small text-secondary">Learn the basics of data analysis and become an expert in excel</p>
+            </div>
+          </div>
+          <div class="d-flex gap-3 align-items-center p-3 border rounded mb-3">
+            <img src="assets/images/illustrations/sheet-done.png" alt="PDF" class="file-thumb">
+            <div>
+              <h5 class="mb-1" class="text-small fw-600">Lecture note</h5>
+              <p class="mb-0 text-small text-secondary">Learn the basics of data analysis and become an expert in excel</p>
+            </div>
+          </div>
+
+          <!-- Assignment Submission -->
+          <div class="assignment-section">
+            <h4 class="mb-2">Submit Assignment</h4>
+            <p class="text-small text-secondary">Attach a document</p>
+            <div class="file-upload-area" data-file-upload>
+              <label class="file-upload-btn">
+                <i class="bi bi-cloud-upload"></i> Choose file
+                <input type="file" hidden accept=".pdf,.doc,.docx">
+              </label>
+              <span class="upload-label text-small text-secondary">No file chosen</span>
+            </div>
+            <p class="text-xs text-secondary mt-2">Upload A File No Larger Than 15MB. Supported File Types: PDF, DOC, DOCX</p>
+          </div>
+        </div>
+
+        <!-- Discussion Forum Tab -->
+        <div class="tab-content" id="tab-discussion">
+          <div class="discussion-post">
+            <div class="discussion-post-header">
+              <img src="assets/images/avatars/instructor-avatar.png" alt="Ademola John">
+              <h6>Ademola John</h6>
+            </div>
+            <p>Can You Provide Examples Of Real-World Applications Where The Data Analytics Techniques We're Learning Can Be Applied? How Can We Approach Such Scenarios To Ensure Accurate Analysis?</p>
+            <div class="discussion-actions">
+              <button><i class="bi bi-hand-thumbs-up"></i> 43</button>
+              <button><i class="bi bi-hand-thumbs-down"></i> 01</button>
+            </div>
+          </div>
+          <div class="discussion-post">
+            <div class="discussion-post-header">
+              <img src="assets/images/avatars/instructor-avatar.png" alt="Ademola John">
+              <h6>Ademola John</h6>
+            </div>
+            <p>Can You Provide Examples Of Real-World Applications Where The Data Analytics Techniques We're Learning Can Be Applied? How Can We Approach Such Scenarios To Ensure Accurate Analysis?</p>
+            <div class="discussion-actions">
+              <button><i class="bi bi-hand-thumbs-up"></i> 43</button>
+              <button><i class="bi bi-hand-thumbs-down"></i> 01</button>
+            </div>
+          </div>
+          <div class="discussion-post">
+            <div class="discussion-post-header">
+              <img src="assets/images/avatars/instructor-avatar.png" alt="Ademola John">
+              <h6>Ademola John</h6>
+            </div>
+            <p>Can You Provide Examples Of Real-World Applications Where The Data Analytics Techniques We're Learning Can Be Applied? How Can We Approach Such Scenarios To Ensure Accurate Analysis?</p>
+            <div class="discussion-actions">
+              <button><i class="bi bi-hand-thumbs-up"></i> 43</button>
+              <button><i class="bi bi-hand-thumbs-down"></i> 01</button>
+            </div>
+          </div>
+          <div class="discussion-input">
+            <img src="assets/images/avatars/instructor-avatar.png" alt="You">
+            <input type="text" placeholder="Ask Your Question Here...">
+            <button><i class="bi bi-send-fill"></i></button>
+          </div>
+        </div>
+
+        <!-- Achievements Tab -->
+        <div class="tab-content" id="tab-achievements">
+          <div class="d-flex gap-3 align-items-center p-3 border-bottom">
+            <img src="assets/images/courses/course-thumb-1.png" alt="Module 1" class="module-thumb">
+            <div class="flex-grow-1">
+              <a href="#" class="text-primary fw-600">Module 1</a> <i class="bi bi-check-circle-fill text-primary"></i>
+              <div class="text-small"><strong>Completed: 9/9</strong></div>
+            </div>
+            <div class="text-end">
+              <div class="text-small text-secondary">Batch Earned <i class="bi bi-person-badge"></i></div>
+              <div class="fw-600">20%</div>
+            </div>
+          </div>
+          <div class="d-flex gap-3 align-items-center p-3 border-bottom">
+            <img src="assets/images/courses/course-thumb-2.png" alt="Module 2" class="module-thumb">
+            <div class="flex-grow-1">
+              <a href="#" class="text-primary fw-600">Module 2</a> <i class="bi bi-check-circle-fill text-primary"></i>
+              <div class="text-small"><strong>Completed: 9/9</strong></div>
+            </div>
+            <div class="text-end">
+              <div class="text-small text-secondary">Batch Earned <i class="bi bi-person-badge"></i></div>
+              <div class="fw-600">10%</div>
+            </div>
+          </div>
+          <div class="d-flex gap-3 align-items-center p-3 border-bottom">
+            <img src="assets/images/courses/course-thumb-3.png" alt="Module 3" class="module-thumb">
+            <div class="flex-grow-1">
+              <a href="#" class="text-primary fw-600">Module 3</a> <i class="bi bi-check-circle-fill text-primary"></i>
+              <div class="text-small"><strong>In-Progress: 2/9</strong></div>
+            </div>
+            <div class="text-end">
+              <div class="text-small text-secondary">Batch Earned <i class="bi bi-person-badge"></i></div>
+              <div class="fw-600">0%</div>
+            </div>
+          </div>
+          <div class="d-flex gap-3 align-items-center p-3 border-bottom">
+            <img src="assets/images/courses/course-thumb-4.png" alt="Module 4" class="module-thumb">
+            <div class="flex-grow-1">
+              <span class="text-secondary">Module 4</span> <i class="bi bi-check-circle text-secondary"></i>
+              <div class="text-small"><strong>Pending: 0/9</strong></div>
+            </div>
+            <div class="text-end">
+              <div class="text-small text-secondary">Batch Earned <i class="bi bi-person-badge"></i></div>
+              <div class="fw-600">0%</div>
+            </div>
+          </div>
+          <div class="d-flex gap-3 align-items-center p-3">
+            <img src="assets/images/courses/course-thumb-5.png" alt="Module 5" class="module-thumb">
+            <div class="flex-grow-1">
+              <span class="text-secondary">Module 5</span> <i class="bi bi-check-circle text-secondary"></i>
+              <div class="text-small"><strong>Pending: 0/9</strong></div>
+            </div>
+            <div class="text-end">
+              <div class="text-small text-secondary">Batch Earned <i class="bi bi-person-badge"></i></div>
+              <div class="fw-600">0%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grades Section -->
+      <div class="mt-4">
+        <h4>Grades</h4>
+        <!-- Grades content is shown in the progress-report page -->
+      </div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6"><h5>Quick Link</h5><div class="footer-links"><a href="about.html">About Us</a><a href="course-catalogue.html">Course Catalogue</a><a href="learning-paths.html">My Learning Paths</a><a href="contact.html">Contact</a></div><h5 class="mt-4">More</h5><div class="footer-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms & Conditions</a><a href="help-support.html">Help</a></div></div>
+        <div class="col-lg-3 col-md-6"><h5>Community</h5><div class="footer-links"><a href="#">Blog</a><a href="#">Alumni Community</a><a href="#">FAQs</a></div><h5 class="mt-4">Resources</h5><div class="footer-links"><a href="#">Success Stories</a><a href="#">Career Support</a><a href="#">Webinars</a></div></div>
+        <div class="col-lg-3 col-md-6"><h5>Join Us Today!</h5><div class="footer-links"><a href="signup.html">Sign Up as a Learner</a><a href="#">Sign Up for Career Path</a><a href="#">Become an Instructor</a><a href="contact.html">Contact Us for License</a></div></div>
+        <div class="col-lg-3 col-md-6"><div class="footer-brand"><img src="assets/images/logo-white.png" alt="PM4Success"><div class="footer-contact"><a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a><a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a></div><div class="footer-social"><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-twitter"></i></a><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-youtube"></i></a></div></div></div>
+      </div>
+      <div class="footer-bottom">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-4 col-md-6"><span class="text-white fw-600 text-small d-block mb-2">Signup to Newsletter</span><div class="footer-newsletter"><input type="email" placeholder="Enter Your Email"><button type="button">Subscribe</button></div></div>
+          <div class="col-lg-4 col-md-6"><div class="footer-certified"><span>Certified</span><img src="assets/images/misc/credly-badge.png" alt="Credly"></div></div>
+          <div class="col-lg-4"><div class="footer-apps"><a href="#" class="footer-app-btn"><img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app</a><a href="#" class="footer-app-btn"><img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our iOS app</a></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">&copy; 2024 PM4SUCCESS. All Rights Reserved.</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

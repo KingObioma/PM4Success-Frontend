@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM4Success - Progress Report</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <button class="navbar-toggle" aria-label="Toggle menu">
+          <i class="bi bi-list"></i>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/images/logo.png" alt="PM4Success">
+        </a>
+        <div class="navbar-search">
+          <i class="bi bi-mic search-icon-left"></i>
+          <input type="text" placeholder="search courses" aria-label="Search courses">
+          <i class="bi bi-search search-icon-right"></i>
+        </div>
+        <ul class="navbar-nav">
+          <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
+          <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <!-- Actions: Logged Out -->
+        <div class="navbar-actions navbar-logged-out">
+          <a href="login.html" class="nav-link nav-login-link">Login</a>
+          <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+        </div>
+
+        <div class="navbar-actions navbar-logged-in">
+          <a href="cart.html" class="nav-icon-btn">
+            <i class="bi bi-cart3"></i>
+            <span class="badge-count">0</span>
+          </a>
+          <a href="notifications.html" class="nav-icon-btn">
+            <i class="bi bi-bell"></i>
+          </a>
+          <div class="position-relative">
+            <div class="nav-avatar">
+              <span class="nav-avatar-initial">A</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="user-dropdown">
+              <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+              <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+              <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+              <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+              <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+              <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+              <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="assets/images/logo.png" alt="PM4Success">
+      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Logged out menu -->
+    <div class="mobile-menu-nav navbar-logged-out">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="login.html" class="signin-link">Login</a>
+      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
+    </div>
+
+    <div class="mobile-menu-nav navbar-logged-in">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
+      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+      <div class="menu-divider"></div>
+      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    </div>
+  </div>
+
+  <!-- ========== PROGRESS REPORT ========== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Progress Report</h2>
+
+      <!-- Your Career Path -->
+      <div class="mb-5">
+        <h4 class="fw-semibold mb-4">Your Career Path</h4>
+        <div class="d-flex flex-wrap gap-4 justify-content-start">
+          <div class="text-center">
+            <div class="progress-ring-wrapper">
+              <svg width="100" height="100">
+                <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="50" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+              </svg>
+              <span class="progress-ring-text">50%</span>
+            </div>
+            <p class="text-small mt-2">Data Visualization</p>
+          </div>
+          <div class="text-center">
+            <div class="progress-ring-wrapper">
+              <svg width="100" height="100">
+                <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="30" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+              </svg>
+              <span class="progress-ring-text">30%</span>
+            </div>
+            <p class="text-small mt-2">Database Management</p>
+          </div>
+          <div class="text-center">
+            <div class="progress-ring-wrapper">
+              <svg width="100" height="100">
+                <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="75" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+              </svg>
+              <span class="progress-ring-text">75%</span>
+            </div>
+            <p class="text-small mt-2">Analytics</p>
+          </div>
+          <div class="text-center">
+            <div class="progress-ring-wrapper">
+              <svg width="100" height="100">
+                <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="3" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+              </svg>
+              <span class="progress-ring-text">03%</span>
+            </div>
+            <p class="text-small mt-2">Critical Thinking</p>
+          </div>
+          <div class="text-center">
+            <div class="progress-ring-wrapper">
+              <svg width="100" height="100">
+                <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="40" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+              </svg>
+              <span class="progress-ring-text">40%</span>
+            </div>
+            <p class="text-small mt-2">Business Acumen</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grades Section -->
+      <div class="mb-5">
+        <h4 class="fw-semibold mb-4">Grades</h4>
+
+        <!-- Grade Row 1 - Expandable -->
+        <div class="grade-row mb-3">
+          <div class="grade-row-header" data-toggle="grade-expand">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+              <img src="assets/images/courses/course-thumb-1.png" alt="Course" class="grade-course-thumb">
+              <div>
+                <h5 class="mb-1">Introduction to Data Science and Statistic Methodology</h5>
+                <span class="badge-tag">Beginner</span>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="progress-ring-wrapper progress-ring-sm">
+                <svg width="50" height="50">
+                  <circle cx="25" cy="25" r="20" stroke="#e5e7eb" stroke-width="4" fill="none"/>
+                  <circle class="progress-ring-circle" cx="25" cy="25" r="20" stroke="#1a5276" stroke-width="4" fill="none" data-percentage="65" stroke-linecap="round" transform="rotate(-90 25 25)"/>
+                </svg>
+                <span class="progress-ring-text-sm">65%</span>
+              </div>
+              <i class="bi bi-chevron-down grade-expand-icon"></i>
+            </div>
+          </div>
+          <div class="grade-row-body grade-row-body-hidden">
+            <table class="table grade-table">
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Score %</th>
+                  <th>Weight %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 1: Introduction to Data Science</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Sep. 10, 2024</td>
+                  <td>85%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 2: Data Collection Methods</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Sep. 15, 2024</td>
+                  <td>78%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 3: Statistical Analysis Basics</td>
+                  <td><span class="text-danger fw-semibold">Fail</span></td>
+                  <td>Sep. 22, 2024</td>
+                  <td>42%</td>
+                  <td>25%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 4: Data Visualization Techniques</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Oct. 01, 2024</td>
+                  <td>91%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 5: Final Project</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Oct. 10, 2024</td>
+                  <td>88%</td>
+                  <td>15%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Grade Row 2 -->
+        <div class="grade-row mb-3">
+          <div class="grade-row-header" data-toggle="grade-expand">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+              <img src="assets/images/courses/course-thumb-2.png" alt="Course" class="grade-course-thumb">
+              <div>
+                <h5 class="mb-1">Data Visualization with Python and Tableau</h5>
+                <span class="badge-tag">Beginner</span>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="progress-ring-wrapper progress-ring-sm">
+                <svg width="50" height="50">
+                  <circle cx="25" cy="25" r="20" stroke="#e5e7eb" stroke-width="4" fill="none"/>
+                  <circle class="progress-ring-circle" cx="25" cy="25" r="20" stroke="#1a5276" stroke-width="4" fill="none" data-percentage="42" stroke-linecap="round" transform="rotate(-90 25 25)"/>
+                </svg>
+                <span class="progress-ring-text-sm">42%</span>
+              </div>
+              <i class="bi bi-chevron-down grade-expand-icon"></i>
+            </div>
+          </div>
+          <div class="grade-row-body grade-row-body-hidden">
+            <table class="table grade-table">
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Score %</th>
+                  <th>Weight %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 1: Python for Data Visualization</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Aug. 05, 2024</td>
+                  <td>72%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 2: Matplotlib and Seaborn</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Aug. 12, 2024</td>
+                  <td>80%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 3: Tableau Fundamentals</td>
+                  <td><span class="text-danger fw-semibold">Fail</span></td>
+                  <td>Aug. 20, 2024</td>
+                  <td>38%</td>
+                  <td>25%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 4: Dashboard Design</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Aug. 28, 2024</td>
+                  <td>76%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 5: Capstone Project</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Sep. 05, 2024</td>
+                  <td>82%</td>
+                  <td>15%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Grade Row 3 -->
+        <div class="grade-row mb-3">
+          <div class="grade-row-header" data-toggle="grade-expand">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+              <img src="assets/images/courses/course-thumb-3.png" alt="Course" class="grade-course-thumb">
+              <div>
+                <h5 class="mb-1">Database Management and SQL Fundamentals</h5>
+                <span class="badge-tag">Beginner</span>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="progress-ring-wrapper progress-ring-sm">
+                <svg width="50" height="50">
+                  <circle cx="25" cy="25" r="20" stroke="#e5e7eb" stroke-width="4" fill="none"/>
+                  <circle class="progress-ring-circle" cx="25" cy="25" r="20" stroke="#1a5276" stroke-width="4" fill="none" data-percentage="28" stroke-linecap="round" transform="rotate(-90 25 25)"/>
+                </svg>
+                <span class="progress-ring-text-sm">28%</span>
+              </div>
+              <i class="bi bi-chevron-down grade-expand-icon"></i>
+            </div>
+          </div>
+          <div class="grade-row-body grade-row-body-hidden">
+            <table class="table grade-table">
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Score %</th>
+                  <th>Weight %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 1: Introduction to Databases</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Jul. 10, 2024</td>
+                  <td>90%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 2: SQL Queries</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Jul. 18, 2024</td>
+                  <td>74%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 3: Advanced SQL</td>
+                  <td><span class="text-danger fw-semibold">Fail</span></td>
+                  <td>Jul. 25, 2024</td>
+                  <td>45%</td>
+                  <td>25%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 4: Database Design</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Aug. 02, 2024</td>
+                  <td>68%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td><i class="bi bi-journal-text me-2"></i>Module 5: Performance Optimization</td>
+                  <td><span class="text-success fw-semibold">Pass</span></td>
+                  <td>Aug. 10, 2024</td>
+                  <td>71%</td>
+                  <td>15%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Empty State -->
+  <div class="empty-state progress-empty d-none">
+    <img src="assets/images/illustrations/grades.png" alt="No progress">
+    <h3>No Progress Data Yet</h3>
+    <p>Start a course to begin tracking your progress and grades.</p>
+    <a href="course-catalogue.html" class="btn btn-outline">Browse Courses</a>
+  </div>
+
+  <!-- ========== DISCOVER COURSES ========== -->
+  <section class="section section-bg">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Discover Courses Curated For You</h2>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
+        <div class="carousel-track">
+          <div class="course-card">
+            <img src="assets/images/courses/course-thumb-1.png" alt="Course" class="course-card-img">
+            <div class="course-card-body">
+              <span class="course-card-provider">Bright Future University</span>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <div class="course-card">
+            <img src="assets/images/courses/course-thumb-2.png" alt="Course" class="course-card-img">
+            <div class="course-card-body">
+              <span class="course-card-provider">Bright Future University</span>
+              <h5 class="course-card-title">Data Visualization with Python and Tableau</h5>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <div class="course-card">
+            <img src="assets/images/courses/course-thumb-3.png" alt="Course" class="course-card-img">
+            <div class="course-card-body">
+              <span class="course-card-provider">Bright Future University</span>
+              <h5 class="course-card-title">Database Management and SQL Fundamentals</h5>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <div class="course-card">
+            <img src="assets/images/courses/course-thumb-1.png" alt="Course" class="course-card-img">
+            <div class="course-card-body">
+              <span class="course-card-provider">Bright Future University</span>
+              <h5 class="course-card-title">Advanced Analytics and Business Intelligence</h5>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick Link</h5>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="course-catalogue.html">Course Catalogue</a>
+            <a href="learning-paths.html">My Learning Paths</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <h5 class="mt-4">More</h5>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="help-support.html">Help</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="#">Blog</a>
+            <a href="#">Alumni Community</a>
+            <a href="#">FAQs</a>
+          </div>
+          <h5 class="mt-4">Resources</h5>
+          <div class="footer-links">
+            <a href="#">Success Stories</a>
+            <a href="#">Career Support</a>
+            <a href="#">Webinars</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5>Join Us Today!</h5>
+          <div class="footer-links">
+            <a href="signup.html">Sign Up as a Learner</a>
+            <a href="#">Sign Up for Career Path</a>
+            <a href="#">Become an Instructor</a>
+            <a href="contact.html">Contact Us for License</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <div class="footer-contact">
+              <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
+              <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-newsletter">
+              <span class="text-white fw-600 text-small d-block mb-2">Signup to Newsletter</span>
+            </div>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Enter Your Email" aria-label="Email for newsletter">
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-certified">
+              <span>Certified</span>
+              <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-apps">
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+              </a>
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our iOS app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2024 PM4SUCCESS. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

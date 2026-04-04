@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM4Success - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <!-- Hamburger -->
+        <button class="navbar-toggle" aria-label="Toggle menu">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/images/logo.png" alt="PM4Success">
+        </a>
+
+        <!-- Search -->
+        <div class="navbar-search">
+          <i class="bi bi-mic search-icon-left"></i>
+          <input type="text" placeholder="search courses" aria-label="Search courses">
+          <i class="bi bi-search search-icon-right"></i>
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="navbar-nav">
+          <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
+          <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Actions: Logged Out -->
+        <div class="navbar-actions navbar-logged-out">
+          <a href="login.html" class="nav-link nav-login-link">Login</a>
+          <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+        </div>
+
+        <!-- Actions: Logged In -->
+        <div class="navbar-actions navbar-logged-in">
+          <a href="cart.html" class="nav-icon-btn">
+            <i class="bi bi-cart3"></i>
+            <span class="badge-count">0</span>
+          </a>
+          <a href="notifications.html" class="nav-icon-btn">
+            <i class="bi bi-bell"></i>
+          </a>
+          <div class="position-relative">
+            <div class="nav-avatar">
+              <span class="nav-avatar-initial">A</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <!-- User Dropdown -->
+            <div class="user-dropdown">
+              <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+              <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+              <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+              <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+              <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+              <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+              <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="assets/images/logo.png" alt="PM4Success">
+      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <!-- Logged out menu -->
+    <div class="mobile-menu-nav navbar-logged-out">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="login.html" class="signin-link">Login</a>
+      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
+    </div>
+
+    <!-- Logged in menu -->
+    <div class="mobile-menu-nav navbar-logged-in">
+      <a href="course-catalogue.html">Course Catalogue</a>
+      <a href="learning-paths.html">My Career Path</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <div class="menu-divider"></div>
+      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
+      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
+      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
+      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
+      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
+      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
+      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+      <div class="menu-divider"></div>
+      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    </div>
+  </div>
+
+  <!-- ========== WELCOME BANNER ========== -->
+  <section class="dashboard-welcome">
+    <div class="container">
+      <div class="welcome-banner">
+        <div class="welcome-avatar">
+          <img src="assets/images/avatars/instructor-avatar.png" alt="Aliyu Unuagbokhe">
+          <span class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
+        </div>
+        <div class="welcome-info">
+          <h1>Welcome Aliyu Unuagbokhe</h1>
+          <span class="welcome-label">Achievements</span>
+          <a href="edit-profile.html" class="btn btn-primary btn-sm">Edit profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ACHIEVEMENT CARDS ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Achievement 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="achievement-card">
+            <img src="assets/images/misc/credly-badge.png" alt="Credly Badge" class="achievement-badge-img">
+            <span class="achievement-label">Credly badge earned</span>
+            <h5 class="achievement-title">Introduction to Data Science and Statistic Methodology</h5>
+            <span class="achievement-date">15th August 2024</span>
+          </div>
+        </div>
+        <!-- Achievement 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="achievement-card">
+            <img src="assets/images/misc/credly-badge.png" alt="Credly Badge" class="achievement-badge-img">
+            <span class="achievement-label">Credly badge earned</span>
+            <h5 class="achievement-title">Introduction to Data Science and Statistic Methodology</h5>
+            <span class="achievement-date">15th August 2024</span>
+          </div>
+        </div>
+        <!-- Achievement 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="achievement-card">
+            <img src="assets/images/misc/credly-badge.png" alt="Credly Badge" class="achievement-badge-img">
+            <span class="achievement-label">Credly badge earned</span>
+            <h5 class="achievement-title">Introduction to Data Science and Statistic Methodology</h5>
+            <span class="achievement-date">15th August 2024</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="accomplishments.html" class="btn btn-outline">View All Certificates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CURRENT COURSES ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Current Courses</h2>
+      </div>
+      <div class="row g-4">
+        <!-- Course 1 -->
+        <div class="col-lg-6 col-md-6">
+          <div class="current-course-card">
+            <img src="assets/images/courses/course-banner-1.jpg" alt="Course Banner" class="current-course-img">
+            <div class="current-course-body">
+              <div class="current-course-tags">
+                <span class="tag">Course</span>
+                <span class="tag">IBM</span>
+              </div>
+              <h5 class="current-course-title">Introduction to Data Science and Statistic Methodology</h5>
+              <a href="course-details.html" class="btn btn-primary btn-sm">Continue Learning</a>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill progress-w-78"></div>
+                </div>
+                <span class="progress-bar-label">78%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Course 2 -->
+        <div class="col-lg-6 col-md-6">
+          <div class="current-course-card">
+            <img src="assets/images/courses/course-banner-2.jpg" alt="Course Banner" class="current-course-img">
+            <div class="current-course-body">
+              <div class="current-course-tags">
+                <span class="tag">Course</span>
+                <span class="tag">IBM</span>
+              </div>
+              <h5 class="current-course-title">Introduction to Data Science and Statistic Methodology</h5>
+              <a href="course-details.html" class="btn btn-primary btn-sm">Continue Learning</a>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill progress-w-78"></div>
+                </div>
+                <span class="progress-bar-label">78%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Course 3 -->
+        <div class="col-lg-6 col-md-6">
+          <div class="current-course-card">
+            <img src="assets/images/courses/course-banner-3.jpg" alt="Course Banner" class="current-course-img">
+            <div class="current-course-body">
+              <div class="current-course-tags">
+                <span class="tag">Course</span>
+                <span class="tag">IBM</span>
+              </div>
+              <h5 class="current-course-title">Introduction to Data Science and Statistic Methodology</h5>
+              <a href="course-details.html" class="btn btn-primary btn-sm">Continue Learning</a>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill progress-w-78"></div>
+                </div>
+                <span class="progress-bar-label">78%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Course 4 -->
+        <div class="col-lg-6 col-md-6">
+          <div class="current-course-card">
+            <img src="assets/images/courses/course-banner-4.jpg" alt="Course Banner" class="current-course-img">
+            <div class="current-course-body">
+              <div class="current-course-tags">
+                <span class="tag">Course</span>
+                <span class="tag">IBM</span>
+              </div>
+              <h5 class="current-course-title">Introduction to Data Science and Statistic Methodology</h5>
+              <a href="course-details.html" class="btn btn-primary btn-sm">Continue Learning</a>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill progress-w-78"></div>
+                </div>
+                <span class="progress-bar-label">78%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== UPCOMING DEADLINES ========== -->
+  <section class="section section-bg">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Upcoming Deadlines</h2>
+      </div>
+      <div class="row g-4">
+        <!-- Left: Calendar -->
+        <div class="col-lg-5 col-md-6">
+          <div class="deadline-date-display">
+            <span class="deadline-day">Mon, Aug 5</span>
+          </div>
+          <div class="calendar-widget">
+            <div class="calendar-header">
+              <button class="calendar-nav-btn"><i class="bi bi-chevron-left"></i></button>
+              <span class="calendar-month">August 2024</span>
+              <button class="calendar-nav-btn"><i class="bi bi-chevron-right"></i></button>
+            </div>
+            <div class="calendar-grid">
+              <div class="calendar-day-header">S</div>
+              <div class="calendar-day-header">M</div>
+              <div class="calendar-day-header">T</div>
+              <div class="calendar-day-header">W</div>
+              <div class="calendar-day-header">T</div>
+              <div class="calendar-day-header">F</div>
+              <div class="calendar-day-header">S</div>
+
+              <div class="calendar-day"></div>
+              <div class="calendar-day"></div>
+              <div class="calendar-day"></div>
+              <div class="calendar-day"></div>
+              <div class="calendar-day">1</div>
+              <div class="calendar-day">2</div>
+              <div class="calendar-day">3</div>
+
+              <div class="calendar-day">4</div>
+              <div class="calendar-day today has-event">5</div>
+              <div class="calendar-day">6</div>
+              <div class="calendar-day">7</div>
+              <div class="calendar-day has-event">8</div>
+              <div class="calendar-day">9</div>
+              <div class="calendar-day">10</div>
+
+              <div class="calendar-day">11</div>
+              <div class="calendar-day">12</div>
+              <div class="calendar-day">13</div>
+              <div class="calendar-day">14</div>
+              <div class="calendar-day has-event">15</div>
+              <div class="calendar-day">16</div>
+              <div class="calendar-day">17</div>
+
+              <div class="calendar-day">18</div>
+              <div class="calendar-day">19</div>
+              <div class="calendar-day">20</div>
+              <div class="calendar-day">21</div>
+              <div class="calendar-day">22</div>
+              <div class="calendar-day">23</div>
+              <div class="calendar-day">24</div>
+
+              <div class="calendar-day">25</div>
+              <div class="calendar-day">26</div>
+              <div class="calendar-day">27</div>
+              <div class="calendar-day">28</div>
+              <div class="calendar-day">29</div>
+              <div class="calendar-day">30</div>
+              <div class="calendar-day">31</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Deadline Cards -->
+        <div class="col-lg-7 col-md-6">
+          <div class="deadline-cards">
+            <!-- Deadline 1 -->
+            <div class="deadline-card">
+              <div class="deadline-card-content">
+                <h5 class="deadline-module">Module 3: Statistical Analysis Fundamentals</h5>
+                <div class="deadline-tags">
+                  <span class="tag">Graded Assignment</span>
+                  <span class="tag">11:59 PM WAT</span>
+                </div>
+              </div>
+              <span class="deadline-status overdue">Overdue</span>
+            </div>
+            <!-- Deadline 2 -->
+            <div class="deadline-card">
+              <div class="deadline-card-content">
+                <h5 class="deadline-module">Module 4: Data Visualization with Python</h5>
+                <div class="deadline-tags">
+                  <span class="tag">Graded Assignment</span>
+                  <span class="tag">11:59 PM WAT</span>
+                </div>
+              </div>
+              <span class="deadline-status overdue">Overdue</span>
+            </div>
+            <!-- Deadline 3 -->
+            <div class="deadline-card">
+              <div class="deadline-card-content">
+                <h5 class="deadline-module">Module 5: Machine Learning Basics</h5>
+                <div class="deadline-tags">
+                  <span class="tag">Graded Assignment</span>
+                  <span class="tag">11:59 PM WAT</span>
+                </div>
+              </div>
+              <span class="deadline-status overdue">Overdue</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <a href="#" class="view-all-link">View all deadlines <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ACTIVITY FEED ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Recent blog post</h2>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
+        <div class="carousel-track">
+          <!-- Activity Card 1 -->
+          <div class="activity-card">
+            <img src="assets/images/courses/course-thumb-1.png" alt="Blog Post" class="activity-card-img">
+            <div class="activity-card-body">
+              <h5 class="activity-card-title">The Future of Data Science in 2024</h5>
+              <p class="activity-card-author">By Dr. Emily Thompson</p>
+              <span class="activity-card-date">August 10, 2024</span>
+            </div>
+          </div>
+          <!-- Activity Card 2 -->
+          <div class="activity-card">
+            <img src="assets/images/courses/course-thumb-2.png" alt="Blog Post" class="activity-card-img">
+            <div class="activity-card-body">
+              <h5 class="activity-card-title">Getting Started with Machine Learning</h5>
+              <p class="activity-card-author">By Prof. James Carter</p>
+              <span class="activity-card-date">August 8, 2024</span>
+            </div>
+          </div>
+          <!-- Activity Card 3 -->
+          <div class="activity-card">
+            <img src="assets/images/courses/course-thumb-3.png" alt="Blog Post" class="activity-card-img">
+            <div class="activity-card-body">
+              <h5 class="activity-card-title">Top 10 Python Libraries for Data Analysis</h5>
+              <p class="activity-card-author">By Sarah Mitchell</p>
+              <span class="activity-card-date">August 5, 2024</span>
+            </div>
+          </div>
+          <!-- Activity Card 4 -->
+          <div class="activity-card">
+            <img src="assets/images/courses/course-thumb-4.png" alt="Blog Post" class="activity-card-img">
+            <div class="activity-card-body">
+              <h5 class="activity-card-title">Career Paths in Artificial Intelligence</h5>
+              <p class="activity-card-author">By Michael Brown</p>
+              <span class="activity-card-date">August 2, 2024</span>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWLY UPDATED COURSES ========== -->
+  <section class="section section-bg">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Newly Updated Courses</h2>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
+        <div class="carousel-track">
+          <!-- Course Card 1 -->
+          <div class="course-card">
+            <img src="assets/images/courses/course-thumb-5.png" alt="Data Science" class="course-card-img">
+            <div class="course-card-body">
+              <span class="course-card-provider">Bright Future University</span>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-meta">
+                <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                <span><i class="bi bi-laptop"></i> Online</span>
+                <span><i class="bi bi-calendar3"></i> Weekdays</span>
+              </div>
+              <p class="course-card-instructor">Dr. Emily Thompson</p>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <!-- Course Card 2 -->
+          <div class="course-card">
+            <img src="assets/images/courses/course-thumb-6.png" alt="Programming" class="course-card-img">
+            <div class="course-card-body">
+              <span class="course-card-provider">Bright Future University</span>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-meta">
+                <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                <span><i class="bi bi-laptop"></i> Online</span>
+                <span><i class="bi bi-calendar3"></i> Weekdays</span>
+              </div>
+              <p class="course-card-instructor">Dr. Emily Thompson</p>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <!-- Course Card 3 -->
+          <div class="course-card">
+            <img src="assets/images/courses/course-thumb-7.png" alt="Analytics" class="course-card-img">
+            <div class="course-card-body">
+              <span class="course-card-provider">Bright Future University</span>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-meta">
+                <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                <span><i class="bi bi-laptop"></i> Online</span>
+                <span><i class="bi bi-calendar3"></i> Weekdays</span>
+              </div>
+              <p class="course-card-instructor">Dr. Emily Thompson</p>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+          <!-- Course Card 4 -->
+          <div class="course-card">
+            <img src="assets/images/courses/course-thumb-8.png" alt="Design" class="course-card-img">
+            <div class="course-card-body">
+              <span class="course-card-provider">Bright Future University</span>
+              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="course-card-meta">
+                <span><i class="bi bi-clock"></i> 12 Weeks</span>
+                <span><i class="bi bi-laptop"></i> Online</span>
+                <span><i class="bi bi-calendar3"></i> Weekdays</span>
+              </div>
+              <p class="course-card-instructor">Dr. Emily Thompson</p>
+              <div class="course-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </span>
+                <span class="rating-count">(961,432)</span>
+              </div>
+              <div class="course-card-footer">
+                <a href="course-details.html" class="course-card-link">View Program</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Quick Link -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick Link</h5>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="course-catalogue.html">Course Catalogue</a>
+            <a href="learning-paths.html">My Learning Paths</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <h5 class="mt-4">More</h5>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="help-support.html">Help</a>
+          </div>
+        </div>
+        <!-- Community & Resources -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="#">Blog</a>
+            <a href="#">Alumni Community</a>
+            <a href="#">FAQs</a>
+          </div>
+          <h5 class="mt-4">Resources</h5>
+          <div class="footer-links">
+            <a href="#">Success Stories</a>
+            <a href="#">Career Support</a>
+            <a href="#">Webinars</a>
+          </div>
+        </div>
+        <!-- Join Us Today -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Join Us Today!</h5>
+          <div class="footer-links">
+            <a href="signup.html">Sign Up as a Learner</a>
+            <a href="#">Sign Up for Career Path</a>
+            <a href="#">Become an Instructor</a>
+            <a href="contact.html">Contact Us for License</a>
+          </div>
+        </div>
+        <!-- Brand & Contact -->
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <div class="footer-contact">
+              <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
+              <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-newsletter">
+              <span class="text-white fw-600 text-small d-block mb-2">Signup to Newsletter</span>
+            </div>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Enter Your Email" aria-label="Email for newsletter">
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-certified">
+              <span>Certified</span>
+              <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="footer-apps">
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+              </a>
+              <a href="#" class="footer-app-btn">
+                <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our iOS app
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2024 PM4SUCCESS. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
