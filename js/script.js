@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
   initCalendar();
   initSmoothScroll();
   initMobileCourseSidebar();
+  initPromoCountdown();
+  initHeroSlider();
+  initProgramTabs();
 });
 
 /* ============================================
@@ -308,14 +311,21 @@ function initCarousels() {
       var track = document.getElementById(targetId);
       if (!track) return;
 
-      var scrollAmount = 300;
-      var firstChild = track.firstElementChild;
-      if (firstChild) {
-        scrollAmount = firstChild.offsetWidth + 20;
+      var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
+      var itemsPerPage = 3;
+      var pageWidth = childWidth * itemsPerPage;
+      var direction = this.classList.contains('carousel-btn-prev') ? -1 : 1;
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      var newScroll = track.scrollLeft + (direction * pageWidth);
+
+      // Loop: if past the end go to start, if before start go to end
+      if (newScroll > maxScroll) {
+        newScroll = 0;
+      } else if (newScroll < 0) {
+        newScroll = maxScroll;
       }
 
-      var direction = this.classList.contains('carousel-btn-prev') ? -1 : 1;
-      track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+      track.scrollTo({ left: newScroll, behavior: 'smooth' });
     });
   });
 
@@ -327,13 +337,13 @@ function initCarousels() {
     var track = section.querySelector('.carousel-track');
     if (!track) return;
     var dots = dotsContainer.querySelectorAll('.carousel-dot');
+    var itemsPerPage = 3;
 
     dots.forEach(function (dot, index) {
       dot.addEventListener('click', function () {
-        var children = track.children;
-        if (children[index]) {
-          children[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-        }
+        var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
+        var scrollTo = index * itemsPerPage * childWidth;
+        track.scrollTo({ left: scrollTo, behavior: 'smooth' });
         dots.forEach(function (d) { d.classList.remove('active'); });
         dot.classList.add('active');
       });
@@ -342,10 +352,24 @@ function initCarousels() {
     track.addEventListener('scroll', function () {
       var scrollLeft = track.scrollLeft;
       var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
-      var activeIndex = Math.round(scrollLeft / childWidth);
+      var pageWidth = childWidth * itemsPerPage;
+      var activeIndex = Math.round(scrollLeft / pageWidth);
+      if (activeIndex >= dots.length) activeIndex = 0;
       dots.forEach(function (d, i) {
         d.classList.toggle('active', i === activeIndex);
       });
+    });
+
+    // Auto-loop: when scrolled to the end, jump back to start
+    track.addEventListener('scrollend', function () {
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft >= maxScroll - 5) {
+        setTimeout(function () {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+          dots.forEach(function (d) { d.classList.remove('active'); });
+          dots[0].classList.add('active');
+        }, 2000);
+      }
     });
   });
 }
@@ -724,4 +748,96 @@ function initMobileCourseSidebar() {
       sidebar.classList.remove('show');
     });
   }
+}
+
+/* ============================================
+   Promo Countdown Timer
+   ============================================ */
+function initPromoCountdown() {
+  var daysEl = document.getElementById('countdown-days');
+  var hoursEl = document.getElementById('countdown-hours');
+  var minsEl = document.getElementById('countdown-mins');
+  var secsEl = document.getElementById('countdown-secs');
+
+  if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+  var DURATION = 3 * 24 * 60 * 60 * 1000; // 3 days in ms
+  var STORAGE_KEY = 'promoCountdownEnd';
+
+  function getEndTime() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && Number(stored) > Date.now()) {
+      return Number(stored);
+    }
+    var end = Date.now() + DURATION;
+    localStorage.setItem(STORAGE_KEY, end);
+    return end;
+  }
+
+  var endTime = getEndTime();
+
+  function tick() {
+    var remaining = endTime - Date.now();
+
+    if (remaining <= 0) {
+      // Restart the countdown
+      endTime = Date.now() + DURATION;
+      localStorage.setItem(STORAGE_KEY, endTime);
+      remaining = DURATION;
+    }
+
+    var totalSecs = Math.floor(remaining / 1000);
+    var d = Math.floor(totalSecs / 86400);
+    var h = Math.floor((totalSecs % 86400) / 3600);
+    var m = Math.floor((totalSecs % 3600) / 60);
+    var s = totalSecs % 60;
+
+    daysEl.textContent = d + 'd';
+    hoursEl.textContent = h + 'h';
+    minsEl.textContent = m + 'min';
+    secsEl.textContent = s + 's';
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* ============================================
+   Hero Slider
+   ============================================ */
+function initHeroSlider() {
+  var heroSlides = document.querySelectorAll('.hero-slide');
+  if (heroSlides.length >= 2) {
+    var heroCurrent = 0;
+    setInterval(function () {
+      heroSlides[heroCurrent].classList.remove('active');
+      heroCurrent = (heroCurrent + 1) % heroSlides.length;
+      heroSlides[heroCurrent].classList.add('active');
+    }, 30000);
+  }
+
+  var ctaSlides = document.querySelectorAll('.cta-teach-slide');
+  if (ctaSlides.length >= 2) {
+    var ctaCurrent = 0;
+    setInterval(function () {
+      ctaSlides[ctaCurrent].classList.remove('active');
+      ctaCurrent = (ctaCurrent + 1) % ctaSlides.length;
+      ctaSlides[ctaCurrent].classList.add('active');
+    }, 30000);
+  }
+}
+
+/* ============================================
+   Program Tabs
+   ============================================ */
+function initProgramTabs() {
+  var tabs = document.querySelectorAll('.program-tab');
+  if (!tabs.length) return;
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+    });
+  });
 }
