@@ -109,7 +109,7 @@
         <div class="switch-account-section">
           <h6 class="switch-account-heading">Explore PM4Success</h6>
           <a href="#" class="switch-account-item active">
-            <img src="assets/images/logo.png" alt="PM4Success">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
             <div>
               <span>PM4Success</span>
               <small>All courses</small>
@@ -1425,8 +1425,8 @@
   <!-- ========== LOGIN MODAL ========== -->
   <div class="auth-modal-overlay" id="loginModal">
     <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
       <div class="auth-container">
-        <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
 
         <h1>Welcome back</h1>
 
@@ -1444,7 +1444,7 @@
             </div>
           </div>
 
-          <a href="#" class="text-primary text-small fw-500 d-inline-block mb-4">Forgot password</a>
+          <a href="#" class="text-primary text-small fw-500 d-inline-block mb-4" data-open-modal="forgotPasswordModal">Forgot password</a>
 
           <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
         </form>
@@ -1476,8 +1476,8 @@
   <!-- ========== SIGNUP MODAL ========== -->
   <div class="auth-modal-overlay" id="signupModal">
     <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
       <div class="auth-container">
-        <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
 
         <h1>Sign up</h1>
         <p class="auth-subtitle">Learn on your own time from top universities and businesses</p>
@@ -1532,6 +1532,53 @@
         <div class="auth-legal">
           <p>Having trouble logging in? <a href="help-support.html">Learner help center</a></p>
           <p>This site is protected by reCAPTCHA Enterprise and PM4SUCCESS <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms of Service</a> apply.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== VERIFY OTP MODAL ========== -->
+  <div class="auth-modal-overlay" id="verifyOtpModal">
+    <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <div class="auth-container">
+
+        <h1>Verify OTP Code</h1>
+        <p class="auth-subtitle-bold">A verification code has been sent to your email.</p>
+        <p class="auth-subtitle">Please enter the code into the field below to complete your sign-up and verify your account.</p>
+
+        <form data-action="verify-otp">
+          <div class="form-group">
+            <input type="text" class="form-control" id="otp-code" placeholder="Enter OTP code here" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Verify OTP</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FORGOT PASSWORD MODAL ========== -->
+  <div class="auth-modal-overlay" id="forgotPasswordModal">
+    <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <div class="auth-container">
+
+        <h1>Forgot password</h1>
+        <p class="auth-subtitle">Enter the email address associated with your account and we'll send you a link to reset your password.</p>
+
+        <form>
+          <div class="form-group">
+            <label class="form-label" for="forgot-email">Email</label>
+            <input type="email" class="form-control" id="forgot-email" placeholder="name@email.com" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Reset Password</button>
+        </form>
+
+        <div class="auth-footer">
+          Remember your password? <a href="#" data-open-modal="loginModal">Log in</a>
         </div>
       </div>
     </div>

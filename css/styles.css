@@ -775,8 +775,8 @@ p {
 }
 
 .switch-account-item img {
-  width: 32px;
-  height: 32px;
+  height: 28px;
+  width: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -3229,44 +3229,73 @@ body.is-logged-in .navbar-search {
 
 .auth-modal {
   background-color: var(--color-white);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   width: 100%;
-  max-width: 540px;
-  padding: 40px;
+  max-width: 560px;
+  min-height: 100vh;
+  padding: 60px 60px;
   position: relative;
-  margin: auto 0;
+}
+
+#forgotPasswordModal .auth-modal,
+#verifyOtpModal .auth-modal {
+  min-height: auto;
+  padding: 50px 60px;
+}
+
+.auth-container .auth-subtitle-bold {
+  text-align: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
 }
 
 .auth-container {
   width: 100%;
-  max-width: 500px;
+  max-width: 430px;
   position: relative;
   margin: 0 auto;
 }
 
 .auth-close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 24px;
+  right: 24px;
   font-size: 1.25rem;
   color: var(--color-text);
   cursor: pointer;
   background: none;
   border: none;
   padding: 4px;
+  z-index: 1;
 }
 
 .auth-close:hover {
   color: var(--color-text-secondary);
 }
 
+.auth-modal .btn-primary {
+  background-color: #0B5D92;
+  border-color: #0B5D92;
+}
+
+.auth-modal .btn-primary:hover {
+  background-color: transparent;
+  border-color: #0B5D92;
+  color: #0B5D92;
+}
+
 .auth-container h1 {
   text-align: center;
+  font-size: 1.5rem;
   margin-bottom: 8px;
 }
 
 .auth-container .auth-subtitle {
   text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
   margin-bottom: 32px;
 }
 
@@ -3287,9 +3316,19 @@ body.is-logged-in .navbar-search {
   transition: var(--transition-fast);
 }
 
+.auth-social-btn svg {
+  filter: grayscale(1) brightness(0);
+  transition: var(--transition-fast);
+}
+
 .auth-social-btn:hover {
-  background-color: var(--color-bg-light);
-  color: var(--color-text);
+  background-color: #0B5D92;
+  border-color: #0B5D92;
+  color: var(--color-white);
+}
+
+.auth-social-btn:hover svg {
+  filter: grayscale(1) brightness(0) invert(1);
 }
 
 .auth-social-btn img {

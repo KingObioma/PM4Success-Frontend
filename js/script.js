@@ -172,7 +172,15 @@ function initAuthState() {
   signupForms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      window.location.href = 'verify-otp.html';
+      // Close signup modal and open OTP modal
+      document.querySelectorAll('.auth-modal-overlay.show').forEach(function (m) {
+        m.classList.remove('show');
+      });
+      var otpModal = document.getElementById('verifyOtpModal');
+      if (otpModal) {
+        otpModal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
     });
   });
 
