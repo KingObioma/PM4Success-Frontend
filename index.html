@@ -42,6 +42,9 @@
             <img src="assets/images/logo.png" alt="PM4Success">
           </a>
 
+        </div>
+
+        <div class="navbar-right">
           <!-- Search -->
           <div class="navbar-search">
             <i class="bi bi-mic search-icon-left"></i>
@@ -49,9 +52,6 @@
             <i class="bi bi-search search-icon-right"></i>
           </div>
 
-        </div>
-
-        <div class="navbar-right">
           <!-- Nav Links -->
           <ul class="navbar-nav">
             <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
@@ -69,11 +69,11 @@
           <!-- Actions: Logged In -->
           <div class="navbar-actions navbar-logged-in">
             <a href="cart.html" class="nav-icon-btn">
-              <i class="bi bi-cart3"></i>
+              <i class="bi bi-cart-fill"></i>
               <span class="badge-count">0</span>
             </a>
             <a href="notifications.html" class="nav-icon-btn">
-              <i class="bi bi-bell"></i>
+              <i class="bi bi-bell-fill"></i>
             </a>
             <div class="position-relative">
               <div class="nav-avatar">
@@ -82,17 +82,39 @@
               </div>
               <!-- User Dropdown -->
               <div class="user-dropdown">
-                <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
-                <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
-                <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
-                <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
-                <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
-                <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
-                <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+                <a href="my-courses.html"><i class="bi bi-journal-bookmark-fill"></i> My Courses</a>
+                <a href="edit-profile.html"><i class="bi bi-person-fill"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+                <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
+                <a href="purchases.html"><i class="bi bi-credit-card-fill"></i> My Purchase</a>
+                <a href="accomplishments.html"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
+                <a href="progress-report.html"><i class="bi bi-graph-up-arrow"></i> Progress Report</a>
+                <a href="help-support.html"><i class="bi bi-question-circle-fill"></i> Help Center</a>
                 <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Switch Account Dropdown -->
+      <div class="switch-account-overlay"></div>
+      <div class="switch-account-panel">
+        <div class="switch-account-section">
+          <h6 class="switch-account-heading">NNPC Tech Scholarship</h6>
+          <a href="#" class="switch-account-item">
+            <img src="assets/images/logo.png" alt="NNPC Tech Career Academy">
+            <span>NNPC Tech Career  Academy</span>
+          </a>
+        </div>
+        <div class="switch-account-section">
+          <h6 class="switch-account-heading">Explore PM4Success</h6>
+          <a href="#" class="switch-account-item active">
+            <img src="assets/images/logo.png" alt="PM4Success">
+            <div>
+              <span>PM4Success</span>
+              <small>All courses</small>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -100,47 +122,59 @@
 
   <!-- ========== ACCOUNT VERIFICATION BANNER (Logged In) ========== -->
   <div class="verification-banner navbar-logged-in">
-    <div class="container">
-      <p><i class="bi bi-exclamation-triangle"></i> <strong>Account not verified</strong> &mdash; To receive your certificate upon course completion, you must verify your account. Without verification, your certificate will not be issued.</p>
+    <div class="verification-banner-inner">
+      <div class="verification-banner-icon">
+        <i class="bi bi-exclamation-circle-fill"></i>
+      </div>
+      <div class="verification-banner-content">
+        <strong>Account not verified</strong>
+        <p>Your account is not verified yet! To receive your certificate upon course completion, you must verify your account. Without verification, your certificate will not be issued.</p>
+      </div>
+      <button class="verification-banner-close" aria-label="Close"><i class="bi bi-x-lg"></i></button>
     </div>
   </div>
 
   <!-- ========== MOBILE MENU ========== -->
   <div class="mobile-menu-overlay"></div>
   <div class="mobile-menu">
-    <div class="mobile-menu-header">
+
+    <!-- Logged out header -->
+    <div class="mobile-menu-header navbar-logged-out">
       <img src="assets/images/logo.png" alt="PM4Success">
-      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
     </div>
 
-    <!-- Logged out menu -->
-    <div class="mobile-menu-nav navbar-logged-out">
+    <!-- Logged in header -->
+    <a href="edit-profile.html" class="mobile-menu-header-user navbar-logged-in">
+      <div class="mobile-user-avatar">
+        <span>AU</span>
+      </div>
+      <div class="mobile-user-info">
+        <strong>Hi, Aliyu Unuagbokhe</strong>
+        <small>Welcome back</small>
+      </div>
+      <span class="mobile-user-arrow"><i class="bi bi-chevron-right"></i></span>
+    </a>
+
+    <!-- Nav links (both states) -->
+    <div class="mobile-menu-nav">
       <a href="course-catalogue.html">Course Catalogue</a>
       <a href="learning-paths.html">My Career Path</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
-      <div class="menu-divider"></div>
-      <a href="login.html" class="signin-link">Login</a>
-      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
     </div>
 
-    <!-- Logged in menu -->
-    <div class="mobile-menu-nav navbar-logged-in">
-      <a href="course-catalogue.html">Course Catalogue</a>
-      <a href="learning-paths.html">My Career Path</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-      <div class="menu-divider"></div>
-      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
-      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
-      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
-      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
-      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
-      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
-      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
-      <div class="menu-divider"></div>
-      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    <!-- Logged out footer -->
+    <div class="mobile-menu-footer navbar-logged-out">
+      <a href="login.html" class="mobile-signin-link">Sign In</a>
     </div>
+
+    <!-- Logged in: Switch Account -->
+    <div class="mobile-switch-account navbar-logged-in">
+      <p class="mobile-switch-label">Switch Account</p>
+      <a href="#" class="mobile-switch-item">NNPC Tech Scholarship</a>
+      <a href="#" class="mobile-switch-item active">Explore PM4Success</a>
+    </div>
+
   </div>
 
   <!-- ========== HERO SECTION ========== -->
@@ -306,9 +340,9 @@
           <div class="programs-header">
             <a href="course-catalogue.html" class="explore-courses-link">EXPLORE COURSES <i class="bi bi-arrow-right"></i></a>
           </div>
-          <div class="row g-4">
+          <div class="row g-2 g-md-4">
             <!-- Course Card 1 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-img">
@@ -345,7 +379,7 @@
               </a>
             </div>
             <!-- Course Card 2 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="course-card-img">
@@ -382,7 +416,7 @@
               </a>
             </div>
             <!-- Course Card 3 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="course-card-img">
@@ -419,7 +453,7 @@
               </a>
             </div>
             <!-- Course Card 4 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-4.png" alt="Data Analytics" class="course-card-img">
@@ -456,7 +490,7 @@
               </a>
             </div>
             <!-- Course Card 5 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-5.png" alt="UI Design" class="course-card-img">
@@ -493,7 +527,7 @@
               </a>
             </div>
             <!-- Course Card 6 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-6.png" alt="Management" class="course-card-img">
@@ -530,7 +564,7 @@
               </a>
             </div>
             <!-- Course Card 7 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-7.png" alt="Advanced Analytics" class="course-card-img">
@@ -567,7 +601,7 @@
               </a>
             </div>
             <!-- Course Card 8 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-8.png" alt="Business Intelligence" class="course-card-img">
@@ -604,7 +638,7 @@
               </a>
             </div>
             <!-- Course Card 9 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-6">
               <a href="course-details.html" class="course-card-wrapper">
                 <div class="course-card">
                   <img src="assets/images/courses/course-thumb-9.png" alt="Machine Learning" class="course-card-img">

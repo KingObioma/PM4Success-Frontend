@@ -29,26 +29,59 @@ document.addEventListener('DOMContentLoaded', function () {
 function initNavbar() {
   const toggle = document.querySelector('.navbar-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
-  const overlay = document.querySelector('.mobile-menu-overlay');
+  const mobileOverlay = document.querySelector('.mobile-menu-overlay');
   const closeBtn = document.querySelector('.mobile-menu-close');
+  const switchPanel = document.querySelector('.switch-account-panel');
+  const switchOverlay = document.querySelector('.switch-account-overlay');
 
-  if (!toggle || !mobileMenu) return;
+  if (!toggle) return;
 
-  function openMenu() {
-    mobileMenu.classList.add('show');
-    overlay.classList.add('show');
+  function openMobileMenu() {
+    if (mobileMenu) mobileMenu.classList.add('show');
+    if (mobileOverlay) mobileOverlay.classList.add('show');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeMenu() {
-    mobileMenu.classList.remove('show');
-    overlay.classList.remove('show');
+  function closeMobileMenu() {
+    if (mobileMenu) mobileMenu.classList.remove('show');
+    if (mobileOverlay) mobileOverlay.classList.remove('show');
     document.body.style.overflow = '';
   }
 
-  toggle.addEventListener('click', openMenu);
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-  if (overlay) overlay.addEventListener('click', closeMenu);
+  function openSwitchPanel() {
+    if (switchPanel) switchPanel.classList.add('show');
+    if (switchOverlay) switchOverlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSwitchPanel() {
+    if (switchPanel) switchPanel.classList.remove('show');
+    if (switchOverlay) switchOverlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', function () {
+    var isLoggedIn = document.body.classList.contains('is-logged-in');
+    var isMobile = window.innerWidth <= 767;
+
+    if (isLoggedIn && !isMobile) {
+      openSwitchPanel();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
+  if (switchOverlay) switchOverlay.addEventListener('click', closeSwitchPanel);
+
+  // Verification banner close
+  var verifyClose = document.querySelector('.verification-banner-close');
+  if (verifyClose) {
+    verifyClose.addEventListener('click', function () {
+      var banner = this.closest('.verification-banner');
+      if (banner) banner.style.display = 'none';
+    });
+  }
 }
 
 /* ============================================
