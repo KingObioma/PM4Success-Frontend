@@ -4,6 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   initNavbar();
+  initAuthModals();
   initAuthState();
   initDropdowns();
   initAccordions();
