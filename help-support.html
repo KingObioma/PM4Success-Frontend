@@ -12,6 +12,21 @@
 </head>
 <body>
 
+    <!-- ========== PROMO BANNER ========== -->
+  <div class="promo-banner">
+    <div class="promo-banner-inner">
+      <span class="promo-label">FINAL OCTOBER SALE!</span>
+      <!-- <span class="promo-divider"></span> -->
+      <span class="promo-text">25% off digital certs &ndash; now on!</span>
+      <span class="promo-divider"></span>
+      <span class="promo-countdown" id="promoCountdown">
+        <i class="bi bi-hourglass-split"></i>
+        Ends in <strong id="countdown-days">0d</strong> : <strong id="countdown-hours">21h</strong> : <strong id="countdown-mins">43min</strong> : <strong id="countdown-secs">23s</strong>
+      </span>
+      <a href="#" class="promo-cta-btn">Claim Now</a>
+    </div>
+  </div>
+
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
     <div class="navbar-container">
@@ -27,6 +42,9 @@
             <img src="assets/images/logo.png" alt="PM4Success">
           </a>
 
+        </div>
+
+        <div class="navbar-right">
           <!-- Search -->
           <div class="navbar-search">
             <i class="bi bi-mic search-icon-left"></i>
@@ -34,9 +52,6 @@
             <i class="bi bi-search search-icon-right"></i>
           </div>
 
-        </div>
-
-        <div class="navbar-right">
           <!-- Nav Links -->
           <ul class="navbar-nav">
             <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
@@ -47,8 +62,8 @@
 
           <!-- Actions: Logged Out -->
           <div class="navbar-actions navbar-logged-out">
-            <a href="login.html" class="nav-link nav-login-link">Login</a>
-            <a href="signup.html" class="btn btn-enroll">Enroll Now</a>
+            <a href="#" class="nav-link nav-login-link" data-open-modal="loginModal">Login</a>
+            <a href="#" class="btn btn-enroll" data-open-modal="signupModal">Enroll Now</a>
           </div>
 
           <!-- Actions: Logged In -->
@@ -67,59 +82,102 @@
               </div>
               <!-- User Dropdown -->
               <div class="user-dropdown">
-                <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
-                <a href="edit-profile.html"><i class="bi bi-person"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
-                <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
-                <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
-                <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
-                <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
-                <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
+                <a href="my-courses.html"><i class="bi bi-journal-bookmark-fill"></i> My Courses</a>
+                <a href="edit-profile.html"><i class="bi bi-person-fill"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+                <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
+                <a href="purchases.html"><i class="bi bi-credit-card-fill"></i> My Purchase</a>
+                <a href="accomplishments.html"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
+                <a href="progress-report.html"><i class="bi bi-graph-up-arrow"></i> Progress Report</a>
+                <a href="help-support.html"><i class="bi bi-question-circle-fill"></i> Help Center</a>
                 <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Switch Account Dropdown -->
+      <div class="switch-account-overlay"></div>
+      <div class="switch-account-panel">
+        <div class="switch-account-section">
+          <h6 class="switch-account-heading">NNPC Tech Scholarship</h6>
+          <a href="#" class="switch-account-item">
+            <img src="assets/images/logo.png" alt="NNPC Tech Career Academy">
+            <span>NNPC Tech Career  Academy</span>
+          </a>
+        </div>
+        <div class="switch-account-section">
+          <h6 class="switch-account-heading">Explore PM4Success</h6>
+          <a href="#" class="switch-account-item active">
+            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <div>
+              <span>PM4Success</span>
+              <small>All courses</small>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   </nav>
+
+  <!-- ========== ACCOUNT VERIFICATION BANNER (Logged In) ========== -->
+  <div class="verification-banner navbar-logged-in">
+    <div class="verification-banner-inner">
+      <div class="verification-banner-icon">
+        <i class="bi bi-exclamation-circle-fill"></i>
+      </div>
+      <div class="verification-banner-content">
+        <strong>Account not verified</strong>
+        <p>Your account is not verified yet! To receive your certificate upon course completion, you must verify your account. Without verification, your certificate will not be issued.</p>
+      </div>
+      <button class="verification-banner-close" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+    </div>
+  </div>
 
   <!-- ========== MOBILE MENU ========== -->
   <div class="mobile-menu-overlay"></div>
   <div class="mobile-menu">
-    <div class="mobile-menu-header">
+
+    <!-- Logged out header -->
+    <div class="mobile-menu-header navbar-logged-out">
       <img src="assets/images/logo.png" alt="PM4Success">
-      <button class="mobile-menu-close"><i class="bi bi-x-lg"></i></button>
     </div>
 
-    <!-- Logged out menu -->
-    <div class="mobile-menu-nav navbar-logged-out">
+    <!-- Logged in header -->
+    <a href="edit-profile.html" class="mobile-menu-header-user navbar-logged-in">
+      <div class="mobile-user-avatar">
+        <span>AU</span>
+      </div>
+      <div class="mobile-user-info">
+        <strong>Hi, Aliyu Unuagbokhe</strong>
+        <small>Welcome back</small>
+      </div>
+      <span class="mobile-user-arrow"><i class="bi bi-chevron-right"></i></span>
+    </a>
+
+    <!-- Nav links (both states) -->
+    <div class="mobile-menu-nav">
       <a href="course-catalogue.html">Course Catalogue</a>
       <a href="learning-paths.html">My Career Path</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
-      <div class="menu-divider"></div>
-      <a href="login.html" class="signin-link">Login</a>
-      <a href="signup.html" class="btn btn-enroll w-100 text-center">Enroll Now</a>
     </div>
 
-    <!-- Logged in menu -->
-    <div class="mobile-menu-nav navbar-logged-in">
-      <a href="course-catalogue.html">Course Catalogue</a>
-      <a href="learning-paths.html">My Career Path</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-      <div class="menu-divider"></div>
-      <a href="my-courses.html"><i class="bi bi-journal-bookmark"></i> My Courses</a>
-      <a href="edit-profile.html"><i class="bi bi-person"></i> Profile</a>
-      <a href="learning-paths.html"><i class="bi bi-signpost-split"></i> Career Path</a>
-      <a href="purchases.html"><i class="bi bi-credit-card"></i> My Purchase</a>
-      <a href="accomplishments.html"><i class="bi bi-trophy"></i> Accomplishments</a>
-      <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
-      <a href="help-support.html"><i class="bi bi-question-circle"></i> Help Center</a>
-      <div class="menu-divider"></div>
-      <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+    <!-- Logged out footer -->
+    <div class="mobile-menu-footer navbar-logged-out">
+      <a href="#" class="mobile-signin-link" data-open-modal="loginModal">Sign In</a>
     </div>
+
+    <!-- Logged in: Switch Account -->
+    <div class="mobile-switch-account navbar-logged-in">
+      <p class="mobile-switch-label">Switch Account</p>
+      <a href="#" class="mobile-switch-item">NNPC Tech Scholarship</a>
+      <a href="#" class="mobile-switch-item active">Explore PM4Success</a>
+    </div>
+
   </div>
+
+
 
   <!-- ========== HELP & SUPPORT HERO ========== -->
   <section class="section">
@@ -369,7 +427,7 @@
         <div class="col-lg-3 col-md-6">
           <h5>Join Us Today!</h5>
           <div class="footer-links">
-            <a href="signup.html">Sign Up as a Learner</a>
+            <a href="#" data-open-modal="signupModal">Sign Up as a Learner</a>
             <a href="#">Sign Up for Career Path</a>
             <a href="#">Become an Instructor</a>
             <a href="contact.html">Contact Us for License</a>
@@ -430,6 +488,168 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ========== LOGIN MODAL ========== -->
+  <div class="auth-modal-overlay" id="loginModal">
+    <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <div class="auth-container">
+
+        <h1>Welcome back</h1>
+
+        <form data-action="login">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email</label>
+            <input type="email" class="form-control" id="login-email" placeholder="name@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="login-password" placeholder="Enter your password" required>
+              <i class="bi bi-eye input-group-icon" data-toggle-password="login-password"></i>
+            </div>
+          </div>
+
+          <a href="#" class="text-primary text-small fw-500 d-inline-block mb-4" data-open-modal="forgotPasswordModal">Forgot password</a>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
+        </form>
+
+        <div class="form-divider">or</div>
+
+        <button class="auth-social-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Log in with Google
+        </button>
+
+        <button class="auth-social-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Log in with Facebook
+        </button>
+
+        <div class="auth-footer">
+          Don't have an account? <a href="#" data-open-modal="signupModal">Sign Up</a>
+        </div>
+
+        <div class="auth-legal">
+          <p>Having trouble logging in? <a href="help-support.html">Learner help center</a></p>
+          <p>This site is protected by reCAPTCHA Enterprise and PM4SUCCESS <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms of Service</a> apply.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SIGNUP MODAL ========== -->
+  <div class="auth-modal-overlay" id="signupModal">
+    <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <div class="auth-container">
+
+        <h1>Sign up</h1>
+        <p class="auth-subtitle">Learn on your own time from top universities and businesses</p>
+
+        <form data-action="signup">
+          <div class="form-group">
+            <label class="form-label" for="signup-name">Full Name</label>
+            <input type="text" class="form-control" id="signup-name" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-email">Email</label>
+            <input type="email" class="form-control" id="signup-email" placeholder="name@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-password">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="signup-password" placeholder="Create password" required>
+              <i class="bi bi-eye input-group-icon" data-toggle-password="signup-password"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-confirm">Confirm Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="signup-confirm" placeholder="Confirm password" required>
+              <i class="bi bi-eye input-group-icon" data-toggle-password="signup-confirm"></i>
+            </div>
+            <span class="form-hint">Between 8 and 72 characters</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Create Account</button>
+        </form>
+
+        <div class="form-divider">or</div>
+
+        <button class="auth-social-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Sign up with Google
+        </button>
+
+        <button class="auth-social-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Sign up with Facebook
+        </button>
+
+        <div class="auth-footer">
+          Already have an account? <a href="#" data-open-modal="loginModal">Log in</a>
+        </div>
+
+        <div class="auth-legal">
+          <p>Having trouble logging in? <a href="help-support.html">Learner help center</a></p>
+          <p>This site is protected by reCAPTCHA Enterprise and PM4SUCCESS <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms of Service</a> apply.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== VERIFY OTP MODAL ========== -->
+  <div class="auth-modal-overlay" id="verifyOtpModal">
+    <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <div class="auth-container">
+
+        <h1>Verify OTP Code</h1>
+        <p class="auth-subtitle-bold">A verification code has been sent to your email.</p>
+        <p class="auth-subtitle">Please enter the code into the field below to complete your sign-up and verify your account.</p>
+
+        <form data-action="verify-otp">
+          <div class="form-group">
+            <input type="text" class="form-control" id="otp-code" placeholder="Enter OTP code here" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Verify OTP</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FORGOT PASSWORD MODAL ========== -->
+  <div class="auth-modal-overlay" id="forgotPasswordModal">
+    <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <div class="auth-container">
+
+        <h1>Forgot password</h1>
+        <p class="auth-subtitle">Enter the email address associated with your account and we'll send you a link to reset your password.</p>
+
+        <form>
+          <div class="form-group">
+            <label class="form-label" for="forgot-email">Email</label>
+            <input type="email" class="form-control" id="forgot-email" placeholder="name@email.com" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Reset Password</button>
+        </form>
+
+        <div class="auth-footer">
+          Remember your password? <a href="#" data-open-modal="loginModal">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/script.js"></script>
 </body>
 </html>

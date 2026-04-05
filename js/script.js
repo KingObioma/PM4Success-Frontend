@@ -184,18 +184,6 @@ function initAuthState() {
     });
   });
 
-  // Protected page redirect
-  const protectedPages = [
-    'dashboard.html', 'my-courses.html', 'learning-paths.html',
-    'progress-report.html', 'purchases.html', 'accomplishments.html',
-    'edit-profile.html', 'notifications.html', 'course-content.html',
-    'cart.html', 'checkout.html'
-  ];
-
-  const currentPage = window.location.pathname.split('/').pop();
-  if (protectedPages.includes(currentPage) && !isLoggedIn) {
-    window.location.href = 'login.html';
-  }
 }
 
 /* ============================================
