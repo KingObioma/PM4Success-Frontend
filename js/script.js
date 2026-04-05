@@ -85,6 +85,56 @@ function initNavbar() {
 }
 
 /* ============================================
+   1b. Auth Modals
+   ============================================ */
+function initAuthModals() {
+  // Open modal
+  document.querySelectorAll('[data-open-modal]').forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Close mobile menu if open
+      var mobileMenu = document.querySelector('.mobile-menu');
+      var mobileOverlay = document.querySelector('.mobile-menu-overlay');
+      if (mobileMenu) mobileMenu.classList.remove('show');
+      if (mobileOverlay) mobileOverlay.classList.remove('show');
+
+      // Close any open auth modal first
+      document.querySelectorAll('.auth-modal-overlay.show').forEach(function (m) {
+        m.classList.remove('show');
+      });
+
+      var modalId = this.getAttribute('data-open-modal');
+      var modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Close modal via X button
+  document.querySelectorAll('[data-close-modal]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var modal = this.closest('.auth-modal-overlay');
+      if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Close modal via overlay click
+  document.querySelectorAll('.auth-modal-overlay').forEach(function (overlay) {
+    overlay.addEventListener('click', function (e) {
+      if (e.target === this) {
+        this.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+}
+
+/* ============================================
    2. Auth State
    ============================================ */
 function initAuthState() {
