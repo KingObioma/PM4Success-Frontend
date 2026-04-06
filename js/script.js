@@ -84,6 +84,17 @@ function initNavbar() {
       if (banner) banner.style.display = 'none';
     });
   }
+
+  // Set active nav link based on current page
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-nav a').forEach(function (link) {
+    var linkPage = link.getAttribute('href');
+    if (linkPage === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
 }
 
 /* ============================================
@@ -294,21 +305,47 @@ function initCarousels() {
 
     if (isPageScroll) {
       // Transform-based page carousel (testimonials)
+      // Find buttons and dots from section level (they live outside .carousel-wrapper)
+      var section = carousel.closest('section');
       var currentPage = 0;
-      var totalChildren = track.children.length;
-      var perPage = 3;
-      var totalPages = Math.ceil(totalChildren / perPage);
+
+      function getVisibleCards() {
+        var cards = track.children;
+        var count = 0;
+        for (var i = 0; i < cards.length; i++) {
+          if (cards[i].offsetParent !== null) count++;
+        }
+        return count;
+      }
+
+      function getCardsPerPage() {
+        if (window.innerWidth <= 767) return 1;
+        return 3;
+      }
+
+      function getGap() {
+        if (window.innerWidth <= 575) return 12;
+        return 20;
+      }
+
+      function getTotalPages() {
+        return Math.ceil(getVisibleCards() / getCardsPerPage());
+      }
 
       function goToPage(page) {
+        var totalPages = getTotalPages();
         if (page < 0) page = 0;
         if (page >= totalPages) page = totalPages - 1;
         currentPage = page;
-        var pageWidth = carousel.offsetWidth;
-        var gap = 20;
-        var offset = currentPage * (pageWidth + gap);
+        var gap = getGap();
+        var cardsPerPage = getCardsPerPage();
+        var firstCard = track.children[0];
+        var cardWidth = firstCard ? firstCard.offsetWidth : carousel.offsetWidth;
+        var offset = currentPage * cardsPerPage * (cardWidth + gap);
         track.style.transform = 'translateX(-' + offset + 'px)';
+
         // Update dots
-        var dotsContainer = carousel.closest('section').querySelector('.carousel-dots');
+        var dotsContainer = section.querySelector('.carousel-dots');
         if (dotsContainer) {
           var allDots = dotsContainer.querySelectorAll('.carousel-dot');
           allDots.forEach(function (d, i) {
@@ -317,21 +354,35 @@ function initCarousels() {
         }
       }
 
-      if (prevBtn) {
-        prevBtn.addEventListener('click', function () {
+      // Recalculate on resize
+      window.addEventListener('resize', function () {
+        var totalPages = getTotalPages();
+        if (currentPage >= totalPages) currentPage = totalPages - 1;
+        goToPage(currentPage);
+      });
+
+      // Nav buttons (found from section since they're outside wrapper)
+      var sectionPrev = section.querySelector('.carousel-btn-prev');
+      var sectionNext = section.querySelector('.carousel-btn-next');
+
+      if (sectionPrev) {
+        sectionPrev.addEventListener('click', function (e) {
+          e.stopImmediatePropagation();
           goToPage(currentPage - 1);
         });
       }
 
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function () {
+      if (sectionNext) {
+        sectionNext.addEventListener('click', function (e) {
+          e.stopImmediatePropagation();
           goToPage(currentPage + 1);
         });
       }
 
       // Dot clicks
-      var dotsContainer = carousel.closest('section').querySelector('.carousel-dots');
+      var dotsContainer = section.querySelector('.carousel-dots');
       if (dotsContainer) {
+        dotsContainer.setAttribute('data-handled', 'true');
         var allDots = dotsContainer.querySelectorAll('.carousel-dot');
         allDots.forEach(function (dot, index) {
           dot.addEventListener('click', function () {
@@ -339,6 +390,10 @@ function initCarousels() {
           });
         });
       }
+
+      // Mark buttons so standalone handler skips them
+      if (sectionPrev) sectionPrev.setAttribute('data-handled', 'true');
+      if (sectionNext) sectionNext.setAttribute('data-handled', 'true');
 
     } else {
       // Scroll-based carousel (default)
@@ -386,15 +441,17 @@ function initCarousels() {
     }
   });
 
-  // Standalone carousel nav buttons with data-target
+  // Standalone carousel nav buttons with data-target (skip transform-based carousels)
   var standaloneNavBtns = document.querySelectorAll('.carousel-btn[data-target]');
   standaloneNavBtns.forEach(function (btn) {
+    if (btn.hasAttribute('data-handled')) return;
     btn.addEventListener('click', function () {
       var targetId = this.getAttribute('data-target');
       var track = document.getElementById(targetId);
       if (!track) return;
 
-      var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
+      var gap = window.innerWidth <= 575 ? 12 : 20;
+      var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
       var itemsPerPage = 3;
       var pageWidth = childWidth * itemsPerPage;
       var direction = this.classList.contains('carousel-btn-prev') ? -1 : 1;
@@ -412,19 +469,21 @@ function initCarousels() {
     });
   });
 
-  // Standalone carousel dots (outside carousel-wrapper)
+  // Standalone carousel dots (outside carousel-wrapper, skip transform-based carousels)
   var standaloneDots = document.querySelectorAll('.carousel-dots');
   standaloneDots.forEach(function (dotsContainer) {
+    if (dotsContainer.hasAttribute('data-handled')) return;
     var section = dotsContainer.closest('section');
     if (!section) return;
     var track = section.querySelector('.carousel-track');
     if (!track) return;
     var dots = dotsContainer.querySelectorAll('.carousel-dot');
-    var itemsPerPage = 3;
 
     dots.forEach(function (dot, index) {
       dot.addEventListener('click', function () {
-        var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
+        var gap = window.innerWidth <= 575 ? 12 : 20;
+        var itemsPerPage = 3;
+        var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
         var scrollTo = index * itemsPerPage * childWidth;
         track.scrollTo({ left: scrollTo, behavior: 'smooth' });
         dots.forEach(function (d) { d.classList.remove('active'); });
@@ -434,7 +493,9 @@ function initCarousels() {
 
     track.addEventListener('scroll', function () {
       var scrollLeft = track.scrollLeft;
-      var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
+      var gap = window.innerWidth <= 575 ? 12 : 20;
+      var itemsPerPage = 3;
+      var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
       var pageWidth = childWidth * itemsPerPage;
       var activeIndex = Math.round(scrollLeft / pageWidth);
       if (activeIndex >= dots.length) activeIndex = 0;
@@ -890,22 +951,53 @@ function initPromoCountdown() {
    ============================================ */
 function initHeroSlider() {
   var heroSlides = document.querySelectorAll('.hero-slide');
+  var heroDots = document.querySelectorAll('.hero-slider-dot');
+
+  function goToHeroSlide(index) {
+    heroSlides[heroCurrent].classList.remove('active');
+    if (heroDots.length) heroDots[heroCurrent].classList.remove('active');
+    heroCurrent = index;
+    heroSlides[heroCurrent].classList.add('active');
+    if (heroDots.length) heroDots[heroCurrent].classList.add('active');
+  }
+
   if (heroSlides.length >= 2) {
     var heroCurrent = 0;
+
+    heroDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var slideIndex = parseInt(this.getAttribute('data-slide'));
+        goToHeroSlide(slideIndex);
+      });
+    });
+
     setInterval(function () {
-      heroSlides[heroCurrent].classList.remove('active');
-      heroCurrent = (heroCurrent + 1) % heroSlides.length;
-      heroSlides[heroCurrent].classList.add('active');
+      goToHeroSlide((heroCurrent + 1) % heroSlides.length);
     }, 30000);
   }
 
   var ctaSlides = document.querySelectorAll('.cta-teach-slide');
+  var ctaDots = document.querySelectorAll('.cta-slider-dot');
   if (ctaSlides.length >= 2) {
     var ctaCurrent = 0;
-    setInterval(function () {
+
+    function goToCtaSlide(index) {
       ctaSlides[ctaCurrent].classList.remove('active');
-      ctaCurrent = (ctaCurrent + 1) % ctaSlides.length;
+      if (ctaDots.length) ctaDots[ctaCurrent].classList.remove('active');
+      ctaCurrent = index;
       ctaSlides[ctaCurrent].classList.add('active');
+      if (ctaDots.length) ctaDots[ctaCurrent].classList.add('active');
+    }
+
+    ctaDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var slideIndex = parseInt(this.getAttribute('data-cta-slide'));
+        goToCtaSlide(slideIndex);
+      });
+    });
+
+    setInterval(function () {
+      goToCtaSlide((ctaCurrent + 1) % ctaSlides.length);
     }, 30000);
   }
 }
@@ -914,14 +1006,92 @@ function initHeroSlider() {
    Program Tabs
    ============================================ */
 function initProgramTabs() {
-  var tabs = document.querySelectorAll('.program-tab');
-  if (!tabs.length) return;
+  var sidebar = document.querySelector('.program-sidebar');
+  var sidebarTabs = sidebar ? sidebar.querySelectorAll('.program-tab') : [];
+  var allGrids = document.querySelectorAll('.program-grid');
+  var accordionToggles = document.querySelectorAll('.program-accordion-toggle');
 
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      tabs.forEach(function (t) { t.classList.remove('active'); });
-      tab.classList.add('active');
+  if (!sidebarTabs.length) return;
+
+  /* Switch the visible grid to the given category */
+  function showGrid(category) {
+    allGrids.forEach(function (grid) {
+      if (grid.getAttribute('data-category') === category) {
+        grid.classList.add('active');
+      } else {
+        grid.classList.remove('active');
+      }
     });
+  }
+
+  /* Sidebar tabs: work on all screen sizes */
+  sidebarTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var category = tab.getAttribute('data-category');
+      var isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        /* If already active, do nothing — one must stay open */
+        if (tab.classList.contains('active')) return;
+
+        /* Close any open mobile accordion */
+        accordionToggles.forEach(function (t) {
+          t.classList.remove('active');
+          t.nextElementSibling.classList.remove('open');
+        });
+
+        sidebarTabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        showGrid(category);
+      } else {
+        /* Desktop/tablet: switch active tab and grid */
+        sidebarTabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        showGrid(category);
+      }
+    });
+  });
+
+  /* Mobile accordion toggles */
+  accordionToggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function () {
+      var content = toggle.nextElementSibling;
+      var isOpen = content.classList.contains('open');
+
+      /* Close all accordions */
+      accordionToggles.forEach(function (t) {
+        t.classList.remove('active');
+        t.nextElementSibling.classList.remove('open');
+      });
+
+      /* Deactivate sidebar tab and hide all grids */
+      sidebarTabs.forEach(function (t) { t.classList.remove('active'); });
+      allGrids.forEach(function (g) { g.classList.remove('active'); });
+
+      /* If already open, do nothing — one must stay open */
+      if (isOpen) return;
+
+      toggle.classList.add('active');
+      content.classList.add('open');
+    });
+  });
+
+  /* On resize: reset to Popular Courses when crossing into mobile */
+  var wasMobile = window.innerWidth < 768;
+  window.addEventListener('resize', function () {
+    var isMobile = window.innerWidth < 768;
+    if (isMobile === wasMobile) return;
+    wasMobile = isMobile;
+
+    /* Reset: close all accordions, activate Popular Courses */
+    accordionToggles.forEach(function (t) {
+      t.classList.remove('active');
+      t.nextElementSibling.classList.remove('open');
+    });
+    sidebarTabs.forEach(function (t) { t.classList.remove('active'); });
+    var popularTab = sidebar.querySelector('[data-category="popular"]');
+    if (popularTab) popularTab.classList.add('active');
+    showGrid('popular');
   });
 }
 
