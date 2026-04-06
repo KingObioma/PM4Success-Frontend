@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initPromoCountdown();
   initHeroSlider();
   initProgramTabs();
+  initValidation();
 });
 
 /* ============================================
@@ -157,21 +158,23 @@ function initAuthState() {
     });
   });
 
-  // Login handler (for demo)
+  // Login handler (for demo) — validation runs first via initValidation
   const loginForms = document.querySelectorAll('[data-action="login"]');
   loginForms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!Validator.validateForm(form)) return;
       localStorage.setItem('pm4s_logged_in', 'true');
       window.location.href = 'dashboard.html';
     });
   });
 
-  // Signup handler (for demo)
+  // Signup handler (for demo) — validation runs first via initValidation
   const signupForms = document.querySelectorAll('[data-action="signup"]');
   signupForms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!Validator.validateForm(form)) return;
       // Close signup modal and open OTP modal
       document.querySelectorAll('.auth-modal-overlay.show').forEach(function (m) {
         m.classList.remove('show');
@@ -920,4 +923,692 @@ function initProgramTabs() {
       tab.classList.add('active');
     });
   });
+}
+
+/* ============================================
+   FORM VALIDATION MODULE
+   ============================================ */
+
+/**
+ * Validator — reusable validation utilities
+ * All validators return { valid: boolean, message: string }
+ */
+var Validator = (function () {
+
+  /* ------------------------------------------
+     Core Validators
+     ------------------------------------------ */
+
+  function validateRequired(value) {
+    var trimmed = (value || '').trim();
+    return {
+      valid: trimmed.length > 0,
+      message: 'This field is required'
+    };
+  }
+
+  function validateEmail(value) {
+    var trimmed = (value || '').trim();
+    if (!trimmed) return { valid: false, message: 'Please enter your email address' };
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return {
+      valid: pattern.test(trimmed),
+      message: 'Please enter a valid email address'
+    };
+  }
+
+  function validatePassword(value) {
+    var val = value || '';
+    if (!val) return { valid: false, message: 'Please enter a password' };
+    if (val.length < 8) return { valid: false, message: 'Password must be at least 8 characters' };
+    if (!/[A-Z]/.test(val)) return { valid: false, message: 'Password must include at least 1 uppercase letter' };
+    if (!/[a-z]/.test(val)) return { valid: false, message: 'Password must include at least 1 lowercase letter' };
+    if (!/[0-9]/.test(val)) return { valid: false, message: 'Password must include at least 1 number' };
+    return { valid: true, message: '' };
+  }
+
+  function validateMatch(value1, value2, fieldName) {
+    var label = fieldName || 'Passwords';
+    return {
+      valid: value1 === value2 && value1 !== '',
+      message: label + ' do not match'
+    };
+  }
+
+  function validatePhone(value) {
+    var trimmed = (value || '').trim();
+    if (!trimmed) return { valid: false, message: 'Please enter your phone number' };
+    var digits = trimmed.replace(/[\s\-\+\(\)]/g, '');
+    if (!/^\d+$/.test(digits)) return { valid: false, message: 'Phone number must contain only numbers' };
+    if (digits.length < 10 || digits.length > 15) return { valid: false, message: 'Phone number must be between 10 and 15 digits' };
+    return { valid: true, message: '' };
+  }
+
+  function validateMinLength(value, min) {
+    var trimmed = (value || '').trim();
+    return {
+      valid: trimmed.length >= min,
+      message: 'Must be at least ' + min + ' characters'
+    };
+  }
+
+  function validateMaxLength(value, max) {
+    var trimmed = (value || '').trim();
+    return {
+      valid: trimmed.length <= max,
+      message: 'Must be no more than ' + max + ' characters'
+    };
+  }
+
+  function validateName(value) {
+    var trimmed = (value || '').trim();
+    if (!trimmed) return { valid: false, message: 'Please enter your name' };
+    if (trimmed.length < 2) return { valid: false, message: 'Name must be at least 2 characters' };
+    if (!/^[a-zA-Z\s\-']+$/.test(trimmed)) return { valid: false, message: 'Name can only contain letters, spaces, hyphens, and apostrophes' };
+    return { valid: true, message: '' };
+  }
+
+  function validateSelect(value) {
+    return {
+      valid: value !== '' && value !== null && value !== undefined,
+      message: 'Please select an option'
+    };
+  }
+
+  function validateOTP(value) {
+    var trimmed = (value || '').trim();
+    if (!trimmed) return { valid: false, message: 'Please enter the OTP code' };
+    if (!/^\d+$/.test(trimmed)) return { valid: false, message: 'OTP must contain only numbers' };
+    if (trimmed.length < 4 || trimmed.length > 6) return { valid: false, message: 'OTP must be 4-6 digits' };
+    return { valid: true, message: '' };
+  }
+
+  /* ------------------------------------------
+     DOM Helpers
+     ------------------------------------------ */
+
+  function showError(inputEl, message) {
+    if (!inputEl) return;
+    clearError(inputEl);
+
+    // Add error class to input
+    inputEl.classList.add('input-error');
+    inputEl.classList.remove('input-success');
+    inputEl.setAttribute('aria-invalid', 'true');
+
+    // Create error message element
+    var errorEl = document.createElement('span');
+    errorEl.className = 'error-message';
+    errorEl.textContent = message;
+    errorEl.id = inputEl.id ? inputEl.id + '-error' : 'error-' + Date.now();
+
+    // Link via aria-describedby
+    inputEl.setAttribute('aria-describedby', errorEl.id);
+
+    // Insert after the input's parent if it's an input-group, otherwise after input
+    var parent = inputEl.closest('.input-group') || inputEl.closest('.file-upload-area');
+    if (parent) {
+      parent.parentNode.insertBefore(errorEl, parent.nextSibling);
+    } else {
+      inputEl.parentNode.insertBefore(errorEl, inputEl.nextSibling);
+    }
+  }
+
+  function clearError(inputEl) {
+    if (!inputEl) return;
+
+    inputEl.classList.remove('input-error');
+    inputEl.setAttribute('aria-invalid', 'false');
+
+    // Remove existing error message
+    var describedBy = inputEl.getAttribute('aria-describedby');
+    if (describedBy) {
+      var errorEl = document.getElementById(describedBy);
+      if (errorEl && errorEl.classList.contains('error-message')) {
+        errorEl.remove();
+      }
+      inputEl.removeAttribute('aria-describedby');
+    }
+
+    // Also check for adjacent error messages (fallback)
+    var parent = inputEl.closest('.input-group') || inputEl.closest('.file-upload-area');
+    var nextEl = parent ? parent.nextElementSibling : inputEl.nextElementSibling;
+    if (nextEl && nextEl.classList.contains('error-message')) {
+      nextEl.remove();
+    }
+  }
+
+  function showSuccess(inputEl) {
+    if (!inputEl) return;
+    clearError(inputEl);
+    inputEl.classList.add('input-success');
+    inputEl.setAttribute('aria-invalid', 'false');
+  }
+
+  /* ------------------------------------------
+     Form-level Validation
+     ------------------------------------------ */
+
+  /**
+   * validateForm — validates all registered fields in a form
+   * Each form should have data-validate rules on its inputs,
+   * or be handled by a custom config passed to wireForm.
+   * Returns true if all fields pass, false otherwise.
+   */
+  function validateForm(formEl) {
+    if (!formEl) return false;
+
+    var fields = formEl.querySelectorAll('[data-validate]');
+    var allValid = true;
+    var firstInvalid = null;
+
+    fields.forEach(function (field) {
+      var isValid = validateField(field);
+      if (!isValid && !firstInvalid) {
+        firstInvalid = field;
+      }
+      if (!isValid) allValid = false;
+    });
+
+    if (!allValid) {
+      // Add shake animation
+      formEl.classList.add('form-shake');
+      setTimeout(function () {
+        formEl.classList.remove('form-shake');
+      }, 500);
+
+      // Scroll to and focus the first invalid field
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function () { firstInvalid.focus(); }, 300);
+      }
+    }
+
+    return allValid;
+  }
+
+  /**
+   * validateField — validates a single field based on its data-validate attribute
+   * data-validate can contain multiple rules separated by |
+   * e.g. data-validate="required|email" or data-validate="required|password"
+   */
+  function validateField(field) {
+    var rules = (field.getAttribute('data-validate') || '').split('|');
+    var value = field.value;
+    var result = { valid: true, message: '' };
+
+    for (var i = 0; i < rules.length; i++) {
+      var rule = rules[i].trim();
+      if (!rule) continue;
+
+      if (rule === 'required') {
+        result = validateRequired(value);
+      } else if (rule === 'email') {
+        result = validateEmail(value);
+      } else if (rule === 'password') {
+        result = validatePassword(value);
+      } else if (rule === 'name') {
+        result = validateName(value);
+      } else if (rule === 'phone') {
+        result = validatePhone(value);
+      } else if (rule === 'otp') {
+        result = validateOTP(value);
+      } else if (rule === 'select') {
+        result = validateSelect(value);
+      } else if (rule.indexOf('match:') === 0) {
+        var matchTargetId = rule.split(':')[1];
+        var matchTarget = document.getElementById(matchTargetId);
+        var matchValue = matchTarget ? matchTarget.value : '';
+        result = validateMatch(value, matchValue, 'Passwords');
+      } else if (rule.indexOf('minlength:') === 0) {
+        var min = parseInt(rule.split(':')[1], 10);
+        result = validateMinLength(value, min);
+      } else if (rule.indexOf('maxlength:') === 0) {
+        var max = parseInt(rule.split(':')[1], 10);
+        result = validateMaxLength(value, max);
+      }
+
+      if (!result.valid) break;
+    }
+
+    if (result.valid) {
+      showSuccess(field);
+    } else {
+      showError(field, result.message);
+    }
+
+    return result.valid;
+  }
+
+  /**
+   * wireField — attaches blur and input listeners to a field
+   */
+  function wireField(field) {
+    // Validate on blur
+    field.addEventListener('blur', function () {
+      validateField(field);
+    });
+
+    // Clear error on input (real-time correction)
+    field.addEventListener('input', function () {
+      if (field.classList.contains('input-error')) {
+        validateField(field);
+      }
+    });
+
+    // For selects, listen to change instead
+    if (field.tagName === 'SELECT') {
+      field.addEventListener('change', function () {
+        validateField(field);
+      });
+    }
+  }
+
+  /**
+   * wireForm — sets up blur/input/submit validation for an entire form
+   */
+  function wireForm(formEl) {
+    if (!formEl) return;
+
+    var fields = formEl.querySelectorAll('[data-validate]');
+    fields.forEach(function (field) {
+      wireField(field);
+    });
+
+    // Submit handler — only if form doesn't already have a data-action
+    // (data-action forms handle submit in initAuthState)
+    if (!formEl.hasAttribute('data-action')) {
+      formEl.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (validateForm(formEl)) {
+          // Form is valid — for demo, show a success indication
+          // In production, the backend engineer will handle actual submission
+          formEl.dispatchEvent(new CustomEvent('validSubmit'));
+        }
+      });
+    }
+  }
+
+  // Public API
+  return {
+    validateRequired: validateRequired,
+    validateEmail: validateEmail,
+    validatePassword: validatePassword,
+    validateMatch: validateMatch,
+    validatePhone: validatePhone,
+    validateMinLength: validateMinLength,
+    validateMaxLength: validateMaxLength,
+    validateName: validateName,
+    validateSelect: validateSelect,
+    validateOTP: validateOTP,
+    showError: showError,
+    clearError: clearError,
+    showSuccess: showSuccess,
+    validateForm: validateForm,
+    validateField: validateField,
+    wireField: wireField,
+    wireForm: wireForm
+  };
+
+})();
+
+/* ============================================
+   VALIDATION INITIALIZATION
+   Wires up all forms across the site
+   ============================================ */
+function initValidation() {
+
+  /* ------------------------------------------
+     Auth Modal Forms (present on all pages)
+     ------------------------------------------ */
+
+  // Login forms
+  document.querySelectorAll('[data-action="login"]').forEach(function (form) {
+    var emailInput = form.querySelector('#login-email, [type="email"]');
+    var passwordInput = form.querySelector('#login-password, [type="password"]');
+    if (emailInput) emailInput.setAttribute('data-validate', 'required|email');
+    if (passwordInput) passwordInput.setAttribute('data-validate', 'required');
+    Validator.wireForm(form);
+  });
+
+  // Signup forms
+  document.querySelectorAll('[data-action="signup"]').forEach(function (form) {
+    var nameInput = form.querySelector('#signup-name, [placeholder*="full name"]');
+    var emailInput = form.querySelector('#signup-email, [type="email"]');
+    var passwordInput = form.querySelector('#signup-password');
+    var confirmInput = form.querySelector('#signup-confirm');
+
+    if (nameInput) nameInput.setAttribute('data-validate', 'required|name');
+    if (emailInput) emailInput.setAttribute('data-validate', 'required|email');
+    if (passwordInput) passwordInput.setAttribute('data-validate', 'required|password');
+    if (confirmInput) {
+      var pwId = passwordInput ? passwordInput.id : 'signup-password';
+      confirmInput.setAttribute('data-validate', 'required|match:' + pwId);
+    }
+    Validator.wireForm(form);
+  });
+
+  // Verify OTP forms (modal)
+  document.querySelectorAll('[data-action="verify-otp"]').forEach(function (form) {
+    var otpInput = form.querySelector('#otp-code, [placeholder*="OTP"]');
+    if (otpInput) otpInput.setAttribute('data-validate', 'required|otp');
+    Validator.wireForm(form);
+  });
+
+  // Forgot Password forms
+  document.querySelectorAll('#forgotPasswordModal form').forEach(function (form) {
+    if (form.hasAttribute('data-action')) return;
+    var emailInput = form.querySelector('#forgot-email, [type="email"]');
+    if (emailInput) emailInput.setAttribute('data-validate', 'required|email');
+    Validator.wireForm(form);
+  });
+
+  /* ------------------------------------------
+     Standalone OTP Page (verify-otp.html)
+     ------------------------------------------ */
+  var standaloneOtpForm = document.querySelector('form[action="#"]');
+  if (standaloneOtpForm && standaloneOtpForm.querySelector('.otp-input')) {
+    var otpField = standaloneOtpForm.querySelector('.otp-input');
+    if (otpField) otpField.setAttribute('data-validate', 'required|otp');
+    Validator.wireForm(standaloneOtpForm);
+  }
+
+  /* ------------------------------------------
+     Contact Form (contact.html)
+     ------------------------------------------ */
+  var contactName = document.getElementById('contactName');
+  var contactEmail = document.getElementById('contactEmail');
+  var contactSubject = document.getElementById('contactSubject');
+  var contactMessage = document.getElementById('contactMessage');
+
+  if (contactName) {
+    contactName.setAttribute('data-validate', 'required|name');
+    var contactForm = contactName.closest('form');
+
+    if (contactEmail) contactEmail.setAttribute('data-validate', 'required|email');
+    if (contactMessage) contactMessage.setAttribute('data-validate', 'required|minlength:10');
+    // Subject is optional — no validation needed
+
+    if (contactForm) Validator.wireForm(contactForm);
+  }
+
+  /* ------------------------------------------
+     Edit Profile — Personal Information
+     ------------------------------------------ */
+  var personalInfoSection = document.querySelector('.profile-card');
+  if (personalInfoSection) {
+    var personalForm = personalInfoSection.querySelector('form');
+    if (personalForm) {
+      var inputs = personalForm.querySelectorAll('input, select');
+      inputs.forEach(function (input) {
+        var type = input.type;
+        var placeholder = (input.placeholder || '').toLowerCase();
+
+        if (placeholder.indexOf('fullname') !== -1 || placeholder.indexOf('full name') !== -1) {
+          input.setAttribute('data-validate', 'required|name');
+        } else if (type === 'email') {
+          input.setAttribute('data-validate', 'required|email');
+        } else if (type === 'tel') {
+          input.setAttribute('data-validate', 'required|phone');
+        } else if (placeholder.indexOf('address') !== -1) {
+          input.setAttribute('data-validate', 'required');
+        } else if (type === 'date') {
+          input.setAttribute('data-validate', 'required');
+        } else if (input.tagName === 'SELECT') {
+          input.setAttribute('data-validate', 'required|select');
+        }
+      });
+      Validator.wireForm(personalForm);
+    }
+  }
+
+  /* ------------------------------------------
+     Edit Profile — Account Verification
+     ------------------------------------------ */
+  var verifySection = document.querySelector('.profile-card.mt-4');
+  if (verifySection) {
+    var verifyForms = document.querySelectorAll('.profile-card.mt-4 form');
+    verifyForms.forEach(function (form) {
+      // Check if this is the verification form (has ID type select)
+      var idSelect = form.querySelector('select');
+      var fileInput = form.querySelector('input[type="file"]');
+
+      if (idSelect && fileInput) {
+        // This is the account verification form
+        var formInputs = form.querySelectorAll('input:not([type="file"]), select');
+        formInputs.forEach(function (input) {
+          var placeholder = (input.placeholder || '').toLowerCase();
+          if (placeholder.indexOf('fullname') !== -1) {
+            input.setAttribute('data-validate', 'required|name');
+          } else if (input.type === 'date') {
+            input.setAttribute('data-validate', 'required');
+          } else if (input.tagName === 'SELECT') {
+            input.setAttribute('data-validate', 'required|select');
+          }
+        });
+        Validator.wireForm(form);
+
+        // Custom file validation on submit
+        form.addEventListener('validSubmit', function () {
+          if (fileInput && !fileInput.files.length) {
+            var uploadArea = fileInput.closest('.file-upload-area');
+            if (uploadArea) {
+              uploadArea.classList.add('input-error');
+              // Add error message if not already there
+              var existing = uploadArea.parentNode.querySelector('.error-message');
+              if (!existing) {
+                var msg = document.createElement('span');
+                msg.className = 'error-message';
+                msg.textContent = 'Please upload your ID document';
+                uploadArea.parentNode.insertBefore(msg, uploadArea.nextSibling);
+              }
+            }
+          }
+        });
+      }
+    });
+  }
+
+  /* ------------------------------------------
+     Edit Profile — Change Password
+     ------------------------------------------ */
+  var passwordCard = document.querySelector('.password-card');
+  if (passwordCard) {
+    var passwordForm = passwordCard.querySelector('form');
+    if (passwordForm) {
+      var pwInputs = passwordForm.querySelectorAll('input[type="password"]');
+      if (pwInputs.length === 3) {
+        pwInputs[0].setAttribute('data-validate', 'required');
+        pwInputs[0].id = pwInputs[0].id || 'current-password';
+
+        pwInputs[1].setAttribute('data-validate', 'required|password');
+        pwInputs[1].id = pwInputs[1].id || 'new-password';
+
+        pwInputs[2].setAttribute('data-validate', 'required|match:' + pwInputs[1].id);
+        pwInputs[2].id = pwInputs[2].id || 'confirm-new-password';
+      }
+      Validator.wireForm(passwordForm);
+    }
+  }
+
+  /* ------------------------------------------
+     Help & Support — Feedback Form
+     ------------------------------------------ */
+  var feedbackTextarea = document.querySelector('.star-rating[data-interactive]');
+  if (feedbackTextarea) {
+    var feedbackSection = feedbackTextarea.closest('.col-lg-7');
+    if (feedbackSection) {
+      var textarea = feedbackSection.querySelector('textarea');
+      var ratingInput = feedbackSection.querySelector('input[type="hidden"][name="rating"]');
+      var sendBtn = feedbackSection.querySelector('.btn-primary');
+
+      if (textarea) textarea.setAttribute('data-validate', 'required|minlength:10');
+
+      // Wire textarea blur/input
+      if (textarea) Validator.wireField(textarea);
+
+      // Send feedback button handler
+      if (sendBtn) {
+        sendBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var allValid = true;
+
+          // Validate textarea
+          if (textarea) {
+            var result = Validator.validateField(textarea);
+            if (!result) allValid = false;
+          }
+
+          // Validate star rating
+          if (ratingInput && (!ratingInput.value || ratingInput.value === '0')) {
+            allValid = false;
+            // Show error near stars
+            var starContainer = feedbackSection.querySelector('.star-rating');
+            var existingError = starContainer.parentNode.querySelector('.star-rating-error');
+            if (!existingError) {
+              var msg = document.createElement('span');
+              msg.className = 'star-rating-error';
+              msg.textContent = 'Please select a rating';
+              starContainer.parentNode.insertBefore(msg, starContainer.nextSibling);
+            }
+          } else {
+            // Clear star error
+            var starError = feedbackSection.querySelector('.star-rating-error');
+            if (starError) starError.remove();
+          }
+
+          if (!allValid) {
+            feedbackSection.classList.add('form-shake');
+            setTimeout(function () { feedbackSection.classList.remove('form-shake'); }, 500);
+          }
+        });
+      }
+    }
+  }
+
+  /* ------------------------------------------
+     Cart — Coupon Input
+     ------------------------------------------ */
+  var promoInput = document.querySelector('.promo-input-group input');
+  var promoBtn = document.querySelector('.promo-input-group button');
+  if (promoInput && promoBtn) {
+    promoBtn.addEventListener('click', function () {
+      var value = promoInput.value.trim();
+      if (!value) {
+        promoInput.classList.add('input-error');
+        promoInput.setAttribute('aria-invalid', 'true');
+        // Add error message
+        var existing = promoInput.parentNode.querySelector('.error-message');
+        if (!existing) {
+          var msg = document.createElement('span');
+          msg.className = 'error-message';
+          msg.textContent = 'Please enter a coupon code';
+          promoInput.parentNode.appendChild(msg);
+        }
+      } else {
+        promoInput.classList.remove('input-error');
+        promoInput.setAttribute('aria-invalid', 'false');
+        var err = promoInput.parentNode.querySelector('.error-message');
+        if (err) err.remove();
+      }
+    });
+
+    promoInput.addEventListener('input', function () {
+      if (promoInput.classList.contains('input-error') && promoInput.value.trim()) {
+        promoInput.classList.remove('input-error');
+        promoInput.setAttribute('aria-invalid', 'false');
+        var err = promoInput.parentNode.querySelector('.error-message');
+        if (err) err.remove();
+      }
+    });
+  }
+
+  /* ------------------------------------------
+     Checkout — Billing Form
+     ------------------------------------------ */
+  var billingForm = document.querySelector('.billing-form');
+  if (billingForm) {
+    billingForm.addEventListener('submit', function (e) {
+      var paymentSelected = billingForm.querySelector('input[name="payment"]:checked');
+      if (!paymentSelected) {
+        e.preventDefault();
+        var paymentMethods = billingForm.querySelector('.payment-methods');
+        if (paymentMethods) {
+          paymentMethods.classList.add('input-error');
+          var existing = paymentMethods.parentNode.querySelector('.error-message');
+          if (!existing) {
+            var msg = document.createElement('span');
+            msg.className = 'error-message';
+            msg.textContent = 'Please select a payment method';
+            paymentMethods.parentNode.insertBefore(msg, paymentMethods.nextSibling);
+          }
+        }
+        billingForm.classList.add('form-shake');
+        setTimeout(function () { billingForm.classList.remove('form-shake'); }, 500);
+      }
+    });
+
+    // Clear payment error when a radio is selected
+    billingForm.querySelectorAll('input[name="payment"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        var paymentMethods = billingForm.querySelector('.payment-methods');
+        if (paymentMethods) {
+          paymentMethods.classList.remove('input-error');
+          var err = paymentMethods.parentNode.querySelector('.error-message');
+          if (err) err.remove();
+        }
+      });
+    });
+  }
+
+  /* ------------------------------------------
+     Newsletter — Footer (all pages)
+     ------------------------------------------ */
+  document.querySelectorAll('.footer-newsletter').forEach(function (container) {
+    var emailInput = container.querySelector('input[type="email"]');
+    var subscribeBtn = container.querySelector('button');
+    if (!emailInput || !subscribeBtn) return;
+
+    subscribeBtn.addEventListener('click', function () {
+      var result = Validator.validateEmail(emailInput.value);
+      if (!result.valid) {
+        emailInput.classList.add('input-error');
+        emailInput.setAttribute('aria-invalid', 'true');
+        var existing = container.querySelector('.error-message');
+        if (!existing) {
+          var msg = document.createElement('span');
+          msg.className = 'error-message';
+          msg.textContent = result.message;
+          container.appendChild(msg);
+        }
+      } else {
+        emailInput.classList.remove('input-error');
+        emailInput.classList.add('input-success');
+        emailInput.setAttribute('aria-invalid', 'false');
+        var err = container.querySelector('.error-message');
+        if (err) err.remove();
+      }
+    });
+
+    emailInput.addEventListener('input', function () {
+      if (emailInput.classList.contains('input-error')) {
+        var result = Validator.validateEmail(emailInput.value);
+        if (result.valid) {
+          emailInput.classList.remove('input-error');
+          emailInput.classList.add('input-success');
+          emailInput.setAttribute('aria-invalid', 'false');
+          var err = container.querySelector('.error-message');
+          if (err) err.remove();
+        }
+      }
+    });
+  });
+
+  /* ------------------------------------------
+     Career Path Select (edit-profile.html)
+     ------------------------------------------ */
+  var careerSelect = document.querySelector('.profile-card.mt-4 > div > select.form-select');
+  if (careerSelect && !careerSelect.hasAttribute('data-validate')) {
+    // Career path is optional — no validation needed
+  }
 }
