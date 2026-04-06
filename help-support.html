@@ -334,7 +334,8 @@
       <div class="row g-4">
         <div class="col-lg-7">
           <div class="mb-3">
-            <textarea class="form-control" rows="5" placeholder="Ask Your Question Here..."></textarea>
+            <label class="form-label" for="feedback-message">Your Feedback</label>
+            <textarea class="form-control" id="feedback-message" rows="5" placeholder="Ask Your Question Here..."></textarea>
           </div>
 
           <div class="mb-3">
@@ -602,6 +603,7 @@
 
         <form data-action="verify-otp">
           <div class="form-group">
+            <label class="form-label" for="otp-code">OTP Code</label>
             <input type="text" class="form-control" id="otp-code" placeholder="Enter OTP code here" required>
           </div>
 
