@@ -707,7 +707,11 @@ function initCatalogueFilters() {
   // Helper: sync desktop tabs to a given category
   function syncDesktop(category) {
     tabs.forEach(function (t) {
-      t.classList.toggle('active', t.getAttribute('data-category') === category);
+      if (t.getAttribute('data-category') === category) {
+        t.classList.add('active');
+      } else {
+        t.classList.remove('active');
+      }
     });
     filterCards(category);
   }
@@ -747,13 +751,8 @@ function initCatalogueFilters() {
     });
   });
 
-  // On resize: sync both views to the shared active category
-  var wasMobile = window.innerWidth < 768;
+  // On resize: always keep both views in sync
   window.addEventListener('resize', function () {
-    var isMobile = window.innerWidth < 768;
-    if (isMobile === wasMobile) return;
-    wasMobile = isMobile;
-
     syncDesktop(activeCategory);
     syncMobile(activeCategory);
   });
