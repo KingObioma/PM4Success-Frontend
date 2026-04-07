@@ -4192,6 +4192,121 @@ body.is-logged-in .navbar-search {
 /* ============================================
    29. Learning Paths
    ============================================ */
+
+/* -- LP Hero Section -- */
+.lp-hero {
+  padding: 60px 0;
+  background-color: #eef2f6;
+}
+
+.lp-hero .row {
+  align-items: flex-start;
+}
+
+.lp-hero-content h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-dark);
+  margin-bottom: 16px;
+}
+
+.lp-hero-content > p {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+.lp-hero-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.lp-hero-feature {
+  text-align: center;
+}
+
+.lp-hero-feature-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
+}
+
+.lp-hero-feature h3 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 6px;
+}
+
+.lp-hero-feature p {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.lp-hero-btn {
+  display: inline-block;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.lp-hero-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* LP Hero Images */
+.lp-hero-images {
+  position: relative;
+  height: 420px;
+}
+
+.lp-hero-circle {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.lp-hero-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lp-hero-circle--top {
+  width: 200px;
+  height: 200px;
+  top: 0;
+  right: 0;
+}
+
+.lp-hero-circle--mid {
+  width: 150px;
+  height: 150px;
+  top: 60px;
+  right: 210px;
+}
+
+.lp-hero-circle--bottom {
+  width: 220px;
+  height: 220px;
+  top: 190px;
+  right: 40px;
+}
+
 .skill-rings-row {
   display: flex;
   gap: 32px;
