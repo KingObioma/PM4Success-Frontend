@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initStarRating();
   initFileUploads();
   initCatalogueFilters();
+  initFilterDropdowns();
   initCartInteractions();
   initCalendar();
   initSmoothScroll();
@@ -655,29 +656,73 @@ function initFileUploads() {
    11. Catalogue Filters
    ============================================ */
 function initCatalogueFilters() {
-  // Category sidebar click
-  const categoryItems = document.querySelectorAll('.category-sidebar-item');
+  var catalogueSidebar = document.querySelector('.catalogue-sidebar');
+  if (!catalogueSidebar) return;
 
-  categoryItems.forEach(function (item) {
-    item.addEventListener('click', function () {
-      categoryItems.forEach(function (i) { i.classList.remove('active'); });
-      this.classList.add('active');
+  var tabs = catalogueSidebar.querySelectorAll('.program-tab');
+  var courseCards = document.querySelectorAll('.catalogue-course-list .course-card-h');
+
+  var mobileToggles = document.querySelectorAll('.catalogue-accordion-toggle');
+
+  if (!tabs.length) return;
+
+  // Filter to active category on page load
+  var activeTab = catalogueSidebar.querySelector('.program-tab.active');
+  var initialCategory = activeTab ? activeTab.getAttribute('data-category') : 'popular';
+
+  function filterCards(category) {
+    courseCards.forEach(function (card) {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Apply initial filter
+  filterCards(initialCategory);
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var category = tab.getAttribute('data-category');
+      filterCards(category);
     });
   });
 
-  // Filter buttons toggle
-  const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+  // Mobile accordion toggles
+  mobileToggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function () {
+      var content = toggle.nextElementSibling;
+      var hasContent = content && content.classList.contains('catalogue-accordion-content');
+      var isOpen = hasContent && content.classList.contains('open');
 
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      this.classList.toggle('active');
+      // Close all accordions
+      mobileToggles.forEach(function (t) {
+        t.classList.remove('active');
+        var c = t.nextElementSibling;
+        if (c && c.classList.contains('catalogue-accordion-content')) {
+          c.classList.remove('open');
+        }
+      });
+
+      // If already open, keep it closed
+      if (isOpen) return;
+
+      // Open clicked accordion
+      toggle.classList.add('active');
+      if (hasContent) content.classList.add('open');
+
+      var category = toggle.getAttribute('data-category');
     });
   });
 
   // Mobile filter sidebar toggle
-  const filterToggle = document.querySelector('[data-toggle="filter-sidebar"]');
-  const filterSidebar = document.querySelector('.filter-sidebar');
-  const filterOverlay = document.querySelector('.filter-overlay');
+  var filterToggle = document.querySelector('[data-toggle="filter-sidebar"]');
+  var filterSidebar = document.querySelector('.filter-sidebar');
+  var filterOverlay = document.querySelector('.filter-overlay');
 
   if (filterToggle && filterSidebar) {
     filterToggle.addEventListener('click', function () {
@@ -692,6 +737,72 @@ function initCatalogueFilters() {
       });
     }
   }
+}
+
+/* ============================================
+   11b. Filter Dropdown Toggles
+   ============================================ */
+function initFilterDropdowns() {
+  var wrappers = document.querySelectorAll('.filter-dropdown-wrapper');
+  if (!wrappers.length) return;
+
+  // Toggle dropdown on pill click
+  wrappers.forEach(function (wrapper) {
+    var btn = wrapper.querySelector('.filter-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = wrapper.classList.contains('open');
+
+      // Close all dropdowns first
+      wrappers.forEach(function (w) { w.classList.remove('open'); });
+
+      // Toggle the clicked one
+      if (!isOpen) {
+        wrapper.classList.add('open');
+        positionDropdown(wrapper);
+      }
+    });
+  });
+
+  // Position dropdown so it stays within viewport
+  function positionDropdown(wrapper) {
+    var panel = wrapper.querySelector('.filter-dropdown-panel');
+    if (!panel) return;
+
+    // Reset positioning
+    panel.style.left = '0';
+    panel.style.right = 'auto';
+
+    // Check if it overflows right edge
+    var rect = panel.getBoundingClientRect();
+    if (rect.right > window.innerWidth - 16) {
+      panel.style.left = 'auto';
+      panel.style.right = '0';
+
+      // Check if it now overflows left edge
+      rect = panel.getBoundingClientRect();
+      if (rect.left < 16) {
+        panel.style.right = 'auto';
+        panel.style.left = -rect.left + 16 + 'px';
+      }
+    }
+  }
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.filter-dropdown-wrapper')) {
+      wrappers.forEach(function (w) { w.classList.remove('open'); });
+    }
+  });
+
+  // Prevent dropdown panel clicks from closing the panel
+  document.querySelectorAll('.filter-dropdown-panel').forEach(function (panel) {
+    panel.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  });
 }
 
 /* ============================================

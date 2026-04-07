@@ -167,262 +167,1265 @@
 
 
   <!-- ========== COURSE CATALOGUE ========== -->
-  <section class="section">
+  <section class="catalogue-section section">
     <div class="container">
-
-      <!-- Page Heading -->
-      <div class="section-heading">
-        <h2>Choose a highly-rated program.</h2>
-      </div>
-
-      <!-- Filter Bar -->
-      <div class="catalogue-header">
-        <div class="catalogue-filters">
-          <button class="filter-btn active">
-            <i class="bi bi-funnel"></i> Filters
-          </button>
-          <button class="filter-btn">
-            Price <i class="bi bi-chevron-down"></i>
-          </button>
-          <button class="filter-btn">
-            Duration <i class="bi bi-chevron-down"></i>
-          </button>
-          <button class="filter-btn">
-            Skill level <i class="bi bi-chevron-down"></i>
-          </button>
-          <button class="filter-btn">
-            Instructor's Rating <i class="bi bi-chevron-down"></i>
-          </button>
-          <button class="filter-btn">
-            Knowledge Area <i class="bi bi-chevron-down"></i>
-          </button>
-        </div>
-        <div class="catalogue-sort">
-          <span class="catalogue-count">course 1-10 results</span>
-          <select aria-label="Sort by">
-            <option>Sort by</option>
-            <option>Most Popular</option>
-            <option>Highest Rated</option>
-            <option>Newest</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-          </select>
-        </div>
-      </div>
 
       <!-- Two-Column Layout -->
       <div class="row g-4">
 
-        <!-- Left Sidebar: Categories -->
-        <div class="col-lg-3">
-          <div class="category-sidebar">
-            <a href="#" class="category-sidebar-item active">
-              All - choose course card
-            </a>
-            <a href="#" class="category-sidebar-item">
-              AI & Machine Learning <span class="count">(34)</span> <i class="bi bi-chevron-right"></i>
-            </a>
-            <a href="#" class="category-sidebar-item">
-              Data Analytics <span class="count">(24)</span> <i class="bi bi-chevron-right"></i>
-            </a>
-            <a href="#" class="category-sidebar-item">
-              UI Design <span class="count">(20)</span> <i class="bi bi-chevron-right"></i>
-            </a>
-            <a href="#" class="category-sidebar-item">
-              Management <span class="count">(24)</span> <i class="bi bi-chevron-right"></i>
-            </a>
+        <!-- Left Sidebar -->
+        <div class="col-md-3 catalogue-sidebar-col">
+
+          <!-- Page Heading -->
+          <div class="section-heading catalogue-heading">
+            <h2>Choose a highly-rated program.</h2>
+          </div>
+
+          <!-- Category Sidebar (desktop/tablet) -->
+          <div class="program-sidebar catalogue-sidebar">
+            <button class="program-tab active" data-category="popular">
+              <i class="bi bi-graph-up-arrow"></i>
+              <span>Popular Courses (224)</span>
+              <i class="bi bi-chevron-right program-tab-arrow"></i>
+            </button>
+            <button class="program-tab" data-category="ai">
+              <i class="bi bi-globe2"></i>
+              <span>AI & Machine Learning (34)</span>
+              <i class="bi bi-chevron-right program-tab-arrow"></i>
+            </button>
+            <button class="program-tab" data-category="data-science">
+              <i class="bi bi-arrow-repeat"></i>
+              <span>Data Science & Business Analytics (54)</span>
+              <i class="bi bi-chevron-right program-tab-arrow"></i>
+            </button>
+            <button class="program-tab" data-category="ux-design">
+              <i class="bi bi-palette"></i>
+              <span>UX Design (82)</span>
+              <i class="bi bi-chevron-right program-tab-arrow"></i>
+            </button>
+            <button class="program-tab" data-category="management">
+              <i class="bi bi-briefcase"></i>
+              <span>Management (24)</span>
+              <i class="bi bi-chevron-right program-tab-arrow"></i>
+            </button>
+            <button class="program-show-more">
+              <span>Show more</span>
+              <i class="bi bi-plus"></i>
+            </button>
           </div>
         </div>
 
-        <!-- Right Content: Course Cards -->
-        <div class="col-lg-9">
+        <!-- Right Content -->
+        <div class="col-md-9 catalogue-content-col">
 
-          <!-- Course Card 1 -->
-          <div class="course-card-h">
-            <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-h-img">
-            <div class="course-card-h-body">
-              <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
-              <p class="course-card-h-desc">Learn the fundamentals of data science, including statistical analysis, data visualization, and predictive modeling techniques used by industry professionals.</p>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 12 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> 1 Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Dr. Emily Thompson</p>
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="course-card-rating">
-                  <span class="rating-score">4.6</span>
-                  <span class="stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                  </span>
-                  <span class="rating-count">(961,432)</span>
+          <!-- COURSE CATEGORIES Divider -->
+          <div class="catalogue-divider-label">
+            <span>COURSE CATEGORIES</span>
+          </div>
+
+          <!-- Filter Bar -->
+          <div class="catalogue-filter-bar">
+            <span class="catalogue-filter-label">
+              <i class="bi bi-sliders"></i> Filter
+            </span>
+            <div class="catalogue-filter-pills">
+
+              <!-- Sort By -->
+              <div class="filter-dropdown-wrapper">
+                <button class="filter-btn" data-filter="sort-by">Sort By <i class="bi bi-chevron-down"></i></button>
+                <div class="filter-dropdown-panel">
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="sort-by" value="relevance">
+                    <span>Relevance</span>
+                  </label>
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="sort-by" value="newest">
+                    <span>Newest</span>
+                  </label>
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="sort-by" value="most-popular">
+                    <span>Most Popular</span>
+                  </label>
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="sort-by" value="highest-rated">
+                    <span>Highest Rated</span>
+                  </label>
                 </div>
-                <span class="course-card-h-price">$2,000</span>
+              </div>
+
+              <!-- Skill Level -->
+              <div class="filter-dropdown-wrapper">
+                <button class="filter-btn" data-filter="skill-level">Skill Level <i class="bi bi-chevron-down"></i></button>
+                <div class="filter-dropdown-panel">
+                  <button class="filter-dropdown-text-item" data-value="beginner">Beginner</button>
+                  <button class="filter-dropdown-text-item" data-value="mid-level">Mid-level</button>
+                  <button class="filter-dropdown-text-item" data-value="advanced">Advanced</button>
+                  <button class="filter-dropdown-text-item" data-value="expert">Expert</button>
+                </div>
+              </div>
+
+              <!-- Price -->
+              <div class="filter-dropdown-wrapper">
+                <button class="filter-btn" data-filter="price">Price <i class="bi bi-chevron-down"></i></button>
+                <div class="filter-dropdown-panel">
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="price" value="paid">
+                    <span>Paid</span>
+                  </label>
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="price" value="on-sale">
+                    <span>On Sale</span>
+                  </label>
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="price" value="free">
+                    <span>Free</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Duration -->
+              <div class="filter-dropdown-wrapper">
+                <button class="filter-btn" data-filter="duration">Duration <i class="bi bi-chevron-down"></i></button>
+                <div class="filter-dropdown-panel">
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="duration" value="short">
+                    <span>Short (less than 2 hours)</span>
+                  </label>
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="duration" value="medium">
+                    <span>Medium (2-10 hours)</span>
+                  </label>
+                  <label class="filter-dropdown-item">
+                    <input type="checkbox" name="duration" value="long">
+                    <span>Long (above 10 hours)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Instructor Ratings -->
+              <div class="filter-dropdown-wrapper">
+                <button class="filter-btn" data-filter="instructor-ratings">Instructor Ratings <i class="bi bi-chevron-down"></i></button>
+                <div class="filter-dropdown-panel">
+                  <label class="filter-dropdown-item filter-rating-item">
+                    <input type="radio" name="instructor-rating" value="4.5">
+                    <span class="filter-stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span>4.5 & up (190)</span>
+                  </label>
+                  <label class="filter-dropdown-item filter-rating-item">
+                    <input type="radio" name="instructor-rating" value="4.0">
+                    <span class="filter-stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span>4.0 & up (100)</span>
+                  </label>
+                  <label class="filter-dropdown-item filter-rating-item">
+                    <input type="radio" name="instructor-rating" value="3.5">
+                    <span class="filter-stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span>3.5 & up (70)</span>
+                  </label>
+                  <label class="filter-dropdown-item filter-rating-item">
+                    <input type="radio" name="instructor-rating" value="3.0">
+                    <span class="filter-stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span>3.0 & up (100)</span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Mobile: Heading (shown only on mobile, hidden on desktop) -->
+          <div class="catalogue-heading-mobile">
+            <div class="section-heading">
+              <h2>Choose a highly-rated program.</h2>
+            </div>
+          </div>
+
+          <!-- Mobile: Popular Courses Accordion -->
+          <div class="catalogue-accordion-item catalogue-active-accordion">
+            <button class="catalogue-accordion-toggle active" data-category="popular">
+              <i class="bi bi-graph-up-arrow"></i>
+              <span>Popular Courses (224)</span>
+              <i class="bi bi-chevron-up programme-tab-arrow-mobile"></i>
+            </button>
+            <div class="catalogue-accordion-content open">
+              <div class="course-card-h">
+                <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-h-img">
+                <div class="course-card-h-body">
+                  <p class="course-card-provider">Bright Future University</p>
+                  <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                  <div class="course-card-meta">
+                    <span>12 Weeks</span>
+                    <span>Online</span>
+                    <span>Weekdays...</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-h-bottom">
+                    <div class="course-card-rating">
+                      <span class="rating-score">4.6</span>
+                      <span class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      </span>
+                      <span class="rating-count">(167,423)</span>
+                    </div>
+                    <span class="course-card-h-level">Beginner</span>
+                  </div>
+                  <span class="course-card-h-price">52,000</span>
+                </div>
+              </div>
+              <div class="course-card-h">
+                <img src="assets/images/courses/course-thumb-2.png" alt="Machine Learning" class="course-card-h-img">
+                <div class="course-card-h-body">
+                  <p class="course-card-provider">Bright Future University</p>
+                  <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                  <div class="course-card-meta">
+                    <span>12 Weeks</span>
+                    <span>Online</span>
+                    <span>Weekdays...</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-h-bottom">
+                    <div class="course-card-rating">
+                      <span class="rating-score">4.6</span>
+                      <span class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      </span>
+                      <span class="rating-count">(167,423)</span>
+                    </div>
+                    <span class="course-card-h-level">Beginner</span>
+                  </div>
+                  <span class="course-card-h-price">52,000</span>
+                </div>
+              </div>
+              <div class="course-card-h">
+                <img src="assets/images/courses/course-thumb-3.png" alt="Data Analytics" class="course-card-h-img">
+                <div class="course-card-h-body">
+                  <p class="course-card-provider">Bright Future University</p>
+                  <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                  <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                  <div class="course-card-meta">
+                    <span>12 Weeks</span>
+                    <span>Online</span>
+                    <span>Weekdays...</span>
+                  </div>
+                  <p class="course-card-instructor">Dr. Emily Thompson</p>
+                  <div class="course-card-h-bottom">
+                    <div class="course-card-rating">
+                      <span class="rating-score">4.6</span>
+                      <span class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      </span>
+                      <span class="rating-count">(167,423)</span>
+                    </div>
+                    <span class="course-card-h-level">Beginner</span>
+                  </div>
+                  <span class="course-card-h-price">52,000</span>
+                </div>
+              </div>
+              <div class="pagination">
+                <button class="pagination-btn prev" aria-label="Previous">
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="pagination-ellipsis">...</span>
+                <button class="pagination-btn next" aria-label="Next">
+                  <i class="bi bi-chevron-right"></i>
+                </button>
               </div>
             </div>
           </div>
 
-          <!-- Course Card 2 -->
-          <div class="course-card-h">
-            <img src="assets/images/courses/course-thumb-2.png" alt="Machine Learning" class="course-card-h-img">
-            <div class="course-card-h-body">
-              <h5 class="course-card-h-title">Machine Learning Foundations and Applications</h5>
-              <p class="course-card-h-desc">Explore the core concepts of machine learning, from supervised and unsupervised learning to neural networks and deep learning frameworks.</p>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 10 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> 2 Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Prof. Michael Chen</p>
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="course-card-rating">
-                  <span class="rating-score">4.8</span>
-                  <span class="stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </span>
-                  <span class="rating-count">(845,210)</span>
+          <!-- Course Cards (Desktop) -->
+          <div class="catalogue-course-list">
+
+            <!-- Course Card 1 -->
+            <div class="course-card-h" data-category="popular">
+              <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
                 </div>
-                <span class="course-card-h-price">$2,500</span>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(167,423)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">52,000</span>
               </div>
             </div>
-          </div>
 
-          <!-- Course Card 3 -->
-          <div class="course-card-h">
-            <img src="assets/images/courses/course-thumb-3.png" alt="Data Analytics" class="course-card-h-img">
-            <div class="course-card-h-body">
-              <h5 class="course-card-h-title">Advanced Data Analytics and Business Intelligence</h5>
-              <p class="course-card-h-desc">Master advanced analytics techniques including data warehousing, dashboard design, and business intelligence tools for strategic decision-making.</p>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 8 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> 1 Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Dr. Sarah Williams</p>
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="course-card-rating">
-                  <span class="rating-score">4.5</span>
-                  <span class="stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                  </span>
-                  <span class="rating-count">(723,891)</span>
+            <!-- Course Card 2 -->
+            <div class="course-card-h" data-category="popular">
+              <img src="assets/images/courses/course-thumb-2.png" alt="Machine Learning" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
                 </div>
-                <span class="course-card-h-price">$1,800</span>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(167,423)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">52,000</span>
               </div>
             </div>
-          </div>
 
-          <!-- Course Card 4 -->
-          <div class="course-card-h">
-            <img src="assets/images/courses/course-thumb-4.png" alt="UI Design" class="course-card-h-img">
-            <div class="course-card-h-body">
-              <h5 class="course-card-h-title">UI/UX Design Principles and Prototyping</h5>
-              <p class="course-card-h-desc">Develop practical skills in user interface and user experience design, including wireframing, prototyping, and usability testing methodologies.</p>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 6 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> 2 Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Jessica Harpe</p>
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="course-card-rating">
-                  <span class="rating-score">4.7</span>
-                  <span class="stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                  </span>
-                  <span class="rating-count">(512,340)</span>
+            <!-- Course Card 3 -->
+            <div class="course-card-h" data-category="popular">
+              <img src="assets/images/courses/course-thumb-3.png" alt="Data Analytics" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
                 </div>
-                <span class="course-card-h-price">$1,500</span>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(167,423)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">52,000</span>
               </div>
             </div>
-          </div>
 
-          <!-- Course Card 5 -->
-          <div class="course-card-h">
-            <img src="assets/images/courses/course-thumb-5.png" alt="Project Management" class="course-card-h-img">
-            <div class="course-card-h-body">
-              <h5 class="course-card-h-title">Project Management Professional Certification Prep</h5>
-              <p class="course-card-h-desc">Prepare for the PMP certification exam with comprehensive coverage of project management methodologies, frameworks, and best practices.</p>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 14 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> 1 Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Dr. Robert Clarke</p>
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="course-card-rating">
-                  <span class="rating-score">4.9</span>
-                  <span class="stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </span>
-                  <span class="rating-count">(1,102,567)</span>
+            <!-- Course Card 4 -->
+            <div class="course-card-h" data-category="popular">
+              <img src="assets/images/courses/course-thumb-4.png" alt="UI Design" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
                 </div>
-                <span class="course-card-h-price">$2,200</span>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(167,423)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">52,000</span>
               </div>
             </div>
-          </div>
 
-          <!-- Course Card 6 -->
-          <div class="course-card-h">
-            <img src="assets/images/courses/course-thumb-6.png" alt="AI Innovation" class="course-card-h-img">
-            <div class="course-card-h-body">
-              <h5 class="course-card-h-title">Artificial Intelligence for Business Innovation</h5>
-              <p class="course-card-h-desc">Discover how AI is transforming industries and learn to apply artificial intelligence solutions to real-world business challenges and opportunities.</p>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 12 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> 2 Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Dr. Emily Thompson</p>
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="course-card-rating">
-                  <span class="rating-score">4.6</span>
-                  <span class="stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                  </span>
-                  <span class="rating-count">(678,923)</span>
+            <!-- Course Card 5 -->
+            <div class="course-card-h" data-category="popular">
+              <img src="assets/images/courses/course-thumb-5.png" alt="Project Management" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
                 </div>
-                <span class="course-card-h-price">$2,000</span>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(167,423)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">52,000</span>
               </div>
             </div>
+
+            <!-- Course Card 6 -->
+            <div class="course-card-h" data-category="popular">
+              <img src="assets/images/courses/course-thumb-6.png" alt="AI Innovation" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="course-card-h-desc">Learn the basics of data analysis and become an expert in excel</p>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(167,423)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">52,000</span>
+              </div>
+            </div>
+
+            <!-- AI & Machine Learning Cards -->
+            <div class="course-card-h" data-category="ai">
+              <img src="assets/images/courses/course-thumb-3.png" alt="AI Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Introduction to Machine Learning Fundamentals</h5>
+                <p class="course-card-h-desc">Master the core concepts of machine learning and AI</p>
+                <div class="course-card-meta">
+                  <span>10 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.7</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(134,210)</span>
+                  </div>
+                  <span class="course-card-h-level">Intermediate</span>
+                </div>
+                <span class="course-card-h-price">58,000</span>
+              </div>
+            </div>
+
+            <div class="course-card-h" data-category="ai">
+              <img src="assets/images/courses/course-thumb-5.png" alt="AI Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Deep Learning and Neural Networks</h5>
+                <p class="course-card-h-desc">Build and train neural networks from scratch</p>
+                <div class="course-card-meta">
+                  <span>14 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekends</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.5</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(98,762)</span>
+                  </div>
+                  <span class="course-card-h-level">Advanced</span>
+                </div>
+                <span class="course-card-h-price">65,000</span>
+              </div>
+            </div>
+
+            <div class="course-card-h" data-category="ai">
+              <img src="assets/images/courses/course-thumb-7.png" alt="AI Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Natural Language Processing with Python</h5>
+                <p class="course-card-h-desc">Learn NLP techniques for text analysis and chatbots</p>
+                <div class="course-card-meta">
+                  <span>8 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.8</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span class="rating-count">(76,540)</span>
+                  </div>
+                  <span class="course-card-h-level">Intermediate</span>
+                </div>
+                <span class="course-card-h-price">48,000</span>
+              </div>
+            </div>
+
+            <!-- Data Science & Business Analytics Cards -->
+            <div class="course-card-h" data-category="data-science">
+              <img src="assets/images/courses/course-thumb-2.png" alt="Data Science Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Business Analytics and Data Visualization</h5>
+                <p class="course-card-h-desc">Transform raw data into actionable business insights</p>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(145,890)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">52,000</span>
+              </div>
+            </div>
+
+            <div class="course-card-h" data-category="data-science">
+              <img src="assets/images/courses/course-thumb-4.png" alt="Data Science Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Statistical Methods for Data Science</h5>
+                <p class="course-card-h-desc">Learn statistical analysis and probability theory</p>
+                <div class="course-card-meta">
+                  <span>10 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekends</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.4</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(112,340)</span>
+                  </div>
+                  <span class="course-card-h-level">Intermediate</span>
+                </div>
+                <span class="course-card-h-price">45,000</span>
+              </div>
+            </div>
+
+            <div class="course-card-h" data-category="data-science">
+              <img src="assets/images/courses/course-thumb-6.png" alt="Data Science Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Python for Data Analysis and Automation</h5>
+                <p class="course-card-h-desc">Automate workflows and analyze datasets with Python</p>
+                <div class="course-card-meta">
+                  <span>8 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.7</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(89,210)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">38,500</span>
+              </div>
+            </div>
+
+            <!-- UX Design Cards -->
+            <div class="course-card-h" data-category="ux-design">
+              <img src="assets/images/courses/course-thumb-8.png" alt="UX Design Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">UX Research and Design Thinking</h5>
+                <p class="course-card-h-desc">Master user research methods and design thinking</p>
+                <div class="course-card-meta">
+                  <span>10 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.8</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span class="rating-count">(156,780)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">55,000</span>
+              </div>
+            </div>
+
+            <div class="course-card-h" data-category="ux-design">
+              <img src="assets/images/courses/course-thumb-9.png" alt="UX Design Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">UI Design and Prototyping with Figma</h5>
+                <p class="course-card-h-desc">Create stunning interfaces and interactive prototypes</p>
+                <div class="course-card-meta">
+                  <span>8 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekends</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(123,450)</span>
+                  </div>
+                  <span class="course-card-h-level">Intermediate</span>
+                </div>
+                <span class="course-card-h-price">42,000</span>
+              </div>
+            </div>
+
+            <div class="course-card-h" data-category="ux-design">
+              <img src="assets/images/courses/course-thumb-1.png" alt="UX Design Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Interaction Design and Usability Testing</h5>
+                <p class="course-card-h-desc">Design intuitive interactions and validate with users</p>
+                <div class="course-card-meta">
+                  <span>6 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.5</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(87,650)</span>
+                  </div>
+                  <span class="course-card-h-level">Advanced</span>
+                </div>
+                <span class="course-card-h-price">50,000</span>
+              </div>
+            </div>
+
+            <!-- Management Cards -->
+            <div class="course-card-h" data-category="management">
+              <img src="assets/images/courses/course-thumb-3.png" alt="Management Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Project Management Professional Certification</h5>
+                <p class="course-card-h-desc">Prepare for PMP certification with hands-on projects</p>
+                <div class="course-card-meta">
+                  <span>16 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.9</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span class="rating-count">(201,340)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">62,000</span>
+              </div>
+            </div>
+
+            <div class="course-card-h" data-category="management">
+              <img src="assets/images/courses/course-thumb-5.png" alt="Management Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Leadership and Strategic Management</h5>
+                <p class="course-card-h-desc">Develop leadership skills for the modern workplace</p>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekends</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.7</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(178,920)</span>
+                  </div>
+                  <span class="course-card-h-level">Intermediate</span>
+                </div>
+                <span class="course-card-h-price">55,000</span>
+              </div>
+            </div>
+
+            <div class="course-card-h" data-category="management">
+              <img src="assets/images/courses/course-thumb-7.png" alt="Management Course" class="course-card-h-img">
+              <div class="course-card-h-body">
+                <p class="course-card-provider">Bright Future University</p>
+                <h5 class="course-card-h-title">Agile and Scrum Methodology</h5>
+                <p class="course-card-h-desc">Learn agile frameworks for efficient project delivery</p>
+                <div class="course-card-meta">
+                  <span>6 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays...</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-h-bottom">
+                  <div class="course-card-rating">
+                    <span class="rating-score">4.6</span>
+                    <span class="stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </span>
+                    <span class="rating-count">(92,110)</span>
+                  </div>
+                  <span class="course-card-h-level">Beginner</span>
+                </div>
+                <span class="course-card-h-price">35,000</span>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Pagination -->
-          <div class="pagination">
-            <button class="pagination-btn disabled" aria-label="Previous">
+          <!-- Pagination (Desktop) -->
+          <div class="pagination catalogue-pagination-desktop">
+            <button class="pagination-btn prev" aria-label="Previous">
               <i class="bi bi-chevron-left"></i>
             </button>
             <button class="pagination-btn active">1</button>
             <button class="pagination-btn">2</button>
             <button class="pagination-btn">3</button>
-            <button class="pagination-btn">4</button>
-            <button class="pagination-btn">5</button>
-            <button class="pagination-btn" aria-label="Next">
+            <span class="pagination-ellipsis">...</span>
+            <button class="pagination-btn next" aria-label="Next">
               <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- Mobile: Remaining Category Accordions (collapsed) -->
+          <div class="catalogue-remaining-accordions">
+            <!-- AI & Machine Learning -->
+            <div class="catalogue-accordion-item">
+              <button class="catalogue-accordion-toggle" data-category="ai">
+                <i class="bi bi-globe2"></i>
+                <span>AI & Machine Learning (34)</span>
+                <i class="bi bi-chevron-down programme-tab-arrow-mobile"></i>
+              </button>
+              <div class="catalogue-accordion-content">
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-3.png" alt="AI Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Introduction to Machine Learning Fundamentals</h5>
+                    <p class="course-card-h-desc">Master the core concepts of machine learning and AI</p>
+                    <div class="course-card-meta">
+                      <span>10 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekdays...</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.7</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(134,210)</span>
+                      </div>
+                      <span class="course-card-h-level">Intermediate</span>
+                    </div>
+                    <span class="course-card-h-price">58,000</span>
+                  </div>
+                </div>
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-5.png" alt="AI Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Deep Learning and Neural Networks</h5>
+                    <p class="course-card-h-desc">Build and train neural networks from scratch</p>
+                    <div class="course-card-meta">
+                      <span>14 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekends</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.5</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(98,762)</span>
+                      </div>
+                      <span class="course-card-h-level">Advanced</span>
+                    </div>
+                    <span class="course-card-h-price">65,000</span>
+                  </div>
+                </div>
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-7.png" alt="AI Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Natural Language Processing with Python</h5>
+                    <p class="course-card-h-desc">Learn NLP techniques for text analysis and chatbots</p>
+                    <div class="course-card-meta">
+                      <span>8 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekdays...</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.8</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                        </span>
+                        <span class="rating-count">(76,540)</span>
+                      </div>
+                      <span class="course-card-h-level">Intermediate</span>
+                    </div>
+                    <span class="course-card-h-price">48,000</span>
+                  </div>
+                </div>
+                <div class="pagination">
+                  <button class="pagination-btn prev" aria-label="Previous">
+                    <i class="bi bi-chevron-left"></i>
+                  </button>
+                  <button class="pagination-btn active">1</button>
+                  <button class="pagination-btn">2</button>
+                  <button class="pagination-btn">3</button>
+                  <span class="pagination-ellipsis">...</span>
+                  <button class="pagination-btn next" aria-label="Next">
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Science & Business Analytics -->
+            <div class="catalogue-accordion-item">
+              <button class="catalogue-accordion-toggle" data-category="data-science">
+                <i class="bi bi-arrow-repeat"></i>
+                <span>Data Science & Business Analytics (54)</span>
+                <i class="bi bi-chevron-down programme-tab-arrow-mobile"></i>
+              </button>
+              <div class="catalogue-accordion-content">
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-2.png" alt="Data Science Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Business Analytics and Data Visualization</h5>
+                    <p class="course-card-h-desc">Transform raw data into actionable business insights</p>
+                    <div class="course-card-meta">
+                      <span>12 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekdays...</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.6</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(145,890)</span>
+                      </div>
+                      <span class="course-card-h-level">Beginner</span>
+                    </div>
+                    <span class="course-card-h-price">52,000</span>
+                  </div>
+                </div>
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-4.png" alt="Data Science Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Statistical Methods for Data Science</h5>
+                    <p class="course-card-h-desc">Learn statistical analysis and probability theory</p>
+                    <div class="course-card-meta">
+                      <span>10 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekends</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.4</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(112,340)</span>
+                      </div>
+                      <span class="course-card-h-level">Intermediate</span>
+                    </div>
+                    <span class="course-card-h-price">45,000</span>
+                  </div>
+                </div>
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-6.png" alt="Data Science Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Python for Data Analysis and Automation</h5>
+                    <p class="course-card-h-desc">Automate workflows and analyze datasets with Python</p>
+                    <div class="course-card-meta">
+                      <span>8 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekdays...</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.7</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(89,210)</span>
+                      </div>
+                      <span class="course-card-h-level">Beginner</span>
+                    </div>
+                    <span class="course-card-h-price">38,500</span>
+                  </div>
+                </div>
+                <div class="pagination">
+                  <button class="pagination-btn prev" aria-label="Previous">
+                    <i class="bi bi-chevron-left"></i>
+                  </button>
+                  <button class="pagination-btn active">1</button>
+                  <button class="pagination-btn">2</button>
+                  <button class="pagination-btn">3</button>
+                  <span class="pagination-ellipsis">...</span>
+                  <button class="pagination-btn next" aria-label="Next">
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- UX Design -->
+            <div class="catalogue-accordion-item">
+              <button class="catalogue-accordion-toggle" data-category="ux-design">
+                <i class="bi bi-palette"></i>
+                <span>UX Design (82)</span>
+                <i class="bi bi-chevron-down programme-tab-arrow-mobile"></i>
+              </button>
+              <div class="catalogue-accordion-content">
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-8.png" alt="UX Design Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">UX Research and Design Thinking</h5>
+                    <p class="course-card-h-desc">Master user research methods and design thinking</p>
+                    <div class="course-card-meta">
+                      <span>10 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekdays...</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.8</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                        </span>
+                        <span class="rating-count">(156,780)</span>
+                      </div>
+                      <span class="course-card-h-level">Beginner</span>
+                    </div>
+                    <span class="course-card-h-price">55,000</span>
+                  </div>
+                </div>
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-9.png" alt="UX Design Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">UI Design and Prototyping with Figma</h5>
+                    <p class="course-card-h-desc">Create stunning interfaces and interactive prototypes</p>
+                    <div class="course-card-meta">
+                      <span>8 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekends</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.6</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(123,450)</span>
+                      </div>
+                      <span class="course-card-h-level">Intermediate</span>
+                    </div>
+                    <span class="course-card-h-price">42,000</span>
+                  </div>
+                </div>
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-1.png" alt="UX Design Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Interaction Design and Usability Testing</h5>
+                    <p class="course-card-h-desc">Design intuitive interactions and validate with users</p>
+                    <div class="course-card-meta">
+                      <span>6 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekdays...</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.5</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(87,650)</span>
+                      </div>
+                      <span class="course-card-h-level">Advanced</span>
+                    </div>
+                    <span class="course-card-h-price">50,000</span>
+                  </div>
+                </div>
+                <div class="pagination">
+                  <button class="pagination-btn prev" aria-label="Previous">
+                    <i class="bi bi-chevron-left"></i>
+                  </button>
+                  <button class="pagination-btn active">1</button>
+                  <button class="pagination-btn">2</button>
+                  <button class="pagination-btn">3</button>
+                  <span class="pagination-ellipsis">...</span>
+                  <button class="pagination-btn next" aria-label="Next">
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Management -->
+            <div class="catalogue-accordion-item">
+              <button class="catalogue-accordion-toggle" data-category="management">
+                <i class="bi bi-briefcase"></i>
+                <span>Management (24)</span>
+                <i class="bi bi-chevron-down programme-tab-arrow-mobile"></i>
+              </button>
+              <div class="catalogue-accordion-content">
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-3.png" alt="Management Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Project Management Professional Certification</h5>
+                    <p class="course-card-h-desc">Prepare for PMP certification with hands-on projects</p>
+                    <div class="course-card-meta">
+                      <span>16 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekdays...</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.9</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                        </span>
+                        <span class="rating-count">(201,340)</span>
+                      </div>
+                      <span class="course-card-h-level">Beginner</span>
+                    </div>
+                    <span class="course-card-h-price">62,000</span>
+                  </div>
+                </div>
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-5.png" alt="Management Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Leadership and Strategic Management</h5>
+                    <p class="course-card-h-desc">Develop leadership skills for the modern workplace</p>
+                    <div class="course-card-meta">
+                      <span>12 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekends</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.7</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(178,920)</span>
+                      </div>
+                      <span class="course-card-h-level">Intermediate</span>
+                    </div>
+                    <span class="course-card-h-price">55,000</span>
+                  </div>
+                </div>
+                <div class="course-card-h">
+                  <img src="assets/images/courses/course-thumb-7.png" alt="Management Course" class="course-card-h-img">
+                  <div class="course-card-h-body">
+                    <p class="course-card-provider">Bright Future University</p>
+                    <h5 class="course-card-h-title">Agile and Scrum Methodology</h5>
+                    <p class="course-card-h-desc">Learn agile frameworks for efficient project delivery</p>
+                    <div class="course-card-meta">
+                      <span>6 Weeks</span>
+                      <span>Online</span>
+                      <span>Weekdays...</span>
+                    </div>
+                    <p class="course-card-instructor">Dr. Emily Thompson</p>
+                    <div class="course-card-h-bottom">
+                      <div class="course-card-rating">
+                        <span class="rating-score">4.6</span>
+                        <span class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-count">(92,110)</span>
+                      </div>
+                      <span class="course-card-h-level">Beginner</span>
+                    </div>
+                    <span class="course-card-h-price">35,000</span>
+                  </div>
+                </div>
+                <div class="pagination">
+                  <button class="pagination-btn prev" aria-label="Previous">
+                    <i class="bi bi-chevron-left"></i>
+                  </button>
+                  <button class="pagination-btn active">1</button>
+                  <button class="pagination-btn">2</button>
+                  <button class="pagination-btn">3</button>
+                  <span class="pagination-ellipsis">...</span>
+                  <button class="pagination-btn next" aria-label="Next">
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button class="catalogue-accordion-show-more">
+              <span>Show more</span>
+              <i class="bi bi-plus"></i>
             </button>
           </div>
 
