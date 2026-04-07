@@ -4237,6 +4237,8 @@ body.is-logged-in .navbar-search {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background-color: var(--color-white);
+  border-radius: 50%;
 }
 
 .lp-hero-feature-icon-wrap {
@@ -4248,6 +4250,7 @@ body.is-logged-in .navbar-search {
   border: 1.5px solid #c8c8c8;
   border-radius: 50%;
   margin: 0 auto 12px;
+  background-color: var(--color-white);
 }
 
 .lp-hero-feature-icon--svg {
@@ -4272,18 +4275,18 @@ body.is-logged-in .navbar-search {
 
 .lp-hero-btn {
   display: inline-block;
-  background-color: var(--color-dark);
+  background-color: var(--color-primary);
   color: var(--color-white);
   font-size: 0.875rem;
   font-weight: 600;
   padding: 12px 28px;
-  border-radius: var(--radius-pill);
+  border-radius: 0;
   text-decoration: none;
   transition: var(--transition);
 }
 
 .lp-hero-btn:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-hover);
   color: var(--color-white);
 }
 
@@ -4316,7 +4319,7 @@ body.is-logged-in .navbar-search {
 .lp-hero-circle--mid {
   width: 130px;
   height: 130px;
-  top: 70px;
+  top: 120px;
   right: 210px;
 }
 
@@ -5756,7 +5759,7 @@ body.is-logged-in .navbar-search {
   .lp-hero-circle--mid {
     width: 110px;
     height: 110px;
-    top: 60px;
+    top: 100px;
     right: 175px;
   }
 
@@ -6908,27 +6911,32 @@ body.is-logged-in .navbar-search {
   .lp-hero-images {
     height: 290px;
     margin: 0 auto 10px;
-    max-width: 340px;
+    max-width: 300px;
   }
 
   .lp-hero-circle--top {
     width: 130px;
     height: 130px;
-    right: 0;
+    top: 0;
+    left: 42%;
+    right: auto;
   }
 
   .lp-hero-circle--mid {
     width: 95px;
     height: 95px;
-    top: 45px;
-    right: 145px;
+    top: 80px;
+    left: 10px;
+    right: auto;
   }
 
   .lp-hero-circle--bottom {
     width: 140px;
     height: 140px;
     top: 145px;
-    right: 20px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
   }
 }
 
