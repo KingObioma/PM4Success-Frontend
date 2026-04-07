@@ -680,15 +680,43 @@ function initCatalogueFilters() {
     });
   }
 
-  // Apply initial filter
-  filterCards(initialCategory);
+  // Shared active category — keeps desktop and mobile in sync
+  var activeCategory = initialCategory;
 
+  // Apply initial filter
+  filterCards(activeCategory);
+
+  // Helper: sync mobile accordions to a given category
+  function syncMobile(category) {
+    mobileToggles.forEach(function (t) {
+      var c = t.nextElementSibling;
+      if (t.getAttribute('data-category') === category) {
+        t.classList.add('active');
+        if (c && c.classList.contains('catalogue-accordion-content')) {
+          c.classList.add('open');
+        }
+      } else {
+        t.classList.remove('active');
+        if (c && c.classList.contains('catalogue-accordion-content')) {
+          c.classList.remove('open');
+        }
+      }
+    });
+  }
+
+  // Helper: sync desktop tabs to a given category
+  function syncDesktop(category) {
+    tabs.forEach(function (t) {
+      t.classList.toggle('active', t.getAttribute('data-category') === category);
+    });
+    filterCards(category);
+  }
+
+  // Desktop sidebar tabs
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      tabs.forEach(function (t) { t.classList.remove('active'); });
-      tab.classList.add('active');
-      var category = tab.getAttribute('data-category');
-      filterCards(category);
+      activeCategory = tab.getAttribute('data-category');
+      syncDesktop(activeCategory);
     });
   });
 
@@ -715,8 +743,19 @@ function initCatalogueFilters() {
       toggle.classList.add('active');
       if (hasContent) content.classList.add('open');
 
-      var category = toggle.getAttribute('data-category');
+      activeCategory = toggle.getAttribute('data-category');
     });
+  });
+
+  // On resize: sync both views to the shared active category
+  var wasMobile = window.innerWidth < 768;
+  window.addEventListener('resize', function () {
+    var isMobile = window.innerWidth < 768;
+    if (isMobile === wasMobile) return;
+    wasMobile = isMobile;
+
+    syncDesktop(activeCategory);
+    syncMobile(activeCategory);
   });
 
   // Mobile filter sidebar toggle
