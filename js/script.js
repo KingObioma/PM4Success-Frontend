@@ -1155,12 +1155,18 @@ function initHeroSlider() {
    Program Tabs
    ============================================ */
 function initProgramTabs() {
-  var sidebar = document.querySelector('.program-sidebar');
-  var sidebarTabs = sidebar ? sidebar.querySelectorAll('.program-tab') : [];
+  var sidebar = document.querySelector('.program-sidebar:not(.catalogue-sidebar)');
+  if (!sidebar) return;
+
+  var sidebarTabs = sidebar.querySelectorAll('.program-tab');
   var allGrids = document.querySelectorAll('.program-grid');
   var accordionToggles = document.querySelectorAll('.program-accordion-toggle');
 
   if (!sidebarTabs.length) return;
+
+  /* Shared active category */
+  var activeSidebarTab = sidebar.querySelector('.program-tab.active');
+  var activeCategory = activeSidebarTab ? activeSidebarTab.getAttribute('data-category') : 'popular';
 
   /* Switch the visible grid to the given category */
   function showGrid(category) {
@@ -1173,31 +1179,37 @@ function initProgramTabs() {
     });
   }
 
-  /* Sidebar tabs: work on all screen sizes */
+  /* Sync desktop sidebar tabs to a category */
+  function syncDesktop(category) {
+    sidebarTabs.forEach(function (t) {
+      if (t.getAttribute('data-category') === category) {
+        t.classList.add('active');
+      } else {
+        t.classList.remove('active');
+      }
+    });
+    showGrid(category);
+  }
+
+  /* Sync mobile accordions to a category */
+  function syncMobile(category) {
+    accordionToggles.forEach(function (t) {
+      var c = t.nextElementSibling;
+      if (t.getAttribute('data-category') === category) {
+        t.classList.add('active');
+        if (c) c.classList.add('open');
+      } else {
+        t.classList.remove('active');
+        if (c) c.classList.remove('open');
+      }
+    });
+  }
+
+  /* Sidebar tabs */
   sidebarTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      var category = tab.getAttribute('data-category');
-      var isMobile = window.innerWidth < 768;
-
-      if (isMobile) {
-        /* If already active, do nothing — one must stay open */
-        if (tab.classList.contains('active')) return;
-
-        /* Close any open mobile accordion */
-        accordionToggles.forEach(function (t) {
-          t.classList.remove('active');
-          t.nextElementSibling.classList.remove('open');
-        });
-
-        sidebarTabs.forEach(function (t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        showGrid(category);
-      } else {
-        /* Desktop/tablet: switch active tab and grid */
-        sidebarTabs.forEach(function (t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        showGrid(category);
-      }
+      activeCategory = tab.getAttribute('data-category');
+      syncDesktop(activeCategory);
     });
   });
 
@@ -1213,34 +1225,22 @@ function initProgramTabs() {
         t.nextElementSibling.classList.remove('open');
       });
 
-      /* Deactivate sidebar tab and hide all grids */
-      sidebarTabs.forEach(function (t) { t.classList.remove('active'); });
+      /* Hide all grids */
       allGrids.forEach(function (g) { g.classList.remove('active'); });
 
-      /* If already open, do nothing — one must stay open */
+      /* If already open, do nothing */
       if (isOpen) return;
 
       toggle.classList.add('active');
       content.classList.add('open');
+      activeCategory = toggle.getAttribute('data-category');
     });
   });
 
-  /* On resize: reset to Popular Courses when crossing into mobile */
-  var wasMobile = window.innerWidth < 768;
+  /* On resize: always keep both views in sync */
   window.addEventListener('resize', function () {
-    var isMobile = window.innerWidth < 768;
-    if (isMobile === wasMobile) return;
-    wasMobile = isMobile;
-
-    /* Reset: close all accordions, activate Popular Courses */
-    accordionToggles.forEach(function (t) {
-      t.classList.remove('active');
-      t.nextElementSibling.classList.remove('open');
-    });
-    sidebarTabs.forEach(function (t) { t.classList.remove('active'); });
-    var popularTab = sidebar.querySelector('[data-category="popular"]');
-    if (popularTab) popularTab.classList.add('active');
-    showGrid('popular');
+    syncDesktop(activeCategory);
+    syncMobile(activeCategory);
   });
 }
 
