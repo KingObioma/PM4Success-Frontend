@@ -1206,10 +1206,38 @@ function initProgramTabs() {
   }
 
   /* Sidebar tabs */
+  var popularTab = sidebar.querySelector('.program-tab[data-category="popular"]');
+
   sidebarTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      activeCategory = tab.getAttribute('data-category');
-      syncDesktop(activeCategory);
+      var category = tab.getAttribute('data-category');
+      var isMobile = window.innerWidth < 768;
+
+      if (isMobile && category === 'popular') {
+        /* On mobile, popular tab toggles the popular grid */
+        var isActive = tab.classList.contains('active');
+
+        /* Close any open accordion */
+        accordionToggles.forEach(function (t) {
+          t.classList.remove('active');
+          t.nextElementSibling.classList.remove('open');
+        });
+
+        if (isActive) {
+          /* Collapse popular */
+          tab.classList.remove('active');
+          allGrids.forEach(function (g) { g.classList.remove('active'); });
+        } else {
+          /* Expand popular */
+          tab.classList.add('active');
+          showGrid('popular');
+          activeCategory = 'popular';
+        }
+      } else {
+        /* Desktop: just switch tabs */
+        activeCategory = category;
+        syncDesktop(activeCategory);
+      }
     });
   });
 
@@ -1225,8 +1253,9 @@ function initProgramTabs() {
         t.nextElementSibling.classList.remove('open');
       });
 
-      /* Hide all grids */
+      /* Hide all grids and deactivate popular tab */
       allGrids.forEach(function (g) { g.classList.remove('active'); });
+      if (popularTab) popularTab.classList.remove('active');
 
       /* If already open, do nothing */
       if (isOpen) return;
@@ -1237,10 +1266,33 @@ function initProgramTabs() {
     });
   });
 
-  /* On resize: always keep both views in sync */
+  /* On resize: keep both views in sync */
   window.addEventListener('resize', function () {
-    syncDesktop(activeCategory);
-    syncMobile(activeCategory);
+    var isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      if (activeCategory === 'popular') {
+        /* Show popular grid, activate popular tab, close accordions */
+        if (popularTab) popularTab.classList.add('active');
+        showGrid('popular');
+        accordionToggles.forEach(function (t) {
+          t.classList.remove('active');
+          t.nextElementSibling.classList.remove('open');
+        });
+      } else {
+        /* Hide grids, deactivate popular tab, open matching accordion */
+        if (popularTab) popularTab.classList.remove('active');
+        allGrids.forEach(function (g) { g.classList.remove('active'); });
+        syncMobile(activeCategory);
+      }
+    } else {
+      /* Desktop: sync tabs and grid, close all accordions */
+      syncDesktop(activeCategory);
+      accordionToggles.forEach(function (t) {
+        t.classList.remove('active');
+        t.nextElementSibling.classList.remove('open');
+      });
+    }
   });
 }
 

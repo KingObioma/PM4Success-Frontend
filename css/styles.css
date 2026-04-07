@@ -5759,6 +5759,8 @@ body.is-logged-in .navbar-search {
     gap: 6px;
     transform: scale(0.85);
     transform-origin: center;
+    white-space: normal;
+    max-width: 180px;
   }
 
   .hero-card strong {
@@ -6722,6 +6724,8 @@ body.is-logged-in .navbar-search {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     transform: scale(0.75);
     transform-origin: center;
+    white-space: normal;
+    max-width: 160px;
   }
 
   .hero-card strong {
