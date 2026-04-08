@@ -1561,10 +1561,16 @@ body.is-logged-in .navbar-search {
   border-bottom: none;
 }
 
-.catalogue-section .course-card-h:hover {
-  background-color: var(--color-bg-light);
-  transition: var(--transition-fast);
+.course-card-h-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
+
+.course-card-h-link:hover {
+  color: inherit;
+}
+
 
 .course-card-h-img {
   flex-shrink: 0;
@@ -4458,8 +4464,7 @@ body.is-logged-in .navbar-search {
 .lp-career-path-highlight {
   font-weight: 700;
   color: var(--color-primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 .lp-career-path-grid {

@@ -185,7 +185,7 @@ function initAuthState() {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       localStorage.setItem('pm4s_logged_in', 'false');
-      window.location.href = 'index.html';
+      window.location.href = link.getAttribute('data-redirect') || 'index.html';
     });
   });
 
@@ -196,7 +196,7 @@ function initAuthState() {
       e.preventDefault();
       if (!Validator.validateForm(form)) return;
       localStorage.setItem('pm4s_logged_in', 'true');
-      window.location.href = 'dashboard.html';
+      window.location.href = this.getAttribute('data-redirect') || 'dashboard.html';
     });
   });
 
@@ -931,8 +931,8 @@ function initCalendar() {
 
   if (!grid) return;
 
-  // Example deadline dates (for demo)
-  var deadlineDates = [10, 15, 22, 25];
+  // Deadline dates — read from data attribute or use defaults
+  var deadlineDates = JSON.parse(calendar.getAttribute('data-deadlines') || '[10, 15, 22, 25]');
 
   function renderCalendar(month, year) {
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -1073,7 +1073,10 @@ function initPromoCountdown() {
 
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-  var DURATION = 3 * 24 * 60 * 60 * 1000; // 3 days in ms
+  var countdownEl = document.querySelector('.promo-countdown') || document.querySelector('[data-countdown-duration]');
+  var DURATION = (countdownEl && countdownEl.getAttribute('data-countdown-duration'))
+    ? parseInt(countdownEl.getAttribute('data-countdown-duration')) * 24 * 60 * 60 * 1000
+    : 3 * 24 * 60 * 60 * 1000; // default 3 days in ms
   var STORAGE_KEY = 'promoCountdownEnd';
 
   function getEndTime() {
