@@ -1031,8 +1031,7 @@ p {
 .mobile-user-panel-nav a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
+  padding: 14px 24px;
   font-family: 'Poppins', sans-serif;
   font-size: 0.9375rem;
   font-weight: 500;
@@ -1047,16 +1046,18 @@ p {
 
 .mobile-user-panel-nav a i {
   font-size: 1.125rem;
-  margin-right: 14px;
-  width: 24px;
+  margin-right: 16px;
+  width: 22px;
   text-align: center;
   color: var(--color-text);
+  flex-shrink: 0;
 }
 
 .mobile-user-panel-badge {
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-text-secondary);
+  margin-left: auto;
 }
 
 .mobile-user-panel-badge i {
@@ -1382,6 +1383,21 @@ body.is-logged-in .navbar-search {
   background: var(--color-white);
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+}
+
+/* First card in each row: show hover tooltip to the right */
+.program-grid .col-lg-4:nth-child(3n+1) .course-card-hover {
+  right: auto;
+  left: calc(100% + 12px);
+}
+
+.program-grid .col-lg-4:nth-child(3n+1) .course-card-hover::after {
+  right: auto;
+  left: -8px;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
 }
 
 .course-card-hover h4 {
