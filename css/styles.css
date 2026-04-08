@@ -4498,6 +4498,170 @@ body.is-logged-in .navbar-search {
   color: var(--color-primary-hover);
 }
 
+/* -- LP Current Learning Paths Section -- */
+.lp-current {
+  padding: 60px 0;
+  background-color: var(--color-white);
+}
+
+.lp-current-title-desktop {
+  display: block;
+}
+
+.lp-current-title-mobile {
+  display: none;
+}
+
+.lp-current-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lp-current-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background-color: #f0f4f8;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.lp-current-card-image {
+  flex-shrink: 0;
+  width: 160px;
+  height: 110px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.lp-current-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lp-current-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.lp-current-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 6px;
+}
+
+.lp-current-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+}
+
+.lp-current-card-divider {
+  width: 1px;
+  height: 14px;
+  background-color: var(--color-text-secondary);
+}
+
+.lp-current-card-lesson {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.lp-current-card-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.lp-current-progress-bar {
+  flex: 1;
+  height: 8px;
+  background-color: #d9e2ec;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  max-width: 400px;
+}
+
+.lp-current-progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  transition: width 0.5s ease;
+}
+
+.lp-current-progress-pct {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  min-width: 32px;
+}
+
+.lp-current-card-overall {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+.lp-current-card-overall strong {
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.lp-current-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.lp-current-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  padding: 4px;
+}
+
+.lp-current-menu-btn:hover {
+  color: var(--color-dark);
+}
+
+.lp-current-continue-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1.5px solid var(--color-dark);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition);
+  margin-top: auto;
+}
+
+.lp-current-continue-btn:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.lp-current-dots {
+  display: none;
+}
+
 .skill-rings-row {
   display: flex;
   gap: 32px;
@@ -5943,6 +6107,28 @@ body.is-logged-in .navbar-search {
     grid-template-columns: repeat(3, 1fr);
     gap: 32px 24px;
   }
+
+  /* LP Current - Tablet */
+  .lp-current-title-desktop {
+    display: none;
+  }
+
+  .lp-current-title-mobile {
+    display: block;
+  }
+
+  .lp-current-card-image {
+    width: 120px;
+    height: 90px;
+  }
+
+  .lp-current-card-lesson {
+    font-size: 0.875rem;
+  }
+
+  .lp-current-card-overall strong {
+    display: none;
+  }
 }
 
 /* ============================================
@@ -7126,6 +7312,88 @@ body.is-logged-in .navbar-search {
   .lp-career-path-item .progress-ring-wrapper svg {
     width: 100px;
     height: 100px;
+  }
+
+  /* LP Current - Mobile */
+  .lp-current-title-desktop {
+    display: none;
+  }
+
+  .lp-current-title-mobile {
+    display: block;
+  }
+
+  .lp-current-list {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 8px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .lp-current-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lp-current-card {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 260px;
+    max-width: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .lp-current-card-image {
+    width: 100%;
+    height: 160px;
+    border-radius: 0;
+  }
+
+  .lp-current-card-body {
+    padding: 16px;
+  }
+
+  .lp-current-card-title {
+    font-size: 0.9375rem;
+  }
+
+  .lp-current-card-lesson {
+    font-size: 0.875rem;
+  }
+
+  .lp-current-card-actions {
+    display: none;
+  }
+
+  .lp-current-card-overall strong {
+    display: none;
+  }
+
+  .lp-current-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .lp-current-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+    transition: var(--transition);
+  }
+
+  .lp-current-dot.active {
+    background-color: var(--color-primary);
   }
 }
 

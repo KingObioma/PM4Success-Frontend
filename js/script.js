@@ -794,14 +794,6 @@ function initCatalogueFilters() {
       });
     }
   }
-
-  // Make course cards clickable
-  document.querySelectorAll('.course-card-h').forEach(function (card) {
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', function () {
-      window.location.href = 'course-details.html';
-    });
-  });
 }
 
 /* ============================================
@@ -2008,5 +2000,32 @@ function initValidation() {
   var careerSelect = document.querySelector('.profile-card.mt-4 > div > select.form-select');
   if (careerSelect && !careerSelect.hasAttribute('data-validate')) {
     // Career path is optional — no validation needed
+  }
+
+  /* ------------------------------------------
+     Current Learning Paths - Mobile Carousel Dots
+     ------------------------------------------ */
+  var lpCurrentList = document.querySelector('.lp-current-list');
+  var lpCurrentDots = document.querySelectorAll('.lp-current-dot');
+
+  if (lpCurrentList && lpCurrentDots.length) {
+    lpCurrentList.addEventListener('scroll', function () {
+      var cards = lpCurrentList.querySelectorAll('.lp-current-card');
+      var scrollLeft = lpCurrentList.scrollLeft;
+      var cardWidth = cards[0].offsetWidth + 16;
+      var activeIndex = Math.round(scrollLeft / cardWidth);
+
+      lpCurrentDots.forEach(function (dot, i) {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+    });
+
+    lpCurrentDots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        var cards = lpCurrentList.querySelectorAll('.lp-current-card');
+        var cardWidth = cards[0].offsetWidth + 16;
+        lpCurrentList.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+      });
+    });
   }
 }
