@@ -1561,6 +1561,11 @@ body.is-logged-in .navbar-search {
   border-bottom: none;
 }
 
+.catalogue-section .course-card-h:hover {
+  background-color: var(--color-bg-light);
+  transition: var(--transition-fast);
+}
+
 .course-card-h-img {
   flex-shrink: 0;
   width: 200px;
