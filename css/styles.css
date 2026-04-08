@@ -1385,20 +1385,6 @@ body.is-logged-in .navbar-search {
   border-bottom: 1px solid var(--color-border);
 }
 
-/* First card in each row: show hover tooltip to the right */
-.program-grid .col-lg-4:nth-child(3n+1) .course-card-hover {
-  right: auto;
-  left: calc(100% + 12px);
-}
-
-.program-grid .col-lg-4:nth-child(3n+1) .course-card-hover::after {
-  right: auto;
-  left: -8px;
-  border-right: none;
-  border-bottom: none;
-  border-left: 1px solid var(--color-border);
-  border-top: 1px solid var(--color-border);
-}
 
 .course-card-hover h4 {
   font-family: 'Poppins', sans-serif;
@@ -1543,7 +1529,7 @@ body.is-logged-in .navbar-search {
 }
 
 .program-grid-container {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .program-grid {
@@ -4443,6 +4429,70 @@ body.is-logged-in .navbar-search {
   right: 30px;
 }
 
+/* -- LP Career Path Section -- */
+.lp-career-path {
+  padding: 60px 0;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lp-career-path .section-heading h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 10px;
+}
+
+.lp-career-path-subtitle {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-top: 28px;
+  margin-bottom: 48px;
+}
+
+.lp-career-path-highlight {
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lp-career-path-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.lp-career-path-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lp-career-path-skill {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.lp-career-path-item .progress-ring-wrapper {
+  margin-bottom: 16px;
+}
+
+.lp-career-path-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lp-career-path-link:hover {
+  color: var(--color-primary-hover);
+}
+
 .skill-rings-row {
   display: flex;
   gap: 32px;
@@ -5882,6 +5932,12 @@ body.is-logged-in .navbar-search {
     top: 180px;
     right: 15px;
   }
+
+  /* LP Career Path - Tablet */
+  .lp-career-path-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 24px;
+  }
 }
 
 /* ============================================
@@ -7050,6 +7106,21 @@ body.is-logged-in .navbar-search {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
+  }
+
+  /* LP Career Path - Mobile */
+  .lp-career-path {
+    padding: 40px 0;
+  }
+
+  .lp-career-path-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+
+  .lp-career-path-item .progress-ring-wrapper svg {
+    width: 100px;
+    height: 100px;
   }
 }
 
