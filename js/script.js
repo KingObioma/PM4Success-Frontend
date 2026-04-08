@@ -46,7 +46,10 @@ function initNavbar() {
   }
 
   function closeMobileMenu() {
-    if (mobileMenu) mobileMenu.classList.remove('show');
+    if (mobileMenu) {
+      mobileMenu.classList.remove('show');
+      mobileMenu.classList.remove('user-panel-open');
+    }
     if (mobileOverlay) mobileOverlay.classList.remove('show');
     document.body.style.overflow = '';
   }
@@ -73,6 +76,22 @@ function initNavbar() {
       openMobileMenu();
     }
   });
+
+  // User sub-panel toggle
+  var userMenuBtn = document.getElementById('mobileUserMenuBtn');
+  var userPanelBack = document.getElementById('mobileUserPanelBack');
+
+  if (userMenuBtn) {
+    userMenuBtn.addEventListener('click', function () {
+      if (mobileMenu) mobileMenu.classList.add('user-panel-open');
+    });
+  }
+
+  if (userPanelBack) {
+    userPanelBack.addEventListener('click', function () {
+      if (mobileMenu) mobileMenu.classList.remove('user-panel-open');
+    });
+  }
 
   if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
   if (switchOverlay) switchOverlay.addEventListener('click', closeSwitchPanel);

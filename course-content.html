@@ -132,7 +132,7 @@
     </div>
 
     <!-- Logged in header -->
-    <a href="edit-profile.html" class="mobile-menu-header-user navbar-logged-in">
+    <button type="button" class="mobile-menu-header-user navbar-logged-in" id="mobileUserMenuBtn">
       <div class="mobile-user-avatar">
         <span>AU</span>
       </div>
@@ -141,7 +141,7 @@
         <small>Welcome back</small>
       </div>
       <span class="mobile-user-arrow"><i class="bi bi-chevron-right"></i></span>
-    </a>
+    </button>
 
     <!-- Nav links (both states) -->
     <div class="mobile-menu-nav">
@@ -161,6 +161,26 @@
       <p class="mobile-switch-label">Switch Account</p>
       <a href="#" class="mobile-switch-item">NNPC Tech Scholarship</a>
       <a href="#" class="mobile-switch-item active">Explore PM4Success</a>
+    </div>
+
+    <!-- User Menu Sub-Panel (logged-in only) -->
+    <div class="mobile-user-panel navbar-logged-in">
+      <button type="button" class="mobile-user-panel-back" id="mobileUserPanelBack">
+        <i class="bi bi-chevron-left"></i> Menu
+      </button>
+      <nav class="mobile-user-panel-nav">
+        <a href="my-courses.html"><i class="bi bi-journal-check"></i> My Courses</a>
+        <a href="edit-profile.html">
+          <span><i class="bi bi-person-fill"></i> Profile</span>
+          <span class="mobile-user-panel-badge">Not Verified <i class="bi bi-gear-fill"></i></span>
+        </a>
+        <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
+        <a href="#"><i class="bi bi-wallet2"></i> My Purchase</a>
+        <a href="#"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
+        <a href="#"><i class="bi bi-graph-up"></i> Progress Report</a>
+        <a href="#"><i class="bi bi-question-circle-fill"></i> Help Center</a>
+        <a href="#" class="mobile-user-panel-logout"><i class="bi bi-box-arrow-right"></i> Log Out</a>
+      </nav>
     </div>
 
   </div>
