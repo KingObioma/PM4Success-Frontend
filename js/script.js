@@ -2012,8 +2012,15 @@ function initValidation() {
     lpCurrentList.addEventListener('scroll', function () {
       var cards = lpCurrentList.querySelectorAll('.lp-current-card');
       var scrollLeft = lpCurrentList.scrollLeft;
+      var maxScroll = lpCurrentList.scrollWidth - lpCurrentList.clientWidth;
       var cardWidth = cards[0].offsetWidth + 16;
-      var activeIndex = Math.round(scrollLeft / cardWidth);
+      var activeIndex;
+
+      if (maxScroll - scrollLeft < 10) {
+        activeIndex = cards.length - 1;
+      } else {
+        activeIndex = Math.round(scrollLeft / cardWidth);
+      }
 
       lpCurrentDots.forEach(function (dot, i) {
         dot.classList.toggle('active', i === activeIndex);

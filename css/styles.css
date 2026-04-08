@@ -4501,11 +4501,7 @@ body.is-logged-in .navbar-search {
 /* -- LP Current Learning Paths Section -- */
 .lp-current {
   padding: 60px 0;
-  background-color: var(--color-white);
-}
-
-.lp-current-title-desktop {
-  display: block;
+  background-color: #f0f4f8;
 }
 
 .lp-current-title-mobile {
@@ -4522,7 +4518,7 @@ body.is-logged-in .navbar-search {
   display: flex;
   align-items: center;
   gap: 24px;
-  background-color: #f0f4f8;
+  background-color: var(--color-white);
   border-radius: var(--radius-lg);
   padding: 20px;
 }
@@ -4642,11 +4638,11 @@ body.is-logged-in .navbar-search {
 .lp-current-continue-btn {
   display: inline-block;
   padding: 8px 20px;
-  border: 1.5px solid var(--color-dark);
+  border: 1.5px solid var(--color-primary);
   border-radius: var(--radius-md);
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--color-dark);
+  color: var(--color-primary);
   text-decoration: none;
   white-space: nowrap;
   transition: var(--transition);
@@ -4654,7 +4650,7 @@ body.is-logged-in .navbar-search {
 }
 
 .lp-current-continue-btn:hover {
-  background-color: var(--color-dark);
+  background-color: var(--color-primary);
   color: var(--color-white);
 }
 
@@ -6114,7 +6110,7 @@ body.is-logged-in .navbar-search {
   }
 
   .lp-current-title-mobile {
-    display: block;
+    display: inline;
   }
 
   .lp-current-card-image {
@@ -7320,7 +7316,7 @@ body.is-logged-in .navbar-search {
   }
 
   .lp-current-title-mobile {
-    display: block;
+    display: inline;
   }
 
   .lp-current-list {
