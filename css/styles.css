@@ -4464,6 +4464,93 @@ body.is-logged-in .navbar-search {
   color: var(--color-text-light);
 }
 
+/* -- Recent Blog Posts -- */
+.rbp-subheading {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: 24px;
+}
+
+.rbp-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.rbp-item {
+  min-width: 0;
+}
+
+.rbp-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: underline;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.rbp-title:hover {
+  color: var(--color-primary-hover);
+}
+
+.rbp-meta {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+.rbp-author {
+  margin-right: 16px;
+}
+
+/* Mobile carousel (hidden on desktop/tablet) */
+.rbp-carousel {
+  display: none;
+}
+
+.rbp-carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+.rbp-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.rbp-carousel-track .rbp-item {
+  flex: 0 0 65%;
+  scroll-snap-align: start;
+}
+
+.rbp-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.rbp-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.rbp-carousel-dot.active {
+  background-color: var(--color-primary);
+}
+
 /* Dashboard extra classes (agent-generated) */
 .deadline-date-display {
   margin-bottom: 12px;
@@ -7236,6 +7323,11 @@ h2.accomplishments-title {
   .mc-card-title {
     font-size: 0.875rem;
   }
+
+  /* -- Recent Blog Posts tablet -- */
+  .rbp-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ============================================
@@ -8413,6 +8505,15 @@ h2.accomplishments-title {
   }
 
   .mc-carousel {
+    display: block;
+  }
+
+  /* -- Recent Blog Posts mobile -- */
+  .rbp-grid {
+    display: none;
+  }
+
+  .rbp-carousel {
     display: block;
   }
 

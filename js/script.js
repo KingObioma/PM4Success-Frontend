@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initProgramTabs();
   initValidation();
   initMyCourses();
+  initBlogCarousel();
 });
 
 /* ============================================
@@ -2142,6 +2143,74 @@ function initMcCarousel(carousel) {
     isDragging = false;
     /* Snap to nearest card */
     var cardWidth = cards[0].offsetWidth + 16;
+    var index = Math.round(track.scrollLeft / cardWidth);
+    track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+  });
+}
+
+/* ============================================
+   Recent Blog Posts — Touch Carousel
+   ============================================ */
+function initBlogCarousel() {
+  var carousel = document.querySelector('.rbp-carousel');
+  if (!carousel) return;
+
+  var track = carousel.querySelector('.rbp-carousel-track');
+  var dotsContainer = carousel.querySelector('.rbp-carousel-dots');
+  if (!track || !dotsContainer) return;
+
+  var items = track.querySelectorAll('.rbp-item');
+  if (!items.length) return;
+
+  /* Build dots */
+  dotsContainer.innerHTML = '';
+  items.forEach(function (_, i) {
+    var dot = document.createElement('button');
+    dot.className = 'rbp-carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dotsContainer.appendChild(dot);
+  });
+
+  var dots = dotsContainer.querySelectorAll('.rbp-carousel-dot');
+
+  /* Update active dot on scroll */
+  track.addEventListener('scroll', function () {
+    var scrollLeft = track.scrollLeft;
+    var cardWidth = items[0].offsetWidth + 16;
+    var activeIndex = Math.round(scrollLeft / cardWidth);
+    dots.forEach(function (d, i) {
+      d.classList.toggle('active', i === activeIndex);
+    });
+  });
+
+  /* Dot click */
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      var cardWidth = items[0].offsetWidth + 16;
+      track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+    });
+  });
+
+  /* Touch swipe */
+  var startX = 0;
+  var startScroll = 0;
+  var isDragging = false;
+
+  track.addEventListener('touchstart', function (e) {
+    isDragging = true;
+    startX = e.touches[0].pageX;
+    startScroll = track.scrollLeft;
+  }, { passive: true });
+
+  track.addEventListener('touchmove', function (e) {
+    if (!isDragging) return;
+    var diff = startX - e.touches[0].pageX;
+    track.scrollLeft = startScroll + diff;
+  }, { passive: true });
+
+  track.addEventListener('touchend', function () {
+    isDragging = false;
+    var cardWidth = items[0].offsetWidth + 16;
     var index = Math.round(track.scrollLeft / cardWidth);
     track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
   });
