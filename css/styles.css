@@ -4486,10 +4486,21 @@ body.is-logged-in .navbar-search {
   font-size: 0.9375rem;
   font-weight: 700;
   color: var(--color-primary);
-  text-decoration: underline;
+  text-decoration: none !important;
+  border-bottom: none !important;
   line-height: 1.5;
   display: block;
   margin-bottom: 14px;
+}
+
+.rbp-grid .rbp-item {
+  border-right: 3px solid var(--color-border);
+  padding-right: 24px;
+}
+
+.rbp-grid .rbp-item:last-child {
+  border-right: none;
+  padding-right: 0;
 }
 
 .rbp-title:hover {
@@ -4498,6 +4509,7 @@ body.is-logged-in .navbar-search {
 
 .rbp-meta {
   font-size: 0.8125rem;
+  font-weight: 600;
   color: var(--color-text-secondary);
   margin-bottom: 0;
 }
