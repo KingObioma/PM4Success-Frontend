@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initHeroSlider();
   initProgramTabs();
   initValidation();
+  initMyCourses();
 });
 
 /* ============================================
@@ -2038,4 +2039,110 @@ function initValidation() {
       });
     });
   }
+}
+
+/* ============================================
+   My Courses — Tabs + Touch Carousel
+   ============================================ */
+function initMyCourses() {
+  var tabs = document.querySelectorAll('.mc-tab');
+  var contents = document.querySelectorAll('.mc-tab-content');
+
+  if (!tabs.length) return;
+
+  /* -- Tab switching -- */
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var target = tab.getAttribute('data-tab');
+
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      contents.forEach(function (c) { c.classList.remove('active'); });
+
+      tab.classList.add('active');
+      var panel = document.querySelector('[data-tab-content="' + target + '"]');
+      if (panel) panel.classList.add('active');
+
+      /* Re-init carousels in newly visible tab */
+      if (panel) {
+        var carousels = panel.querySelectorAll('.mc-carousel');
+        carousels.forEach(function (carousel) {
+          initMcCarousel(carousel);
+        });
+      }
+    });
+  });
+
+  /* -- Init carousels in the default active tab -- */
+  var activePanel = document.querySelector('.mc-tab-content.active');
+  if (activePanel) {
+    var carousels = activePanel.querySelectorAll('.mc-carousel');
+    carousels.forEach(function (carousel) {
+      initMcCarousel(carousel);
+    });
+  }
+}
+
+function initMcCarousel(carousel) {
+  var track = carousel.querySelector('.mc-carousel-track');
+  var dotsContainer = carousel.querySelector('.mc-carousel-dots');
+
+  if (!track || !dotsContainer) return;
+
+  var cards = track.querySelectorAll('.mc-carousel-card');
+  if (!cards.length) return;
+
+  /* Build dots */
+  dotsContainer.innerHTML = '';
+  cards.forEach(function (_, i) {
+    var dot = document.createElement('button');
+    dot.className = 'mc-carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dotsContainer.appendChild(dot);
+  });
+
+  var dots = dotsContainer.querySelectorAll('.mc-carousel-dot');
+
+  /* Update active dot on scroll */
+  track.addEventListener('scroll', function () {
+    var scrollLeft = track.scrollLeft;
+    var cardWidth = cards[0].offsetWidth + 16;
+    var activeIndex = Math.round(scrollLeft / cardWidth);
+
+    dots.forEach(function (d, i) {
+      d.classList.toggle('active', i === activeIndex);
+    });
+  });
+
+  /* Dot click scrolls to card */
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      var cardWidth = cards[0].offsetWidth + 16;
+      track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+    });
+  });
+
+  /* Touch swipe support */
+  var startX = 0;
+  var startScroll = 0;
+  var isDragging = false;
+
+  track.addEventListener('touchstart', function (e) {
+    isDragging = true;
+    startX = e.touches[0].pageX;
+    startScroll = track.scrollLeft;
+  }, { passive: true });
+
+  track.addEventListener('touchmove', function (e) {
+    if (!isDragging) return;
+    var diff = startX - e.touches[0].pageX;
+    track.scrollLeft = startScroll + diff;
+  }, { passive: true });
+
+  track.addEventListener('touchend', function () {
+    isDragging = false;
+    /* Snap to nearest card */
+    var cardWidth = cards[0].offsetWidth + 16;
+    var index = Math.round(track.scrollLeft / cardWidth);
+    track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+  });
 }

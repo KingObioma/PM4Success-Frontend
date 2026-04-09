@@ -4587,58 +4587,350 @@ body.is-logged-in .navbar-search {
 /* ============================================
    28. My Courses
    ============================================ */
-.enrolled-course-item {
+
+.mc-section .section-heading h2 {
+  padding-bottom: 10px;
+}
+
+/* -- Tabs -- */
+.mc-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.mc-tab {
+  padding: 8px 20px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.mc-tab:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.mc-tab.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* -- Tab content visibility -- */
+.mc-tab-content {
+  display: none;
+}
+
+.mc-tab-content.active {
+  display: block;
+}
+
+/* -- Card list (desktop/tablet) -- */
+.mc-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mc-card {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--color-border);
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 16px;
+  position: relative;
 }
 
-.enrolled-course-item:last-child {
-  border-bottom: none;
-}
-
-.enrolled-course-img {
-  width: 80px;
-  height: 60px;
+.mc-card-img {
+  width: 140px;
+  height: 95px;
   object-fit: cover;
   border-radius: var(--radius-md);
   flex-shrink: 0;
 }
 
-.enrolled-course-info {
+.mc-card-body {
   flex: 1;
   min-width: 0;
 }
 
-.enrolled-course-info h5 {
-  font-size: 0.9375rem;
-  margin-bottom: 4px;
-}
-
-.enrolled-course-info p {
+.mc-card-certificate {
   font-size: 0.8125rem;
-  margin-bottom: 0;
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
 }
 
-.enrolled-course-progress {
-  width: 100%;
-  margin-top: 8px;
+.mc-card-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.mc-meta-sep {
+  margin: 0 6px;
+  color: var(--color-text-light);
+}
+
+.mc-card-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* -- Progress bar (In Progress cards) -- */
+.mc-progress {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 4px;
 }
 
-.enrolled-course-progress .progress-bar-wrapper {
+.mc-progress .progress-bar-wrapper {
   flex: 1;
+  height: 8px;
 }
 
-.progress-bar-text {
-  font-size: 0.75rem;
+.mc-progress-pct {
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-text);
   white-space: nowrap;
+}
+
+.mc-progress-label {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+/* -- Actions column (In Progress) -- */
+.mc-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.mc-menu-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.mc-menu-btn:hover {
+  color: var(--color-dark);
+}
+
+.mc-continue-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+
+.mc-continue-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* -- Watchlist cards -- */
+.mc-card-watchlist .mc-card-img {
+  width: 180px;
+  height: 120px;
+}
+
+.mc-card-desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.mc-card-meta-inline {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.mc-card-instructor {
+  font-size: 0.875rem;
+  color: var(--color-dark);
+  margin-bottom: 4px;
+}
+
+.mc-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.mc-card-rating .rating-score {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.mc-card-rating .stars {
+  display: flex;
+  gap: 1px;
+  color: var(--color-star);
+  font-size: 0.75rem;
+}
+
+.mc-card-rating .rating-count {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+}
+
+.mc-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mc-card-level {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.mc-remove-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.mc-remove-link:hover {
+  text-decoration: underline;
+}
+
+.mc-card-price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* -- Completed cards -- */
+.mc-completed-status {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-success);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mc-completed-status i {
+  font-size: 0.875rem;
+}
+
+.mc-cert-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mc-cert-link:hover {
+  text-decoration: underline;
+}
+
+/* -- Mobile carousel (hidden on desktop/tablet) -- */
+.mc-carousel {
+  display: none;
+}
+
+.mc-carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+.mc-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.mc-carousel-card {
+  flex: 0 0 70%;
+  scroll-snap-align: start;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.mc-carousel-card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.mc-carousel-card-body {
+  padding: 14px 16px 18px;
+}
+
+.mc-carousel-card-body .mc-card-certificate {
+  font-size: 0.8125rem;
+  margin-bottom: 6px;
+}
+
+.mc-carousel-card-body .mc-card-title {
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+}
+
+.mc-carousel-card-body .mc-progress {
+  margin-bottom: 4px;
+}
+
+.mc-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.mc-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.mc-carousel-dot.active {
+  background-color: var(--color-primary);
 }
 
 /* ============================================
@@ -6814,6 +7106,21 @@ h2.accomplishments-title {
   .lp-current-card-overall strong {
     display: none;
   }
+
+  /* -- My Courses tablet -- */
+  .mc-card-img {
+    width: 120px;
+    height: 85px;
+  }
+
+  .mc-card-watchlist .mc-card-img {
+    width: 150px;
+    height: 100px;
+  }
+
+  .mc-card-title {
+    font-size: 0.875rem;
+  }
 }
 
 /* ============================================
@@ -7985,14 +8292,13 @@ h2.accomplishments-title {
     gap: 20px;
   }
 
-  .enrolled-course-item {
-    flex-direction: column;
-    align-items: flex-start;
+  /* -- My Courses mobile -- */
+  .mc-list {
+    display: none;
   }
 
-  .enrolled-course-img {
-    width: 100%;
-    height: 160px;
+  .mc-carousel {
+    display: block;
   }
 
   .certificate-item {
