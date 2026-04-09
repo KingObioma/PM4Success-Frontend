@@ -4663,7 +4663,8 @@ body.is-logged-in .navbar-search {
 
 .mc-card-certificate {
   font-size: 0.8125rem;
-  color: var(--color-text-secondary);
+  color: var(--color-dark);
+  text-decoration: underline;
   margin-bottom: 2px;
 }
 
@@ -5137,6 +5138,106 @@ body.is-logged-in .navbar-search {
 
 .lp-career-path-link:hover {
   color: var(--color-primary-hover);
+}
+
+/* -- Career Path Course Cards Carousel -- */
+.cp-cards-subtitle {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+
+.cp-cards-carousel {
+  position: relative;
+}
+
+.cp-cards-carousel .carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.cp-cards-carousel .carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cp-card-item {
+  min-width: calc((100% - 60px) / 4);
+  max-width: calc((100% - 60px) / 4);
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cp-card-item .course-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cp-card-item .course-card-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.cp-card-item .course-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cp-card-item .course-card-provider {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.cp-card-item .course-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.cp-card-item .course-card-meta {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.cp-card-item .course-card-instructor {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.cp-card-item .course-card-rating {
+  margin-bottom: 12px;
+}
+
+.cp-card-item .course-card-price {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-top: auto;
 }
 
 /* -- LP Current Learning Paths Section -- */
@@ -7085,6 +7186,12 @@ h2.accomplishments-title {
     gap: 32px 24px;
   }
 
+  /* CP Cards Carousel - Tablet */
+  .cp-card-item {
+    min-width: calc((100% - 40px) / 3);
+    max-width: calc((100% - 40px) / 3);
+  }
+
   /* LP Current - Tablet */
   .lp-current-title-desktop {
     display: none;
@@ -8504,6 +8611,16 @@ h2.accomplishments-title {
   .lp-career-path-item .progress-ring-wrapper svg {
     width: 100px;
     height: 100px;
+  }
+
+  /* CP Cards Carousel - Mobile */
+  .cp-card-item {
+    min-width: 75%;
+    max-width: 75%;
+  }
+
+  .cp-cards-carousel .carousel-btn {
+    display: none;
   }
 
   /* LP Current - Mobile */
