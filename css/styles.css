@@ -4663,15 +4663,16 @@ body.is-logged-in .navbar-search {
 
 .mc-card-certificate {
   font-size: 0.8125rem;
-  color: var(--color-dark);
+  color: #000;
+  font-weight: 500;
   text-decoration: underline;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
 }
 
 .mc-card-meta {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--color-text-secondary);
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .mc-meta-sep {
@@ -4709,6 +4710,7 @@ body.is-logged-in .navbar-search {
 
 .mc-progress-label {
   font-size: 0.75rem;
+  font-weight: 600;
   color: var(--color-text-secondary);
   margin-bottom: 0;
 }
@@ -4834,6 +4836,14 @@ body.is-logged-in .navbar-search {
 }
 
 /* -- Completed cards -- */
+.mc-card-completed .mc-card-certificate {
+  margin-bottom: 12px;
+}
+
+.mc-card-completed .mc-card-title {
+  margin-bottom: 12px;
+}
+
 .mc-completed-status {
   font-size: 0.8125rem;
   font-weight: 600;
@@ -5080,8 +5090,6 @@ body.is-logged-in .navbar-search {
 /* -- LP Career Path Section -- */
 .lp-career-path {
   padding: 60px 0;
-  background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .lp-career-path .section-heading h2 {
