@@ -174,93 +174,378 @@
 
 
   <!-- ========== MY COURSES ========== -->
-  <section class="section">
+  <section class="section mc-section">
     <div class="container">
       <div class="section-heading">
         <h2>My Courses</h2>
       </div>
 
       <!-- Filter Tabs -->
-      <div class="d-flex gap-2 mb-4">
-        <button class="filter-btn active filter-btn-active">In Progress</button>
-        <button class="filter-btn filter-btn-pill">Watchlist</button>
-        <button class="filter-btn filter-btn-pill">Completed</button>
+      <div class="mc-tabs">
+        <button class="mc-tab active" data-tab="in-progress">In Progress</button>
+        <button class="mc-tab" data-tab="watchlist">Watchlist</button>
+        <button class="mc-tab" data-tab="completed">Completed</button>
       </div>
 
-      <!-- Enrolled Course 1 -->
-      <div class="enrolled-course-item">
-        <img src="assets/images/courses/course-banner-1.jpg" alt="Data Science" class="enrolled-course-img">
-        <div class="enrolled-course-info">
-          <p>IBM Data Science Professional Certificate</p>
-          <h5>Introduction to Data Science and Statistic Methodology</h5>
-          <div class="enrolled-course-progress">
-            <div class="progress-bar-wrapper">
-              <div class="progress-bar-fill progress-w-65"></div>
+      <!-- ===== IN PROGRESS TAB ===== -->
+      <div class="mc-tab-content active" data-tab-content="in-progress">
+
+        <!-- Desktop/Tablet list -->
+        <div class="mc-list">
+          <div class="mc-card">
+            <img src="assets/images/courses/course-banner-1.jpg" alt="Data Science" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="mc-progress">
+                <div class="progress-bar-wrapper">
+                  <div class="progress-bar-fill" style="width: 78%"></div>
+                </div>
+                <span class="mc-progress-pct">78%</span>
+              </div>
+              <p class="mc-progress-label">Overall Progress</p>
             </div>
-            <span class="progress-bar-text">65%</span>
+            <div class="mc-card-actions">
+              <button class="mc-menu-btn" aria-label="More options"><i class="bi bi-three-dots-vertical"></i></button>
+              <a href="course-content.html" class="mc-continue-btn">Continue Learning</a>
+            </div>
           </div>
+
+          <div class="mc-card">
+            <img src="assets/images/courses/course-banner-2.jpg" alt="Machine Learning" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="mc-progress">
+                <div class="progress-bar-wrapper">
+                  <div class="progress-bar-fill" style="width: 78%"></div>
+                </div>
+                <span class="mc-progress-pct">78%</span>
+              </div>
+              <p class="mc-progress-label">Overall Progress</p>
+            </div>
+            <div class="mc-card-actions">
+              <button class="mc-menu-btn" aria-label="More options"><i class="bi bi-three-dots-vertical"></i></button>
+              <a href="course-content.html" class="mc-continue-btn">Continue Learning</a>
+            </div>
+          </div>
+
+          <div class="mc-card">
+            <img src="assets/images/courses/course-banner-3.jpg" alt="Data Visualization" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="mc-progress">
+                <div class="progress-bar-wrapper">
+                  <div class="progress-bar-fill" style="width: 78%"></div>
+                </div>
+                <span class="mc-progress-pct">78%</span>
+              </div>
+              <p class="mc-progress-label">Overall Progress</p>
+            </div>
+            <div class="mc-card-actions">
+              <button class="mc-menu-btn" aria-label="More options"><i class="bi bi-three-dots-vertical"></i></button>
+              <a href="course-content.html" class="mc-continue-btn">Continue Learning</a>
+            </div>
+          </div>
+
+          <div class="mc-card">
+            <img src="assets/images/courses/course-banner-4.jpg" alt="SQL" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="mc-progress">
+                <div class="progress-bar-wrapper">
+                  <div class="progress-bar-fill" style="width: 78%"></div>
+                </div>
+                <span class="mc-progress-pct">78%</span>
+              </div>
+              <p class="mc-progress-label">Overall Progress</p>
+            </div>
+            <div class="mc-card-actions">
+              <button class="mc-menu-btn" aria-label="More options"><i class="bi bi-three-dots-vertical"></i></button>
+              <a href="course-content.html" class="mc-continue-btn">Continue Learning</a>
+            </div>
+          </div>
+
+          <div class="mc-card">
+            <img src="assets/images/courses/course-banner-1.jpg" alt="Statistics" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <div class="mc-progress">
+                <div class="progress-bar-wrapper">
+                  <div class="progress-bar-fill" style="width: 78%"></div>
+                </div>
+                <span class="mc-progress-pct">78%</span>
+              </div>
+              <p class="mc-progress-label">Overall Progress</p>
+            </div>
+            <div class="mc-card-actions">
+              <button class="mc-menu-btn" aria-label="More options"><i class="bi bi-three-dots-vertical"></i></button>
+              <a href="course-content.html" class="mc-continue-btn">Continue Learning</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile carousel -->
+        <div class="mc-carousel">
+          <div class="mc-carousel-track">
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-1.jpg" alt="Data Science" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="mc-progress">
+                  <div class="progress-bar-wrapper">
+                    <div class="progress-bar-fill" style="width: 78%"></div>
+                  </div>
+                  <span class="mc-progress-pct">78%</span>
+                </div>
+                <p class="mc-progress-label">Overall Progress</p>
+              </div>
+            </div>
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-2.jpg" alt="Machine Learning" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="mc-progress">
+                  <div class="progress-bar-wrapper">
+                    <div class="progress-bar-fill" style="width: 78%"></div>
+                  </div>
+                  <span class="mc-progress-pct">78%</span>
+                </div>
+                <p class="mc-progress-label">Overall Progress</p>
+              </div>
+            </div>
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-3.jpg" alt="Data Visualization" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="mc-progress">
+                  <div class="progress-bar-wrapper">
+                    <div class="progress-bar-fill" style="width: 78%"></div>
+                  </div>
+                  <span class="mc-progress-pct">78%</span>
+                </div>
+                <p class="mc-progress-label">Overall Progress</p>
+              </div>
+            </div>
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-4.jpg" alt="SQL" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="mc-progress">
+                  <div class="progress-bar-wrapper">
+                    <div class="progress-bar-fill" style="width: 78%"></div>
+                  </div>
+                  <span class="mc-progress-pct">78%</span>
+                </div>
+                <p class="mc-progress-label">Overall Progress</p>
+              </div>
+            </div>
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-1.jpg" alt="Statistics" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="mc-progress">
+                  <div class="progress-bar-wrapper">
+                    <div class="progress-bar-fill" style="width: 78%"></div>
+                  </div>
+                  <span class="mc-progress-pct">78%</span>
+                </div>
+                <p class="mc-progress-label">Overall Progress</p>
+              </div>
+            </div>
+          </div>
+          <div class="mc-carousel-dots"></div>
         </div>
       </div>
 
-      <!-- Enrolled Course 2 -->
-      <div class="enrolled-course-item">
-        <img src="assets/images/courses/course-banner-2.jpg" alt="Machine Learning" class="enrolled-course-img">
-        <div class="enrolled-course-info">
-          <p>IBM Data Science Professional Certificate</p>
-          <h5>Machine Learning with Python: A Practical Introduction</h5>
-          <div class="enrolled-course-progress">
-            <div class="progress-bar-wrapper">
-              <div class="progress-bar-fill progress-w-40"></div>
+      <!-- ===== WATCHLIST TAB ===== -->
+      <div class="mc-tab-content" data-tab-content="watchlist">
+
+        <!-- Desktop/Tablet list -->
+        <div class="mc-list">
+          <div class="mc-card mc-card-watchlist">
+            <img src="assets/images/courses/course-banner-3.jpg" alt="Data Science" class="mc-card-img">
+            <div class="mc-card-body">
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <p class="mc-card-desc">Learn the basics of data analysis and become an expert in excel</p>
+              <p class="mc-card-meta-inline">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</p>
+              <p class="mc-card-instructor"><strong>Dr. Emily Thompson</strong></p>
+              <div class="mc-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </span>
+                <span class="rating-count">(167,423)</span>
+              </div>
+              <div class="mc-card-bottom">
+                <span class="mc-card-level">Beginner</span>
+                <a href="#" class="mc-remove-link">Remove</a>
+              </div>
             </div>
-            <span class="progress-bar-text">40%</span>
+            <span class="mc-card-price">52,000</span>
           </div>
+
+          <div class="mc-card mc-card-watchlist">
+            <img src="assets/images/courses/course-banner-4.jpg" alt="Data Analysis" class="mc-card-img">
+            <div class="mc-card-body">
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <p class="mc-card-desc">Learn the basics of data analysis and become an expert in excel</p>
+              <p class="mc-card-meta-inline">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</p>
+              <p class="mc-card-instructor"><strong>Dr. Emily Thompson</strong></p>
+              <div class="mc-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </span>
+                <span class="rating-count">(167,423)</span>
+              </div>
+              <div class="mc-card-bottom">
+                <span class="mc-card-level">Beginner</span>
+                <a href="#" class="mc-remove-link">Remove</a>
+              </div>
+            </div>
+            <span class="mc-card-price">52,000</span>
+          </div>
+        </div>
+
+        <!-- Mobile carousel -->
+        <div class="mc-carousel">
+          <div class="mc-carousel-track">
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-3.jpg" alt="Data Science" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="mc-card-desc">Learn the basics of data analysis and become an expert in excel</p>
+              </div>
+            </div>
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-4.jpg" alt="Data Analysis" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <p class="mc-card-meta">Course <span class="mc-meta-sep">|</span> IBM</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="mc-card-desc">Learn the basics of data analysis and become an expert in excel</p>
+              </div>
+            </div>
+          </div>
+          <div class="mc-carousel-dots"></div>
         </div>
       </div>
 
-      <!-- Enrolled Course 3 -->
-      <div class="enrolled-course-item">
-        <img src="assets/images/courses/course-banner-3.jpg" alt="Data Visualization" class="enrolled-course-img">
-        <div class="enrolled-course-info">
-          <p>Google Data Analytics Professional Certificate</p>
-          <h5>Data Visualization and Dashboard Design</h5>
-          <div class="enrolled-course-progress">
-            <div class="progress-bar-wrapper">
-              <div class="progress-bar-fill progress-w-85"></div>
+      <!-- ===== COMPLETED TAB ===== -->
+      <div class="mc-tab-content" data-tab-content="completed">
+
+        <!-- Desktop/Tablet list -->
+        <div class="mc-list">
+          <div class="mc-card mc-card-completed">
+            <img src="assets/images/courses/course-banner-1.jpg" alt="Data Science" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <p class="mc-completed-status"><i class="bi bi-check-circle-fill"></i> Completed</p>
             </div>
-            <span class="progress-bar-text">85%</span>
+            <a href="#" class="mc-cert-link">View certificate</a>
           </div>
+
+          <div class="mc-card mc-card-completed">
+            <img src="assets/images/courses/course-banner-2.jpg" alt="Machine Learning" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <p class="mc-completed-status"><i class="bi bi-check-circle-fill"></i> Completed</p>
+            </div>
+            <a href="#" class="mc-cert-link">View certificate</a>
+          </div>
+
+          <div class="mc-card mc-card-completed">
+            <img src="assets/images/courses/course-banner-3.jpg" alt="Data Visualization" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <p class="mc-completed-status"><i class="bi bi-check-circle-fill"></i> Completed</p>
+            </div>
+            <a href="#" class="mc-cert-link">View certificate</a>
+          </div>
+
+          <div class="mc-card mc-card-completed">
+            <img src="assets/images/courses/course-banner-4.jpg" alt="SQL" class="mc-card-img">
+            <div class="mc-card-body">
+              <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+              <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+              <p class="mc-completed-status"><i class="bi bi-check-circle-fill"></i> Completed</p>
+            </div>
+            <a href="#" class="mc-cert-link">View certificate</a>
+          </div>
+        </div>
+
+        <!-- Mobile carousel -->
+        <div class="mc-carousel">
+          <div class="mc-carousel-track">
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-1.jpg" alt="Data Science" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="mc-completed-status"><i class="bi bi-check-circle-fill"></i> Completed</p>
+              </div>
+            </div>
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-2.jpg" alt="Machine Learning" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="mc-completed-status"><i class="bi bi-check-circle-fill"></i> Completed</p>
+              </div>
+            </div>
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-3.jpg" alt="Data Visualization" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="mc-completed-status"><i class="bi bi-check-circle-fill"></i> Completed</p>
+              </div>
+            </div>
+            <div class="mc-carousel-card">
+              <img src="assets/images/courses/course-banner-4.jpg" alt="SQL" class="mc-carousel-card-img">
+              <div class="mc-carousel-card-body">
+                <p class="mc-card-certificate">IBM Data Science Professional Certificate</p>
+                <h5 class="mc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <p class="mc-completed-status"><i class="bi bi-check-circle-fill"></i> Completed</p>
+              </div>
+            </div>
+          </div>
+          <div class="mc-carousel-dots"></div>
         </div>
       </div>
 
-      <!-- Enrolled Course 4 -->
-      <div class="enrolled-course-item">
-        <img src="assets/images/courses/course-banner-4.jpg" alt="SQL" class="enrolled-course-img">
-        <div class="enrolled-course-info">
-          <p>IBM Data Science Professional Certificate</p>
-          <h5>Databases and SQL for Data Science with Python</h5>
-          <div class="enrolled-course-progress">
-            <div class="progress-bar-wrapper">
-              <div class="progress-bar-fill progress-w-20"></div>
-            </div>
-            <span class="progress-bar-text">20%</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Enrolled Course 5 -->
-      <div class="enrolled-course-item">
-        <img src="assets/images/courses/course-banner-1.jpg" alt="Statistics" class="enrolled-course-img">
-        <div class="enrolled-course-info">
-          <p>Google Data Analytics Professional Certificate</p>
-          <h5>Foundations of Statistical Analysis for Data Science</h5>
-          <div class="enrolled-course-progress">
-            <div class="progress-bar-wrapper">
-              <div class="progress-bar-fill progress-w-10"></div>
-            </div>
-            <span class="progress-bar-text">10%</span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
