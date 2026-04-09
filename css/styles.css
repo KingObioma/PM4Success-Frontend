@@ -2780,6 +2780,10 @@ body.is-logged-in .navbar-search {
   margin-bottom: 0;
 }
 
+.accomplishments-discover {
+  background-color: #F5F9FB;
+}
+
 .top-courses-section .section-heading-row h2::after {
   content: '';
   display: block;
@@ -8012,7 +8016,7 @@ h2.accomplishments-title {
   }
 
   .certificate-actions {
-    margin-left: 80px;
+    margin-left: 0;
     gap: 16px;
   }
 
@@ -8032,6 +8036,15 @@ h2.accomplishments-title {
 
   .certificate-actions .cert-share-btn {
     color: #555555 !important;
+  }
+
+  .export-all-btn {
+    border: none !important;
+  }
+
+  .export-all-btn i {
+    font-size: 1.1em;
+    -webkit-text-stroke: 1px;
   }
 
   .course-sidebar-panel {
@@ -8555,7 +8568,7 @@ h2.accomplishments-title {
   }
 
   .certificate-actions {
-    margin-left: 66px;
+    margin-left: 0;
   }
 
   .certificate-details h5 {

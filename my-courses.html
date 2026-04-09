@@ -273,134 +273,405 @@
   </div>
 
   <!-- ========== DISCOVER COURSES CURATED FOR YOU ========== -->
-  <section class="section section-bg">
+    <section class="section top-courses-section">
     <div class="container">
-      <div class="section-heading">
-        <h2>Discover Courses Curated For You</h2>
-      </div>
-      <div class="carousel-wrapper">
-        <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
-        <div class="carousel-track">
-          <!-- Course Card 1 -->
-          <div class="course-card">
-            <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-img">
-            <div class="course-card-body">
-              <span class="course-card-provider">Bright Future University</span>
-              <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 12 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Dr. Emily Thompson</p>
-              <div class="course-card-rating">
-                <span class="rating-score">4.6</span>
-                <span class="stars">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                </span>
-                <span class="rating-count">(961,432)</span>
-              </div>
-              <div class="course-card-footer">
-                <a href="course-details.html" class="course-card-link">View Program</a>
-              </div>
-            </div>
-          </div>
-          <!-- Course Card 2 -->
-          <div class="course-card">
-            <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="course-card-img">
-            <div class="course-card-body">
-              <span class="course-card-provider">Bright Future University</span>
-              <h5 class="course-card-title">Advanced Python Programming for Data Analysis</h5>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 10 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Prof. Michael Chen</p>
-              <div class="course-card-rating">
-                <span class="rating-score">4.8</span>
-                <span class="stars">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                </span>
-                <span class="rating-count">(842,115)</span>
-              </div>
-              <div class="course-card-footer">
-                <a href="course-details.html" class="course-card-link">View Program</a>
-              </div>
-            </div>
-          </div>
-          <!-- Course Card 3 -->
-          <div class="course-card">
-            <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="course-card-img">
-            <div class="course-card-body">
-              <span class="course-card-provider">Bright Future University</span>
-              <h5 class="course-card-title">Business Analytics and Decision Making</h5>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 8 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Dr. Sarah Williams</p>
-              <div class="course-card-rating">
-                <span class="rating-score">4.5</span>
-                <span class="stars">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                </span>
-                <span class="rating-count">(723,890)</span>
-              </div>
-              <div class="course-card-footer">
-                <a href="course-details.html" class="course-card-link">View Program</a>
-              </div>
-            </div>
-          </div>
-          <!-- Course Card 4 -->
-          <div class="course-card">
-            <img src="assets/images/courses/course-thumb-4.png" alt="Machine Learning" class="course-card-img">
-            <div class="course-card-body">
-              <span class="course-card-provider">Bright Future University</span>
-              <h5 class="course-card-title">Machine Learning Foundations and Applications</h5>
-              <div class="course-card-meta">
-                <span><i class="bi bi-clock"></i> 14 Weeks</span>
-                <span><i class="bi bi-laptop"></i> Online</span>
-                <span><i class="bi bi-calendar3"></i> Weekdays</span>
-              </div>
-              <p class="course-card-instructor">Dr. James Rodriguez</p>
-              <div class="course-card-rating">
-                <span class="rating-score">4.7</span>
-                <span class="stars">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                </span>
-                <span class="rating-count">(654,210)</span>
-              </div>
-              <div class="course-card-footer">
-                <a href="course-details.html" class="course-card-link">View Program</a>
-              </div>
-            </div>
-          </div>
+      <div class="section-heading-row">
+        <h2>
+          <span class="heading-lg">Discover Courses Curated For You</span>
+          <span class="heading-sm">Discover Courses Curated For You</span>
+        </h2>
+        <div class="carousel-nav-btns">
+          <button class="carousel-btn carousel-btn-prev" data-target="top-courses-track"><i class="bi bi-chevron-left"></i></button>
+          <button class="carousel-btn carousel-btn-next" data-target="top-courses-track"><i class="bi bi-chevron-right"></i></button>
         </div>
-        <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
       </div>
-      <div class="carousel-dots">
-        <button class="carousel-dot active"></button>
-        <button class="carousel-dot"></button>
-        <button class="carousel-dot"></button>
-        <button class="carousel-dot"></button>
+      <div class="carousel-wrapper top-courses-carousel">
+        <div class="carousel-track" id="top-courses-track">
+          <!-- Top Course 1 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;45,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 2 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;45,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 3 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;45,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 4 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-4.png" alt="Data Analytics" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;35,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 5 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-5.png" alt="UI Design" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;42,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 6 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-6.png" alt="Management" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;28,500</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 7 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-7.png" alt="Advanced Analytics" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;55,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 8 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-8.png" alt="Business Intelligence" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;32,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 9 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-9.png" alt="Machine Learning" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;48,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 10 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;39,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 11 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;46,500</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+          <!-- Top Course 12 -->
+          <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+            <div class="course-card">
+              <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="course-card-img">
+              <div class="course-card-body">
+                <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                <div class="course-card-meta">
+                  <span>12 Weeks</span>
+                  <span>Online</span>
+                  <span>Weekdays</span>
+                </div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  </span>
+                  <span class="rating-count">(961,432)</span>
+                </div>
+                <div class="course-card-price">&#8358;51,000</div>
+              </div>
+            </div>
+          <div class="course-card-hover">
+            <h4>What you'll learn</h4>
+            <ul>
+              <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+              <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+              <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+            </ul>
+            <button class="course-card-hover-btn">Save to Watchlist</button>
+          </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -408,74 +679,91 @@
   <!-- ========== CAREER PATH ========== -->
   <section class="section">
     <div class="container">
-      <div class="section-heading">
-        <h2>Career Path</h2>
-        <p>Your career path into becoming a Mid-level Data Analyst</p>
-      </div>
+     
 
-      <!-- Skill Progress Rings -->
-      <div class="d-flex flex-wrap gap-4 justify-content-start mb-5">
-        <!-- Data Visualization -->
-        <div class="text-center">
-          <div class="progress-ring-wrapper">
-            <svg width="100" height="100">
-              <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-              <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="50" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-            </svg>
-            <span class="progress-ring-text">50%</span>
+       <!-- ========== YOUR CAREER PATH ========== -->
+      <section class="section lp-career-path">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Your Career Path</h2>
           </div>
-          <p class="text-small mt-2">Data Visualization</p>
-          <a href="course-catalogue.html" class="text-small text-primary">Explore Courses</a>
-        </div>
-        <!-- Database Management -->
-        <div class="text-center">
-          <div class="progress-ring-wrapper">
-            <svg width="100" height="100">
-              <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-              <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="30" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-            </svg>
-            <span class="progress-ring-text">30%</span>
+          <p class="lp-career-path-subtitle">Your career path into becoming a <strong class="lp-career-path-highlight">Mid-level</strong> Data Analyst</p>
+
+          <div class="lp-career-path-grid">
+            <div class="lp-career-path-item">
+              <h4 class="lp-career-path-skill">Data Visualization</h4>
+              <div class="progress-ring-wrapper">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#1a5276" stroke-width="8"
+                          stroke-dasharray="326.73" stroke-dashoffset="163.36"
+                          stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                </svg>
+                <span class="progress-ring-text">50%</span>
+              </div>
+              <a href="#" class="lp-career-path-link">Explore Courses</a>
+            </div>
+
+            <div class="lp-career-path-item">
+              <h4 class="lp-career-path-skill">Database Management</h4>
+              <div class="progress-ring-wrapper">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#1a5276" stroke-width="8"
+                          stroke-dasharray="326.73" stroke-dashoffset="228.71"
+                          stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                </svg>
+                <span class="progress-ring-text">30%</span>
+              </div>
+              <a href="#" class="lp-career-path-link">Explore Courses</a>
+            </div>
+
+            <div class="lp-career-path-item">
+              <h4 class="lp-career-path-skill">Analytics</h4>
+              <div class="progress-ring-wrapper">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#1a5276" stroke-width="8"
+                          stroke-dasharray="326.73" stroke-dashoffset="81.68"
+                          stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                </svg>
+                <span class="progress-ring-text">75%</span>
+              </div>
+              <a href="#" class="lp-career-path-link">Explore Courses</a>
+            </div>
+
+            <div class="lp-career-path-item">
+              <h4 class="lp-career-path-skill">Critical Thinking</h4>
+              <div class="progress-ring-wrapper">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#1a5276" stroke-width="8"
+                          stroke-dasharray="326.73" stroke-dashoffset="316.93"
+                          stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                </svg>
+                <span class="progress-ring-text">03%</span>
+              </div>
+              <a href="#" class="lp-career-path-link">Explore Courses</a>
+            </div>
+
+            <div class="lp-career-path-item">
+              <h4 class="lp-career-path-skill">Business Acumen</h4>
+              <div class="progress-ring-wrapper">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#1a5276" stroke-width="8"
+                          stroke-dasharray="326.73" stroke-dashoffset="196.04"
+                          stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                </svg>
+                <span class="progress-ring-text">40%</span>
+              </div>
+              <a href="#" class="lp-career-path-link">Explore Courses</a>
+            </div>
           </div>
-          <p class="text-small mt-2">Database Management</p>
-          <a href="course-catalogue.html" class="text-small text-primary">Explore Courses</a>
         </div>
-        <!-- Analytics -->
-        <div class="text-center">
-          <div class="progress-ring-wrapper">
-            <svg width="100" height="100">
-              <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-              <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="75" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-            </svg>
-            <span class="progress-ring-text">75%</span>
-          </div>
-          <p class="text-small mt-2">Analytics</p>
-          <a href="course-catalogue.html" class="text-small text-primary">Explore Courses</a>
-        </div>
-        <!-- Critical Thinking -->
-        <div class="text-center">
-          <div class="progress-ring-wrapper">
-            <svg width="100" height="100">
-              <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-              <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="3" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-            </svg>
-            <span class="progress-ring-text">03%</span>
-          </div>
-          <p class="text-small mt-2">Critical Thinking</p>
-          <a href="course-catalogue.html" class="text-small text-primary">Explore Courses</a>
-        </div>
-        <!-- Business Acumen -->
-        <div class="text-center">
-          <div class="progress-ring-wrapper">
-            <svg width="100" height="100">
-              <circle cx="50" cy="50" r="42" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-              <circle class="progress-ring-circle" cx="50" cy="50" r="42" stroke="#1a5276" stroke-width="8" fill="none" data-percentage="40" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-            </svg>
-            <span class="progress-ring-text">40%</span>
-          </div>
-          <p class="text-small mt-2">Business Acumen</p>
-          <a href="course-catalogue.html" class="text-small text-primary">Explore Courses</a>
-        </div>
-      </div>
+      </section>
+
+
 
       <!-- Subtitle -->
       <p class="mb-4">Continuous your journey into becoming a certified leader as a Data Analyst</p>
