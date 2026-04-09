@@ -107,19 +107,6 @@
     </div>
   </nav>
 
-  <!-- ========== ACCOUNT VERIFICATION BANNER (Logged In) ========== -->
-  <div class="verification-banner navbar-logged-in">
-    <div class="verification-banner-inner">
-      <div class="verification-banner-icon">
-        <i class="bi bi-exclamation-circle-fill"></i>
-      </div>
-      <div class="verification-banner-content">
-        <strong>Account not verified</strong>
-        <p>Your account is not verified yet! To receive your certificate upon course completion, you must verify your account. Without verification, your certificate will not be issued.</p>
-      </div>
-      <button class="verification-banner-close" aria-label="Close"><i class="bi bi-x-lg"></i></button>
-    </div>
-  </div>
 
   <!-- ========== MOBILE MENU ========== -->
   <div class="mobile-menu-overlay"></div>
@@ -189,125 +176,175 @@
   <!-- ========== ABOUT HERO SECTION ========== -->
   <section class="about-hero about-hero-bg">
     <div class="container">
-      <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-600">Our Mission</span>
-      <h1 class="mb-3 about-hero-title">Our Mission</h1>
+      <span class="about-hero-label">Our Mission</span>
       <p class="about-hero-desc">To foster excellence through innovative learning experiences and expert guidance, shaping a brighter future for professionals across industries.</p>
     </div>
   </section>
 
   <!-- ========== WHAT WE OFFER ========== -->
-  <section class="section">
+  <section class="about-offer-section">
     <div class="container">
-      <div class="row align-items-start g-5">
-        <!-- Left Column -->
-        <div class="col-lg-6">
-          <h2 class="mb-3">What we offer</h2>
-          <p>Welcome to PM4Success, your trusted partner in professional development. We are committed to equipping individuals and organizations with the tools, knowledge, and confidence they need to thrive in today's dynamic landscape.</p>
+      <div class="row align-items-center g-5">
+        <!-- Left Column: Intro Text -->
+        <div class="col-md-5 col-lg-5">
+          <p class="about-offer-intro">Welcome to PM4Success, your trusted partner in professional training, research, consultancy, and recruitment. We are committed to empowering individuals and organizations with the knowledge, skills, and tools needed to excel in today's competitive environment.</p>
         </div>
-        <!-- Right Column -->
-        <div class="col-lg-6">
-          <ul class="list-unstyled list-spaced">
-            <li class="mb-3">
-              <strong>Training</strong>
-              <br>Entrepreneurship, Project Management, Strategic Leadership, Data Analysis, Engineering, and more.
-            </li>
-            <li class="mb-3">
-              <strong>Research</strong>
-              <br>Cutting-edge research for industry advancement.
-            </li>
-            <li class="mb-3">
-              <strong>Consultancy</strong>
-              <br>Tailored solutions for organizational success.
-            </li>
-            <li class="mb-3">
-              <strong>Recruitment</strong>
-              <br>Connecting top talent with opportunities.
-            </li>
-          </ul>
-          <a href="course-catalogue.html" class="btn btn-primary">Learn More About Our Programs</a>
+        <!-- Right Column: What We Offer -->
+        <div class="col-md-7 col-lg-7">
+          <div class="about-offer-card">
+            <h2 class="about-offer-heading">What we offer</h2>
+            <ul class="about-offer-list">
+              <li><strong>Training:</strong> Entrepreneurship, Project Management, Strategic Leadership, Data Analysis, Engineering, and more</li>
+              <li><strong>Research:</strong> Cutting-edge research for industry advancement</li>
+              <li><strong>Consultancy:</strong> Tailored solutions for organizational success</li>
+              <li><strong>Recruitment:</strong> Connecting top talent with opportunities</li>
+            </ul>
+            <a href="course-catalogue.html" class="btn about-offer-btn">Learn More About Our Programs</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== CERTIFICATE COURSE vs CAREER PATH ========== -->
-  <section class="section section-bg">
+  <section class="about-cert-career">
     <div class="container">
-      <div class="row g-4">
+      <div class="about-cert-career-grid">
         <!-- Certificate Course -->
-        <div class="col-lg-6">
-          <div class="card h-100 border-0 shadow-sm p-4 text-center">
-            <div class="card-body">
-              <i class="bi bi-clock icon-lg-primary"></i>
-              <p class="mt-3 mb-1 fw-600 text-muted">Average Hour Duration</p>
-              <h3 class="fw-bold mb-3">10-15 Hours</h3>
-              <h4 class="mb-3">Certificate Course</h4>
-              <p>Perfect for professionals looking to gain targeted skills quickly. Our certificate courses provide focused, practical knowledge you can apply immediately in your career.</p>
-              <a href="course-catalogue.html" class="btn btn-outline-dark mt-2">See all Certificate Courses</a>
+        <div class="about-cert-career-col">
+          <div class="about-cert-career-header">
+            <i class="bi bi-file-earmark-text"></i>
+            <h3>Certificate Course</h3>
+            <p class="about-cert-career-subtitle">Average hour duration:</p>
+            <div class="about-cert-career-ring">
+              <span>10-15<br>hrs</span>
             </div>
           </div>
+          <div class="about-cert-career-body">
+            <p>There are moments when you aim to master an entire subject and others when honing in on specific concepts is the smarter choice. Our Certificate Courses empower you to gain focused expertise whether you're building a solid foundation or sharpening niche skills that set you apart in your industry.</p>
+            <p>Explore a wide range of topics, including business, technology, health and wellness, media and communications, languages, and more!</p>
+          </div>
+          <a href="course-catalogue.html" class="btn about-cert-career-btn">See all Certificate Course</a>
         </div>
         <!-- Career Path -->
-        <div class="col-lg-6">
-          <div class="card h-100 border-0 shadow-sm p-4 text-center">
-            <div class="card-body">
-              <i class="bi bi-clock icon-lg-primary"></i>
-              <p class="mt-3 mb-1 fw-600 text-muted">Average Hour Duration</p>
-              <h3 class="fw-bold mb-3">+250 Hours</h3>
-              <h4 class="mb-3">Career Path</h4>
-              <p>A comprehensive learning journey designed to transform your career. Career paths combine multiple courses, hands-on projects, and mentorship to prepare you for a new role.</p>
-              <a href="learning-paths.html" class="btn btn-outline-dark mt-2">See all Career Paths</a>
+        <div class="about-cert-career-col">
+          <div class="about-cert-career-header">
+            <i class="bi bi-mortarboard"></i>
+            <h3>Career Path</h3>
+            <p class="about-cert-career-subtitle">Average hour duration:</p>
+            <div class="about-cert-career-ring">
+              <span>+200<br>hrs</span>
             </div>
           </div>
+          <div class="about-cert-career-body">
+            <p>There are times when you want to explore a new career path, and other times when you need to deepen your expertise in a specific field. Our Career Path Courses are designed to guide you step-by-step helping you build practical skills, gain industry insights, and earn certifications that prepare you for success.</p>
+            <p>Whether you're starting fresh or leveling up, we offer courses in business, technology, design, marketing, health, and more to match your aspirations and get you job-ready.</p>
+          </div>
+          <a href="learning-paths.html" class="btn about-cert-career-btn">See all Career Path</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== TESTIMONIALS ========== -->
-  <section class="section">
+  <!-- ========== TESTIMONIAL INTRO TEXT ========== -->
+  <div class="about-testimonial-intro">
     <div class="container">
-      <div class="section-heading">
-        <h2>Testimonial</h2>
+      <p>Discover why learners choose our platform to advance their careers explore our Success Stories and read Testimonials from graduates who have achieved their goals with us</p>
+    </div>
+  </div>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section testimonial-section">
+    <div class="container">
+      <div class="testimonial-heading-row">
+        <div class="section-heading">
+          <h2>Testimonial</h2>
+        </div>
+        <div class="carousel-nav-btns">
+          <button class="carousel-btn carousel-btn-prev" data-target="testimonial-track"><i class="bi bi-chevron-left"></i></button>
+          <button class="carousel-btn carousel-btn-next" data-target="testimonial-track"><i class="bi bi-chevron-right"></i></button>
+        </div>
       </div>
-      <div class="carousel-wrapper">
-        <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
-        <div class="carousel-track">
+      <div class="carousel-wrapper testimonial-carousel">
+        <div class="carousel-track" id="testimonial-track" data-scroll-page="true">
           <!-- Testimonial 1 -->
           <div class="testimonial-card">
-            <div class="testimonial-card-header">
-              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
-              <div>
-                <h5>Jessica Harpe</h5>
-              </div>
-            </div>
-            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
-            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
           </div>
           <!-- Testimonial 2 -->
           <div class="testimonial-card">
-            <div class="testimonial-card-header">
-              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
-              <div>
-                <h5>Jessica Harpe</h5>
-              </div>
-            </div>
-            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
-            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
           </div>
           <!-- Testimonial 3 -->
           <div class="testimonial-card">
-            <div class="testimonial-card-header">
-              <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe">
-              <div>
-                <h5>Jessica Harpe</h5>
-              </div>
-            </div>
-            <p>The Data Analytics course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions.</p>
-            <a href="#" class="testimonial-link">Become a Data Scientist! Learn the Skills & Get the Job <i class="bi bi-arrow-right"></i></a>
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
+          </div>
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card">
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
+          </div>
+          <!-- Testimonial 6 -->
+          <div class="testimonial-card">
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
+          </div>
+          <!-- Testimonial 7 -->
+          <div class="testimonial-card">
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
+          </div>
+          <!-- Testimonial 8 -->
+          <div class="testimonial-card">
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
+          </div>
+          <!-- Testimonial 9 -->
+          <div class="testimonial-card">
+            <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="testimonial-avatar">
+            <h5 class="testimonial-name">Jessica Harpe</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. <strong>I now feel confident working with large datasets and making data-driven decisions</strong>.</p>
+            <hr class="testimonial-divider">
+            <a href="#" class="testimonial-link"><i class="bi bi-play-circle-fill"></i> Become a Data Scientist | Learn the Skills & Get the Job</a>
           </div>
         </div>
-        <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+      <div class="carousel-dots">
+        <span class="carousel-dot active"></span>
+        <span class="carousel-dot"></span>
+        <span class="carousel-dot"></span>
       </div>
     </div>
   </section>

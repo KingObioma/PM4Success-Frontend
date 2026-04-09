@@ -107,19 +107,6 @@
     </div>
   </nav>
 
-  <!-- ========== ACCOUNT VERIFICATION BANNER (Logged In) ========== -->
-  <div class="verification-banner navbar-logged-in">
-    <div class="verification-banner-inner">
-      <div class="verification-banner-icon">
-        <i class="bi bi-exclamation-circle-fill"></i>
-      </div>
-      <div class="verification-banner-content">
-        <strong>Account not verified</strong>
-        <p>Your account is not verified yet! To receive your certificate upon course completion, you must verify your account. Without verification, your certificate will not be issued.</p>
-      </div>
-      <button class="verification-banner-close" aria-label="Close"><i class="bi bi-x-lg"></i></button>
-    </div>
-  </div>
 
   <!-- ========== MOBILE MENU ========== -->
   <div class="mobile-menu-overlay"></div>
@@ -189,7 +176,7 @@
   <div class="container">
     <nav class="breadcrumb-nav">
       <div class="breadcrumb">
-        <a href="index.html"><i class="bi bi-house"></i></a>
+        <a href="index.html"><i class="bi bi-house-fill"></i></a>
         <span class="separator"><i class="bi bi-chevron-right"></i></span>
         <a href="course-catalogue.html">Course Catalogue</a>
         <span class="separator"><i class="bi bi-chevron-right"></i></span>
@@ -210,9 +197,30 @@
         <div class="row g-4">
           <!-- Cart Items -->
           <div class="col-lg-8">
-            <div class="cart-item">
+            <!-- Mobile-only: Total summary at top -->
+            <div class="cart-mobile-summary">
+              <div class="cart-mobile-total">
+                <span>Total:</span>
+                <span class="cart-mobile-total-current">&#8358;54,000</span>
+                <span class="cart-mobile-total-original">&#8358;75,900</span>
+                <span class="cart-mobile-total-discount">40% off</span>
+              </div>
+              <a href="#" class="cart-toggle-codes" data-action="toggle-codes">Hide Codes</a>
+              <hr class="cart-mobile-divider">
+              <div class="cart-mobile-promo">
+                <h5 class="cart-mobile-promo-title">Promotions</h5>
+                <div class="promo-input-group">
+                  <input type="text" placeholder="Enter Coupon" aria-label="Coupon code">
+                  <button type="button">Apply</button>
+                </div>
+              </div>
+              <h4 class="cart-items-heading">4 Courses in Cart</h4>
+            </div>
+
+            <div class="cart-item" data-course-id="1">
               <img src="assets/images/courses/course-thumb-1.png" alt="Course" class="cart-item-img">
               <div class="cart-item-body">
+                <span class="cart-item-university">Bright Future University</span>
                 <h5 class="cart-item-title">Introduction to Data Science and Statistic Methodology</h5>
                 <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
                 <div class="cart-item-meta">12 Weeks &middot; Online &middot; 1 Weekdays...</div>
@@ -220,17 +228,22 @@
                 <div class="course-card-rating">
                   <span class="rating-score">4.6</span>
                   <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
-                  <span class="rating-count">(961,432)</span>
+                  <span class="rating-count">(167,423)</span>
                 </div>
                 <span class="tag tag-sm">Beginner</span>
-                <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                <div class="cart-item-price-row">
+                  <span class="cart-item-price-inline">52,000</span>
+                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                </div>
+                <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
               </div>
-              <div class="cart-item-price">$3,000</div>
+              <div class="cart-item-price">52,000</div>
             </div>
 
-            <div class="cart-item">
+            <div class="cart-item" data-course-id="2">
               <img src="assets/images/courses/course-thumb-2.png" alt="Course" class="cart-item-img">
               <div class="cart-item-body">
+                <span class="cart-item-university">Bright Future University</span>
                 <h5 class="cart-item-title">Introduction to Data Science and Statistic Methodology</h5>
                 <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
                 <div class="cart-item-meta">12 Weeks &middot; Online &middot; 1 Weekdays...</div>
@@ -238,17 +251,22 @@
                 <div class="course-card-rating">
                   <span class="rating-score">4.6</span>
                   <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
-                  <span class="rating-count">(961,432)</span>
+                  <span class="rating-count">(167,423)</span>
                 </div>
                 <span class="tag tag-sm">Beginner</span>
-                <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                <div class="cart-item-price-row">
+                  <span class="cart-item-price-inline">52,000</span>
+                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                </div>
+                <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
               </div>
-              <div class="cart-item-price">$3,000</div>
+              <div class="cart-item-price">52,000</div>
             </div>
 
-            <div class="cart-item">
+            <div class="cart-item" data-course-id="3">
               <img src="assets/images/courses/course-thumb-3.png" alt="Course" class="cart-item-img">
               <div class="cart-item-body">
+                <span class="cart-item-university">Bright Future University</span>
                 <h5 class="cart-item-title">Introduction to Data Science and Statistic Methodology</h5>
                 <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
                 <div class="cart-item-meta">12 Weeks &middot; Online &middot; 1 Weekdays...</div>
@@ -256,17 +274,22 @@
                 <div class="course-card-rating">
                   <span class="rating-score">4.6</span>
                   <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
-                  <span class="rating-count">(961,432)</span>
+                  <span class="rating-count">(167,423)</span>
                 </div>
                 <span class="tag tag-sm">Beginner</span>
-                <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                <div class="cart-item-price-row">
+                  <span class="cart-item-price-inline">52,000</span>
+                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                </div>
+                <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
               </div>
-              <div class="cart-item-price">$3,000</div>
+              <div class="cart-item-price">52,000</div>
             </div>
 
-            <div class="cart-item">
+            <div class="cart-item" data-course-id="4">
               <img src="assets/images/courses/course-thumb-4.png" alt="Course" class="cart-item-img">
               <div class="cart-item-body">
+                <span class="cart-item-university">Bright Future University</span>
                 <h5 class="cart-item-title">Introduction to Data Science and Statistic Methodology</h5>
                 <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
                 <div class="cart-item-meta">12 Weeks &middot; Online &middot; 1 Weekdays...</div>
@@ -274,23 +297,32 @@
                 <div class="course-card-rating">
                   <span class="rating-score">4.6</span>
                   <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
-                  <span class="rating-count">(961,432)</span>
+                  <span class="rating-count">(167,423)</span>
                 </div>
                 <span class="tag tag-sm">Beginner</span>
-                <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                <div class="cart-item-price-row">
+                  <span class="cart-item-price-inline">52,000</span>
+                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                </div>
+                <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
               </div>
-              <div class="cart-item-price">$3,000</div>
+              <div class="cart-item-price">52,000</div>
+            </div>
+
+            <!-- Mobile-only: Checkout button at bottom -->
+            <div class="cart-mobile-checkout">
+              <a href="checkout.html" class="btn btn-primary btn-block btn-lg">Proceed to Checkout</a>
             </div>
           </div>
 
           <!-- Cart Sidebar -->
-          <div class="col-lg-4">
+          <div class="col-lg-4 cart-sidebar">
             <div class="promo-box">
               <h5>Promotion</h5>
-              <p class="text-secondary text-small">Unlock your potential with expert-led courses join today and start learning!</p>
+              <p class="text-secondary text-small">Unlock your potential with expert led courses join today and start learning</p>
               <div class="promo-input-group">
                 <input type="text" placeholder="Enter Coupon" aria-label="Coupon code">
-                <button type="button">APPLY</button>
+                <button type="button">Apply</button>
               </div>
             </div>
             <div class="cart-total">

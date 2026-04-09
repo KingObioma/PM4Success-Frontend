@@ -3074,7 +3074,7 @@ body.is-logged-in .navbar-search {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .about-hero > * {
@@ -3092,24 +3092,183 @@ body.is-logged-in .navbar-search {
   margin-bottom: 16px;
 }
 
-.about-offer {
+/* What We Offer Section */
+.about-offer-section {
   padding: 60px 0;
 }
 
-.about-offer-list li {
-  position: relative;
-  padding-left: 24px;
-  margin-bottom: 12px;
+.about-offer-intro {
   font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+.about-offer-card {
+  background-color: #f0f6fa;
+  border-radius: 12px;
+  padding: 36px 32px;
+}
+
+.about-offer-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+}
+
+.about-offer-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 32px;
+}
+
+.about-offer-list li {
+  margin-bottom: 14px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
   color: var(--color-text-secondary);
 }
 
-.about-offer-list li::before {
-  content: '\2022';
-  position: absolute;
-  left: 8px;
-  color: var(--color-primary);
-  font-weight: bold;
+.about-offer-list li strong {
+  color: var(--color-text-primary);
+}
+
+.about-offer-btn {
+  background-color: #0d5a7a;
+  color: #fff;
+  border: 2px solid #0d5a7a;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.about-offer-btn:hover {
+  background-color: transparent;
+  color: #0d5a7a;
+  border-color: #0d5a7a;
+}
+
+/* -- About: Certificate Course vs Career Path -- */
+.about-cert-career {
+  padding: 60px 0;
+  border-bottom: 1px solid #dde3ea;
+}
+
+.about-cert-career-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.about-cert-career-col {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 40px;
+}
+
+.about-cert-career-col:first-child {
+  background-color: #F1F1F180;
+}
+
+.about-cert-career-col:last-child {
+  background-color: #f0f4f8;
+}
+
+.about-cert-career-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.about-cert-career-header > i {
+  font-size: 2.5rem;
+  color: #1a3c50;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.about-cert-career-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.about-cert-career-subtitle {
+  font-size: 0.875rem;
+  color: #6b7b8d;
+  margin-bottom: 12px;
+}
+
+.about-cert-career-ring {
+  width: 72px;
+  height: 72px;
+  border: 2px dashed #5ba4c9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.about-cert-career-ring span {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.about-cert-career-body {
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+.about-cert-career-body p {
+  font-size: 0.9375rem;
+  color: #3a3a3a;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.about-cert-career-body p:last-child {
+  margin-bottom: 0;
+}
+
+.about-cert-career-btn {
+  background-color: #0d5a7a;
+  color: #fff;
+  border: 2px solid #0d5a7a;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  align-self: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+.about-cert-career-btn:hover {
+  background-color: transparent;
+  color: #0d5a7a;
+  border-color: #0d5a7a;
+}
+
+/* -- About: Testimonial Intro Text -- */
+.about-testimonial-intro {
+  padding: 48px 0 0;
+  text-align: center;
+  background: #F5F9FBBF;
+}
+
+.about-testimonial-intro p {
+  font-size: 0.9375rem;
+  color: #5a5a5a;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .about-stats {
@@ -3147,19 +3306,33 @@ body.is-logged-in .navbar-search {
 /* ============================================
    23. Contact Page
    ============================================ */
-.contact-info h1 {
-  margin-bottom: 8px;
+.contact-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
-.contact-info .subtitle {
-  font-size: 1rem;
+.contact-subtitle {
+  font-size: 0.9375rem;
   color: var(--color-text-secondary);
+  margin-bottom: 28px;
+}
+
+.contact-info-block {
   margin-bottom: 24px;
 }
 
-.contact-detail {
-  margin-bottom: 8px;
+.contact-info-title {
   font-size: 0.9375rem;
+  color: #888;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.contact-detail {
+  margin-bottom: 2px;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
 }
 
 .contact-detail strong {
@@ -3169,34 +3342,83 @@ body.is-logged-in .navbar-search {
 .contact-social {
   display: flex;
   gap: 16px;
-  margin-top: 20px;
+  margin-bottom: 32px;
 }
 
 .contact-social a {
   font-size: 1.5rem;
   color: var(--color-text);
+  transition: var(--transition);
 }
 
 .contact-social a:hover {
   color: var(--color-primary);
 }
 
-.chat-btn {
+.section-contact .col-md-5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-chat-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background-color: var(--color-warning);
+  align-self: flex-start;
+  margin-top: auto;
+  gap: 10px;
+  padding: 14px 28px;
+  background-color: var(--color-primary);
   color: var(--color-white);
-  border-radius: var(--radius-pill);
+  border-radius: 30px 5px 30px 5px;
   font-weight: 600;
-  font-size: 0.875rem;
-  margin-top: 24px;
+  font-size: 0.9375rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   transition: var(--transition);
 }
 
-.chat-btn:hover {
+.contact-chat-btn:hover {
   opacity: 0.9;
+  color: var(--color-white);
+}
+
+.contact-input {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 0.9375rem;
+}
+
+.contact-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(26, 60, 94, 0.1);
+}
+
+.contact-consent {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.contact-consent a {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-submit-btn:hover {
+  background-color: #153350;
   color: var(--color-white);
 }
 
@@ -4390,14 +4612,16 @@ body.is-logged-in .navbar-search {
   font-size: 0.875rem;
   font-weight: 600;
   padding: 12px 28px;
+  border: 2px solid var(--color-primary);
   border-radius: 0;
   text-decoration: none;
   transition: var(--transition);
 }
 
 .lp-hero-btn:hover {
-  background-color: var(--color-primary-hover);
-  color: var(--color-white);
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 /* LP Hero Images */
@@ -4661,6 +4885,159 @@ body.is-logged-in .navbar-search {
 
 .lp-current-dots {
   display: none;
+}
+
+/* -- LP Discover Career Path Section -- */
+.lp-discover-section {
+  padding: 60px 0;
+  background-color: var(--color-white);
+}
+
+.lp-discover-section .section-heading h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--color-dark);
+}
+
+.lp-tab-mobile-only {
+  display: none;
+}
+
+.lp-grid-pagination {
+  display: none;
+}
+
+.lp-discover-subtitle {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.lp-discover-sidebar-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 16px;
+}
+
+.lp-discover-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.lp-discover-header-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.lp-discover-header-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+/* LP Job Cards */
+.lp-job-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lp-job-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.lp-job-card-body {
+  padding: 24px 20px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lp-job-card-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 6px;
+}
+
+.lp-job-card-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.lp-job-card-label {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 10px;
+}
+
+.lp-job-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.lp-job-tag {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.lp-job-card-stats {
+  margin-bottom: 16px;
+}
+
+.lp-job-card-stats p {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+  line-height: 1.6;
+}
+
+.lp-job-card-stats strong {
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.lp-job-card-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 18px 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.lp-job-card-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.lp-job-card-link:hover {
+  color: var(--color-primary);
 }
 
 .skill-rings-row {
@@ -5211,7 +5588,7 @@ body.is-logged-in .navbar-search {
 
 .cart-item-img {
   width: 160px;
-  height: 100px;
+  height: 120px;
   object-fit: cover;
   border-radius: var(--radius-md);
   flex-shrink: 0;
@@ -5220,6 +5597,10 @@ body.is-logged-in .navbar-search {
 .cart-item-body {
   flex: 1;
   min-width: 0;
+}
+
+.cart-item-university {
+  display: none;
 }
 
 .cart-item-title {
@@ -5246,12 +5627,22 @@ body.is-logged-in .navbar-search {
   flex-shrink: 0;
 }
 
-.cart-item .remove-btn {
+.cart-item .remove-btn-desktop {
   font-size: 0.8125rem;
-  color: var(--color-orange);
+  color: var(--color-primary);
   font-weight: 600;
   margin-top: 8px;
   display: inline-block;
+}
+
+.cart-item-price-row {
+  display: none;
+}
+
+/* Mobile-only cart elements — hidden on desktop/tablet */
+.cart-mobile-summary,
+.cart-mobile-checkout {
+  display: none;
 }
 
 .promo-box {
@@ -5560,26 +5951,7 @@ body.is-logged-in .navbar-search {
   padding-bottom: 60px;
 }
 
-/* Contact info icons */
-.icon-contact-info {
-  font-size: 1.2rem;
-  margin-top: 2px;
-}
-
-/* Social icon circle buttons */
-.social-icon-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #333;
-  text-decoration: none;
-}
-
-/* Chat button (orange) */
+/* Chat button (legacy) */
 .btn-chat {
   background: #f5a623;
   color: #fff;
@@ -5588,24 +5960,30 @@ body.is-logged-in .navbar-search {
 
 /* About hero background */
 .about-hero-bg {
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../assets/images/about-hero.png') center/cover no-repeat;
+  background: url('../assets/images/about-hero-vr.jpg') center/cover no-repeat;
   color: #fff;
-  padding: 80px 0;
+  padding: 100px 0;
   text-align: center;
 }
 
-/* About hero title */
-.about-hero-title {
-  max-width: 700px;
-  margin: 0 auto;
+/* About hero label */
+.about-hero-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  color: #fff;
 }
 
 /* About hero description */
 .about-hero-desc {
-  max-width: 700px;
+  max-width: 750px;
   margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1.375rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #fff;
 }
 
 /* Spaced list */
@@ -5958,8 +6336,26 @@ body.is-logged-in .navbar-search {
     overflow-y: auto;
   }
 
+  .about-hero-bg {
+    padding: 70px 0;
+  }
+
+  .about-hero-desc {
+    font-size: 1.25rem;
+    max-width: 100%;
+  }
+
   .about-stats {
     flex-wrap: wrap;
+  }
+
+  /* About Cert vs Career Path - Tablet */
+  .about-cert-career {
+    padding: 48px 0;
+  }
+
+  .about-cert-career-col {
+    padding: 40px 28px;
   }
 
   .skill-rings-row {
@@ -6007,16 +6403,6 @@ body.is-logged-in .navbar-search {
   border-radius: var(--radius-sm);
 }
 
-.contact-form-submit {
-  background-color: var(--color-dark);
-  color: var(--color-white);
-  border: none;
-}
-
-.contact-form-submit:hover {
-  background-color: #111827;
-  color: var(--color-white);
-}
 
 /* Course Catalogue — Tablet */
 @media (max-width: 991px) {
@@ -6403,6 +6789,7 @@ body.is-logged-in .navbar-search {
     border-radius: 0;
     border-left: none;
     border: none;
+    border-bottom: 1px solid var(--color-border);
     justify-content: center;
     font-size: 0.875rem;
     background-color: #EAF2F8;
@@ -7122,17 +7509,156 @@ body.is-logged-in .navbar-search {
     min-height: 90px;
   }
 
+  /* Cart mobile layout */
+  .cart-sidebar {
+    display: none;
+  }
+
+  .cart-mobile-summary {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .cart-mobile-total {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .cart-mobile-total > span:first-child {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .cart-mobile-total-current {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .cart-mobile-total-original {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-decoration: line-through;
+  }
+
+  .cart-mobile-total-discount {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .cart-toggle-codes {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .cart-mobile-divider {
+    border-color: var(--color-border);
+    margin: 0 0 20px;
+  }
+
+  .cart-mobile-promo-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .cart-mobile-promo .promo-input-group input {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+  }
+
+  .cart-mobile-promo .promo-input-group button {
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .cart-items-heading {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 8px;
+  }
+
   .cart-item {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+    flex-wrap: wrap;
   }
 
   .cart-item-img {
-    width: 100%;
-    height: 160px;
+    width: 110px;
+    height: 90px;
+    border-radius: var(--radius-md);
+  }
+
+  .cart-item-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cart-item-university {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .cart-item-title {
+    font-size: 0.9375rem;
+  }
+
+  .cart-item-desc,
+  .cart-item-meta,
+  .cart-item .tag {
+    display: none;
   }
 
   .cart-item-price {
-    text-align: left;
+    display: none;
+  }
+
+  .cart-item .remove-btn-desktop {
+    display: none;
+  }
+
+  .cart-item-price-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .cart-item-price-inline {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .cart-item-price-row .remove-btn {
+    font-size: 0.8125rem;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .cart-mobile-checkout {
+    display: block;
+    margin-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .about-hero-bg {
+    padding: 50px 0;
+  }
+
+  .about-hero-desc {
+    font-size: 1.125rem;
   }
 
   .about-stats {
@@ -7396,6 +7922,35 @@ body.is-logged-in .navbar-search {
   .lp-current-dot.active {
     background-color: var(--color-primary);
   }
+
+  /* LP Discover - Mobile */
+  .lp-discover-section .section-heading h2 {
+    font-size: 1.375rem;
+  }
+
+  .lp-discover-section .col-md-4 {
+    margin-bottom: 0 !important;
+  }
+
+  .lp-discover-section .program-sidebar .program-tab[data-category="popular"] {
+    margin-bottom: 0;
+  }
+
+  .lp-discover-header {
+    display: none;
+  }
+
+  .lp-job-card-footer {
+    display: none;
+  }
+
+  .lp-job-card-img {
+    height: 200px;
+  }
+
+  .lp-grid-pagination {
+    display: block;
+  }
 }
 
 /* ============================================
@@ -7589,6 +8144,63 @@ body.is-logged-in .navbar-search {
 
   .payment-option {
     padding: 12px;
+  }
+
+  /* What We Offer - Mobile */
+  .about-offer-section {
+    padding: 40px 0;
+  }
+
+  .about-offer-card {
+    padding: 28px 20px;
+  }
+
+  .about-offer-intro {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .about-offer-heading {
+    text-align: center;
+    font-size: 1.375rem;
+  }
+
+  .about-offer-list {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .about-offer-list li {
+    margin-bottom: 16px;
+  }
+
+  .about-offer-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+/* About Cert vs Career Path - Mobile */
+@media (max-width: 770px) {
+  .about-cert-career {
+    padding: 40px 0;
+  }
+
+  .about-cert-career-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-cert-career-body {
+    text-align: center;
+  }
+
+  .about-cert-career-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 }
 
