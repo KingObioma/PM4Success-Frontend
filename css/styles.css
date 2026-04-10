@@ -7154,6 +7154,15 @@ h2.accomplishments-title {
 }
 
 /* ============================================
+   41b. Search bar hide (max-width: 1085px)
+   ============================================ */
+@media (max-width: 1085px) {
+  .navbar-search {
+    display: none !important;
+  }
+}
+
+/* ============================================
    42. Tablet (max-width: 991px)
    ============================================ */
 @media (max-width: 991px) {
@@ -7175,10 +7184,6 @@ h2.accomplishments-title {
 
   .navbar-left {
     flex: 1;
-  }
-
-  .navbar-search {
-    display: none !important;
   }
 
   .navbar-nav {
