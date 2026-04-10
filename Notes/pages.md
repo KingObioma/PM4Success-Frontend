@@ -7,18 +7,18 @@ course catalogue✅
 learning path ✅
 Notifications✅
 My courses page✅
-My Purchases
+My Purchases✅
+Help & Support
+terms and condition
+Privacy Policy
 checkout
 assignment page
 course content
+Team preview
 course details
 edit profile
-Help & Support
-Team preview
-Privacy Policy
 progress report
 User profile
-terms and condition
 Empty_ Cart PAGE
 Empty_ My courses 
 Empty State-User Profile

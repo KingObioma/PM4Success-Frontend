@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initValidation();
   initMyCourses();
   initBlogCarousel();
+  initPurchaseSummaryToggles();
 });
 
 /* ============================================
@@ -2213,5 +2214,28 @@ function initBlogCarousel() {
     var cardWidth = items[0].offsetWidth + 16;
     var index = Math.round(track.scrollLeft / cardWidth);
     track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+  });
+}
+
+/* ============================================
+   Purchase Summary Toggles (Mobile)
+   ============================================ */
+function initPurchaseSummaryToggles() {
+  var toggles = document.querySelectorAll('.purchase-summary-toggle');
+  if (!toggles.length) return;
+
+  toggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var content = btn.nextElementSibling;
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        content.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 }

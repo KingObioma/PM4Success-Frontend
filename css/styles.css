@@ -5899,8 +5899,96 @@ body.is-logged-in .navbar-search {
    31. Purchases
    ============================================ */
 .purchases-help {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+.purchases-help a {
+  color: #0B5D92;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.purchases-help a:hover {
+  color: var(--color-primary-hover);
+}
+
+.purchases-header {
+  display: flex;
+  align-items: center;
+  padding: 0 24px 12px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.purchases-col-name {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.purchases-col-amount,
+.purchases-col-date,
+.purchases-col-status {
+  flex: 0 0 140px;
+  text-align: center;
+}
+
+.purchases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.purchase-card {
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.purchase-card-row {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+
+.purchase-card-info {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.purchase-card-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.purchase-card-subtitle {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.purchase-card-amount,
+.purchase-card-date,
+.purchase-card-status {
+  flex: 0 0 140px;
+  text-align: center;
   font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.purchase-card-mobile {
+  display: none;
+}
+
+.purchases-showing {
+  margin-top: 24px;
+  font-size: 0.875rem;
+  color: var(--color-text);
 }
 
 /* ============================================
@@ -7459,6 +7547,32 @@ h2.accomplishments-title {
   .nuc-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* -- Purchases tablet -- */
+  .purchases-col-amount,
+  .purchases-col-date,
+  .purchases-col-status {
+    flex: 0 0 110px;
+  }
+
+  .purchase-card-amount,
+  .purchase-card-date,
+  .purchase-card-status {
+    flex: 0 0 110px;
+    font-size: 0.8125rem;
+  }
+
+  .purchase-card-title {
+    font-size: 0.875rem;
+  }
+
+  .purchase-card-row {
+    padding: 20px 16px;
+  }
+
+  .purchases-header {
+    padding: 0 16px 12px;
+  }
 }
 
 /* ============================================
@@ -9004,6 +9118,87 @@ h2.accomplishments-title {
 
   .lp-grid-pagination {
     display: block;
+  }
+
+  /* Purchases - Mobile */
+  .purchases-header {
+    display: none;
+  }
+
+  .purchase-card-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .purchase-card-amount,
+  .purchase-card-date,
+  .purchase-card-status {
+    display: none;
+  }
+
+  .purchase-card-mobile {
+    display: block;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .purchase-summary-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #0B5D92;
+  }
+
+  .purchase-summary-toggle i {
+    color: #0B5D92;
+    font-size: 0.875rem;
+    transition: transform 0.25s ease;
+  }
+
+  .purchase-summary-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+  }
+
+  .purchase-summary-content {
+    display: none;
+    padding: 0 20px 20px;
+  }
+
+  .purchase-summary-content.open {
+    display: block;
+  }
+
+  .purchase-summary-item {
+    margin-bottom: 16px;
+  }
+
+  .purchase-summary-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .purchase-summary-label {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+  }
+
+  .purchase-summary-value {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .purchase-status-paid {
+    color: #0B5D92;
   }
 }
 
