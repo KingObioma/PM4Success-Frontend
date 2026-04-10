@@ -1021,6 +1021,7 @@ function initCalendar() {
    14. Smooth Scroll (sidebar nav)
    ============================================ */
 function initSmoothScroll() {
+  var scrollSpyPaused = false;
   const scrollLinks = document.querySelectorAll('[data-scroll-to]');
 
   scrollLinks.forEach(function (link) {
@@ -1028,20 +1029,66 @@ function initSmoothScroll() {
       e.preventDefault();
       var targetId = this.getAttribute('data-scroll-to');
       var target = document.getElementById(targetId);
-      if (target) {
-        var navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
-        var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
-        window.scrollTo({ top: top, behavior: 'smooth' });
+
+      // Update active state immediately
+      var nav = this.closest('.sidebar-nav');
+      if (nav) {
+        nav.querySelectorAll('a').forEach(function (a) { a.classList.remove('active'); });
+        this.classList.add('active');
       }
 
-      // Update active state
-      var siblings = this.closest('.sidebar-nav');
-      if (siblings) {
-        siblings.querySelectorAll('a').forEach(function (a) { a.classList.remove('active'); });
-        this.classList.add('active');
+      // Pause scroll-spy so it doesn't override the click
+      scrollSpyPaused = true;
+      setTimeout(function () { scrollSpyPaused = false; }, 800);
+
+      if (target) {
+        var navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
+        var extraOffset = window.innerWidth < 768 ? 120 : 40;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraOffset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
       }
     });
   });
+
+  // Scroll-spy: update active sidebar link on scroll
+  var sidebarNav = document.querySelector('.terms-sidebar-nav');
+  if (sidebarNav) {
+    var sidebarLinks = sidebarNav.querySelectorAll('a[data-scroll-to]');
+    var sections = [];
+    sidebarLinks.forEach(function (link) {
+      var target = document.getElementById(link.getAttribute('data-scroll-to'));
+      if (target) sections.push({ link: link, target: target });
+    });
+
+    if (sections.length) {
+      window.addEventListener('scroll', function () {
+        if (scrollSpyPaused) return;
+
+        var navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
+        var extraOffset = window.innerWidth < 768 ? 120 : 40;
+        var scrollPos = window.pageYOffset + navHeight + extraOffset;
+        var current = sections[0];
+
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i].target.offsetTop <= scrollPos) {
+            current = sections[i];
+          }
+        }
+
+        sidebarLinks.forEach(function (link) { link.classList.remove('active'); });
+        current.link.classList.add('active');
+
+        // On mobile, scroll active link into view in horizontal nav
+        if (window.innerWidth < 768) {
+          var nav = current.link.parentElement;
+          var linkLeft = current.link.offsetLeft;
+          var linkWidth = current.link.offsetWidth;
+          var navWidth = nav.offsetWidth;
+          nav.scrollLeft = linkLeft - (navWidth / 2) + (linkWidth / 2);
+        }
+      });
+    }
+  }
 }
 
 /* ============================================

@@ -8,9 +8,9 @@ learning path ✅
 Notifications✅
 My courses page✅
 My Purchases✅
-Help & Support
-terms and condition
+terms and condition✅
 Privacy Policy
+Help & Support
 checkout
 assignment page
 course content
