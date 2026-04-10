@@ -4467,9 +4467,9 @@ body.is-logged-in .navbar-search {
 /* -- Recent Blog Posts -- */
 .rbp-subheading {
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-dark);
-  margin-bottom: 24px;
+  margin-bottom: 36px;
 }
 
 .rbp-grid {
@@ -4561,6 +4561,120 @@ body.is-logged-in .navbar-search {
 
 .rbp-carousel-dot.active {
   background-color: var(--color-primary);
+}
+
+/* -- Newly Updated Courses -- */
+.nuc-section {
+  padding-top: 0;
+}
+
+.nuc-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.nuc-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.nuc-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.nuc-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nuc-card-provider {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.nuc-card-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.nuc-card-extra {
+  display: none;
+}
+
+.nuc-card-meta {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.nuc-card-instructor {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 4px;
+}
+
+.nuc-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.nuc-card-rating .rating-score {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.nuc-card-rating .stars {
+  display: flex;
+  gap: 1px;
+  color: var(--color-star);
+  font-size: 0.75rem;
+}
+
+.nuc-card-rating .rating-count {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+}
+
+.nuc-card-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0;
+}
+
+.nuc-card-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-decoration: underline !important;
+  margin-top: auto;
+  padding-top: 16px;
+  text-align: center;
+  display: block;
+}
+
+.nuc-card-link:hover {
+  color: var(--color-primary);
 }
 
 /* Dashboard extra classes (agent-generated) */
@@ -7340,6 +7454,11 @@ h2.accomplishments-title {
   .rbp-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* -- Newly Updated Courses tablet -- */
+  .nuc-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ============================================
@@ -8527,6 +8646,34 @@ h2.accomplishments-title {
 
   .rbp-carousel {
     display: block;
+  }
+
+  /* -- Newly Updated Courses mobile -- */
+  .nuc-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+
+  .nuc-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nuc-card {
+    flex: 0 0 70%;
+    scroll-snap-align: start;
+  }
+
+  .nuc-card-extra {
+    display: block;
+  }
+
+  .nuc-card-link {
+    display: none;
   }
 
   .certificate-item {
