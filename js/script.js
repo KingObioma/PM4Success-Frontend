@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initPasswordToggles();
   initProgressRings();
   initStarRating();
+  initNumberRating();
   initFileUploads();
   initCatalogueFilters();
   initFilterDropdowns();
@@ -27,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
   initMyCourses();
   initBlogCarousel();
   initPurchaseSummaryToggles();
+  initHelpSupportFaq();
+  initAchievementsCarousel();
+  initUserProfileCurrentCourses();
 });
 
 /* ============================================
@@ -134,8 +138,8 @@ function initAuthModals() {
       if (mobileMenu) mobileMenu.classList.remove('show');
       if (mobileOverlay) mobileOverlay.classList.remove('show');
 
-      // Close any open auth modal first
-      document.querySelectorAll('.auth-modal-overlay.show').forEach(function (m) {
+      // Close any open modal first
+      document.querySelectorAll('.auth-modal-overlay.show, .app-modal-overlay.show').forEach(function (m) {
         m.classList.remove('show');
       });
 
@@ -151,7 +155,7 @@ function initAuthModals() {
   // Close modal via X button
   document.querySelectorAll('[data-close-modal]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var modal = this.closest('.auth-modal-overlay');
+      var modal = this.closest('.auth-modal-overlay, .app-modal-overlay');
       if (modal) {
         modal.classList.remove('show');
         document.body.style.overflow = '';
@@ -160,7 +164,7 @@ function initAuthModals() {
   });
 
   // Close modal via overlay click
-  document.querySelectorAll('.auth-modal-overlay').forEach(function (overlay) {
+  document.querySelectorAll('.auth-modal-overlay, .app-modal-overlay').forEach(function (overlay) {
     overlay.addEventListener('click', function (e) {
       if (e.target === this) {
         this.classList.remove('show');
@@ -642,6 +646,28 @@ function initStarRating() {
 }
 
 /* ============================================
+   9b. Number Rating (1–5 circle buttons)
+   ============================================ */
+function initNumberRating() {
+  var containers = document.querySelectorAll('[data-number-rating]');
+
+  containers.forEach(function (container) {
+    var buttons = container.querySelectorAll('.number-rating-btn');
+    var input = container.querySelector('input[type="hidden"]');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var value = btn.getAttribute('data-value');
+        if (input) input.value = value;
+        buttons.forEach(function (b) {
+          b.classList.toggle('active', b === btn);
+        });
+      });
+    });
+  });
+}
+
+/* ============================================
    10. File Uploads
    ============================================ */
 function initFileUploads() {
@@ -920,101 +946,170 @@ function initCartInteractions() {
    13. Calendar Widget
    ============================================ */
 function initCalendar() {
-  var calendar = document.querySelector('.calendar-widget');
-  if (!calendar) return;
+  var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+  var MONTH_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-  var now = new Date();
-  var currentMonth = now.getMonth();
-  var currentYear = now.getFullYear();
+  document.querySelectorAll('[data-calendar]').forEach(function (calendar) {
+    var grid = calendar.querySelector('[data-calendar-grid]');
+    var monthLabel = calendar.querySelector('[data-calendar-month-label]');
+    var selectedLabel = calendar.querySelector('[data-calendar-label]');
+    var prevBtn = calendar.querySelector('[data-calendar-prev]');
+    var nextBtn = calendar.querySelector('[data-calendar-next]');
+    var toggleBtn = calendar.querySelector('[data-calendar-toggle]');
+    var picker = calendar.querySelector('[data-calendar-picker]');
+    var pickerMonths = calendar.querySelector('[data-picker-months]');
+    var pickerYearLabel = calendar.querySelector('[data-picker-year-label]');
+    var pickerYearPrev = calendar.querySelector('[data-picker-year-prev]');
+    var pickerYearNext = calendar.querySelector('[data-picker-year-next]');
 
-  var monthLabel = calendar.querySelector('.calendar-month');
-  var grid = calendar.querySelector('.calendar-grid');
-  var prevBtn = calendar.querySelector('.calendar-prev');
-  var nextBtn = calendar.querySelector('.calendar-next');
+    if (!grid) return;
 
-  if (!grid) return;
+    var initialYear = parseInt(calendar.getAttribute('data-initial-year'), 10);
+    var initialMonth = parseInt(calendar.getAttribute('data-initial-month'), 10);
+    var initialDay = parseInt(calendar.getAttribute('data-initial-day'), 10);
+    var eventDates = (calendar.getAttribute('data-event-dates') || '')
+      .split(',')
+      .map(function (s) { return parseInt(s.trim(), 10); })
+      .filter(function (n) { return !isNaN(n); });
 
-  // Deadline dates — read from data attribute or use defaults
-  var deadlineDates = JSON.parse(calendar.getAttribute('data-deadlines') || '[10, 15, 22, 25]');
-
-  function renderCalendar(month, year) {
-    var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'];
-
-    if (monthLabel) {
-      monthLabel.textContent = monthNames[month] + ' ' + year;
-    }
-
-    // Clear non-header cells
-    var existingDays = grid.querySelectorAll('.day');
-    existingDays.forEach(function (d) { d.remove(); });
-
-    var firstDay = new Date(year, month, 1).getDay();
-    var daysInMonth = new Date(year, month + 1, 0).getDate();
-    var daysInPrevMonth = new Date(year, month, 0).getDate();
-
-    // Previous month days
-    for (var i = firstDay - 1; i >= 0; i--) {
-      var dayEl = document.createElement('span');
-      dayEl.className = 'day other-month';
-      dayEl.textContent = daysInPrevMonth - i;
-      grid.appendChild(dayEl);
-    }
-
-    // Current month days
     var today = new Date();
-    for (var d = 1; d <= daysInMonth; d++) {
-      var dayEl = document.createElement('span');
-      dayEl.className = 'day';
-      dayEl.textContent = d;
+    var viewYear = isNaN(initialYear) ? today.getFullYear() : initialYear;
+    var viewMonth = isNaN(initialMonth) ? today.getMonth() : initialMonth;
+    var pickerYear = viewYear;
+    var selected = {
+      year: viewYear,
+      month: viewMonth,
+      day: isNaN(initialDay) ? today.getDate() : initialDay
+    };
 
-      if (d === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
-        dayEl.classList.add('today');
+    function renderGrid() {
+      if (monthLabel) {
+        monthLabel.textContent = MONTH_NAMES[viewMonth] + ' ' + viewYear;
       }
 
-      if (deadlineDates.includes(d)) {
-        dayEl.classList.add('has-event');
+      grid.querySelectorAll('.ud-day').forEach(function (el) { el.remove(); });
+
+      var firstDay = new Date(viewYear, viewMonth, 1).getDay();
+      var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+      for (var i = 0; i < firstDay; i++) {
+        var empty = document.createElement('div');
+        empty.className = 'ud-day ud-day-empty';
+        grid.appendChild(empty);
       }
 
-      grid.appendChild(dayEl);
-    }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var dayEl = document.createElement('button');
+        dayEl.type = 'button';
+        dayEl.className = 'ud-day';
+        dayEl.textContent = d;
+        dayEl.setAttribute('data-day', d);
 
-    // Next month days
-    var totalCells = firstDay + daysInMonth;
-    var remaining = 7 - (totalCells % 7);
-    if (remaining < 7) {
-      for (var n = 1; n <= remaining; n++) {
-        var dayEl = document.createElement('span');
-        dayEl.className = 'day other-month';
-        dayEl.textContent = n;
+        if (eventDates.indexOf(d) !== -1) {
+          dayEl.classList.add('ud-day-event');
+        }
+        if (d === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
+          dayEl.classList.add('ud-day-today');
+        }
+        if (selected.year === viewYear && selected.month === viewMonth && selected.day === d) {
+          dayEl.classList.add('ud-day-selected');
+        }
+
+        dayEl.addEventListener('click', function () {
+          selected = {
+            year: viewYear,
+            month: viewMonth,
+            day: parseInt(this.getAttribute('data-day'), 10)
+          };
+          updateSelectedLabel();
+          renderGrid();
+        });
+
         grid.appendChild(dayEl);
       }
     }
-  }
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', function () {
-      currentMonth--;
-      if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      renderCalendar(currentMonth, currentYear);
+    function updateSelectedLabel() {
+      if (!selectedLabel) return;
+      var date = new Date(selected.year, selected.month, selected.day);
+      selectedLabel.textContent = DAY_SHORT[date.getDay()] + ', ' + MONTH_SHORT[selected.month] + ' ' + selected.day;
+    }
+
+    function shiftMonth(delta) {
+      viewMonth += delta;
+      while (viewMonth < 0) { viewMonth += 12; viewYear--; }
+      while (viewMonth > 11) { viewMonth -= 12; viewYear++; }
+      renderGrid();
+    }
+
+    function renderPicker() {
+      if (!pickerMonths || !pickerYearLabel) return;
+      pickerYearLabel.textContent = pickerYear;
+      pickerMonths.innerHTML = '';
+      MONTH_SHORT.forEach(function (name, idx) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ud-month-option';
+        btn.textContent = name;
+        if (idx === viewMonth && pickerYear === viewYear) {
+          btn.classList.add('is-active');
+        }
+        btn.addEventListener('click', function () {
+          viewMonth = idx;
+          viewYear = pickerYear;
+          closePicker();
+          renderGrid();
+        });
+        pickerMonths.appendChild(btn);
+      });
+    }
+
+    function openPicker() {
+      if (!picker) return;
+      pickerYear = viewYear;
+      renderPicker();
+      picker.hidden = false;
+      calendar.classList.add('is-picker-open');
+    }
+
+    function closePicker() {
+      if (!picker) return;
+      picker.hidden = true;
+      calendar.classList.remove('is-picker-open');
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { shiftMonth(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { shiftMonth(1); });
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        if (picker && picker.hidden) { openPicker(); } else { closePicker(); }
+      });
+    }
+
+    if (pickerYearPrev) {
+      pickerYearPrev.addEventListener('click', function () {
+        pickerYear--;
+        renderPicker();
+      });
+    }
+    if (pickerYearNext) {
+      pickerYearNext.addEventListener('click', function () {
+        pickerYear++;
+        renderPicker();
+      });
+    }
+
+    document.addEventListener('click', function (e) {
+      if (!calendar.contains(e.target)) closePicker();
     });
-  }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function () {
-      currentMonth++;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      }
-      renderCalendar(currentMonth, currentYear);
-    });
-  }
-
-  renderCalendar(currentMonth, currentYear);
+    renderGrid();
+    updateSelectedLabel();
+  });
 }
 
 /* ============================================
@@ -2285,4 +2380,156 @@ function initPurchaseSummaryToggles() {
       }
     });
   });
+}
+
+/* ============================================
+   Help & Support — FAQ section
+   ============================================ */
+function initHelpSupportFaq() {
+  // Tabs (visual state only)
+  var tabButtons = document.querySelectorAll('.hs-faq-tab');
+  tabButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabButtons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+
+  // Sidebar items (active state)
+  var sidebarItems = document.querySelectorAll('.hs-faq-sidebar-item');
+  sidebarItems.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      sidebarItems.forEach(function (i) { i.classList.remove('active'); });
+      item.classList.add('active');
+
+      var toggleLabel = document.querySelector('.hs-faq-sidebar-toggle span');
+      if (toggleLabel) {
+        toggleLabel.innerHTML = item.innerHTML;
+      }
+
+      // Auto-close dropdown on mobile after selection
+      var sidebar = document.getElementById('faqSidebarNav');
+      var toggle = document.querySelector('.hs-faq-sidebar-toggle');
+      if (sidebar && toggle && window.innerWidth < 768) {
+        sidebar.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Mobile sidebar dropdown toggle
+  var sidebarToggle = document.querySelector('.hs-faq-sidebar-toggle');
+  var sidebarNav = document.getElementById('faqSidebarNav');
+  if (sidebarToggle && sidebarNav) {
+    sidebarToggle.addEventListener('click', function () {
+      var isOpen = sidebarToggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        sidebarNav.classList.remove('open');
+        sidebarToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        sidebarNav.classList.add('open');
+        sidebarToggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+}
+
+/* ============================================
+   Achievements Carousel (mobile only)
+   ============================================ */
+function initAchievementsCarousel() {
+  const carousels = document.querySelectorAll('[data-achievements-carousel]');
+  if (!carousels.length) return;
+
+  carousels.forEach(function (carousel) {
+    const track = carousel.querySelector('.profile-achievements-track');
+    const dotsContainer = carousel.querySelector('.profile-achievements-dots');
+    const cards = track ? track.querySelectorAll('.profile-achievement-card') : [];
+    if (!track || !dotsContainer || !cards.length) return;
+
+    // Build dot indicators
+    dotsContainer.innerHTML = '';
+    cards.forEach(function (_, i) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'profile-achievement-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', function () {
+        const card = cards[i];
+        if (!card) return;
+        track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.profile-achievement-dot');
+
+    let scrollTimer = null;
+    track.addEventListener('scroll', function () {
+      if (scrollTimer) window.cancelAnimationFrame(scrollTimer);
+      scrollTimer = window.requestAnimationFrame(function () {
+        const trackLeft = track.scrollLeft;
+        let nearestIndex = 0;
+        let nearestDist = Infinity;
+        cards.forEach(function (card, i) {
+          const dist = Math.abs(card.offsetLeft - track.offsetLeft - trackLeft);
+          if (dist < nearestDist) {
+            nearestDist = dist;
+            nearestIndex = i;
+          }
+        });
+        dots.forEach(function (d, i) {
+          d.classList.toggle('active', i === nearestIndex);
+        });
+      });
+    });
+  });
+}
+
+/* ============================================
+   User Profile — Current Courses Carousel
+   ============================================ */
+function initUserProfileCurrentCourses() {
+  var section = document.querySelector('.up-cc-section');
+  if (!section) return;
+
+  /* -- Desktop arrow carousel -- */
+  var track = section.querySelector('.up-cc-track');
+  var prevBtn = section.querySelector('.up-cc-arrow-prev');
+  var nextBtn = section.querySelector('.up-cc-arrow-next');
+
+  if (track && prevBtn && nextBtn) {
+    function getStep() {
+      var card = track.querySelector('.mc-card');
+      if (!card) return track.clientWidth;
+      var styles = window.getComputedStyle(track);
+      var gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
+      return card.offsetWidth + gap;
+    }
+
+    function updateArrows() {
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      prevBtn.disabled = track.scrollLeft <= 1;
+      nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
+    }
+
+    prevBtn.addEventListener('click', function () {
+      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', function () {
+      track.scrollBy({ left: getStep(), behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+  }
+
+  /* -- Mobile mc-carousel (reuse existing init) -- */
+  var mobileCarousel = section.querySelector('.up-cc-mobile-carousel');
+  if (mobileCarousel && typeof initMcCarousel === 'function') {
+    initMcCarousel(mobileCarousel);
+  }
 }

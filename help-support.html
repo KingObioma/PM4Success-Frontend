@@ -70,7 +70,7 @@
               <!-- User Dropdown -->
               <div class="user-dropdown">
                 <a href="my-courses.html"><i class="bi bi-journal-bookmark-fill"></i> My Courses</a>
-                <a href="edit-profile.html"><i class="bi bi-person-fill"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+                <a href="user-profile.html"><i class="bi bi-person-fill"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
                 <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
                 <a href="purchases.html"><i class="bi bi-credit-card-fill"></i> My Purchase</a>
                 <a href="accomplishments.html"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
@@ -156,7 +156,7 @@
       </button>
       <nav class="mobile-user-panel-nav">
         <a href="my-courses.html"><i class="bi bi-journal-check"></i> My Courses</a>
-        <a href="edit-profile.html">
+        <a href="user-profile.html">
           <span><i class="bi bi-person-fill"></i> Profile</span>
           <span class="mobile-user-panel-badge">Not Verified <i class="bi bi-gear-fill"></i></span>
         </a>
@@ -174,54 +174,65 @@
 
 
   <!-- ========== HELP & SUPPORT HERO ========== -->
-  <section class="section">
+  <section class="hs-hero">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-7">
-          <h2>Help & Support</h2>
-          <div class="help-search">
+          <h2 class="hs-hero-title">Help & Support</h2>
+          <div class="hs-hero-search">
+            <i class="bi bi-mic"></i>
+            <input type="text" placeholder="search for solutions" aria-label="Search for solutions">
             <i class="bi bi-search"></i>
-            <input type="text" placeholder="Search for solutions" aria-label="Search for solutions">
           </div>
         </div>
-        <div class="col-lg-5 text-center">
-          <img src="assets/images/illustrations/grades.png" alt="Help & Support" class="img-fluid">
+        <div class="col-lg-5 hs-hero-img-col">
+          <img src="assets/images/illustrations/amico.jpg" alt="Help & Support illustration" class="hs-hero-img">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FAQ SECTION ========== -->
-  <section class="section">
-    <div class="container">
-      <h3>Frequently Asked Questions</h3>
+  <!-- ========== FAQ + CTA SECTION ========== -->
+  <section class="hs-faq">
+    <div class="hs-faq-top">
+      <div class="container">
+        <h3 class="hs-faq-title">Frequently Asked Questions</h3>
 
-      <!-- FAQ Tabs -->
-      <div class="mb-4" data-tabs="faq-tabs">
-        <button class="btn btn-tab active" data-tab="learners">Learners</button>
-        <button class="btn btn-tab" data-tab="course-creator">Course Creator</button>
-      </div>
-
-      <div class="row">
-        <!-- FAQ Sidebar -->
-        <div class="col-lg-4">
-          <nav class="sidebar-nav">
-            <a href="#" class="faq-sidebar-item active"><i class="bi bi-question-circle"></i> Most Asked Questions</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-person-gear"></i> Account Management</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-signpost-split"></i> Career Path</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-star"></i> Premium Subscription</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-award"></i> Certificate</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-credit-card"></i> Payments</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-patch-check"></i> Accreditation</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-tools"></i> Technical Problem</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-file-earmark-text"></i> Documentation</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-people"></i> Community Forum</a>
-            <a href="#" class="faq-sidebar-item"><i class="bi bi-link-45deg"></i> Affiliate Programme</a>
-          </nav>
+        <!-- FAQ Tabs -->
+        <div class="hs-faq-tabs" data-tabs="faq-tabs">
+          <button class="hs-faq-tab active" data-tab="learners">Learners</button>
+          <button class="hs-faq-tab" data-tab="course-creator">Course Creator</button>
         </div>
+      </div>
+    </div>
 
-        <!-- FAQ Accordion -->
-        <div class="col-lg-8">
+    <div class="container">
+      <div class="hs-faq-card">
+        <div class="row g-0">
+          <!-- FAQ Sidebar (desktop) + Dropdown toggle (mobile) -->
+          <div class="col-lg-3 hs-faq-sidebar-col">
+            <button type="button" class="hs-faq-sidebar-toggle" aria-expanded="false" aria-controls="faqSidebarNav">
+              <span><i class="bi bi-star-fill"></i> Most Asked Questions</span>
+              <i class="bi bi-chevron-down hs-faq-sidebar-caret"></i>
+            </button>
+            <nav class="hs-faq-sidebar" id="faqSidebarNav">
+              <a href="#" class="hs-faq-sidebar-item active"><i class="bi bi-star-fill"></i> Most Asked Questions</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-person-fill"></i> Account management</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-briefcase-fill"></i> Career Path</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-gem"></i> Premium Subscription</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-credit-card-2-front-fill"></i> Certificate</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-credit-card-fill"></i> Payments</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-bookmark-fill"></i> Accreditation</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-patch-question-fill"></i> Technical Problem</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-file-earmark-text-fill"></i> Documentation</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-people-fill"></i> Community Forum</a>
+              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-cash-coin"></i> Affiliate Programme</a>
+            </nav>
+          </div>
+
+          <!-- FAQ Accordion + Nested CTA -->
+          <div class="col-lg-9 hs-faq-content-col">
+          <div class="hs-faq-content-box">
           <div class="accordion" data-single-open>
             <div class="accordion-item">
               <div class="accordion-header">
@@ -313,75 +324,81 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ========== HELP CTA ========== -->
-  <section class="section">
-    <div class="container">
-      <div class="help-cta">
-        <h3>Need more personalized assistance?</h3>
-        <p>Our support team is here to help you with any questions or issues you may have. Reach out to us and we'll get back to you as soon as possible.</p>
-        <a href="contact.html" class="btn btn-primary">Contact Us</a>
-        <button class="btn btn-outline chat-btn">Chat with us</button>
+          <!-- Nested CTA card + chat button on the same row -->
+          <div class="hs-cta-row">
+            <div class="hs-cta-card">
+              <div class="hs-cta-text">
+                <h4>Need more personalized assistance?</h4>
+                <p>Our Support Team Is Here To Help! Whether You Need Guidance On Course Selection, Troubleshooting, Or Learning Resources, Reach Out For Tailored Support To Keep You On Track.</p>
+                <a href="contact.html" class="hs-cta-btn">Contact Us</a>
+              </div>
+              <div class="hs-cta-img">
+                <img src="assets/images/illustrations/character.png" alt="Support illustration">
+              </div>
+            </div>
+
+            <button class="hs-chat-btn" type="button" aria-label="Chat with us">
+              <i class="bi bi-chat-dots-fill"></i>
+              <span>Chat with us</span>
+            </button>
+          </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== PROVIDE FEEDBACK ========== -->
-  <section class="section">
+  <section class="section feedback-section">
     <div class="container">
-      <div class="section-heading">
-        <h3>Provide Feedback</h3>
-        <p class="text-secondary">Your thoughts are valuable in helping improve our products</p>
-      </div>
-
-      <div class="row g-4">
+      <div class="row g-4 align-items-center">
         <div class="col-lg-7">
-          <div class="mb-3">
-            <label class="form-label" for="feedback-message">Your Feedback</label>
-            <textarea class="form-control" id="feedback-message" rows="5" placeholder="Ask Your Question Here..."></textarea>
+          <div class="section-heading feedback-heading">
+            <h3>Provide Feedback</h3>
+            <p class="text-secondary">Your thoughts are valuable in helping improve our products.</p>
           </div>
 
-          <div class="mb-3">
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" id="contactCheck">
-              <label class="form-check-label text-small" for="contactCheck">I may be contacted about this feedback. see our <a href="privacy-policy.html">privacy policy</a></label>
+          <form data-action="feedback" novalidate>
+            <div class="mb-4">
+              <label class="visually-hidden" for="feedback-message">Your Feedback</label>
+              <textarea class="form-control feedback-textarea" id="feedback-message" rows="5" placeholder="Ask Your Question Here..."></textarea>
             </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" id="researchCheck">
-              <label class="form-check-label text-small" for="researchCheck">I'd like to help improve the products by joining the <a href="#">Research panel</a></label>
+
+            <div class="mb-4">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="contactCheck">
+                <label class="form-check-label text-small" for="contactCheck">I may be contacted about this feedback. see our <a href="privacy-policy.html">privacy policy.</a></label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="researchCheck">
+                <label class="form-check-label text-small" for="researchCheck">I'd like to help improve the products by joining the <a href="#">Research Group</a></label>
+              </div>
             </div>
-          </div>
 
-          <h4>How did we do?</h4>
-          <p class="text-small text-secondary">Please let us know how we did by giving us your valuable feedback. Your Feedback Matters a lot to us. Please click 1 to 5 Rating</p>
-          <div class="star-rating" data-interactive>
-            <i class="bi bi-star" data-value="1"></i>
-            <i class="bi bi-star" data-value="2"></i>
-            <i class="bi bi-star" data-value="3"></i>
-            <i class="bi bi-star" data-value="4"></i>
-            <i class="bi bi-star" data-value="5"></i>
-            <input type="hidden" name="rating" value="">
-          </div>
+            <h4 class="feedback-subheading">How did we do?</h4>
+            <p class="text-small text-secondary feedback-rating-desc">Please Let Us Know How We Did By Giving Us Your Valuable Feedback. Your Feedback Matters A Lot To Us To Help Us Improve Our Offering.</p>
 
-          <div class="mt-4">
-            <button class="btn btn-primary btn-block">Send feedback</button>
-          </div>
+            <div class="number-rating" data-number-rating>
+              <button type="button" class="number-rating-btn" data-value="1">1</button>
+              <button type="button" class="number-rating-btn" data-value="2">2</button>
+              <button type="button" class="number-rating-btn" data-value="3">3</button>
+              <button type="button" class="number-rating-btn" data-value="4">4</button>
+              <button type="button" class="number-rating-btn" data-value="5">5</button>
+              <input type="hidden" name="rating" value="">
+            </div>
+
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary btn-block feedback-submit-btn">Send feedback</button>
+            </div>
+          </form>
         </div>
-        <div class="col-lg-5 d-flex align-items-center justify-content-center">
-          <img src="assets/images/illustrations/grades.png" alt="Feedback illustration" class="img-feedback">
+        <div class="col-lg-5 feedback-illustration-col">
+          <img src="assets/images/illustrations/amico1.jpg" alt="People giving feedback with star ratings" class="img-feedback">
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ========== CHAT FLOATING BUTTON ========== -->
-  <button class="chat-float-btn" aria-label="Chat with us">
-    <i class="bi bi-chat-dots-fill"></i>
-  </button>
 
   <!-- ========== FOOTER ========== -->
   <footer class="footer">

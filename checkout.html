@@ -70,7 +70,7 @@
               <!-- User Dropdown -->
               <div class="user-dropdown">
                 <a href="my-courses.html"><i class="bi bi-journal-bookmark-fill"></i> My Courses</a>
-                <a href="edit-profile.html"><i class="bi bi-person-fill"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
+                <a href="user-profile.html"><i class="bi bi-person-fill"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
                 <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
                 <a href="purchases.html"><i class="bi bi-credit-card-fill"></i> My Purchase</a>
                 <a href="accomplishments.html"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
@@ -156,7 +156,7 @@
       </button>
       <nav class="mobile-user-panel-nav">
         <a href="my-courses.html"><i class="bi bi-journal-check"></i> My Courses</a>
-        <a href="edit-profile.html">
+        <a href="user-profile.html">
           <span><i class="bi bi-person-fill"></i> Profile</span>
           <span class="mobile-user-panel-badge">Not Verified <i class="bi bi-gear-fill"></i></span>
         </a>
@@ -173,10 +173,10 @@
 
 
 <!-- BREADCRUMB -->
-  <div class="container">
+  <div class="container checkout-breadcrumb-wrap">
     <nav class="breadcrumb-nav">
       <div class="breadcrumb">
-        <a href="index.html"><i class="bi bi-house"></i></a>
+        <a href="index.html"><i class="bi bi-house-fill"></i></a>
         <span class="separator"><i class="bi bi-chevron-right"></i></span>
         <a href="course-catalogue.html">Course Catalogue</a>
         <span class="separator"><i class="bi bi-chevron-right"></i></span>
@@ -193,25 +193,25 @@
   <section class="section-sm">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-11">
           <!-- Billing Details -->
           <h2 class="mb-4">Billing details</h2>
-          <form class="billing-form" action="purchase-success.html">
+          <form class="billing-form" action="purchase-success.html" novalidate>
             <div class="form-group">
               <label class="form-label" for="billing-fullname">Fullname</label>
-              <input type="text" class="form-control form-control-readonly" id="billing-fullname" value="John Doe" readonly>
+              <input type="text" class="form-control" id="billing-fullname" name="fullname" value="John Doe" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="billing-email">Email</label>
-              <input type="email" class="form-control form-control-readonly" id="billing-email" value="PM4Success@gmail.com" readonly>
+              <input type="email" class="form-control" id="billing-email" name="email" value="PM4Success@gmail.com" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="billing-address">Street address</label>
-              <input type="text" class="form-control form-control-readonly" id="billing-address" value="9, hilary street, ikorodu off island." readonly>
+              <input type="text" class="form-control" id="billing-address" name="address" value="9, hilary street, ikorodu off island." required>
             </div>
             <div class="form-group">
               <label class="form-label" for="billing-phone">Phone number</label>
-              <input type="tel" class="form-control form-control-readonly" id="billing-phone" value="+2347846523981" readonly>
+              <input type="tel" class="form-control" id="billing-phone" name="phone" value="+2347846523981" required>
             </div>
 
             <!-- Payment Method -->
