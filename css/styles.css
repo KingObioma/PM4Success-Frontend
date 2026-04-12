@@ -7140,9 +7140,6 @@ h2.accomplishments-title {
   max-width: 620px;
 }
 
-.career-select-wrap .form-select {
-  border-width: 2px;
-}
 
 /* Verify account */
 .verify-subtitle {
@@ -7152,8 +7149,13 @@ h2.accomplishments-title {
   margin-bottom: 12px;
 }
 
-#verify-fullname {
-  border: 3px solid var(--color-border);
+select#verify-dob.form-select,
+select#verify-id-type.form-select {
+  height: 50px;
+}
+
+input#verify-fullname {
+  border-radius: 4px;
 }
 
 .verify-requirements {
