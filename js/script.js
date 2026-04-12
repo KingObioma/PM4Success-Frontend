@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdowns();
   initAccordions();
   initHelpSupportSidebar();
+  initMobileFaqAccordion();
   initTabs();
   initCarousels();
   initPasswordToggles();
@@ -32,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initHelpSupportFaq();
   initAchievementsCarousel();
   initUserProfileCurrentCourses();
+  initEditDetailsModal();
+  initCareerPath();
 });
 
 /* ============================================
@@ -275,6 +278,108 @@ function initHelpSupportSidebar() {
             ai.classList.remove('active');
           });
         }
+      });
+    });
+  });
+}
+
+function initMobileFaqAccordion() {
+  const faqCard = document.querySelector('.hs-faq-card');
+  if (!faqCard) return;
+
+  const MOBILE_BP = 768;
+  const panels = ['learners', 'course-creator'];
+
+  const mobileWrap = document.createElement('div');
+  mobileWrap.className = 'hs-faq-mobile-wrap';
+
+  panels.forEach((panelName) => {
+    const nav = faqCard.querySelector(`.hs-faq-panel-nav[data-panel="${panelName}"]`);
+    const content = faqCard.querySelector(`.hs-faq-panel-content[data-panel="${panelName}"]`);
+    if (!nav || !content) return;
+
+    const panelWrap = document.createElement('div');
+    panelWrap.className = 'hs-faq-mobile-panel' + (panelName === 'learners' ? ' active' : '');
+    panelWrap.setAttribute('data-panel', panelName);
+
+    const navItems = nav.querySelectorAll('.hs-faq-sidebar-item');
+    navItems.forEach((item, idx) => {
+      const cat = item.getAttribute('data-faq-category');
+      const group = content.querySelector(`.hs-faq-accordion-group[data-faq-category="${cat}"]`);
+      if (!group) return;
+
+      const section = document.createElement('div');
+      section.className = 'hs-faq-mobile-section' + (idx === 0 ? ' active' : '');
+
+      const header = document.createElement('div');
+      header.className = 'hs-faq-mobile-section-header';
+      header.innerHTML = '<span>' + item.textContent.trim() + '</span><i class="bi bi-chevron-down"></i>';
+
+      const body = document.createElement('div');
+      body.className = 'hs-faq-mobile-section-body';
+      const accordionClone = group.querySelector('.accordion').cloneNode(true);
+      body.appendChild(accordionClone);
+
+      section.appendChild(header);
+      section.appendChild(body);
+      panelWrap.appendChild(section);
+    });
+
+    mobileWrap.appendChild(panelWrap);
+  });
+
+  // Clone CTA row for mobile
+  const ctaRow = faqCard.querySelector('.hs-cta-row');
+  if (ctaRow) {
+    const ctaClone = ctaRow.cloneNode(true);
+    ctaClone.className = 'hs-cta-row hs-faq-mobile-cta';
+    mobileWrap.appendChild(ctaClone);
+  }
+
+  const row = faqCard.querySelector('.row');
+  row.after(mobileWrap);
+
+  // Mobile section toggle (category expand/collapse)
+  mobileWrap.querySelectorAll('.hs-faq-mobile-section-header').forEach((hdr) => {
+    hdr.addEventListener('click', () => {
+      const section = hdr.parentElement;
+      const panel = section.parentElement;
+      const isActive = section.classList.contains('active');
+
+      panel.querySelectorAll('.hs-faq-mobile-section.active').forEach((s) => {
+        s.classList.remove('active');
+        s.querySelectorAll('.accordion-item.active').forEach((ai) => ai.classList.remove('active'));
+      });
+
+      if (!isActive) {
+        section.classList.add('active');
+      }
+    });
+  });
+
+  // Sub-accordion toggles (question expand/collapse)
+  mobileWrap.querySelectorAll('.accordion-header').forEach((hdr) => {
+    hdr.addEventListener('click', () => {
+      const item = hdr.closest('.accordion-item');
+      const parent = item.parentElement;
+      const isActive = item.classList.contains('active');
+
+      if (parent.hasAttribute('data-single-open')) {
+        parent.querySelectorAll('.accordion-item.active').forEach((a) => a.classList.remove('active'));
+      }
+
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // Tab switching for mobile panels
+  document.querySelectorAll('.hs-faq-tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const panel = tab.getAttribute('data-tab');
+      mobileWrap.querySelectorAll('.hs-faq-mobile-panel').forEach((p) => {
+        p.classList.toggle('active', p.getAttribute('data-panel') === panel);
       });
     });
   });
@@ -2468,14 +2573,14 @@ function initHelpSupportFaq() {
 
       const toggleLabel = document.querySelector('.hs-faq-sidebar-toggle span');
       if (toggleLabel) {
-        toggleLabel.innerHTML = item.innerHTML;
+        toggleLabel.textContent = item.textContent.trim();
       }
 
       // Auto-close dropdown on mobile after selection
-      const sidebar = document.getElementById('faqSidebarNav');
+      const activeSidebar = document.querySelector('.hs-faq-panel-nav.active');
       const toggle = document.querySelector('.hs-faq-sidebar-toggle');
-      if (sidebar && toggle && window.innerWidth < 768) {
-        sidebar.classList.remove('open');
+      if (activeSidebar && toggle && window.innerWidth < 768) {
+        activeSidebar.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
@@ -2596,4 +2701,121 @@ function initUserProfileCurrentCourses() {
   if (mobileCarousel && typeof initMcCarousel === 'function') {
     initMcCarousel(mobileCarousel);
   }
+}
+
+/* ============================================
+   Edit Details Modal (edit-profile.html)
+   ============================================ */
+function initEditDetailsModal() {
+  const editBtn = document.querySelector('.profile-edit-btn');
+  const overlay = document.getElementById('editDetailsModal');
+
+  if (!editBtn || !overlay) return;
+
+  const modal = overlay.querySelector('.edit-details-modal');
+  const closeBtn = overlay.querySelector('.edit-details-close');
+
+  // Field mappings: profile form → modal form
+  const FIELD_MAP = [
+    { source: 'profile-fullname', target: 'edit-fullname' },
+    { source: 'profile-email', target: 'edit-email' },
+    { source: 'profile-phone', target: 'edit-phone' },
+    { source: 'profile-address', target: 'edit-address' },
+    { source: 'profile-dob', target: 'edit-dob' },
+    { source: 'profile-gender', target: 'edit-gender' }
+  ];
+
+  const openModal = () => {
+    // Sync values from profile form into modal
+    FIELD_MAP.forEach(({ source, target }) => {
+      const sourceEl = document.getElementById(source);
+      const targetEl = document.getElementById(target);
+      if (sourceEl && targetEl) {
+        targetEl.value = sourceEl.value;
+      }
+    });
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  editBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  // Close on overlay click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Save changes back to profile form
+  const form = document.getElementById('edit-details-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      FIELD_MAP.forEach(({ source, target }) => {
+        const sourceEl = document.getElementById(source);
+        const targetEl = document.getElementById(target);
+        if (sourceEl && targetEl) {
+          sourceEl.value = targetEl.value;
+        }
+      });
+      closeModal();
+    });
+  }
+}
+
+/* ============================================
+   Career Path Select (edit-profile.html)
+   ============================================ */
+function initCareerPath() {
+  const select = document.getElementById('career-select');
+  const tagWrap = document.querySelector('.career-tag-wrap');
+  const selectedText = document.querySelector('.career-selected-text');
+
+  if (!select || !tagWrap || !selectedText) return;
+
+  const updateDisplay = (value, label) => {
+    if (value) {
+      tagWrap.innerHTML = `<span class="career-tag">
+        <button type="button" class="career-tag-remove" aria-label="Remove ${label}"><i class="bi bi-x-lg"></i></button>
+        ${label}
+      </span>`;
+      selectedText.innerHTML = `Selected career: <strong>${label}</strong>`;
+      tagWrap.style.display = '';
+      selectedText.style.display = '';
+      attachRemoveHandler();
+    } else {
+      tagWrap.style.display = 'none';
+      selectedText.style.display = 'none';
+    }
+  };
+
+  const attachRemoveHandler = () => {
+    const removeBtn = tagWrap.querySelector('.career-tag-remove');
+    if (removeBtn) {
+      removeBtn.addEventListener('click', () => {
+        select.value = '';
+        tagWrap.style.display = 'none';
+        selectedText.style.display = 'none';
+      });
+    }
+  };
+
+  select.addEventListener('change', () => {
+    const selectedOption = select.options[select.selectedIndex];
+    updateDisplay(select.value, selectedOption.text);
+  });
+
+  attachRemoveHandler();
 }

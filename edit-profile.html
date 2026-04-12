@@ -192,7 +192,7 @@
           <div class="edit-profile-avatar-col">
             <div class="profile-card profile-avatar-card">
               <div class="profile-avatar-upload">
-                <img src="assets/images/avatars/instructor-avatar.png" alt="Profile Photo">
+                <img src="assets/images/avatars/aliyu-avatar.png" alt="Profile Photo">
                 <label for="avatar-upload" class="avatar-camera-btn">
                   <i class="bi bi-camera-fill"></i>
                 </label>
@@ -215,103 +215,103 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label class="form-label" for="profile-fullname">Fullname</label>
-                    <input type="text" class="form-control" id="profile-fullname" value="Mike James" placeholder="Enter your fullname">
+                    <input type="text" class="form-control" id="profile-fullname" value="Mike James" readonly>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-email">Email</label>
-                    <input type="email" class="form-control" id="profile-email" value="Johndeo@gmail.com" placeholder="Enter your email">
+                    <input type="email" class="form-control" id="profile-email" value="Johndeo@gmail.com" readonly>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="profile-phone" value="09012766531" placeholder="Enter your phone number">
+                    <input type="tel" class="form-control" id="profile-phone" value="09012766531" readonly>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-address">Address</label>
-                    <input type="text" class="form-control" id="profile-address" value="9, hilary street, ikorodu off island." placeholder="Enter your address">
+                    <input type="text" class="form-control" id="profile-address" value="9, hilary street, ikorodu off island." readonly>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-dob">Date of Birth</label>
-                    <input type="text" class="form-control" id="profile-dob" value="08/Aug/1999" placeholder="Select date of birth">
+                    <input type="text" class="form-control" id="profile-dob" value="08/Aug/1999" readonly>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-gender">Gender</label>
-                    <input type="text" class="form-control" id="profile-gender" value="Male" placeholder="Select gender" readonly>
+                    <input type="text" class="form-control" id="profile-gender" value="Male" readonly>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Career Path Section -->
+            <div class="profile-card">
+              <h3 class="profile-card-title">Career Path</h3>
+              <p class="profile-card-desc">Explore the right path for your future! Whether you're starting fresh or looking to grow, discover careers that match your skills, interests, and goals. Take the next step toward success today</p>
+              <div class="career-tag-wrap">
+                <span class="career-tag">
+                  <button type="button" class="career-tag-remove" aria-label="Remove Data Analytics"><i class="bi bi-x-lg"></i></button>
+                  Data Analytics
+                </span>
+              </div>
+              <p class="career-selected-text">Selected career: <strong>Data Analytics</strong></p>
+              <div class="career-select-wrap">
+                <select class="form-select" id="career-select" aria-label="Select career choice">
+                  <option value="">Select career choice</option>
+                  <option value="data-analytics" selected>Data Analytics</option>
+                  <option value="data-science">Data Science</option>
+                  <option value="machine-learning">Machine Learning</option>
+                  <option value="software-development">Software Development</option>
+                  <option value="ui-ux-design">UI/UX Design</option>
+                  <option value="project-management">Project Management</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Verify Account Section -->
+            <div class="profile-card">
+              <h3 class="profile-card-title">Verify Account</h3>
+              <p class="verify-subtitle">Verify Your Identity. Upload Front & Back Of Your ID</p>
+              <p class="profile-card-desc">To ensure the security of your account and compliance with our verification standards, we require both the front and back images of your government-issued ID. This helps us confirm your identity and prevent fraudulent activity.</p>
+              <ul class="verify-requirements">
+                <li>Make sure both sides of your ID are clear and legible.</li>
+                <li>The name on your ID must match your profile name exactly.</li>
+                <li>Only government-issued IDs (Passport, National ID, Driver's License) are accepted.</li>
+              </ul>
+              <form action="#" method="POST" id="verify-account-form">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label" for="verify-fullname">Fullname</label>
+                    <input type="text" class="form-control" id="verify-fullname" placeholder="Enter your full name">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="verify-dob">Date of birth</label>
+                    <select class="form-select" id="verify-dob">
+                      <option value="">Select your date of birth</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="verify-id-type">ID card type</label>
+                    <select class="form-select" id="verify-id-type">
+                      <option value="">Select ID Type</option>
+                      <option value="passport">Passport</option>
+                      <option value="national-id">National ID</option>
+                      <option value="drivers-license">Driver's License</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <div class="verify-id-upload">
+                      <label for="verify-id-file" class="verify-id-upload-circle">
+                        <i class="bi bi-camera-fill"></i>
+                      </label>
+                      <input type="file" id="verify-id-file" accept="image/*" hidden>
+                      <p class="verify-id-size-hint">Maximum Size: 2MB</p>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Verify account</button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
-        </div>
-
-        <!-- Career Path Section -->
-        <div class="profile-card">
-          <h3 class="profile-card-title">Career Path</h3>
-          <p class="profile-card-desc">Explore the right path for your future! Whether you're starting fresh or looking to grow, discover careers that match your skills, interests, and goals. Take the next step toward success today</p>
-          <div class="career-tag-wrap">
-            <span class="career-tag">
-              <button type="button" class="career-tag-remove" aria-label="Remove Data Analytics"><i class="bi bi-x-lg"></i></button>
-              Data Analytics
-            </span>
-          </div>
-          <p class="career-selected-text">Selected career: <strong>Data Analytics</strong></p>
-          <div class="career-select-wrap">
-            <select class="form-select" id="career-select" aria-label="Select career choice">
-              <option value="">Select career choice</option>
-              <option value="data-analytics" selected>Data Analytics</option>
-              <option value="data-science">Data Science</option>
-              <option value="machine-learning">Machine Learning</option>
-              <option value="software-development">Software Development</option>
-              <option value="ui-ux-design">UI/UX Design</option>
-              <option value="project-management">Project Management</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Verify Account Section -->
-        <div class="profile-card">
-          <h3 class="profile-card-title">Verify Account</h3>
-          <p class="verify-subtitle">Verify Your Identity. Upload Front & Back Of Your ID</p>
-          <p class="profile-card-desc">To ensure the security of your account and compliance with our verification standards, we require both the front and back images of your government-issued ID. This helps us confirm your identity and prevent fraudulent activity.</p>
-          <ul class="verify-requirements">
-            <li>Make sure both sides of your ID are clear and legible.</li>
-            <li>The name on your ID must match your profile name exactly.</li>
-            <li>Only government-issued IDs (Passport, National ID, Driver's License) are accepted.</li>
-          </ul>
-          <form action="#" method="POST" id="verify-account-form">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label" for="verify-fullname">Fullname</label>
-                <input type="text" class="form-control" id="verify-fullname" placeholder="Enter your full name">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" for="verify-dob">Date of birth</label>
-                <select class="form-select" id="verify-dob">
-                  <option value="">Select your date of birth</option>
-                </select>
-              </div>
-              <div class="col-12">
-                <label class="form-label" for="verify-id-type">ID card type</label>
-                <select class="form-select" id="verify-id-type">
-                  <option value="">Select ID Type</option>
-                  <option value="passport">Passport</option>
-                  <option value="national-id">National ID</option>
-                  <option value="drivers-license">Driver's License</option>
-                </select>
-              </div>
-              <div class="col-12">
-                <div class="verify-id-upload">
-                  <label for="verify-id-file" class="verify-id-upload-circle">
-                    <i class="bi bi-camera-fill"></i>
-                  </label>
-                  <input type="file" id="verify-id-file" accept="image/*" hidden>
-                  <p class="verify-id-size-hint">Maximum Size: 2MB</p>
-                </div>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary">Verify account</button>
-              </div>
-            </div>
-          </form>
         </div>
       </div>
 
@@ -348,6 +348,43 @@
       </div>
     </div>
   </section>
+
+  <!-- ========== EDIT DETAILS MODAL ========== -->
+  <div class="edit-details-overlay" id="editDetailsModal">
+    <div class="edit-details-modal">
+      <button type="button" class="edit-details-close" aria-label="Close modal">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <h3 class="edit-details-title">Edit Details</h3>
+      <form action="#" method="POST" id="edit-details-form">
+        <div class="edit-details-field">
+          <label class="form-label" for="edit-fullname">Fullname</label>
+          <input type="text" class="form-control" id="edit-fullname" value="Mike James">
+        </div>
+        <div class="edit-details-field">
+          <label class="form-label" for="edit-email">Email</label>
+          <input type="email" class="form-control edit-field-readonly" id="edit-email" value="Johndeo@gmail.com" readonly>
+        </div>
+        <div class="edit-details-field">
+          <label class="form-label" for="edit-phone">Phone Number</label>
+          <input type="tel" class="form-control" id="edit-phone" value="09012766531" placeholder="Enter your phone number">
+        </div>
+        <div class="edit-details-field">
+          <label class="form-label" for="edit-address">Address</label>
+          <input type="text" class="form-control" id="edit-address" value="9, hilary street, Ikorodu off Island." placeholder="Enter your address">
+        </div>
+        <div class="edit-details-field">
+          <label class="form-label" for="edit-dob">Date of Birth</label>
+          <input type="text" class="form-control" id="edit-dob" value="08/Aug/1999" placeholder="Select date of birth">
+        </div>
+        <div class="edit-details-field">
+          <label class="form-label" for="edit-gender">Gender</label>
+          <input type="text" class="form-control" id="edit-gender" value="Male" placeholder="Select gender">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Save change</button>
+      </form>
+    </div>
+  </div>
 
   <!-- ========== FOOTER ========== -->
   <footer class="footer">

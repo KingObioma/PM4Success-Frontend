@@ -6956,24 +6956,40 @@ h2.accomplishments-title {
    33. Edit Profile
    ============================================ */
 .edit-profile-section {
-  padding: 40px 0 60px;
+  padding: 70px 0 60px;
 }
 
 .edit-profile-heading {
   font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.edit-profile-section .tab-btn.active {
+  color: #0B5D92;
+}
+
+.edit-profile-section .tab-btn.active::after {
+  background-color: #0B5D92;
+}
+
+.edit-profile-section .tab-btn:hover {
+  color: #0B5D92;
+}
+
+.edit-profile-section .tabs {
+  margin-bottom: 60px;
 }
 
 /* Top row: avatar + personal info side by side */
 .edit-profile-top-row {
   display: flex;
   gap: 24px;
-  margin-bottom: 24px;
+  align-items: flex-start;
 }
 
 .edit-profile-avatar-col {
-  flex: 0 0 280px;
+  flex: 0 0 440px;
 }
 
 .edit-profile-info-col {
@@ -7034,19 +7050,19 @@ h2.accomplishments-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 24px;
+  padding: 20px 24px;
 }
 
 .profile-avatar-upload {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 260px;
+  height: 260px;
   margin: 0 auto;
 }
 
 .profile-avatar-upload img {
-  width: 180px;
-  height: 180px;
+  width: 260px;
+  height: 260px;
   border-radius: var(--radius-full);
   object-fit: cover;
 }
@@ -7081,7 +7097,8 @@ h2.accomplishments-title {
 
 /* Career path */
 .career-tag-wrap {
-  margin-bottom: 12px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .career-tag {
@@ -7112,7 +7129,7 @@ h2.accomplishments-title {
 .career-selected-text {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
-  margin-bottom: 16px;
+  margin-bottom: 28px;
 }
 
 .career-selected-text strong {
@@ -7120,14 +7137,23 @@ h2.accomplishments-title {
 }
 
 .career-select-wrap {
-  max-width: 480px;
+  max-width: 620px;
+}
+
+.career-select-wrap .form-select {
+  border-width: 2px;
 }
 
 /* Verify account */
 .verify-subtitle {
   font-size: 0.875rem;
   font-weight: 500;
+  margin-top: 16px;
   margin-bottom: 12px;
+}
+
+#verify-fullname {
+  border: 3px solid var(--color-border);
 }
 
 .verify-requirements {
@@ -7174,6 +7200,75 @@ h2.accomplishments-title {
   font-size: 0.8125rem;
   color: var(--color-text-secondary);
   margin-top: 8px;
+}
+
+/* Edit Details Modal */
+.edit-details-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 20px;
+}
+
+.edit-details-overlay.active {
+  display: flex;
+}
+
+.edit-details-modal {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  position: relative;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.edit-details-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.edit-details-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  transition: var(--transition-fast);
+}
+
+.edit-details-close:hover {
+  color: var(--color-text);
+}
+
+.edit-details-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.edit-details-field {
+  margin-bottom: 20px;
+}
+
+.edit-details-field .form-label {
+  margin-bottom: 6px;
+}
+
+.edit-field-readonly {
+  background-color: var(--color-bg-lighter);
+  cursor: not-allowed;
 }
 
 /* ============================================
@@ -11112,6 +11207,11 @@ select.input-success {
   margin-top: 24px;
 }
 
+/* Mobile FAQ wrap — hidden on desktop, built by JS */
+.hs-faq-mobile-wrap {
+  display: none;
+}
+
 /* Nested box — single border around accordion + CTA row */
 .hs-faq-content-box {
   border: 2px solid #e5e7eb;
@@ -11306,8 +11406,20 @@ select.input-success {
     font-size: 12px;
   }
 
+  .hs-cta-row {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
   .hs-cta-card {
     max-width: 100%;
+    flex: none;
+    width: 100%;
+  }
+
+  .hs-chat-btn {
+    margin-bottom: 0;
   }
 
   .hs-cta-img {
@@ -11343,141 +11455,184 @@ select.input-success {
     text-align: center;
   }
 
-  /* Card — no extra padding on mobile */
+  /* Hide desktop FAQ layout on mobile */
+  .hs-faq-card .row {
+    display: none;
+  }
+
   .hs-faq-card {
-    padding: 16px 0;
-  }
-
-  /* Sidebar col — full width, no negative margin */
-  .hs-faq-sidebar-col {
     padding: 0;
-    margin-left: 0;
-    margin-bottom: 16px;
   }
 
-  /* Content col — full width, reset desktop overrides */
-  .hs-faq-content-col {
-    padding: 0;
-    flex: none;
-    max-width: 100%;
-    width: 100%;
+  /* Mobile FAQ accordion */
+  .hs-faq-mobile-wrap {
+    display: block;
   }
 
-  /* Content box — clean border, proper padding */
-  .hs-faq-content-box {
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 8px 16px 20px;
+  .hs-faq-mobile-panel {
+    display: none;
   }
 
-  /* Accordion items — proper spacing */
-  .hs-faq-content-col .accordion-header {
-    padding: 14px 4px;
-    font-size: 13px;
+  .hs-faq-mobile-panel.active {
+    display: block;
+    padding-top: 16px;
   }
 
-  .hs-faq-content-col .accordion-header i {
-    font-size: 0.75rem;
-    flex-shrink: 0;
-    margin-left: 8px;
+  .hs-faq-mobile-section {
+    margin-bottom: 10px;
   }
 
-  .hs-faq-content-col .accordion-body p {
-    font-size: 13px;
-    padding: 0 4px;
+  .hs-faq-mobile-section:last-child {
+    margin-bottom: 0;
   }
 
-  /* Sidebar becomes dropdown */
-  .hs-faq-sidebar-toggle {
+  .hs-faq-mobile-section-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     padding: 14px 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    background: #F5F9FB;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .hs-faq-mobile-section-header i {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+    color: #555;
+  }
+
+  .hs-faq-mobile-section.active .hs-faq-mobile-section-header {
     background: var(--color-primary);
     color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
   }
 
-  .hs-faq-sidebar-toggle span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .hs-faq-sidebar-caret {
-    transition: transform 0.3s ease;
-  }
-
-  .hs-faq-sidebar-toggle[aria-expanded="true"] .hs-faq-sidebar-caret {
+  .hs-faq-mobile-section.active .hs-faq-mobile-section-header i {
     transform: rotate(180deg);
+    color: #fff;
   }
 
-  .hs-faq-sidebar {
-    display: none;
-    margin-top: 10px;
+  .hs-faq-mobile-section-body {
+    max-height: 0;
+    overflow: hidden;
   }
 
-  .hs-faq-sidebar.open {
-    display: flex;
+  .hs-faq-mobile-section.active .hs-faq-mobile-section-body {
+    max-height: none;
+    overflow: visible;
+    padding: 0 4px 12px;
   }
 
-  .hs-faq-sidebar-item {
-    padding: 10px 14px;
+  /* Sub-accordion questions inside mobile sections */
+  .hs-faq-mobile-section-body .accordion-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .hs-faq-mobile-section-body .accordion-item:last-child {
+    border-bottom: none;
+  }
+
+  .hs-faq-mobile-section-body .accordion-header {
+    padding: 12px 0;
     font-size: 13px;
+    font-weight: 600;
+    color: #374151;
   }
 
-  .hs-faq-sidebar-item.active {
-    padding-left: 14px;
-    border-left: none;
-    box-shadow: none;
+  .hs-faq-mobile-section-body .accordion-header i {
+    font-size: 0.7rem;
+    margin-left: 8px;
   }
 
-  .hs-faq-sidebar-item.active::before {
-    display: none;
+  .hs-faq-mobile-section-body .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: none;
   }
 
-  /* Stacked CTA */
-  .hs-cta-row {
+  .hs-faq-mobile-section-body .accordion-item.active .accordion-body {
+    max-height: 600px;
+    padding-bottom: 12px;
+  }
+
+  .hs-faq-mobile-section-body .accordion-body p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Mobile CTA */
+  .hs-faq-mobile-cta {
+    position: relative;
     flex-direction: column;
-    gap: 12px;
+    gap: 0;
+    margin-top: 24px;
+    align-items: stretch;
   }
 
-  .hs-cta-card {
+  .hs-faq-mobile-cta .hs-cta-card {
     flex-direction: column;
     text-align: center;
-    padding: 24px 20px;
+    padding: 28px 24px 20px;
     flex: none;
     max-width: 100%;
+    border-radius: 10px;
   }
 
-  .hs-cta-text h4 {
-    font-size: 15px;
+  .hs-faq-mobile-cta .hs-cta-text h4 {
+    font-size: 16px;
+    font-weight: 700;
   }
 
-  .hs-cta-text p {
-    font-size: 12px;
-  }
-
-  .hs-cta-btn {
-    padding: 8px 22px;
+  .hs-faq-mobile-cta .hs-cta-text p {
     font-size: 13px;
   }
 
-  .hs-cta-img {
-    width: 100px;
-    order: 2;
-    margin-top: 12px;
+  .hs-faq-mobile-cta .hs-cta-btn {
+    padding: 10px 28px;
+    font-size: 14px;
   }
 
-  .hs-chat-btn {
+  .hs-faq-mobile-cta .hs-cta-img {
+    width: 140px;
+    order: 2;
+    margin-top: 16px;
     align-self: center;
-    margin-bottom: 0;
-    margin-top: 0;
+  }
+
+  .hs-faq-mobile-cta .hs-chat-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    margin: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0;
+    gap: 0;
+    justify-content: center;
+  }
+
+  .hs-faq-mobile-cta .hs-chat-btn span {
+    display: none;
+  }
+
+  .hs-faq-mobile-cta .hs-chat-btn i {
+    font-size: 1.2rem;
   }
 
   .feedback-illustration-col {

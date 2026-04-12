@@ -12,12 +12,12 @@ Terms and Condition✅
 Privacy Policy✅
 checkout✅
 User profile✅
-Help & Support
+Help & Support✅
 edit profile
+progress report
 course details
 course content
 assignment page
-progress report
 Team preview
 Empty_ Cart PAGE
 Empty_ My courses 
