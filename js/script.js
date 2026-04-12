@@ -338,7 +338,7 @@ function initCarousels() {
 
       function getVisibleCards() {
         const cards = track.children;
-        const count = 0;
+        let count = 0;
         for (let i = 0; i < cards.length; i++) {
           if (cards[i].offsetParent !== null) count++;
         }
@@ -524,7 +524,7 @@ function initCarousels() {
       const itemsPerPage = 3;
       const childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
       const pageWidth = childWidth * itemsPerPage;
-      const activeIndex = Math.round(scrollLeft / pageWidth);
+      let activeIndex = Math.round(scrollLeft / pageWidth);
       if (activeIndex >= dots.length) activeIndex = 0;
       dots.forEach(function (d, i) {
         d.classList.toggle('active', i === activeIndex);
@@ -1234,10 +1234,10 @@ function initPromoCountdown() {
     return end;
   }
 
-  const endTime = getEndTime();
+  let endTime = getEndTime();
 
   function tick() {
-    const remaining = endTime - Date.now();
+    let remaining = endTime - Date.now();
 
     if (remaining <= 0) {
       // Restart the countdown
@@ -1278,7 +1278,7 @@ function initHeroSlider() {
   }
 
   if (heroSlides.length >= 2) {
-    const heroCurrent = 0;
+    let heroCurrent = 0;
 
     heroDots.forEach(function (dot) {
       dot.addEventListener('click', function () {
@@ -1295,7 +1295,7 @@ function initHeroSlider() {
   const ctaSlides = document.querySelectorAll('.cta-teach-slide');
   const ctaDots = document.querySelectorAll('.cta-slider-dot');
   if (ctaSlides.length >= 2) {
-    const ctaCurrent = 0;
+    let ctaCurrent = 0;
 
     function goToCtaSlide(index) {
       ctaSlides[ctaCurrent].classList.remove('active');
@@ -1333,7 +1333,7 @@ function initProgramTabs() {
 
   /* Shared active category */
   const activeSidebarTab = sidebar.querySelector('.program-tab.active');
-  const activeCategory = activeSidebarTab ? activeSidebarTab.getAttribute('data-category') : 'popular';
+  let activeCategory = activeSidebarTab ? activeSidebarTab.getAttribute('data-category') : 'popular';
 
   /* Switch the visible grid to the given category */
   function showGrid(category) {
@@ -1637,8 +1637,8 @@ const Validator = (function () {
     if (!formEl) return false;
 
     const fields = formEl.querySelectorAll('[data-validate]');
-    const allValid = true;
-    const firstInvalid = null;
+    let allValid = true;
+    let firstInvalid = null;
 
     fields.forEach(function (field) {
       const isValid = validateField(field);
@@ -1673,7 +1673,7 @@ const Validator = (function () {
   function validateField(field) {
     const rules = (field.getAttribute('data-validate') || '').split('|');
     const value = field.value;
-    const result = { valid: true, message: '' };
+    let result = { valid: true, message: '' };
 
     for (let i = 0; i < rules.length; i++) {
       const rule = rules[i].trim();
@@ -1989,7 +1989,7 @@ function initValidation() {
       if (sendBtn) {
         sendBtn.addEventListener('click', function (e) {
           e.preventDefault();
-          const allValid = true;
+          let allValid = true;
 
           // Validate textarea
           if (textarea) {
@@ -2162,7 +2162,7 @@ function initValidation() {
       const scrollLeft = lpCurrentList.scrollLeft;
       const maxScroll = lpCurrentList.scrollWidth - lpCurrentList.clientWidth;
       const cardWidth = cards[0].offsetWidth + 16;
-      const activeIndex;
+      let activeIndex;
 
       if (maxScroll - scrollLeft < 10) {
         activeIndex = cards.length - 1;
@@ -2266,9 +2266,9 @@ function initMcCarousel(carousel) {
   });
 
   /* Touch swipe support */
-  const startX = 0;
-  const startScroll = 0;
-  const isDragging = false;
+  let startX = 0;
+  let startScroll = 0;
+  let isDragging = false;
 
   track.addEventListener('touchstart', function (e) {
     isDragging = true;
@@ -2335,9 +2335,9 @@ function initBlogCarousel() {
   });
 
   /* Touch swipe */
-  const startX = 0;
-  const startScroll = 0;
-  const isDragging = false;
+  let startX = 0;
+  let startScroll = 0;
+  let isDragging = false;
 
   track.addEventListener('touchstart', function (e) {
     isDragging = true;

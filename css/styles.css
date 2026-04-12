@@ -10961,7 +10961,7 @@ select.input-success {
 
 .hs-faq-top {
   background: #F5F9FB;
-  padding: 10px 0 0;
+  padding: 0;
 }
 
 .hs-faq-title {
@@ -10969,7 +10969,8 @@ select.input-success {
   font-size: 20px;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 14px;
+  margin-top: 0;
+  margin-bottom: 24px;
 }
 
 /* Tabs */
