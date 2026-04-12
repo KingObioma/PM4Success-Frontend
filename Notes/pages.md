@@ -10,15 +10,15 @@ My courses page✅
 My Purchases✅
 Terms and Condition✅
 Privacy Policy✅
-Help & Support✅
 checkout✅
+User profile✅
+Help & Support
 edit profile
-User profile
-assignment page
-course content
-Team preview
 course details
+course content
+assignment page
 progress report
+Team preview
 Empty_ Cart PAGE
 Empty_ My courses 
 Empty State-User Profile
