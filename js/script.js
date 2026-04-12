@@ -334,7 +334,7 @@ function initCarousels() {
       // Transform-based page carousel (testimonials)
       // Find buttons and dots from section level (they live outside .carousel-wrapper)
       const section = carousel.closest('section');
-      const currentPage = 0;
+      let currentPage = 0;
 
       function getVisibleCards() {
         const cards = track.children;
@@ -424,7 +424,7 @@ function initCarousels() {
 
     } else {
       // Scroll-based carousel (default)
-      const scrollAmount = 300;
+      let scrollAmount = 300;
       const firstChild = track.firstElementChild;
       if (firstChild) {
         scrollAmount = firstChild.offsetWidth + 20;
@@ -483,7 +483,7 @@ function initCarousels() {
       const pageWidth = childWidth * itemsPerPage;
       const direction = this.classList.contains('carousel-btn-prev') ? -1 : 1;
       const maxScroll = track.scrollWidth - track.clientWidth;
-      const newScroll = track.scrollLeft + (direction * pageWidth);
+      let newScroll = track.scrollLeft + (direction * pageWidth);
 
       // Loop: if past the end go to start, if before start go to end
       if (newScroll > maxScroll) {
@@ -729,7 +729,7 @@ function initCatalogueFilters() {
   }
 
   // Shared active category — keeps desktop and mobile in sync
-  const activeCategory = initialCategory;
+  let activeCategory = initialCategory;
 
   // Apply initial filter
   filterCards(activeCategory);
@@ -862,7 +862,7 @@ function initFilterDropdowns() {
     panel.style.right = 'auto';
 
     // Check if it overflows right edge
-    const rect = panel.getBoundingClientRect();
+    let rect = panel.getBoundingClientRect();
     if (rect.right > window.innerWidth - 16) {
       panel.style.left = 'auto';
       panel.style.right = '0';
@@ -916,7 +916,7 @@ function initCartInteractions() {
 
   function updateCartTotal() {
     const items = document.querySelectorAll('.cart-item');
-    const total = 0;
+    let total = 0;
     items.forEach(function (item) {
       const priceEl = item.querySelector('.cart-item-price');
       if (priceEl) {
