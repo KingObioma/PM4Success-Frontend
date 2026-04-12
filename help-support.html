@@ -215,24 +215,42 @@
               <span><i class="bi bi-star-fill"></i> Most Asked Questions</span>
               <i class="bi bi-chevron-down hs-faq-sidebar-caret"></i>
             </button>
-            <nav class="hs-faq-sidebar" id="faqSidebarNav">
-              <a href="#" class="hs-faq-sidebar-item active"><i class="bi bi-star-fill"></i> Most Asked Questions</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-person-fill"></i> Account management</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-briefcase-fill"></i> Career Path</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-gem"></i> Premium Subscription</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-credit-card-2-front-fill"></i> Certificate</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-credit-card-fill"></i> Payments</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-bookmark-fill"></i> Accreditation</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-patch-question-fill"></i> Technical Problem</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-file-earmark-text-fill"></i> Documentation</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-people-fill"></i> Community Forum</a>
-              <a href="#" class="hs-faq-sidebar-item"><i class="bi bi-cash-coin"></i> Affiliate Programme</a>
+            <nav class="hs-faq-sidebar hs-faq-panel-nav active" id="faqSidebarNav" data-panel="learners">
+              <a href="#" class="hs-faq-sidebar-item active" data-faq-category="most-asked"><i class="bi bi-star-fill"></i> Most Asked Questions</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="account"><i class="bi bi-person-fill"></i> Account management</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="career"><i class="bi bi-briefcase-fill"></i> Career Path</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="premium"><i class="bi bi-gem"></i> Premium Subscription</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="certificate"><i class="bi bi-credit-card-2-front-fill"></i> Certificate</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="payments"><i class="bi bi-credit-card-fill"></i> Payments</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="accreditation"><i class="bi bi-bookmark-fill"></i> Accreditation</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="technical"><i class="bi bi-patch-question-fill"></i> Technical Problem</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="documentation"><i class="bi bi-file-earmark-text-fill"></i> Documentation</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="community"><i class="bi bi-people-fill"></i> Community Forum</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="affiliate"><i class="bi bi-cash-coin"></i> Affiliate Programme</a>
+            </nav>
+
+            <nav class="hs-faq-sidebar hs-faq-panel-nav" id="faqSidebarNavCreator" data-panel="course-creator">
+              <a href="#" class="hs-faq-sidebar-item active" data-faq-category="c-getting-started"><i class="bi bi-star-fill"></i> Getting Started</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="c-course-creation"><i class="bi bi-camera-reels-fill"></i> Course Creation</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="c-content-quality"><i class="bi bi-patch-check-fill"></i> Content &amp; Quality</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="c-pricing"><i class="bi bi-cash-stack"></i> Pricing &amp; Revenue</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="c-engagement"><i class="bi bi-people-fill"></i> Student Engagement</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="c-analytics"><i class="bi bi-bar-chart-fill"></i> Analytics &amp; Reports</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="c-marketing"><i class="bi bi-megaphone-fill"></i> Marketing &amp; Promotion</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="c-payouts"><i class="bi bi-wallet2"></i> Payouts &amp; Tax</a>
+              <a href="#" class="hs-faq-sidebar-item" data-faq-category="c-support"><i class="bi bi-life-preserver"></i> Instructor Support</a>
             </nav>
           </div>
 
           <!-- FAQ Accordion + Nested CTA -->
           <div class="col-lg-9 hs-faq-content-col">
           <div class="hs-faq-content-box">
+
+          <!-- LEARNER PANEL -->
+          <div class="hs-faq-panel-content active" data-panel="learners">
+
+          <!-- Most Asked Questions -->
+          <div class="hs-faq-accordion-group active" data-faq-category="most-asked">
           <div class="accordion" data-single-open>
             <div class="accordion-item">
               <div class="accordion-header">
@@ -243,7 +261,6 @@
                 <p>PM4Success offers a wide range of courses across various disciplines including Data Science, Project Management, AI & Innovation, Machine Learning, UI/UX Design, Development, and more. Our courses are designed by industry experts and cater to beginners, intermediate, and advanced learners.</p>
               </div>
             </div>
-
             <div class="accordion-item">
               <div class="accordion-header">
                 <span>How do I sign up for a course?</span>
@@ -253,7 +270,6 @@
                 <p>To sign up for a course, simply create an account on PM4Success, browse our course catalogue, select the course you're interested in, and click "Enroll." You can pay securely online and gain immediate access to the course materials.</p>
               </div>
             </div>
-
             <div class="accordion-item">
               <div class="accordion-header">
                 <span>Are the courses self-paced?</span>
@@ -263,7 +279,6 @@
                 <p>Yes, most of our courses are self-paced, allowing you to learn at your own convenience. You can access course materials anytime, anywhere, and progress through the content at a speed that suits your schedule.</p>
               </div>
             </div>
-
             <div class="accordion-item">
               <div class="accordion-header">
                 <span>Will I receive a certificate after completing a course?</span>
@@ -273,7 +288,6 @@
                 <p>Yes, upon successful completion of a course, you will receive a digital certificate that you can share on your professional profile, resume, or social media. Our certificates are recognized by industry leaders and employers.</p>
               </div>
             </div>
-
             <div class="accordion-item">
               <div class="accordion-header">
                 <span>How much do the courses cost?</span>
@@ -283,7 +297,6 @@
                 <p>Course pricing varies depending on the program and level. We offer individual course purchases as well as subscription plans for unlimited access. Visit our course catalogue to see current pricing and any available promotional offers.</p>
               </div>
             </div>
-
             <div class="accordion-item">
               <div class="accordion-header">
                 <span>What if I have questions during a course?</span>
@@ -293,7 +306,6 @@
                 <p>Each course includes a discussion forum where you can ask questions and interact with instructors and fellow learners. You can also reach out to our support team for additional assistance at any time.</p>
               </div>
             </div>
-
             <div class="accordion-item">
               <div class="accordion-header">
                 <span>Can I access the courses on my mobile device?</span>
@@ -303,7 +315,6 @@
                 <p>Absolutely! PM4Success is fully responsive and optimized for mobile devices. You can also download our Android and iOS apps for an enhanced mobile learning experience.</p>
               </div>
             </div>
-
             <div class="accordion-item">
               <div class="accordion-header">
                 <span>How do I reset my password?</span>
@@ -313,7 +324,6 @@
                 <p>To reset your password, click on the "Sign In" button, then select "Forgot Password." Enter your registered email address and follow the instructions sent to your inbox to create a new password.</p>
               </div>
             </div>
-
             <div class="accordion-item">
               <div class="accordion-header">
                 <span>Troubleshooting common platform issues?</span>
@@ -324,6 +334,785 @@
               </div>
             </div>
           </div>
+          </div>
+
+          <!-- Account Management -->
+          <div class="hs-faq-accordion-group" data-faq-category="account">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I create an account on PM4Success?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Click the "Sign Up" button at the top-right of the homepage, enter your full name, email, and a secure password, then verify your email to activate your account.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How can I update my profile information?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Go to your Dashboard, click "Profile Settings," and update your name, photo, bio, or contact details. Click "Save Changes" when you're done.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I change my email address?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Navigate to Account Settings, click "Change Email," enter your new email address, and confirm using the verification link sent to your new inbox.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I delete my account permanently?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. Go to Account Settings → "Delete Account." Please note that this action is irreversible and will remove all your enrollments, certificates, and progress data.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Why can't I log in to my account?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Make sure your email and password are correct. If you've forgotten your password, use the "Forgot Password" link. If your account is locked, contact our support team for assistance.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Career Path -->
+          <div class="hs-faq-accordion-group" data-faq-category="career">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What is a Learning Path on PM4Success?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>A Learning Path is a curated sequence of courses designed to help you develop the specific skills needed for a career role, such as Data Analyst, Project Manager, or UX Designer.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I choose the right career path?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Take our free career assessment quiz or explore our Learning Paths page. Each path describes the skills, average salary, and job opportunities you can expect after completion.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I switch learning paths midway?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. You can switch paths at any time from your Dashboard. Your completed courses will still count toward your overall progress.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Do you offer career coaching or mentorship?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, Premium subscribers get access to 1-on-1 mentorship sessions, resume reviews, and mock interview preparation with industry experts.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Premium Subscription -->
+          <div class="hs-faq-accordion-group" data-faq-category="premium">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What is included in the Premium Subscription?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Premium gives you unlimited access to all courses, downloadable resources, career coaching, priority support, and exclusive webinars with industry experts.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How much does Premium cost?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Premium is available at $29/month or $299/year. We also offer student discounts and team plans for organizations.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I cancel my Premium subscription anytime?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, you can cancel anytime from your Account Settings. You'll continue to have Premium access until the end of your current billing period.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Is there a free trial available?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, we offer a 7-day free trial for new Premium subscribers. You can cancel within the trial period and won't be charged.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Certificate -->
+          <div class="hs-faq-accordion-group" data-faq-category="certificate">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I earn a certificate?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Complete all course modules, pass the final assessment with a score of 70% or higher, and your certificate will be automatically generated and available for download.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Are PM4Success certificates recognized by employers?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. Our certificates are industry-recognized and can be shared on LinkedIn, your resume, or portfolio to showcase your verified skills to employers.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I share my certificate on LinkedIn?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Absolutely. Each certificate comes with a one-click "Add to LinkedIn" button and a unique verification URL that recruiters can validate.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What if I lose my certificate?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>You can re-download any earned certificate from your Dashboard → "My Certificates" section at any time, free of charge.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Payments -->
+          <div class="hs-faq-accordion-group" data-faq-category="payments">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What payment methods do you accept?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>We accept Visa, Mastercard, American Express, PayPal, Stripe, and local payment methods depending on your country. All transactions are secured and encrypted.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Is my payment information secure?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. We use industry-standard SSL encryption and PCI-compliant payment processors. We never store your full card details on our servers.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I get a refund for a course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, we offer a 14-day money-back guarantee on all course purchases. Simply contact support with your order details and we'll process your refund.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Why was my payment declined?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Payment declines usually occur due to insufficient funds, incorrect card details, or bank restrictions. Please verify your information or contact your bank for assistance.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Accreditation -->
+          <div class="hs-faq-accordion-group" data-faq-category="accreditation">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Is PM4Success accredited?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, PM4Success is accredited by leading international professional bodies, ensuring our courses meet recognized industry standards and learning outcomes.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Which organizations recognize your certifications?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Our certifications are recognized by PMI, IEEE, and other leading industry associations. Many employers accept our credentials as proof of verified learning.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Do I earn CEU or PDU credits for completing courses?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, many of our Project Management and Technology courses offer PDU and CEU credits. The credit amount is listed on each course's overview page.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Technical Problem -->
+          <div class="hs-faq-accordion-group" data-faq-category="technical">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>The video won't play. What should I do?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Try refreshing your browser, clearing your cache, or switching to a different browser like Chrome or Firefox. Also check your internet connection and disable any ad blockers.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Which browsers are supported?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>PM4Success works best on the latest versions of Chrome, Firefox, Safari, and Edge. We recommend keeping your browser up to date for the best experience.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>My course progress isn't saving. How do I fix it?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Make sure cookies are enabled and you're logged in. If the issue persists, try clearing site data for PM4Success or contact support with a description of the problem.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I report a bug?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Send a detailed description of the issue, along with screenshots if possible, to our support team at support@pm4success.com. We'll investigate and get back to you.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Documentation -->
+          <div class="hs-faq-accordion-group" data-faq-category="documentation">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Where can I find course documentation and materials?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>All course materials, including slides, PDFs, and supplementary readings, are available in the "Resources" tab inside each course module.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I download course materials for offline use?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, Premium subscribers can download videos, slides, and resources for offline viewing through our mobile apps.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Is there user documentation for the platform?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes, our Help Center contains step-by-step guides on using every feature of PM4Success, from enrolling in courses to submitting assignments.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Community Forum -->
+          <div class="hs-faq-accordion-group" data-faq-category="community">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I join the community forum?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>The community forum is available to all registered users. Click "Community" in the main navigation to browse discussions or start your own thread.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I ask course-related questions in the forum?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. Each course has its own dedicated discussion board where you can ask questions, share insights, and interact with instructors and peers.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What are the community guidelines?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>We encourage respectful, constructive discussions. Spam, harassment, or off-topic posts are not allowed. Violations may result in account suspension.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Affiliate Programme -->
+          <div class="hs-faq-accordion-group" data-faq-category="affiliate">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What is the PM4Success Affiliate Programme?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Our affiliate programme lets you earn a commission for every new learner who signs up through your unique referral link. It's free to join and open to everyone.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How much commission can I earn?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Affiliates earn up to 30% commission on every successful referral, including both course purchases and Premium subscriptions, with recurring payouts.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I sign up as an affiliate?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Visit our Affiliate page and fill out the short application form. Once approved, you'll receive your unique referral link and access to the affiliate dashboard.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>When and how do I get paid?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Affiliate commissions are paid monthly via PayPal or bank transfer, once you reach the minimum payout threshold of $50.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          </div><!-- /LEARNER PANEL -->
+
+          <!-- COURSE CREATOR PANEL -->
+          <div class="hs-faq-panel-content" data-panel="course-creator">
+
+          <!-- Getting Started -->
+          <div class="hs-faq-accordion-group active" data-faq-category="c-getting-started">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I become an instructor on PM4Success?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Click "Become an Instructor" from the homepage, complete the application form with your expertise and teaching interests, and submit a short sample video. Our team reviews applications within 5–7 business days.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What are the eligibility requirements?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>You need proven expertise or professional experience in your subject area, the ability to teach clearly on camera, and a commitment to our content quality standards. Formal teaching experience is welcome but not required.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How long does the instructor approval process take?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Most applications are reviewed within 5–7 business days. You'll receive an email notification once your application is approved, along with next steps for onboarding.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What equipment do I need to record courses?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>We recommend an HD webcam or DSLR, a good-quality USB microphone, proper lighting, and a quiet recording space. Our instructor resource hub has detailed gear recommendations for every budget.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Is there a fee to become an instructor?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>No. Signing up as an instructor is completely free. You only share a percentage of revenue when your courses earn.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Course Creation -->
+          <div class="hs-faq-accordion-group" data-faq-category="c-course-creation">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I create my first course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>From your Instructor Dashboard, click "Create New Course," enter the course title, outline your sections and lectures, then upload your videos and supporting materials. You can save progress and return anytime.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What is the recommended course structure?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>We recommend organizing your course into sections, with each section containing 5–10 focused lectures of 4–10 minutes each. Include a strong intro, hands-on exercises, and a clear summary or recap at the end.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What video format and quality should I use?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Upload videos in MP4 format at a minimum resolution of 1080p with clear audio. We accept files up to 4GB per lecture. Our platform automatically transcodes videos for optimal playback.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I add quizzes and assignments?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Inside the course builder, click "Add Activity" within any section and choose quiz, assignment, or coding exercise. You can create multiple-choice, true/false, or open-ended questions with automatic grading.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Content & Quality -->
+          <div class="hs-faq-accordion-group" data-faq-category="c-content-quality">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What are PM4Success content quality standards?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Courses must have clear audio, HD video, well-structured content, accurate information, and engaging delivery. Our full quality checklist is available in the Instructor Resource Center.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I pass the quality review?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Submit your course with at least 30 minutes of complete content and ensure it meets our quality checklist. Our review team will provide feedback within 3 business days if any improvements are needed.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I update my course after publishing?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. You can add new lectures, update existing ones, or revise resources anytime. Enrolled students automatically gain access to your updates at no extra cost.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What makes a best-selling course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Best-sellers combine a compelling topic, clear learning outcomes, high production quality, hands-on projects, and responsive instructor engagement. Consistent updates and strong reviews also boost visibility.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Pricing & Revenue -->
+          <div class="hs-faq-accordion-group" data-faq-category="c-pricing">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I price my course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>You choose a price tier from our supported range ($19.99–$199.99). We recommend pricing based on course length, depth, and your target audience. Our dashboard shows competitive benchmarks for similar courses.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What revenue share does PM4Success offer?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Instructors earn up to 70% revenue on direct sales through their own promotional channels, and a 50% share on organic sales generated by the PM4Success marketplace.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I run promotions or discounts?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. You can create custom discount coupons, opt in to platform-wide sales, and offer limited-time promotions directly from your Instructor Dashboard.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How are royalties calculated?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Royalties are calculated per transaction based on the applicable revenue share, net of payment processing fees and applicable taxes. Detailed breakdowns are available on your earnings dashboard.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Student Engagement -->
+          <div class="hs-faq-accordion-group" data-faq-category="c-engagement">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I respond to student questions?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Student questions appear in your Instructor Dashboard under "Q&amp;A." You'll receive email notifications and can reply directly from the platform. We recommend responding within 48 hours.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How can I increase student engagement?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Add interactive elements like quizzes, assignments, and downloadable resources. Send periodic announcements, host Q&amp;A sessions, and respond promptly to reviews and questions.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I message my students directly?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. You can send course-wide announcements or direct messages to individual enrolled students through the "Students" tab on your Instructor Dashboard.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I handle negative reviews?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Respond professionally, thank the student for their feedback, and offer to help. Genuine efforts to address concerns often turn critical reviews into positive outcomes and improved course content.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Analytics & Reports -->
+          <div class="hs-faq-accordion-group" data-faq-category="c-analytics">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What analytics are available to instructors?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Your dashboard shows total enrollments, revenue, engagement rates, course completion percentages, average ratings, and traffic sources. Data is updated in real time.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I track my course performance?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Use the Performance tab to view trends across enrollments, ratings, and revenue over time. You can filter by date range, course, or traffic source for deeper insights.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I export student progress reports?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. You can export individual student progress or aggregated course reports as CSV or PDF from the "Reports" section of your Instructor Dashboard.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Marketing & Promotion -->
+          <div class="hs-faq-accordion-group" data-faq-category="c-marketing">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I promote my course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Share your unique instructor referral link on social media, in blog posts, or newsletters. You can also generate discount coupons to attract your personal audience and earn higher revenue share.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Does PM4Success help with marketing?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. We feature top courses in our marketplace, include them in seasonal campaigns, run email marketing, and promote instructors through our social channels and newsletters.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Can I create affiliate links for my course?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. Each course has its own unique shareable link. Sales that come through your direct links qualify for a higher revenue share than organic marketplace traffic.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Are there seasonal promotional campaigns?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. PM4Success runs regular seasonal sales (Black Friday, New Year, Back-to-School). Instructors can opt in to these campaigns from their Dashboard to boost visibility and sales.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Payouts & Tax -->
+          <div class="hs-faq-accordion-group" data-faq-category="c-payouts">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>When and how are payouts made?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Payouts are processed monthly, around the 15th, for earnings from the previous month. You can receive payouts via PayPal, Payoneer, or direct bank transfer depending on your country.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What is the minimum payout threshold?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>The minimum payout threshold is $50. Earnings below this amount roll over to the next payout cycle until the threshold is reached.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do taxes work for instructors?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>You are responsible for reporting and paying taxes on your earnings according to your local regulations. We provide annual earnings summaries to help with your tax filing.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Which countries are supported for payouts?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>We support payouts in over 190 countries via PayPal and Payoneer, and direct bank transfers in select regions. Full country support details are available in the Payouts section of your Dashboard.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Instructor Support -->
+          <div class="hs-faq-accordion-group" data-faq-category="c-support">
+          <div class="accordion" data-single-open>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I get help with technical issues?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Submit a ticket through the Instructor Support Center or email instructors@pm4success.com. We typically respond within one business day with troubleshooting steps or a resolution.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Is there an instructor community forum?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>Yes. Our instructor community is a private forum where you can share tips, ask questions, and collaborate with other creators. Access is granted automatically after your first course is published.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>How do I contact the instructor support team?</span>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <p>You can reach our dedicated instructor support team via the Help Center, the in-app chat widget, or by emailing instructors@pm4success.com. Premium instructors also get priority support.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          </div><!-- /COURSE CREATOR PANEL -->
 
           <!-- Nested CTA card + chat button on the same row -->
           <div class="hs-cta-row">

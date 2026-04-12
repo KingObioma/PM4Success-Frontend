@@ -74,8 +74,8 @@ function initNavbar() {
   }
 
   toggle.addEventListener('click', function () {
-    var isLoggedIn = document.body.classList.contains('is-logged-in');
-    var isMobile = window.innerWidth <= 767;
+    const isLoggedIn = document.body.classList.contains('is-logged-in');
+    const isMobile = window.innerWidth <= 767;
 
     if (isLoggedIn && !isMobile) {
       openSwitchPanel();
@@ -85,8 +85,8 @@ function initNavbar() {
   });
 
   // User sub-panel toggle
-  var userMenuBtn = document.getElementById('mobileUserMenuBtn');
-  var userPanelBack = document.getElementById('mobileUserPanelBack');
+  const userMenuBtn = document.getElementById('mobileUserMenuBtn');
+  const userPanelBack = document.getElementById('mobileUserPanelBack');
 
   if (userMenuBtn) {
     userMenuBtn.addEventListener('click', function () {
@@ -104,18 +104,18 @@ function initNavbar() {
   if (switchOverlay) switchOverlay.addEventListener('click', closeSwitchPanel);
 
   // Verification banner close
-  var verifyClose = document.querySelector('.verification-banner-close');
+  const verifyClose = document.querySelector('.verification-banner-close');
   if (verifyClose) {
     verifyClose.addEventListener('click', function () {
-      var banner = this.closest('.verification-banner');
+      const banner = this.closest('.verification-banner');
       if (banner) banner.style.display = 'none';
     });
   }
 
   // Set active nav link based on current page
-  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-nav a').forEach(function (link) {
-    var linkPage = link.getAttribute('href');
+    const linkPage = link.getAttribute('href');
     if (linkPage === currentPage) {
       link.classList.add('active');
     } else {
@@ -133,8 +133,8 @@ function initAuthModals() {
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
       // Close mobile menu if open
-      var mobileMenu = document.querySelector('.mobile-menu');
-      var mobileOverlay = document.querySelector('.mobile-menu-overlay');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const mobileOverlay = document.querySelector('.mobile-menu-overlay');
       if (mobileMenu) mobileMenu.classList.remove('show');
       if (mobileOverlay) mobileOverlay.classList.remove('show');
 
@@ -143,8 +143,8 @@ function initAuthModals() {
         m.classList.remove('show');
       });
 
-      var modalId = this.getAttribute('data-open-modal');
-      var modal = document.getElementById(modalId);
+      const modalId = this.getAttribute('data-open-modal');
+      const modal = document.getElementById(modalId);
       if (modal) {
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
@@ -155,7 +155,7 @@ function initAuthModals() {
   // Close modal via X button
   document.querySelectorAll('[data-close-modal]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var modal = this.closest('.auth-modal-overlay, .app-modal-overlay');
+      const modal = this.closest('.auth-modal-overlay, .app-modal-overlay');
       if (modal) {
         modal.classList.remove('show');
         document.body.style.overflow = '';
@@ -217,7 +217,7 @@ function initAuthState() {
       document.querySelectorAll('.auth-modal-overlay.show').forEach(function (m) {
         m.classList.remove('show');
       });
-      var otpModal = document.getElementById('verifyOtpModal');
+      const otpModal = document.getElementById('verifyOtpModal');
       if (otpModal) {
         otpModal.classList.add('show');
         document.body.style.overflow = 'hidden';
@@ -307,7 +307,7 @@ function initTabs() {
 
         // Activate clicked
         this.classList.add('active');
-        var targetContent = document.getElementById(target);
+        const targetContent = document.getElementById(target);
         if (targetContent) targetContent.classList.add('active');
       });
     });
@@ -328,18 +328,18 @@ function initCarousels() {
 
     if (!track) return;
 
-    var isPageScroll = track.hasAttribute('data-scroll-page');
+    const isPageScroll = track.hasAttribute('data-scroll-page');
 
     if (isPageScroll) {
       // Transform-based page carousel (testimonials)
       // Find buttons and dots from section level (they live outside .carousel-wrapper)
-      var section = carousel.closest('section');
-      var currentPage = 0;
+      const section = carousel.closest('section');
+      const currentPage = 0;
 
       function getVisibleCards() {
-        var cards = track.children;
-        var count = 0;
-        for (var i = 0; i < cards.length; i++) {
+        const cards = track.children;
+        const count = 0;
+        for (let i = 0; i < cards.length; i++) {
           if (cards[i].offsetParent !== null) count++;
         }
         return count;
@@ -360,21 +360,21 @@ function initCarousels() {
       }
 
       function goToPage(page) {
-        var totalPages = getTotalPages();
+        const totalPages = getTotalPages();
         if (page < 0) page = 0;
         if (page >= totalPages) page = totalPages - 1;
         currentPage = page;
-        var gap = getGap();
-        var cardsPerPage = getCardsPerPage();
-        var firstCard = track.children[0];
-        var cardWidth = firstCard ? firstCard.offsetWidth : carousel.offsetWidth;
-        var offset = currentPage * cardsPerPage * (cardWidth + gap);
+        const gap = getGap();
+        const cardsPerPage = getCardsPerPage();
+        const firstCard = track.children[0];
+        const cardWidth = firstCard ? firstCard.offsetWidth : carousel.offsetWidth;
+        const offset = currentPage * cardsPerPage * (cardWidth + gap);
         track.style.transform = 'translateX(-' + offset + 'px)';
 
         // Update dots
-        var dotsContainer = section.querySelector('.carousel-dots');
+        const dotsContainer = section.querySelector('.carousel-dots');
         if (dotsContainer) {
-          var allDots = dotsContainer.querySelectorAll('.carousel-dot');
+          const allDots = dotsContainer.querySelectorAll('.carousel-dot');
           allDots.forEach(function (d, i) {
             d.classList.toggle('active', i === currentPage);
           });
@@ -383,14 +383,14 @@ function initCarousels() {
 
       // Recalculate on resize
       window.addEventListener('resize', function () {
-        var totalPages = getTotalPages();
+        const totalPages = getTotalPages();
         if (currentPage >= totalPages) currentPage = totalPages - 1;
         goToPage(currentPage);
       });
 
       // Nav buttons (found from section since they're outside wrapper)
-      var sectionPrev = section.querySelector('.carousel-btn-prev');
-      var sectionNext = section.querySelector('.carousel-btn-next');
+      const sectionPrev = section.querySelector('.carousel-btn-prev');
+      const sectionNext = section.querySelector('.carousel-btn-next');
 
       if (sectionPrev) {
         sectionPrev.addEventListener('click', function (e) {
@@ -407,10 +407,10 @@ function initCarousels() {
       }
 
       // Dot clicks
-      var dotsContainer = section.querySelector('.carousel-dots');
+      const dotsContainer = section.querySelector('.carousel-dots');
       if (dotsContainer) {
         dotsContainer.setAttribute('data-handled', 'true');
-        var allDots = dotsContainer.querySelectorAll('.carousel-dot');
+        const allDots = dotsContainer.querySelectorAll('.carousel-dot');
         allDots.forEach(function (dot, index) {
           dot.addEventListener('click', function () {
             goToPage(index);
@@ -424,8 +424,8 @@ function initCarousels() {
 
     } else {
       // Scroll-based carousel (default)
-      var scrollAmount = 300;
-      var firstChild = track.firstElementChild;
+      const scrollAmount = 300;
+      const firstChild = track.firstElementChild;
       if (firstChild) {
         scrollAmount = firstChild.offsetWidth + 20;
       }
@@ -446,7 +446,7 @@ function initCarousels() {
       if (dots.length > 0) {
         dots.forEach(function (dot, index) {
           dot.addEventListener('click', function () {
-            var children = track.children;
+            const children = track.children;
             if (children[index]) {
               children[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
             }
@@ -457,9 +457,9 @@ function initCarousels() {
 
         // Update active dot on scroll
         track.addEventListener('scroll', function () {
-          var scrollLeft = track.scrollLeft;
-          var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
-          var activeIndex = Math.round(scrollLeft / childWidth);
+          const scrollLeft = track.scrollLeft;
+          const childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
+          const activeIndex = Math.round(scrollLeft / childWidth);
           dots.forEach(function (d, i) {
             d.classList.toggle('active', i === activeIndex);
           });
@@ -469,21 +469,21 @@ function initCarousels() {
   });
 
   // Standalone carousel nav buttons with data-target (skip transform-based carousels)
-  var standaloneNavBtns = document.querySelectorAll('.carousel-btn[data-target]');
+  const standaloneNavBtns = document.querySelectorAll('.carousel-btn[data-target]');
   standaloneNavBtns.forEach(function (btn) {
     if (btn.hasAttribute('data-handled')) return;
     btn.addEventListener('click', function () {
-      var targetId = this.getAttribute('data-target');
-      var track = document.getElementById(targetId);
+      const targetId = this.getAttribute('data-target');
+      const track = document.getElementById(targetId);
       if (!track) return;
 
-      var gap = window.innerWidth <= 575 ? 12 : 20;
-      var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
-      var itemsPerPage = 3;
-      var pageWidth = childWidth * itemsPerPage;
-      var direction = this.classList.contains('carousel-btn-prev') ? -1 : 1;
-      var maxScroll = track.scrollWidth - track.clientWidth;
-      var newScroll = track.scrollLeft + (direction * pageWidth);
+      const gap = window.innerWidth <= 575 ? 12 : 20;
+      const childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
+      const itemsPerPage = 3;
+      const pageWidth = childWidth * itemsPerPage;
+      const direction = this.classList.contains('carousel-btn-prev') ? -1 : 1;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const newScroll = track.scrollLeft + (direction * pageWidth);
 
       // Loop: if past the end go to start, if before start go to end
       if (newScroll > maxScroll) {
@@ -497,21 +497,21 @@ function initCarousels() {
   });
 
   // Standalone carousel dots (outside carousel-wrapper, skip transform-based carousels)
-  var standaloneDots = document.querySelectorAll('.carousel-dots');
+  const standaloneDots = document.querySelectorAll('.carousel-dots');
   standaloneDots.forEach(function (dotsContainer) {
     if (dotsContainer.hasAttribute('data-handled')) return;
-    var section = dotsContainer.closest('section');
+    const section = dotsContainer.closest('section');
     if (!section) return;
-    var track = section.querySelector('.carousel-track');
+    const track = section.querySelector('.carousel-track');
     if (!track) return;
-    var dots = dotsContainer.querySelectorAll('.carousel-dot');
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
 
     dots.forEach(function (dot, index) {
       dot.addEventListener('click', function () {
-        var gap = window.innerWidth <= 575 ? 12 : 20;
-        var itemsPerPage = 3;
-        var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
-        var scrollTo = index * itemsPerPage * childWidth;
+        const gap = window.innerWidth <= 575 ? 12 : 20;
+        const itemsPerPage = 3;
+        const childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
+        const scrollTo = index * itemsPerPage * childWidth;
         track.scrollTo({ left: scrollTo, behavior: 'smooth' });
         dots.forEach(function (d) { d.classList.remove('active'); });
         dot.classList.add('active');
@@ -519,12 +519,12 @@ function initCarousels() {
     });
 
     track.addEventListener('scroll', function () {
-      var scrollLeft = track.scrollLeft;
-      var gap = window.innerWidth <= 575 ? 12 : 20;
-      var itemsPerPage = 3;
-      var childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
-      var pageWidth = childWidth * itemsPerPage;
-      var activeIndex = Math.round(scrollLeft / pageWidth);
+      const scrollLeft = track.scrollLeft;
+      const gap = window.innerWidth <= 575 ? 12 : 20;
+      const itemsPerPage = 3;
+      const childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
+      const pageWidth = childWidth * itemsPerPage;
+      const activeIndex = Math.round(scrollLeft / pageWidth);
       if (activeIndex >= dots.length) activeIndex = 0;
       dots.forEach(function (d, i) {
         d.classList.toggle('active', i === activeIndex);
@@ -533,7 +533,7 @@ function initCarousels() {
 
     // Auto-loop: when scrolled to the end, jump back to start
     track.addEventListener('scrollend', function () {
-      var maxScroll = track.scrollWidth - track.clientWidth;
+      const maxScroll = track.scrollWidth - track.clientWidth;
       if (track.scrollLeft >= maxScroll - 5) {
         setTimeout(function () {
           track.scrollTo({ left: 0, behavior: 'smooth' });
@@ -553,8 +553,8 @@ function initPasswordToggles() {
 
   toggles.forEach(function (toggle) {
     toggle.addEventListener('click', function () {
-      var targetId = this.getAttribute('data-toggle-password');
-      var input = document.getElementById(targetId);
+      const targetId = this.getAttribute('data-toggle-password');
+      const input = document.getElementById(targetId);
       if (!input) return;
 
       if (input.type === 'password') {
@@ -578,20 +578,20 @@ function initProgressRings() {
 
   if (rings.length === 0) return;
 
-  var observer = new IntersectionObserver(function (entries) {
+  const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        var circle = entry.target;
-        var percentage = parseFloat(circle.getAttribute('data-percentage')) || 0;
-        var radius = circle.r.baseVal.value;
-        var circumference = 2 * Math.PI * radius;
+        const circle = entry.target;
+        const percentage = parseFloat(circle.getAttribute('data-percentage')) || 0;
+        const radius = circle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
 
         circle.style.strokeDasharray = circumference;
         circle.style.strokeDashoffset = circumference;
 
         // Trigger animation
         requestAnimationFrame(function () {
-          var offset = circumference - (percentage / 100) * circumference;
+          const offset = circumference - (percentage / 100) * circumference;
           circle.style.strokeDashoffset = offset;
         });
 
@@ -612,8 +612,8 @@ function initStarRating() {
   const ratingContainers = document.querySelectorAll('.star-rating[data-interactive]');
 
   ratingContainers.forEach(function (container) {
-    var stars = container.querySelectorAll('i');
-    var input = container.querySelector('input[type="hidden"]');
+    const stars = container.querySelectorAll('i');
+    const input = container.querySelector('input[type="hidden"]');
 
     stars.forEach(function (star, index) {
       star.addEventListener('mouseenter', function () {
@@ -632,7 +632,7 @@ function initStarRating() {
     container.addEventListener('mouseleave', function () {
       // Reset to selected state
       stars.forEach(function (s, i) {
-        var isSelected = s.getAttribute('data-selected') === 'true';
+        const isSelected = s.getAttribute('data-selected') === 'true';
         s.classList.toggle('active', isSelected);
       });
     });
@@ -649,15 +649,15 @@ function initStarRating() {
    9b. Number Rating (1–5 circle buttons)
    ============================================ */
 function initNumberRating() {
-  var containers = document.querySelectorAll('[data-number-rating]');
+  const containers = document.querySelectorAll('[data-number-rating]');
 
   containers.forEach(function (container) {
-    var buttons = container.querySelectorAll('.number-rating-btn');
-    var input = container.querySelector('input[type="hidden"]');
+    const buttons = container.querySelectorAll('.number-rating-btn');
+    const input = container.querySelector('input[type="hidden"]');
 
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var value = btn.getAttribute('data-value');
+        const value = btn.getAttribute('data-value');
         if (input) input.value = value;
         buttons.forEach(function (b) {
           b.classList.toggle('active', b === btn);
@@ -674,22 +674,22 @@ function initFileUploads() {
   const uploaders = document.querySelectorAll('[data-file-upload]');
 
   uploaders.forEach(function (uploader) {
-    var input = uploader.querySelector('input[type="file"]');
-    var preview = uploader.querySelector('.upload-preview');
-    var label = uploader.querySelector('.upload-label');
+    const input = uploader.querySelector('input[type="file"]');
+    const preview = uploader.querySelector('.upload-preview');
+    const label = uploader.querySelector('.upload-label');
 
     if (!input) return;
 
     input.addEventListener('change', function () {
       if (this.files && this.files[0]) {
-        var file = this.files[0];
+        const file = this.files[0];
 
         if (label) {
           label.textContent = file.name;
         }
 
         if (preview && file.type.startsWith('image/')) {
-          var reader = new FileReader();
+          const reader = new FileReader();
           reader.onload = function (e) {
             preview.src = e.target.result;
           };
@@ -704,19 +704,19 @@ function initFileUploads() {
    11. Catalogue Filters
    ============================================ */
 function initCatalogueFilters() {
-  var catalogueSidebar = document.querySelector('.catalogue-sidebar');
+  const catalogueSidebar = document.querySelector('.catalogue-sidebar');
   if (!catalogueSidebar) return;
 
-  var tabs = catalogueSidebar.querySelectorAll('.program-tab');
-  var courseCards = document.querySelectorAll('.catalogue-course-list .course-card-h');
+  const tabs = catalogueSidebar.querySelectorAll('.program-tab');
+  const courseCards = document.querySelectorAll('.catalogue-course-list .course-card-h');
 
-  var mobileToggles = document.querySelectorAll('.catalogue-accordion-toggle');
+  const mobileToggles = document.querySelectorAll('.catalogue-accordion-toggle');
 
   if (!tabs.length) return;
 
   // Filter to active category on page load
-  var activeTab = catalogueSidebar.querySelector('.program-tab.active');
-  var initialCategory = activeTab ? activeTab.getAttribute('data-category') : 'popular';
+  const activeTab = catalogueSidebar.querySelector('.program-tab.active');
+  const initialCategory = activeTab ? activeTab.getAttribute('data-category') : 'popular';
 
   function filterCards(category) {
     courseCards.forEach(function (card) {
@@ -729,7 +729,7 @@ function initCatalogueFilters() {
   }
 
   // Shared active category — keeps desktop and mobile in sync
-  var activeCategory = initialCategory;
+  const activeCategory = initialCategory;
 
   // Apply initial filter
   filterCards(activeCategory);
@@ -737,7 +737,7 @@ function initCatalogueFilters() {
   // Helper: sync mobile accordions to a given category
   function syncMobile(category) {
     mobileToggles.forEach(function (t) {
-      var c = t.nextElementSibling;
+      const c = t.nextElementSibling;
       if (t.getAttribute('data-category') === category) {
         t.classList.add('active');
         if (c && c.classList.contains('catalogue-accordion-content')) {
@@ -775,14 +775,14 @@ function initCatalogueFilters() {
   // Mobile accordion toggles
   mobileToggles.forEach(function (toggle) {
     toggle.addEventListener('click', function () {
-      var content = toggle.nextElementSibling;
-      var hasContent = content && content.classList.contains('catalogue-accordion-content');
-      var isOpen = hasContent && content.classList.contains('open');
+      const content = toggle.nextElementSibling;
+      const hasContent = content && content.classList.contains('catalogue-accordion-content');
+      const isOpen = hasContent && content.classList.contains('open');
 
       // Close all accordions
       mobileToggles.forEach(function (t) {
         t.classList.remove('active');
-        var c = t.nextElementSibling;
+        const c = t.nextElementSibling;
         if (c && c.classList.contains('catalogue-accordion-content')) {
           c.classList.remove('open');
         }
@@ -806,9 +806,9 @@ function initCatalogueFilters() {
   });
 
   // Mobile filter sidebar toggle
-  var filterToggle = document.querySelector('[data-toggle="filter-sidebar"]');
-  var filterSidebar = document.querySelector('.filter-sidebar');
-  var filterOverlay = document.querySelector('.filter-overlay');
+  const filterToggle = document.querySelector('[data-toggle="filter-sidebar"]');
+  const filterSidebar = document.querySelector('.filter-sidebar');
+  const filterOverlay = document.querySelector('.filter-overlay');
 
   if (filterToggle && filterSidebar) {
     filterToggle.addEventListener('click', function () {
@@ -829,17 +829,17 @@ function initCatalogueFilters() {
    11b. Filter Dropdown Toggles
    ============================================ */
 function initFilterDropdowns() {
-  var wrappers = document.querySelectorAll('.filter-dropdown-wrapper');
+  const wrappers = document.querySelectorAll('.filter-dropdown-wrapper');
   if (!wrappers.length) return;
 
   // Toggle dropdown on pill click
   wrappers.forEach(function (wrapper) {
-    var btn = wrapper.querySelector('.filter-btn');
+    const btn = wrapper.querySelector('.filter-btn');
     if (!btn) return;
 
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
-      var isOpen = wrapper.classList.contains('open');
+      const isOpen = wrapper.classList.contains('open');
 
       // Close all dropdowns first
       wrappers.forEach(function (w) { w.classList.remove('open'); });
@@ -854,7 +854,7 @@ function initFilterDropdowns() {
 
   // Position dropdown so it stays within viewport
   function positionDropdown(wrapper) {
-    var panel = wrapper.querySelector('.filter-dropdown-panel');
+    const panel = wrapper.querySelector('.filter-dropdown-panel');
     if (!panel) return;
 
     // Reset positioning
@@ -862,7 +862,7 @@ function initFilterDropdowns() {
     panel.style.right = 'auto';
 
     // Check if it overflows right edge
-    var rect = panel.getBoundingClientRect();
+    const rect = panel.getBoundingClientRect();
     if (rect.right > window.innerWidth - 16) {
       panel.style.left = 'auto';
       panel.style.right = '0';
@@ -901,7 +901,7 @@ function initCartInteractions() {
   removeButtons.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      var item = this.closest('.cart-item');
+      const item = this.closest('.cart-item');
       if (item) {
         item.style.opacity = '0';
         item.style.transition = 'opacity 0.3s ease';
@@ -915,25 +915,25 @@ function initCartInteractions() {
   });
 
   function updateCartTotal() {
-    var items = document.querySelectorAll('.cart-item');
-    var total = 0;
+    const items = document.querySelectorAll('.cart-item');
+    const total = 0;
     items.forEach(function (item) {
-      var priceEl = item.querySelector('.cart-item-price');
+      const priceEl = item.querySelector('.cart-item-price');
       if (priceEl) {
-        var priceText = priceEl.textContent.replace(/[^0-9.]/g, '');
+        const priceText = priceEl.textContent.replace(/[^0-9.]/g, '');
         total += parseFloat(priceText) || 0;
       }
     });
-    var totalEl = document.querySelector('.cart-total-amount');
+    const totalEl = document.querySelector('.cart-total-amount');
     if (totalEl) {
       totalEl.textContent = '\u20A6' + total.toLocaleString();
     }
   }
 
   function checkCartEmpty() {
-    var items = document.querySelectorAll('.cart-item');
-    var emptyState = document.querySelector('.cart-empty-state');
-    var cartContent = document.querySelector('.cart-content');
+    const items = document.querySelectorAll('.cart-item');
+    const emptyState = document.querySelector('.cart-empty-state');
+    const cartContent = document.querySelector('.cart-content');
 
     if (items.length === 0 && emptyState && cartContent) {
       cartContent.style.display = 'none';
@@ -946,40 +946,40 @@ function initCartInteractions() {
    13. Calendar Widget
    ============================================ */
 function initCalendar() {
-  var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June',
+  const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
-  var MONTH_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+  const MONTH_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  var DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   document.querySelectorAll('[data-calendar]').forEach(function (calendar) {
-    var grid = calendar.querySelector('[data-calendar-grid]');
-    var monthLabel = calendar.querySelector('[data-calendar-month-label]');
-    var selectedLabel = calendar.querySelector('[data-calendar-label]');
-    var prevBtn = calendar.querySelector('[data-calendar-prev]');
-    var nextBtn = calendar.querySelector('[data-calendar-next]');
-    var toggleBtn = calendar.querySelector('[data-calendar-toggle]');
-    var picker = calendar.querySelector('[data-calendar-picker]');
-    var pickerMonths = calendar.querySelector('[data-picker-months]');
-    var pickerYearLabel = calendar.querySelector('[data-picker-year-label]');
-    var pickerYearPrev = calendar.querySelector('[data-picker-year-prev]');
-    var pickerYearNext = calendar.querySelector('[data-picker-year-next]');
+    const grid = calendar.querySelector('[data-calendar-grid]');
+    const monthLabel = calendar.querySelector('[data-calendar-month-label]');
+    const selectedLabel = calendar.querySelector('[data-calendar-label]');
+    const prevBtn = calendar.querySelector('[data-calendar-prev]');
+    const nextBtn = calendar.querySelector('[data-calendar-next]');
+    const toggleBtn = calendar.querySelector('[data-calendar-toggle]');
+    const picker = calendar.querySelector('[data-calendar-picker]');
+    const pickerMonths = calendar.querySelector('[data-picker-months]');
+    const pickerYearLabel = calendar.querySelector('[data-picker-year-label]');
+    const pickerYearPrev = calendar.querySelector('[data-picker-year-prev]');
+    const pickerYearNext = calendar.querySelector('[data-picker-year-next]');
 
     if (!grid) return;
 
-    var initialYear = parseInt(calendar.getAttribute('data-initial-year'), 10);
-    var initialMonth = parseInt(calendar.getAttribute('data-initial-month'), 10);
-    var initialDay = parseInt(calendar.getAttribute('data-initial-day'), 10);
-    var eventDates = (calendar.getAttribute('data-event-dates') || '')
+    const initialYear = parseInt(calendar.getAttribute('data-initial-year'), 10);
+    const initialMonth = parseInt(calendar.getAttribute('data-initial-month'), 10);
+    const initialDay = parseInt(calendar.getAttribute('data-initial-day'), 10);
+    const eventDates = (calendar.getAttribute('data-event-dates') || '')
       .split(',')
       .map(function (s) { return parseInt(s.trim(), 10); })
       .filter(function (n) { return !isNaN(n); });
 
-    var today = new Date();
-    var viewYear = isNaN(initialYear) ? today.getFullYear() : initialYear;
-    var viewMonth = isNaN(initialMonth) ? today.getMonth() : initialMonth;
-    var pickerYear = viewYear;
-    var selected = {
+    const today = new Date();
+    const viewYear = isNaN(initialYear) ? today.getFullYear() : initialYear;
+    const viewMonth = isNaN(initialMonth) ? today.getMonth() : initialMonth;
+    const pickerYear = viewYear;
+    const selected = {
       year: viewYear,
       month: viewMonth,
       day: isNaN(initialDay) ? today.getDate() : initialDay
@@ -992,17 +992,17 @@ function initCalendar() {
 
       grid.querySelectorAll('.ud-day').forEach(function (el) { el.remove(); });
 
-      var firstDay = new Date(viewYear, viewMonth, 1).getDay();
-      var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+      const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
 
-      for (var i = 0; i < firstDay; i++) {
-        var empty = document.createElement('div');
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('div');
         empty.className = 'ud-day ud-day-empty';
         grid.appendChild(empty);
       }
 
-      for (var d = 1; d <= daysInMonth; d++) {
-        var dayEl = document.createElement('button');
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dayEl = document.createElement('button');
         dayEl.type = 'button';
         dayEl.className = 'ud-day';
         dayEl.textContent = d;
@@ -1034,7 +1034,7 @@ function initCalendar() {
 
     function updateSelectedLabel() {
       if (!selectedLabel) return;
-      var date = new Date(selected.year, selected.month, selected.day);
+      const date = new Date(selected.year, selected.month, selected.day);
       selectedLabel.textContent = DAY_SHORT[date.getDay()] + ', ' + MONTH_SHORT[selected.month] + ' ' + selected.day;
     }
 
@@ -1050,7 +1050,7 @@ function initCalendar() {
       pickerYearLabel.textContent = pickerYear;
       pickerMonths.innerHTML = '';
       MONTH_SHORT.forEach(function (name, idx) {
-        var btn = document.createElement('button');
+        const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'ud-month-option';
         btn.textContent = name;
@@ -1116,17 +1116,17 @@ function initCalendar() {
    14. Smooth Scroll (sidebar nav)
    ============================================ */
 function initSmoothScroll() {
-  var scrollSpyPaused = false;
+  const scrollSpyPaused = false;
   const scrollLinks = document.querySelectorAll('[data-scroll-to]');
 
   scrollLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
-      var targetId = this.getAttribute('data-scroll-to');
-      var target = document.getElementById(targetId);
+      const targetId = this.getAttribute('data-scroll-to');
+      const target = document.getElementById(targetId);
 
       // Update active state immediately
-      var nav = this.closest('.sidebar-nav');
+      const nav = this.closest('.sidebar-nav');
       if (nav) {
         nav.querySelectorAll('a').forEach(function (a) { a.classList.remove('active'); });
         this.classList.add('active');
@@ -1137,21 +1137,21 @@ function initSmoothScroll() {
       setTimeout(function () { scrollSpyPaused = false; }, 800);
 
       if (target) {
-        var navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
-        var extraOffset = window.innerWidth < 768 ? 120 : 40;
-        var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraOffset;
+        const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
+        const extraOffset = window.innerWidth < 768 ? 120 : 40;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraOffset;
         window.scrollTo({ top: top, behavior: 'smooth' });
       }
     });
   });
 
   // Scroll-spy: update active sidebar link on scroll
-  var sidebarNav = document.querySelector('.terms-sidebar-nav');
+  const sidebarNav = document.querySelector('.terms-sidebar-nav');
   if (sidebarNav) {
-    var sidebarLinks = sidebarNav.querySelectorAll('a[data-scroll-to]');
-    var sections = [];
+    const sidebarLinks = sidebarNav.querySelectorAll('a[data-scroll-to]');
+    const sections = [];
     sidebarLinks.forEach(function (link) {
-      var target = document.getElementById(link.getAttribute('data-scroll-to'));
+      const target = document.getElementById(link.getAttribute('data-scroll-to'));
       if (target) sections.push({ link: link, target: target });
     });
 
@@ -1159,12 +1159,12 @@ function initSmoothScroll() {
       window.addEventListener('scroll', function () {
         if (scrollSpyPaused) return;
 
-        var navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
-        var extraOffset = window.innerWidth < 768 ? 120 : 40;
-        var scrollPos = window.pageYOffset + navHeight + extraOffset;
-        var current = sections[0];
+        const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
+        const extraOffset = window.innerWidth < 768 ? 120 : 40;
+        const scrollPos = window.pageYOffset + navHeight + extraOffset;
+        const current = sections[0];
 
-        for (var i = 0; i < sections.length; i++) {
+        for (let i = 0; i < sections.length; i++) {
           if (sections[i].target.offsetTop <= scrollPos) {
             current = sections[i];
           }
@@ -1175,10 +1175,10 @@ function initSmoothScroll() {
 
         // On mobile, scroll active link into view in horizontal nav
         if (window.innerWidth < 768) {
-          var nav = current.link.parentElement;
-          var linkLeft = current.link.offsetLeft;
-          var linkWidth = current.link.offsetWidth;
-          var navWidth = nav.offsetWidth;
+          const nav = current.link.parentElement;
+          const linkLeft = current.link.offsetLeft;
+          const linkWidth = current.link.offsetWidth;
+          const navWidth = nav.offsetWidth;
           nav.scrollLeft = linkLeft - (navWidth / 2) + (linkWidth / 2);
         }
       });
@@ -1190,9 +1190,9 @@ function initSmoothScroll() {
    15. Mobile Course Sidebar
    ============================================ */
 function initMobileCourseSidebar() {
-  var toggleBtn = document.querySelector('[data-toggle="course-sidebar"]');
-  var sidebar = document.querySelector('.course-sidebar-panel');
-  var closeBtn = document.querySelector('.course-sidebar-close');
+  const toggleBtn = document.querySelector('[data-toggle="course-sidebar"]');
+  const sidebar = document.querySelector('.course-sidebar-panel');
+  const closeBtn = document.querySelector('.course-sidebar-close');
 
   if (!toggleBtn || !sidebar) return;
 
@@ -1211,33 +1211,33 @@ function initMobileCourseSidebar() {
    Promo Countdown Timer
    ============================================ */
 function initPromoCountdown() {
-  var daysEl = document.getElementById('countdown-days');
-  var hoursEl = document.getElementById('countdown-hours');
-  var minsEl = document.getElementById('countdown-mins');
-  var secsEl = document.getElementById('countdown-secs');
+  const daysEl = document.getElementById('countdown-days');
+  const hoursEl = document.getElementById('countdown-hours');
+  const minsEl = document.getElementById('countdown-mins');
+  const secsEl = document.getElementById('countdown-secs');
 
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-  var countdownEl = document.querySelector('.promo-countdown') || document.querySelector('[data-countdown-duration]');
-  var DURATION = (countdownEl && countdownEl.getAttribute('data-countdown-duration'))
+  const countdownEl = document.querySelector('.promo-countdown') || document.querySelector('[data-countdown-duration]');
+  const DURATION = (countdownEl && countdownEl.getAttribute('data-countdown-duration'))
     ? parseInt(countdownEl.getAttribute('data-countdown-duration')) * 24 * 60 * 60 * 1000
     : 3 * 24 * 60 * 60 * 1000; // default 3 days in ms
-  var STORAGE_KEY = 'promoCountdownEnd';
+  const STORAGE_KEY = 'promoCountdownEnd';
 
   function getEndTime() {
-    var stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(STORAGE_KEY);
     if (stored && Number(stored) > Date.now()) {
       return Number(stored);
     }
-    var end = Date.now() + DURATION;
+    const end = Date.now() + DURATION;
     localStorage.setItem(STORAGE_KEY, end);
     return end;
   }
 
-  var endTime = getEndTime();
+  const endTime = getEndTime();
 
   function tick() {
-    var remaining = endTime - Date.now();
+    const remaining = endTime - Date.now();
 
     if (remaining <= 0) {
       // Restart the countdown
@@ -1246,11 +1246,11 @@ function initPromoCountdown() {
       remaining = DURATION;
     }
 
-    var totalSecs = Math.floor(remaining / 1000);
-    var d = Math.floor(totalSecs / 86400);
-    var h = Math.floor((totalSecs % 86400) / 3600);
-    var m = Math.floor((totalSecs % 3600) / 60);
-    var s = totalSecs % 60;
+    const totalSecs = Math.floor(remaining / 1000);
+    const d = Math.floor(totalSecs / 86400);
+    const h = Math.floor((totalSecs % 86400) / 3600);
+    const m = Math.floor((totalSecs % 3600) / 60);
+    const s = totalSecs % 60;
 
     daysEl.textContent = d + 'd';
     hoursEl.textContent = h + 'h';
@@ -1266,8 +1266,8 @@ function initPromoCountdown() {
    Hero Slider
    ============================================ */
 function initHeroSlider() {
-  var heroSlides = document.querySelectorAll('.hero-slide');
-  var heroDots = document.querySelectorAll('.hero-slider-dot');
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.hero-slider-dot');
 
   function goToHeroSlide(index) {
     heroSlides[heroCurrent].classList.remove('active');
@@ -1278,11 +1278,11 @@ function initHeroSlider() {
   }
 
   if (heroSlides.length >= 2) {
-    var heroCurrent = 0;
+    const heroCurrent = 0;
 
     heroDots.forEach(function (dot) {
       dot.addEventListener('click', function () {
-        var slideIndex = parseInt(this.getAttribute('data-slide'));
+        const slideIndex = parseInt(this.getAttribute('data-slide'));
         goToHeroSlide(slideIndex);
       });
     });
@@ -1292,10 +1292,10 @@ function initHeroSlider() {
     }, 30000);
   }
 
-  var ctaSlides = document.querySelectorAll('.cta-teach-slide');
-  var ctaDots = document.querySelectorAll('.cta-slider-dot');
+  const ctaSlides = document.querySelectorAll('.cta-teach-slide');
+  const ctaDots = document.querySelectorAll('.cta-slider-dot');
   if (ctaSlides.length >= 2) {
-    var ctaCurrent = 0;
+    const ctaCurrent = 0;
 
     function goToCtaSlide(index) {
       ctaSlides[ctaCurrent].classList.remove('active');
@@ -1307,7 +1307,7 @@ function initHeroSlider() {
 
     ctaDots.forEach(function (dot) {
       dot.addEventListener('click', function () {
-        var slideIndex = parseInt(this.getAttribute('data-cta-slide'));
+        const slideIndex = parseInt(this.getAttribute('data-cta-slide'));
         goToCtaSlide(slideIndex);
       });
     });
@@ -1322,18 +1322,18 @@ function initHeroSlider() {
    Program Tabs
    ============================================ */
 function initProgramTabs() {
-  var sidebar = document.querySelector('.program-sidebar:not(.catalogue-sidebar)');
+  const sidebar = document.querySelector('.program-sidebar:not(.catalogue-sidebar)');
   if (!sidebar) return;
 
-  var sidebarTabs = sidebar.querySelectorAll('.program-tab');
-  var allGrids = document.querySelectorAll('.program-grid');
-  var accordionToggles = document.querySelectorAll('.program-accordion-toggle');
+  const sidebarTabs = sidebar.querySelectorAll('.program-tab');
+  const allGrids = document.querySelectorAll('.program-grid');
+  const accordionToggles = document.querySelectorAll('.program-accordion-toggle');
 
   if (!sidebarTabs.length) return;
 
   /* Shared active category */
-  var activeSidebarTab = sidebar.querySelector('.program-tab.active');
-  var activeCategory = activeSidebarTab ? activeSidebarTab.getAttribute('data-category') : 'popular';
+  const activeSidebarTab = sidebar.querySelector('.program-tab.active');
+  const activeCategory = activeSidebarTab ? activeSidebarTab.getAttribute('data-category') : 'popular';
 
   /* Switch the visible grid to the given category */
   function showGrid(category) {
@@ -1361,7 +1361,7 @@ function initProgramTabs() {
   /* Sync mobile accordions to a category */
   function syncMobile(category) {
     accordionToggles.forEach(function (t) {
-      var c = t.nextElementSibling;
+      const c = t.nextElementSibling;
       if (t.getAttribute('data-category') === category) {
         t.classList.add('active');
         if (c) c.classList.add('open');
@@ -1373,16 +1373,16 @@ function initProgramTabs() {
   }
 
   /* Sidebar tabs */
-  var popularTab = sidebar.querySelector('.program-tab[data-category="popular"]');
+  const popularTab = sidebar.querySelector('.program-tab[data-category="popular"]');
 
   sidebarTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      var category = tab.getAttribute('data-category');
-      var isMobile = window.innerWidth < 768;
+      const category = tab.getAttribute('data-category');
+      const isMobile = window.innerWidth < 768;
 
       if (isMobile && category === 'popular') {
         /* On mobile, popular tab toggles the popular grid */
-        var isActive = tab.classList.contains('active');
+        const isActive = tab.classList.contains('active');
 
         /* Close any open accordion */
         accordionToggles.forEach(function (t) {
@@ -1411,8 +1411,8 @@ function initProgramTabs() {
   /* Mobile accordion toggles */
   accordionToggles.forEach(function (toggle) {
     toggle.addEventListener('click', function () {
-      var content = toggle.nextElementSibling;
-      var isOpen = content.classList.contains('open');
+      const content = toggle.nextElementSibling;
+      const isOpen = content.classList.contains('open');
 
       /* Close all accordions */
       accordionToggles.forEach(function (t) {
@@ -1435,7 +1435,7 @@ function initProgramTabs() {
 
   /* On resize: keep both views in sync */
   window.addEventListener('resize', function () {
-    var isMobile = window.innerWidth < 768;
+    const isMobile = window.innerWidth < 768;
 
     if (isMobile) {
       if (activeCategory === 'popular') {
@@ -1471,14 +1471,14 @@ function initProgramTabs() {
  * Validator — reusable validation utilities
  * All validators return { valid: boolean, message: string }
  */
-var Validator = (function () {
+const Validator = (function () {
 
   /* ------------------------------------------
      Core Validators
      ------------------------------------------ */
 
   function validateRequired(value) {
-    var trimmed = (value || '').trim();
+    const trimmed = (value || '').trim();
     return {
       valid: trimmed.length > 0,
       message: 'This field is required'
@@ -1486,9 +1486,9 @@ var Validator = (function () {
   }
 
   function validateEmail(value) {
-    var trimmed = (value || '').trim();
+    const trimmed = (value || '').trim();
     if (!trimmed) return { valid: false, message: 'Please enter your email address' };
-    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return {
       valid: pattern.test(trimmed),
       message: 'Please enter a valid email address'
@@ -1496,7 +1496,7 @@ var Validator = (function () {
   }
 
   function validatePassword(value) {
-    var val = value || '';
+    const val = value || '';
     if (!val) return { valid: false, message: 'Please enter a password' };
     if (val.length < 8) return { valid: false, message: 'Password must be at least 8 characters' };
     if (!/[A-Z]/.test(val)) return { valid: false, message: 'Password must include at least 1 uppercase letter' };
@@ -1506,7 +1506,7 @@ var Validator = (function () {
   }
 
   function validateMatch(value1, value2, fieldName) {
-    var label = fieldName || 'Passwords';
+    const label = fieldName || 'Passwords';
     return {
       valid: value1 === value2 && value1 !== '',
       message: label + ' do not match'
@@ -1514,16 +1514,16 @@ var Validator = (function () {
   }
 
   function validatePhone(value) {
-    var trimmed = (value || '').trim();
+    const trimmed = (value || '').trim();
     if (!trimmed) return { valid: false, message: 'Please enter your phone number' };
-    var digits = trimmed.replace(/[\s\-\+\(\)]/g, '');
+    const digits = trimmed.replace(/[\s\-\+\(\)]/g, '');
     if (!/^\d+$/.test(digits)) return { valid: false, message: 'Phone number must contain only numbers' };
     if (digits.length < 10 || digits.length > 15) return { valid: false, message: 'Phone number must be between 10 and 15 digits' };
     return { valid: true, message: '' };
   }
 
   function validateMinLength(value, min) {
-    var trimmed = (value || '').trim();
+    const trimmed = (value || '').trim();
     return {
       valid: trimmed.length >= min,
       message: 'Must be at least ' + min + ' characters'
@@ -1531,7 +1531,7 @@ var Validator = (function () {
   }
 
   function validateMaxLength(value, max) {
-    var trimmed = (value || '').trim();
+    const trimmed = (value || '').trim();
     return {
       valid: trimmed.length <= max,
       message: 'Must be no more than ' + max + ' characters'
@@ -1539,7 +1539,7 @@ var Validator = (function () {
   }
 
   function validateName(value) {
-    var trimmed = (value || '').trim();
+    const trimmed = (value || '').trim();
     if (!trimmed) return { valid: false, message: 'Please enter your name' };
     if (trimmed.length < 2) return { valid: false, message: 'Name must be at least 2 characters' };
     if (!/^[a-zA-Z\s\-']+$/.test(trimmed)) return { valid: false, message: 'Name can only contain letters, spaces, hyphens, and apostrophes' };
@@ -1554,7 +1554,7 @@ var Validator = (function () {
   }
 
   function validateOTP(value) {
-    var trimmed = (value || '').trim();
+    const trimmed = (value || '').trim();
     if (!trimmed) return { valid: false, message: 'Please enter the OTP code' };
     if (!/^\d+$/.test(trimmed)) return { valid: false, message: 'OTP must contain only numbers' };
     if (trimmed.length < 4 || trimmed.length > 6) return { valid: false, message: 'OTP must be 4-6 digits' };
@@ -1575,7 +1575,7 @@ var Validator = (function () {
     inputEl.setAttribute('aria-invalid', 'true');
 
     // Create error message element
-    var errorEl = document.createElement('span');
+    const errorEl = document.createElement('span');
     errorEl.className = 'error-message';
     errorEl.textContent = message;
     errorEl.id = inputEl.id ? inputEl.id + '-error' : 'error-' + Date.now();
@@ -1584,7 +1584,7 @@ var Validator = (function () {
     inputEl.setAttribute('aria-describedby', errorEl.id);
 
     // Insert after the input's parent if it's an input-group, otherwise after input
-    var parent = inputEl.closest('.input-group') || inputEl.closest('.file-upload-area');
+    const parent = inputEl.closest('.input-group') || inputEl.closest('.file-upload-area');
     if (parent) {
       parent.parentNode.insertBefore(errorEl, parent.nextSibling);
     } else {
@@ -1599,9 +1599,9 @@ var Validator = (function () {
     inputEl.setAttribute('aria-invalid', 'false');
 
     // Remove existing error message
-    var describedBy = inputEl.getAttribute('aria-describedby');
+    const describedBy = inputEl.getAttribute('aria-describedby');
     if (describedBy) {
-      var errorEl = document.getElementById(describedBy);
+      const errorEl = document.getElementById(describedBy);
       if (errorEl && errorEl.classList.contains('error-message')) {
         errorEl.remove();
       }
@@ -1609,8 +1609,8 @@ var Validator = (function () {
     }
 
     // Also check for adjacent error messages (fallback)
-    var parent = inputEl.closest('.input-group') || inputEl.closest('.file-upload-area');
-    var nextEl = parent ? parent.nextElementSibling : inputEl.nextElementSibling;
+    const parent = inputEl.closest('.input-group') || inputEl.closest('.file-upload-area');
+    const nextEl = parent ? parent.nextElementSibling : inputEl.nextElementSibling;
     if (nextEl && nextEl.classList.contains('error-message')) {
       nextEl.remove();
     }
@@ -1636,12 +1636,12 @@ var Validator = (function () {
   function validateForm(formEl) {
     if (!formEl) return false;
 
-    var fields = formEl.querySelectorAll('[data-validate]');
-    var allValid = true;
-    var firstInvalid = null;
+    const fields = formEl.querySelectorAll('[data-validate]');
+    const allValid = true;
+    const firstInvalid = null;
 
     fields.forEach(function (field) {
-      var isValid = validateField(field);
+      const isValid = validateField(field);
       if (!isValid && !firstInvalid) {
         firstInvalid = field;
       }
@@ -1671,12 +1671,12 @@ var Validator = (function () {
    * e.g. data-validate="required|email" or data-validate="required|password"
    */
   function validateField(field) {
-    var rules = (field.getAttribute('data-validate') || '').split('|');
-    var value = field.value;
-    var result = { valid: true, message: '' };
+    const rules = (field.getAttribute('data-validate') || '').split('|');
+    const value = field.value;
+    const result = { valid: true, message: '' };
 
-    for (var i = 0; i < rules.length; i++) {
-      var rule = rules[i].trim();
+    for (let i = 0; i < rules.length; i++) {
+      const rule = rules[i].trim();
       if (!rule) continue;
 
       if (rule === 'required') {
@@ -1694,15 +1694,15 @@ var Validator = (function () {
       } else if (rule === 'select') {
         result = validateSelect(value);
       } else if (rule.indexOf('match:') === 0) {
-        var matchTargetId = rule.split(':')[1];
-        var matchTarget = document.getElementById(matchTargetId);
-        var matchValue = matchTarget ? matchTarget.value : '';
+        const matchTargetId = rule.split(':')[1];
+        const matchTarget = document.getElementById(matchTargetId);
+        const matchValue = matchTarget ? matchTarget.value : '';
         result = validateMatch(value, matchValue, 'Passwords');
       } else if (rule.indexOf('minlength:') === 0) {
-        var min = parseInt(rule.split(':')[1], 10);
+        const min = parseInt(rule.split(':')[1], 10);
         result = validateMinLength(value, min);
       } else if (rule.indexOf('maxlength:') === 0) {
-        var max = parseInt(rule.split(':')[1], 10);
+        const max = parseInt(rule.split(':')[1], 10);
         result = validateMaxLength(value, max);
       }
 
@@ -1748,7 +1748,7 @@ var Validator = (function () {
   function wireForm(formEl) {
     if (!formEl) return;
 
-    var fields = formEl.querySelectorAll('[data-validate]');
+    const fields = formEl.querySelectorAll('[data-validate]');
     fields.forEach(function (field) {
       wireField(field);
     });
@@ -1802,8 +1802,8 @@ function initValidation() {
 
   // Login forms
   document.querySelectorAll('[data-action="login"]').forEach(function (form) {
-    var emailInput = form.querySelector('#login-email, [type="email"]');
-    var passwordInput = form.querySelector('#login-password, [type="password"]');
+    const emailInput = form.querySelector('#login-email, [type="email"]');
+    const passwordInput = form.querySelector('#login-password, [type="password"]');
     if (emailInput) emailInput.setAttribute('data-validate', 'required|email');
     if (passwordInput) passwordInput.setAttribute('data-validate', 'required');
     Validator.wireForm(form);
@@ -1811,16 +1811,16 @@ function initValidation() {
 
   // Signup forms
   document.querySelectorAll('[data-action="signup"]').forEach(function (form) {
-    var nameInput = form.querySelector('#signup-name, [placeholder*="full name"]');
-    var emailInput = form.querySelector('#signup-email, [type="email"]');
-    var passwordInput = form.querySelector('#signup-password');
-    var confirmInput = form.querySelector('#signup-confirm');
+    const nameInput = form.querySelector('#signup-name, [placeholder*="full name"]');
+    const emailInput = form.querySelector('#signup-email, [type="email"]');
+    const passwordInput = form.querySelector('#signup-password');
+    const confirmInput = form.querySelector('#signup-confirm');
 
     if (nameInput) nameInput.setAttribute('data-validate', 'required|name');
     if (emailInput) emailInput.setAttribute('data-validate', 'required|email');
     if (passwordInput) passwordInput.setAttribute('data-validate', 'required|password');
     if (confirmInput) {
-      var pwId = passwordInput ? passwordInput.id : 'signup-password';
+      const pwId = passwordInput ? passwordInput.id : 'signup-password';
       confirmInput.setAttribute('data-validate', 'required|match:' + pwId);
     }
     Validator.wireForm(form);
@@ -1828,7 +1828,7 @@ function initValidation() {
 
   // Verify OTP forms (modal)
   document.querySelectorAll('[data-action="verify-otp"]').forEach(function (form) {
-    var otpInput = form.querySelector('#otp-code, [placeholder*="OTP"]');
+    const otpInput = form.querySelector('#otp-code, [placeholder*="OTP"]');
     if (otpInput) otpInput.setAttribute('data-validate', 'required|otp');
     Validator.wireForm(form);
   });
@@ -1836,7 +1836,7 @@ function initValidation() {
   // Forgot Password forms
   document.querySelectorAll('#forgotPasswordModal form').forEach(function (form) {
     if (form.hasAttribute('data-action')) return;
-    var emailInput = form.querySelector('#forgot-email, [type="email"]');
+    const emailInput = form.querySelector('#forgot-email, [type="email"]');
     if (emailInput) emailInput.setAttribute('data-validate', 'required|email');
     Validator.wireForm(form);
   });
@@ -1844,9 +1844,9 @@ function initValidation() {
   /* ------------------------------------------
      Standalone OTP Page (verify-otp.html)
      ------------------------------------------ */
-  var standaloneOtpForm = document.querySelector('form[action="#"]');
+  const standaloneOtpForm = document.querySelector('form[action="#"]');
   if (standaloneOtpForm && standaloneOtpForm.querySelector('.otp-input')) {
-    var otpField = standaloneOtpForm.querySelector('.otp-input');
+    const otpField = standaloneOtpForm.querySelector('.otp-input');
     if (otpField) otpField.setAttribute('data-validate', 'required|otp');
     Validator.wireForm(standaloneOtpForm);
   }
@@ -1854,14 +1854,14 @@ function initValidation() {
   /* ------------------------------------------
      Contact Form (contact.html)
      ------------------------------------------ */
-  var contactName = document.getElementById('contactName');
-  var contactEmail = document.getElementById('contactEmail');
-  var contactSubject = document.getElementById('contactSubject');
-  var contactMessage = document.getElementById('contactMessage');
+  const contactName = document.getElementById('contactName');
+  const contactEmail = document.getElementById('contactEmail');
+  const contactSubject = document.getElementById('contactSubject');
+  const contactMessage = document.getElementById('contactMessage');
 
   if (contactName) {
     contactName.setAttribute('data-validate', 'required|name');
-    var contactForm = contactName.closest('form');
+    const contactForm = contactName.closest('form');
 
     if (contactEmail) contactEmail.setAttribute('data-validate', 'required|email');
     if (contactMessage) contactMessage.setAttribute('data-validate', 'required|minlength:10');
@@ -1873,14 +1873,14 @@ function initValidation() {
   /* ------------------------------------------
      Edit Profile — Personal Information
      ------------------------------------------ */
-  var personalInfoSection = document.querySelector('.profile-card');
+  const personalInfoSection = document.querySelector('.profile-card');
   if (personalInfoSection) {
-    var personalForm = personalInfoSection.querySelector('form');
+    const personalForm = personalInfoSection.querySelector('form');
     if (personalForm) {
-      var inputs = personalForm.querySelectorAll('input, select');
+      const inputs = personalForm.querySelectorAll('input, select');
       inputs.forEach(function (input) {
-        var type = input.type;
-        var placeholder = (input.placeholder || '').toLowerCase();
+        const type = input.type;
+        const placeholder = (input.placeholder || '').toLowerCase();
 
         if (placeholder.indexOf('fullname') !== -1 || placeholder.indexOf('full name') !== -1) {
           input.setAttribute('data-validate', 'required|name');
@@ -1903,19 +1903,19 @@ function initValidation() {
   /* ------------------------------------------
      Edit Profile — Account Verification
      ------------------------------------------ */
-  var verifySection = document.querySelector('.profile-card.mt-4');
+  const verifySection = document.querySelector('.profile-card.mt-4');
   if (verifySection) {
-    var verifyForms = document.querySelectorAll('.profile-card.mt-4 form');
+    const verifyForms = document.querySelectorAll('.profile-card.mt-4 form');
     verifyForms.forEach(function (form) {
       // Check if this is the verification form (has ID type select)
-      var idSelect = form.querySelector('select');
-      var fileInput = form.querySelector('input[type="file"]');
+      const idSelect = form.querySelector('select');
+      const fileInput = form.querySelector('input[type="file"]');
 
       if (idSelect && fileInput) {
         // This is the account verification form
-        var formInputs = form.querySelectorAll('input:not([type="file"]), select');
+        const formInputs = form.querySelectorAll('input:not([type="file"]), select');
         formInputs.forEach(function (input) {
-          var placeholder = (input.placeholder || '').toLowerCase();
+          const placeholder = (input.placeholder || '').toLowerCase();
           if (placeholder.indexOf('fullname') !== -1) {
             input.setAttribute('data-validate', 'required|name');
           } else if (input.type === 'date') {
@@ -1929,13 +1929,13 @@ function initValidation() {
         // Custom file validation on submit
         form.addEventListener('validSubmit', function () {
           if (fileInput && !fileInput.files.length) {
-            var uploadArea = fileInput.closest('.file-upload-area');
+            const uploadArea = fileInput.closest('.file-upload-area');
             if (uploadArea) {
               uploadArea.classList.add('input-error');
               // Add error message if not already there
-              var existing = uploadArea.parentNode.querySelector('.error-message');
+              const existing = uploadArea.parentNode.querySelector('.error-message');
               if (!existing) {
-                var msg = document.createElement('span');
+                const msg = document.createElement('span');
                 msg.className = 'error-message';
                 msg.textContent = 'Please upload your ID document';
                 uploadArea.parentNode.insertBefore(msg, uploadArea.nextSibling);
@@ -1950,11 +1950,11 @@ function initValidation() {
   /* ------------------------------------------
      Edit Profile — Change Password
      ------------------------------------------ */
-  var passwordCard = document.querySelector('.password-card');
+  const passwordCard = document.querySelector('.password-card');
   if (passwordCard) {
-    var passwordForm = passwordCard.querySelector('form');
+    const passwordForm = passwordCard.querySelector('form');
     if (passwordForm) {
-      var pwInputs = passwordForm.querySelectorAll('input[type="password"]');
+      const pwInputs = passwordForm.querySelectorAll('input[type="password"]');
       if (pwInputs.length === 3) {
         pwInputs[0].setAttribute('data-validate', 'required');
         pwInputs[0].id = pwInputs[0].id || 'current-password';
@@ -1972,13 +1972,13 @@ function initValidation() {
   /* ------------------------------------------
      Help & Support — Feedback Form
      ------------------------------------------ */
-  var feedbackTextarea = document.querySelector('.star-rating[data-interactive]');
+  const feedbackTextarea = document.querySelector('.star-rating[data-interactive]');
   if (feedbackTextarea) {
-    var feedbackSection = feedbackTextarea.closest('.col-lg-7');
+    const feedbackSection = feedbackTextarea.closest('.col-lg-7');
     if (feedbackSection) {
-      var textarea = feedbackSection.querySelector('textarea');
-      var ratingInput = feedbackSection.querySelector('input[type="hidden"][name="rating"]');
-      var sendBtn = feedbackSection.querySelector('.btn-primary');
+      const textarea = feedbackSection.querySelector('textarea');
+      const ratingInput = feedbackSection.querySelector('input[type="hidden"][name="rating"]');
+      const sendBtn = feedbackSection.querySelector('.btn-primary');
 
       if (textarea) textarea.setAttribute('data-validate', 'required|minlength:10');
 
@@ -1989,11 +1989,11 @@ function initValidation() {
       if (sendBtn) {
         sendBtn.addEventListener('click', function (e) {
           e.preventDefault();
-          var allValid = true;
+          const allValid = true;
 
           // Validate textarea
           if (textarea) {
-            var result = Validator.validateField(textarea);
+            const result = Validator.validateField(textarea);
             if (!result) allValid = false;
           }
 
@@ -2001,17 +2001,17 @@ function initValidation() {
           if (ratingInput && (!ratingInput.value || ratingInput.value === '0')) {
             allValid = false;
             // Show error near stars
-            var starContainer = feedbackSection.querySelector('.star-rating');
-            var existingError = starContainer.parentNode.querySelector('.star-rating-error');
+            const starContainer = feedbackSection.querySelector('.star-rating');
+            const existingError = starContainer.parentNode.querySelector('.star-rating-error');
             if (!existingError) {
-              var msg = document.createElement('span');
+              const msg = document.createElement('span');
               msg.className = 'star-rating-error';
               msg.textContent = 'Please select a rating';
               starContainer.parentNode.insertBefore(msg, starContainer.nextSibling);
             }
           } else {
             // Clear star error
-            var starError = feedbackSection.querySelector('.star-rating-error');
+            const starError = feedbackSection.querySelector('.star-rating-error');
             if (starError) starError.remove();
           }
 
@@ -2027,18 +2027,18 @@ function initValidation() {
   /* ------------------------------------------
      Cart — Coupon Input
      ------------------------------------------ */
-  var promoInput = document.querySelector('.promo-input-group input');
-  var promoBtn = document.querySelector('.promo-input-group button');
+  const promoInput = document.querySelector('.promo-input-group input');
+  const promoBtn = document.querySelector('.promo-input-group button');
   if (promoInput && promoBtn) {
     promoBtn.addEventListener('click', function () {
-      var value = promoInput.value.trim();
+      const value = promoInput.value.trim();
       if (!value) {
         promoInput.classList.add('input-error');
         promoInput.setAttribute('aria-invalid', 'true');
         // Add error message
-        var existing = promoInput.parentNode.querySelector('.error-message');
+        const existing = promoInput.parentNode.querySelector('.error-message');
         if (!existing) {
-          var msg = document.createElement('span');
+          const msg = document.createElement('span');
           msg.className = 'error-message';
           msg.textContent = 'Please enter a coupon code';
           promoInput.parentNode.appendChild(msg);
@@ -2046,7 +2046,7 @@ function initValidation() {
       } else {
         promoInput.classList.remove('input-error');
         promoInput.setAttribute('aria-invalid', 'false');
-        var err = promoInput.parentNode.querySelector('.error-message');
+        const err = promoInput.parentNode.querySelector('.error-message');
         if (err) err.remove();
       }
     });
@@ -2055,7 +2055,7 @@ function initValidation() {
       if (promoInput.classList.contains('input-error') && promoInput.value.trim()) {
         promoInput.classList.remove('input-error');
         promoInput.setAttribute('aria-invalid', 'false');
-        var err = promoInput.parentNode.querySelector('.error-message');
+        const err = promoInput.parentNode.querySelector('.error-message');
         if (err) err.remove();
       }
     });
@@ -2064,18 +2064,18 @@ function initValidation() {
   /* ------------------------------------------
      Checkout — Billing Form
      ------------------------------------------ */
-  var billingForm = document.querySelector('.billing-form');
+  const billingForm = document.querySelector('.billing-form');
   if (billingForm) {
     billingForm.addEventListener('submit', function (e) {
-      var paymentSelected = billingForm.querySelector('input[name="payment"]:checked');
+      const paymentSelected = billingForm.querySelector('input[name="payment"]:checked');
       if (!paymentSelected) {
         e.preventDefault();
-        var paymentMethods = billingForm.querySelector('.payment-methods');
+        const paymentMethods = billingForm.querySelector('.payment-methods');
         if (paymentMethods) {
           paymentMethods.classList.add('input-error');
-          var existing = paymentMethods.parentNode.querySelector('.error-message');
+          const existing = paymentMethods.parentNode.querySelector('.error-message');
           if (!existing) {
-            var msg = document.createElement('span');
+            const msg = document.createElement('span');
             msg.className = 'error-message';
             msg.textContent = 'Please select a payment method';
             paymentMethods.parentNode.insertBefore(msg, paymentMethods.nextSibling);
@@ -2089,10 +2089,10 @@ function initValidation() {
     // Clear payment error when a radio is selected
     billingForm.querySelectorAll('input[name="payment"]').forEach(function (radio) {
       radio.addEventListener('change', function () {
-        var paymentMethods = billingForm.querySelector('.payment-methods');
+        const paymentMethods = billingForm.querySelector('.payment-methods');
         if (paymentMethods) {
           paymentMethods.classList.remove('input-error');
-          var err = paymentMethods.parentNode.querySelector('.error-message');
+          const err = paymentMethods.parentNode.querySelector('.error-message');
           if (err) err.remove();
         }
       });
@@ -2103,18 +2103,18 @@ function initValidation() {
      Newsletter — Footer (all pages)
      ------------------------------------------ */
   document.querySelectorAll('.footer-newsletter').forEach(function (container) {
-    var emailInput = container.querySelector('input[type="email"]');
-    var subscribeBtn = container.querySelector('button');
+    const emailInput = container.querySelector('input[type="email"]');
+    const subscribeBtn = container.querySelector('button');
     if (!emailInput || !subscribeBtn) return;
 
     subscribeBtn.addEventListener('click', function () {
-      var result = Validator.validateEmail(emailInput.value);
+      const result = Validator.validateEmail(emailInput.value);
       if (!result.valid) {
         emailInput.classList.add('input-error');
         emailInput.setAttribute('aria-invalid', 'true');
-        var existing = container.querySelector('.error-message');
+        const existing = container.querySelector('.error-message');
         if (!existing) {
-          var msg = document.createElement('span');
+          const msg = document.createElement('span');
           msg.className = 'error-message';
           msg.textContent = result.message;
           container.appendChild(msg);
@@ -2123,19 +2123,19 @@ function initValidation() {
         emailInput.classList.remove('input-error');
         emailInput.classList.add('input-success');
         emailInput.setAttribute('aria-invalid', 'false');
-        var err = container.querySelector('.error-message');
+        const err = container.querySelector('.error-message');
         if (err) err.remove();
       }
     });
 
     emailInput.addEventListener('input', function () {
       if (emailInput.classList.contains('input-error')) {
-        var result = Validator.validateEmail(emailInput.value);
+        const result = Validator.validateEmail(emailInput.value);
         if (result.valid) {
           emailInput.classList.remove('input-error');
           emailInput.classList.add('input-success');
           emailInput.setAttribute('aria-invalid', 'false');
-          var err = container.querySelector('.error-message');
+          const err = container.querySelector('.error-message');
           if (err) err.remove();
         }
       }
@@ -2145,7 +2145,7 @@ function initValidation() {
   /* ------------------------------------------
      Career Path Select (edit-profile.html)
      ------------------------------------------ */
-  var careerSelect = document.querySelector('.profile-card.mt-4 > div > select.form-select');
+  const careerSelect = document.querySelector('.profile-card.mt-4 > div > select.form-select');
   if (careerSelect && !careerSelect.hasAttribute('data-validate')) {
     // Career path is optional — no validation needed
   }
@@ -2153,16 +2153,16 @@ function initValidation() {
   /* ------------------------------------------
      Current Learning Paths - Mobile Carousel Dots
      ------------------------------------------ */
-  var lpCurrentList = document.querySelector('.lp-current-list');
-  var lpCurrentDots = document.querySelectorAll('.lp-current-dot');
+  const lpCurrentList = document.querySelector('.lp-current-list');
+  const lpCurrentDots = document.querySelectorAll('.lp-current-dot');
 
   if (lpCurrentList && lpCurrentDots.length) {
     lpCurrentList.addEventListener('scroll', function () {
-      var cards = lpCurrentList.querySelectorAll('.lp-current-card');
-      var scrollLeft = lpCurrentList.scrollLeft;
-      var maxScroll = lpCurrentList.scrollWidth - lpCurrentList.clientWidth;
-      var cardWidth = cards[0].offsetWidth + 16;
-      var activeIndex;
+      const cards = lpCurrentList.querySelectorAll('.lp-current-card');
+      const scrollLeft = lpCurrentList.scrollLeft;
+      const maxScroll = lpCurrentList.scrollWidth - lpCurrentList.clientWidth;
+      const cardWidth = cards[0].offsetWidth + 16;
+      const activeIndex;
 
       if (maxScroll - scrollLeft < 10) {
         activeIndex = cards.length - 1;
@@ -2177,8 +2177,8 @@ function initValidation() {
 
     lpCurrentDots.forEach(function (dot, i) {
       dot.addEventListener('click', function () {
-        var cards = lpCurrentList.querySelectorAll('.lp-current-card');
-        var cardWidth = cards[0].offsetWidth + 16;
+        const cards = lpCurrentList.querySelectorAll('.lp-current-card');
+        const cardWidth = cards[0].offsetWidth + 16;
         lpCurrentList.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
       });
     });
@@ -2189,26 +2189,26 @@ function initValidation() {
    My Courses — Tabs + Touch Carousel
    ============================================ */
 function initMyCourses() {
-  var tabs = document.querySelectorAll('.mc-tab');
-  var contents = document.querySelectorAll('.mc-tab-content');
+  const tabs = document.querySelectorAll('.mc-tab');
+  const contents = document.querySelectorAll('.mc-tab-content');
 
   if (!tabs.length) return;
 
   /* -- Tab switching -- */
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      var target = tab.getAttribute('data-tab');
+      const target = tab.getAttribute('data-tab');
 
       tabs.forEach(function (t) { t.classList.remove('active'); });
       contents.forEach(function (c) { c.classList.remove('active'); });
 
       tab.classList.add('active');
-      var panel = document.querySelector('[data-tab-content="' + target + '"]');
+      const panel = document.querySelector('[data-tab-content="' + target + '"]');
       if (panel) panel.classList.add('active');
 
       /* Re-init carousels in newly visible tab */
       if (panel) {
-        var carousels = panel.querySelectorAll('.mc-carousel');
+        const carousels = panel.querySelectorAll('.mc-carousel');
         carousels.forEach(function (carousel) {
           initMcCarousel(carousel);
         });
@@ -2217,9 +2217,9 @@ function initMyCourses() {
   });
 
   /* -- Init carousels in the default active tab -- */
-  var activePanel = document.querySelector('.mc-tab-content.active');
+  const activePanel = document.querySelector('.mc-tab-content.active');
   if (activePanel) {
-    var carousels = activePanel.querySelectorAll('.mc-carousel');
+    const carousels = activePanel.querySelectorAll('.mc-carousel');
     carousels.forEach(function (carousel) {
       initMcCarousel(carousel);
     });
@@ -2227,30 +2227,30 @@ function initMyCourses() {
 }
 
 function initMcCarousel(carousel) {
-  var track = carousel.querySelector('.mc-carousel-track');
-  var dotsContainer = carousel.querySelector('.mc-carousel-dots');
+  const track = carousel.querySelector('.mc-carousel-track');
+  const dotsContainer = carousel.querySelector('.mc-carousel-dots');
 
   if (!track || !dotsContainer) return;
 
-  var cards = track.querySelectorAll('.mc-carousel-card');
+  const cards = track.querySelectorAll('.mc-carousel-card');
   if (!cards.length) return;
 
   /* Build dots */
   dotsContainer.innerHTML = '';
   cards.forEach(function (_, i) {
-    var dot = document.createElement('button');
+    const dot = document.createElement('button');
     dot.className = 'mc-carousel-dot' + (i === 0 ? ' active' : '');
     dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
     dotsContainer.appendChild(dot);
   });
 
-  var dots = dotsContainer.querySelectorAll('.mc-carousel-dot');
+  const dots = dotsContainer.querySelectorAll('.mc-carousel-dot');
 
   /* Update active dot on scroll */
   track.addEventListener('scroll', function () {
-    var scrollLeft = track.scrollLeft;
-    var cardWidth = cards[0].offsetWidth + 16;
-    var activeIndex = Math.round(scrollLeft / cardWidth);
+    const scrollLeft = track.scrollLeft;
+    const cardWidth = cards[0].offsetWidth + 16;
+    const activeIndex = Math.round(scrollLeft / cardWidth);
 
     dots.forEach(function (d, i) {
       d.classList.toggle('active', i === activeIndex);
@@ -2260,15 +2260,15 @@ function initMcCarousel(carousel) {
   /* Dot click scrolls to card */
   dots.forEach(function (dot, i) {
     dot.addEventListener('click', function () {
-      var cardWidth = cards[0].offsetWidth + 16;
+      const cardWidth = cards[0].offsetWidth + 16;
       track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
     });
   });
 
   /* Touch swipe support */
-  var startX = 0;
-  var startScroll = 0;
-  var isDragging = false;
+  const startX = 0;
+  const startScroll = 0;
+  const isDragging = false;
 
   track.addEventListener('touchstart', function (e) {
     isDragging = true;
@@ -2278,15 +2278,15 @@ function initMcCarousel(carousel) {
 
   track.addEventListener('touchmove', function (e) {
     if (!isDragging) return;
-    var diff = startX - e.touches[0].pageX;
+    const diff = startX - e.touches[0].pageX;
     track.scrollLeft = startScroll + diff;
   }, { passive: true });
 
   track.addEventListener('touchend', function () {
     isDragging = false;
     /* Snap to nearest card */
-    var cardWidth = cards[0].offsetWidth + 16;
-    var index = Math.round(track.scrollLeft / cardWidth);
+    const cardWidth = cards[0].offsetWidth + 16;
+    const index = Math.round(track.scrollLeft / cardWidth);
     track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
   });
 }
@@ -2295,32 +2295,32 @@ function initMcCarousel(carousel) {
    Recent Blog Posts — Touch Carousel
    ============================================ */
 function initBlogCarousel() {
-  var carousel = document.querySelector('.rbp-carousel');
+  const carousel = document.querySelector('.rbp-carousel');
   if (!carousel) return;
 
-  var track = carousel.querySelector('.rbp-carousel-track');
-  var dotsContainer = carousel.querySelector('.rbp-carousel-dots');
+  const track = carousel.querySelector('.rbp-carousel-track');
+  const dotsContainer = carousel.querySelector('.rbp-carousel-dots');
   if (!track || !dotsContainer) return;
 
-  var items = track.querySelectorAll('.rbp-item');
+  const items = track.querySelectorAll('.rbp-item');
   if (!items.length) return;
 
   /* Build dots */
   dotsContainer.innerHTML = '';
   items.forEach(function (_, i) {
-    var dot = document.createElement('button');
+    const dot = document.createElement('button');
     dot.className = 'rbp-carousel-dot' + (i === 0 ? ' active' : '');
     dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
     dotsContainer.appendChild(dot);
   });
 
-  var dots = dotsContainer.querySelectorAll('.rbp-carousel-dot');
+  const dots = dotsContainer.querySelectorAll('.rbp-carousel-dot');
 
   /* Update active dot on scroll */
   track.addEventListener('scroll', function () {
-    var scrollLeft = track.scrollLeft;
-    var cardWidth = items[0].offsetWidth + 16;
-    var activeIndex = Math.round(scrollLeft / cardWidth);
+    const scrollLeft = track.scrollLeft;
+    const cardWidth = items[0].offsetWidth + 16;
+    const activeIndex = Math.round(scrollLeft / cardWidth);
     dots.forEach(function (d, i) {
       d.classList.toggle('active', i === activeIndex);
     });
@@ -2329,15 +2329,15 @@ function initBlogCarousel() {
   /* Dot click */
   dots.forEach(function (dot, i) {
     dot.addEventListener('click', function () {
-      var cardWidth = items[0].offsetWidth + 16;
+      const cardWidth = items[0].offsetWidth + 16;
       track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
     });
   });
 
   /* Touch swipe */
-  var startX = 0;
-  var startScroll = 0;
-  var isDragging = false;
+  const startX = 0;
+  const startScroll = 0;
+  const isDragging = false;
 
   track.addEventListener('touchstart', function (e) {
     isDragging = true;
@@ -2347,14 +2347,14 @@ function initBlogCarousel() {
 
   track.addEventListener('touchmove', function (e) {
     if (!isDragging) return;
-    var diff = startX - e.touches[0].pageX;
+    const diff = startX - e.touches[0].pageX;
     track.scrollLeft = startScroll + diff;
   }, { passive: true });
 
   track.addEventListener('touchend', function () {
     isDragging = false;
-    var cardWidth = items[0].offsetWidth + 16;
-    var index = Math.round(track.scrollLeft / cardWidth);
+    const cardWidth = items[0].offsetWidth + 16;
+    const index = Math.round(track.scrollLeft / cardWidth);
     track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
   });
 }
@@ -2363,13 +2363,13 @@ function initBlogCarousel() {
    Purchase Summary Toggles (Mobile)
    ============================================ */
 function initPurchaseSummaryToggles() {
-  var toggles = document.querySelectorAll('.purchase-summary-toggle');
+  const toggles = document.querySelectorAll('.purchase-summary-toggle');
   if (!toggles.length) return;
 
   toggles.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var content = btn.nextElementSibling;
-      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const content = btn.nextElementSibling;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
       if (isOpen) {
         content.classList.remove('open');
@@ -2387,7 +2387,7 @@ function initPurchaseSummaryToggles() {
    ============================================ */
 function initHelpSupportFaq() {
   // Tabs (visual state only)
-  var tabButtons = document.querySelectorAll('.hs-faq-tab');
+  const tabButtons = document.querySelectorAll('.hs-faq-tab');
   tabButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       tabButtons.forEach(function (b) { b.classList.remove('active'); });
@@ -2396,21 +2396,21 @@ function initHelpSupportFaq() {
   });
 
   // Sidebar items (active state)
-  var sidebarItems = document.querySelectorAll('.hs-faq-sidebar-item');
+  const sidebarItems = document.querySelectorAll('.hs-faq-sidebar-item');
   sidebarItems.forEach(function (item) {
     item.addEventListener('click', function (e) {
       e.preventDefault();
       sidebarItems.forEach(function (i) { i.classList.remove('active'); });
       item.classList.add('active');
 
-      var toggleLabel = document.querySelector('.hs-faq-sidebar-toggle span');
+      const toggleLabel = document.querySelector('.hs-faq-sidebar-toggle span');
       if (toggleLabel) {
         toggleLabel.innerHTML = item.innerHTML;
       }
 
       // Auto-close dropdown on mobile after selection
-      var sidebar = document.getElementById('faqSidebarNav');
-      var toggle = document.querySelector('.hs-faq-sidebar-toggle');
+      const sidebar = document.getElementById('faqSidebarNav');
+      const toggle = document.querySelector('.hs-faq-sidebar-toggle');
       if (sidebar && toggle && window.innerWidth < 768) {
         sidebar.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
@@ -2419,11 +2419,11 @@ function initHelpSupportFaq() {
   });
 
   // Mobile sidebar dropdown toggle
-  var sidebarToggle = document.querySelector('.hs-faq-sidebar-toggle');
-  var sidebarNav = document.getElementById('faqSidebarNav');
+  const sidebarToggle = document.querySelector('.hs-faq-sidebar-toggle');
+  const sidebarNav = document.getElementById('faqSidebarNav');
   if (sidebarToggle && sidebarNav) {
     sidebarToggle.addEventListener('click', function () {
-      var isOpen = sidebarToggle.getAttribute('aria-expanded') === 'true';
+      const isOpen = sidebarToggle.getAttribute('aria-expanded') === 'true';
       if (isOpen) {
         sidebarNav.classList.remove('open');
         sidebarToggle.setAttribute('aria-expanded', 'false');
@@ -2491,25 +2491,25 @@ function initAchievementsCarousel() {
    User Profile — Current Courses Carousel
    ============================================ */
 function initUserProfileCurrentCourses() {
-  var section = document.querySelector('.up-cc-section');
+  const section = document.querySelector('.up-cc-section');
   if (!section) return;
 
   /* -- Desktop arrow carousel -- */
-  var track = section.querySelector('.up-cc-track');
-  var prevBtn = section.querySelector('.up-cc-arrow-prev');
-  var nextBtn = section.querySelector('.up-cc-arrow-next');
+  const track = section.querySelector('.up-cc-track');
+  const prevBtn = section.querySelector('.up-cc-arrow-prev');
+  const nextBtn = section.querySelector('.up-cc-arrow-next');
 
   if (track && prevBtn && nextBtn) {
     function getStep() {
-      var card = track.querySelector('.mc-card');
+      const card = track.querySelector('.mc-card');
       if (!card) return track.clientWidth;
-      var styles = window.getComputedStyle(track);
-      var gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
+      const styles = window.getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
       return card.offsetWidth + gap;
     }
 
     function updateArrows() {
-      var maxScroll = track.scrollWidth - track.clientWidth;
+      const maxScroll = track.scrollWidth - track.clientWidth;
       prevBtn.disabled = track.scrollLeft <= 1;
       nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
     }
@@ -2528,7 +2528,7 @@ function initUserProfileCurrentCourses() {
   }
 
   /* -- Mobile mc-carousel (reuse existing init) -- */
-  var mobileCarousel = section.querySelector('.up-cc-mobile-carousel');
+  const mobileCarousel = section.querySelector('.up-cc-mobile-carousel');
   if (mobileCarousel && typeof initMcCarousel === 'function') {
     initMcCarousel(mobileCarousel);
   }

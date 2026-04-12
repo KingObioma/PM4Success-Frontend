@@ -12,8 +12,6 @@
 </head>
 <body>
 
-  </div>
-
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
     <div class="navbar-container">
@@ -174,69 +172,70 @@
 
 
   <!-- ========== PROFILE & SETTINGS ========== -->
-  <section class="section">
+  <section class="edit-profile-section">
     <div class="container">
-      <h2 class="fw-bold mb-4">Profile & settings</h2>
+      <h2 class="edit-profile-heading">Profile & settings</h2>
 
       <!-- Profile Tabs -->
-      <div class="tabs mb-4" data-tabs="profile">
+      <div class="tabs" data-tabs="profile">
         <button class="tab-btn active" data-tab="info-tab">Info</button>
         <button class="tab-btn" data-tab="password-tab">Password</button>
       </div>
 
+      <div data-tab-content="profile">
       <!-- ===== INFO TAB ===== -->
       <div class="tab-content active" id="info-tab">
-        <div class="row g-4">
+
+        <!-- Avatar + Personal Info Row -->
+        <div class="edit-profile-top-row">
           <!-- Avatar Upload -->
-          <div class="col-lg-3">
-            <div class="profile-avatar-upload">
-              <div class="avatar-preview">
+          <div class="edit-profile-avatar-col">
+            <div class="profile-card profile-avatar-card">
+              <div class="profile-avatar-upload">
                 <img src="assets/images/avatars/instructor-avatar.png" alt="Profile Photo">
-                <div class="avatar-camera-overlay">
-                  <i class="bi bi-camera"></i>
-                </div>
+                <label for="avatar-upload" class="avatar-camera-btn">
+                  <i class="bi bi-camera-fill"></i>
+                </label>
+                <input type="file" id="avatar-upload" accept="image/*" hidden>
               </div>
-              <input type="file" id="avatar-upload" accept="image/*" hidden>
-              <label for="avatar-upload" class="btn btn-outline btn-sm mt-3">Change Photo</label>
+              <p class="profile-avatar-size-hint">Maximum Size: 2MB</p>
             </div>
           </div>
 
           <!-- Personal Information -->
-          <div class="col-lg-9">
+          <div class="edit-profile-info-col">
             <div class="profile-card">
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                <h4 class="fw-semibold mb-0">Personal Information</h4>
-                <button class="btn btn-outline btn-sm"><i class="bi bi-pencil"></i> Edit</button>
+              <div class="profile-card-header">
+                <h3>Personal Information</h3>
+                <button type="button" class="profile-edit-btn" aria-label="Edit personal information">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
               </div>
-              <form action="#" method="POST">
+              <form action="#" method="POST" id="personal-info-form">
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label class="form-label" for="profile-fullname">Fullname</label>
-                    <input type="text" class="form-control" id="profile-fullname" value="Adeola Johnson" placeholder="Enter your fullname">
+                    <input type="text" class="form-control" id="profile-fullname" value="Mike James" placeholder="Enter your fullname">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-email">Email</label>
-                    <input type="email" class="form-control" id="profile-email" value="adeola.johnson@email.com" placeholder="Enter your email">
+                    <input type="email" class="form-control" id="profile-email" value="Johndeo@gmail.com" placeholder="Enter your email">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="profile-phone" value="+234 812 345 6789" placeholder="Enter your phone number">
+                    <input type="tel" class="form-control" id="profile-phone" value="09012766531" placeholder="Enter your phone number">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-address">Address</label>
-                    <input type="text" class="form-control" id="profile-address" value="12 Marina Road, Lagos" placeholder="Enter your address">
+                    <input type="text" class="form-control" id="profile-address" value="9, hilary street, ikorodu off island." placeholder="Enter your address">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-dob">Date of Birth</label>
-                    <input type="date" class="form-control" id="profile-dob" value="1995-06-15">
+                    <input type="text" class="form-control" id="profile-dob" value="08/Aug/1999" placeholder="Select date of birth">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="profile-gender">Gender</label>
-                    <select class="form-select" id="profile-gender">
-                      <option value="female" selected>Female</option>
-                      <option value="male">Male</option>
-                      <option value="other">Other</option>
-                    </select>
+                    <input type="text" class="form-control" id="profile-gender" value="Male" placeholder="Select gender" readonly>
                   </div>
                 </div>
               </form>
@@ -245,16 +244,19 @@
         </div>
 
         <!-- Career Path Section -->
-        <div class="profile-card mt-4">
-          <h4 class="fw-semibold mb-2">Career Path</h4>
-          <p class="text-muted mb-3">Select the career path that aligns with your goals. You can update this at any time.</p>
-          <div class="mb-3">
-            <span class="career-tag">Data Analytics <button class="career-tag-remove"><i class="bi bi-x"></i></button></span>
+        <div class="profile-card">
+          <h3 class="profile-card-title">Career Path</h3>
+          <p class="profile-card-desc">Explore the right path for your future! Whether you're starting fresh or looking to grow, discover careers that match your skills, interests, and goals. Take the next step toward success today</p>
+          <div class="career-tag-wrap">
+            <span class="career-tag">
+              <button type="button" class="career-tag-remove" aria-label="Remove Data Analytics"><i class="bi bi-x-lg"></i></button>
+              Data Analytics
+            </span>
           </div>
-          <div>
-            <label class="form-label">Select Career Path</label>
-            <select class="form-select">
-              <option value="">Choose a career path...</option>
+          <p class="career-selected-text">Selected career: <strong>Data Analytics</strong></p>
+          <div class="career-select-wrap">
+            <select class="form-select" id="career-select" aria-label="Select career choice">
+              <option value="">Select career choice</option>
               <option value="data-analytics" selected>Data Analytics</option>
               <option value="data-science">Data Science</option>
               <option value="machine-learning">Machine Learning</option>
@@ -266,41 +268,43 @@
         </div>
 
         <!-- Verify Account Section -->
-        <div class="profile-card mt-4">
-          <h4 class="fw-semibold mb-2">Verify Account</h4>
-          <p class="text-muted mb-3">To verify your account, please provide a valid government-issued ID. This helps us maintain the integrity of our platform and your certificates.</p>
-          <ul class="mb-4">
-            <li>National ID Card (NIN)</li>
-            <li>International Passport</li>
-            <li>Driver's License</li>
-            <li>Voter's Card</li>
+        <div class="profile-card">
+          <h3 class="profile-card-title">Verify Account</h3>
+          <p class="verify-subtitle">Verify Your Identity. Upload Front & Back Of Your ID</p>
+          <p class="profile-card-desc">To ensure the security of your account and compliance with our verification standards, we require both the front and back images of your government-issued ID. This helps us confirm your identity and prevent fraudulent activity.</p>
+          <ul class="verify-requirements">
+            <li>Make sure both sides of your ID are clear and legible.</li>
+            <li>The name on your ID must match your profile name exactly.</li>
+            <li>Only government-issued IDs (Passport, National ID, Driver's License) are accepted.</li>
           </ul>
-          <form action="#" method="POST">
+          <form action="#" method="POST" id="verify-account-form">
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label" for="verify-fullname">Fullname (as it appears on ID)</label>
-                <input type="text" class="form-control" id="verify-fullname" placeholder="Enter your fullname">
+                <label class="form-label" for="verify-fullname">Fullname</label>
+                <input type="text" class="form-control" id="verify-fullname" placeholder="Enter your full name">
               </div>
               <div class="col-md-6">
-                <label class="form-label" for="verify-dob">Date of Birth</label>
-                <input type="date" class="form-control" id="verify-dob">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" for="verify-id-type">ID Card Type</label>
-                <select class="form-select" id="verify-id-type">
-                  <option value="">Select ID type...</option>
-                  <option value="nin">National ID Card (NIN)</option>
-                  <option value="passport">International Passport</option>
-                  <option value="drivers-license">Driver's License</option>
-                  <option value="voters-card">Voter's Card</option>
+                <label class="form-label" for="verify-dob">Date of birth</label>
+                <select class="form-select" id="verify-dob">
+                  <option value="">Select your date of birth</option>
                 </select>
               </div>
-              <div class="col-md-6">
-                <label class="form-label">Upload ID</label>
-                <div class="file-upload-area">
-                  <i class="bi bi-cloud-arrow-up"></i>
-                  <p>Drag & drop or click to upload</p>
-                  <input type="file" accept="image/*,.pdf" hidden>
+              <div class="col-12">
+                <label class="form-label" for="verify-id-type">ID card type</label>
+                <select class="form-select" id="verify-id-type">
+                  <option value="">Select ID Type</option>
+                  <option value="passport">Passport</option>
+                  <option value="national-id">National ID</option>
+                  <option value="drivers-license">Driver's License</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <div class="verify-id-upload">
+                  <label for="verify-id-file" class="verify-id-upload-circle">
+                    <i class="bi bi-camera-fill"></i>
+                  </label>
+                  <input type="file" id="verify-id-file" accept="image/*" hidden>
+                  <p class="verify-id-size-hint">Maximum Size: 2MB</p>
                 </div>
               </div>
               <div class="col-12">
@@ -313,33 +317,34 @@
 
       <!-- ===== PASSWORD TAB ===== -->
       <div class="tab-content" id="password-tab">
-        <div class="profile-card password-card">
-          <h4 class="fw-semibold mb-4">Change Password</h4>
-          <form action="#" method="POST">
+        <div class="profile-card">
+          <h3 class="profile-card-title">Change Password</h3>
+          <form action="#" method="POST" id="change-password-form">
             <div class="mb-3">
               <label class="form-label" for="current-password">Current Password</label>
               <div class="input-group">
                 <input type="password" class="form-control" id="current-password" placeholder="Enter current password">
-                <button type="button" class="input-group-text password-toggle"><i class="bi bi-eye-slash"></i></button>
+                <i class="bi bi-eye input-group-icon" data-toggle-password="current-password"></i>
               </div>
             </div>
             <div class="mb-3">
               <label class="form-label" for="new-password">New Password</label>
               <div class="input-group">
                 <input type="password" class="form-control" id="new-password" placeholder="Enter new password">
-                <button type="button" class="input-group-text password-toggle"><i class="bi bi-eye-slash"></i></button>
+                <i class="bi bi-eye input-group-icon" data-toggle-password="new-password"></i>
               </div>
             </div>
             <div class="mb-4">
-              <label class="form-label" for="confirm-new-password">Confirm New Password</label>
+              <label class="form-label" for="confirm-new-password">Reconfirm New Password</label>
               <div class="input-group">
-                <input type="password" class="form-control" id="confirm-new-password" placeholder="Confirm new password">
-                <button type="button" class="input-group-text password-toggle"><i class="bi bi-eye-slash"></i></button>
+                <input type="password" class="form-control" id="confirm-new-password" placeholder="Re-type new password">
+                <i class="bi bi-eye input-group-icon" data-toggle-password="confirm-new-password"></i>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Change password</button>
           </form>
         </div>
+      </div>
       </div>
     </div>
   </section>

@@ -3945,38 +3945,112 @@ body.is-logged-in .navbar-search {
 /* ============================================
    25. Course Details
    ============================================ */
+.course-details-header {
+  padding-bottom: 8px;
+}
+
 .course-details-header h1 {
-  font-size: 2rem;
-  margin-bottom: 12px;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.2;
+  margin-bottom: 16px;
 }
 
 .course-details-header .description {
   font-size: 1rem;
-  margin-bottom: 16px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
 }
 
 .instructor-info {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 14px;
+  margin-bottom: 28px;
 }
 
 .instructor-info img {
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
   border-radius: var(--radius-full);
   object-fit: cover;
 }
 
-.instructor-info .name {
-  font-weight: 600;
+.instructor-details .instructor-label {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+
+.instructor-details .instructor-name {
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.instructor-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.instructor-rating .rating-score {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--color-dark);
+}
+
+.instructor-rating .stars {
+  display: flex;
+  gap: 1px;
+}
+
+.instructor-rating .stars i {
+  color: var(--color-star);
   font-size: 0.875rem;
 }
 
-.instructor-info .role {
-  font-size: 0.75rem;
+.instructor-rating .rating-count {
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
+}
+
+.instructor-level {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Course Meta Bar */
+.course-meta-bar {
+  display: flex;
+  background-color: #f8f9fa;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.course-meta-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px;
+}
+
+.course-meta-item + .course-meta-item {
+  border-left: 1px solid var(--color-border);
+}
+
+.course-meta-label {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.course-meta-value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-dark);
 }
 
 /* What you'll learn */
@@ -4507,6 +4581,12 @@ body.is-logged-in .navbar-search {
     width: 220px;
     opacity: 0.4;
     right: 40px;
+  }
+}
+
+@media (max-width: 813px) and (min-width: 517px) {
+  .profile-achievements-track {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -5045,6 +5125,17 @@ body.is-logged-in .navbar-search {
    ============================================ */
 .upcoming-deadlines-section .row {
   align-items: flex-start;
+}
+
+@media (min-width: 690px) {
+  .col-ud-5 {
+    flex: 0 0 auto;
+    width: 41.6667%;
+  }
+  .col-ud-7 {
+    flex: 0 0 auto;
+    width: 58.3333%;
+  }
 }
 
 .ud-calendar-card {
@@ -6864,74 +6955,225 @@ h2.accomplishments-title {
 /* ============================================
    33. Edit Profile
    ============================================ */
-.profile-avatar-upload {
-  position: relative;
-  width: 150px;
-  margin: 0 auto 16px;
+.edit-profile-section {
+  padding: 40px 0 60px;
 }
 
-.profile-avatar-upload img {
-  width: 150px;
-  height: 150px;
-  border-radius: var(--radius-full);
-  object-fit: cover;
+.edit-profile-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
-.profile-avatar-upload .upload-overlay {
-  position: absolute;
-  bottom: 0;
-  right: 10px;
-  width: 36px;
-  height: 36px;
-  background-color: var(--color-primary);
-  border-radius: var(--radius-full);
+/* Top row: avatar + personal info side by side */
+.edit-profile-top-row {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-white);
-  cursor: pointer;
+  gap: 24px;
+  margin-bottom: 24px;
 }
 
-.profile-avatar-upload .size-hint {
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--color-text-secondary);
-  margin-top: 8px;
+.edit-profile-avatar-col {
+  flex: 0 0 280px;
 }
 
+.edit-profile-info-col {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Profile card (shared container) */
 .profile-card {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 28px;
   margin-bottom: 24px;
 }
 
 .profile-card-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .profile-card-header h3 {
   font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.profile-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.profile-card-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.profile-edit-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  cursor: pointer;
+  padding: 4px;
+  transition: var(--transition-fast);
+}
+
+.profile-edit-btn:hover {
+  color: var(--color-primary);
+}
+
+/* Avatar upload */
+.profile-avatar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px;
+}
+
+.profile-avatar-upload {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+}
+
+.profile-avatar-upload img {
+  width: 180px;
+  height: 180px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.avatar-camera-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.avatar-camera-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.profile-avatar-size-hint {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-top: 12px;
+}
+
+/* Career path */
+.career-tag-wrap {
+  margin-bottom: 12px;
 }
 
 .career-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   padding: 6px 14px;
-  background-color: var(--color-bg-lighter);
-  border-radius: var(--radius-pill);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 500;
+  color: var(--color-text);
 }
 
-.career-tag .remove {
+.career-tag-remove {
+  background: none;
+  border: none;
   cursor: pointer;
   font-size: 1rem;
+  color: var(--color-text);
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.career-tag-remove:hover {
+  color: var(--color-danger);
+}
+
+.career-selected-text {
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.career-selected-text strong {
+  color: var(--color-text);
+}
+
+.career-select-wrap {
+  max-width: 480px;
+}
+
+/* Verify account */
+.verify-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.verify-requirements {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.verify-requirements li {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.verify-id-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.verify-id-upload-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-lighter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.verify-id-upload-circle:hover {
+  background-color: var(--color-border);
+}
+
+.verify-id-upload-circle i {
+  font-size: 2rem;
+  color: var(--color-text-secondary);
+}
+
+.verify-id-size-hint {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-top: 8px;
 }
 
 /* ============================================
@@ -7977,10 +8219,7 @@ h2.accomplishments-title {
   display: none;
 }
 
-/* Password card max-width */
-.password-card {
-  max-width: 500px;
-}
+/* Password card — no max-width, full container width */
 
 /* Feedback illustration image (base — feedback section overrides in .feedback-illustration-col) */
 .img-feedback {
@@ -8503,6 +8742,34 @@ h2.accomplishments-title {
 
   .purchases-header {
     padding: 0 16px 12px;
+  }
+
+  /* Edit Profile - Tablet */
+  .edit-profile-top-row {
+    flex-direction: column;
+  }
+
+  .edit-profile-avatar-col {
+    flex: none;
+    width: 250px;
+  }
+
+  .edit-profile-info-col {
+    width: 100%;
+  }
+
+  .profile-avatar-card {
+    padding: 24px;
+  }
+
+  .profile-avatar-upload {
+    width: 160px;
+    height: 160px;
+  }
+
+  .profile-avatar-upload img {
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -10191,6 +10458,19 @@ h2.accomplishments-title {
 }
 
 /* ============================================
+   Edit Profile - Mobile (max-width: 767px)
+   ============================================ */
+@media (max-width: 767px) {
+  .edit-profile-section {
+    padding: 24px 0 40px;
+  }
+
+  .edit-profile-heading {
+    font-size: 1.375rem;
+  }
+}
+
+/* ============================================
    43. Small Mobile (max-width: 575px)
    ============================================ */
 @media (max-width: 575px) {
@@ -10630,7 +10910,7 @@ select.input-success {
   max-width: 220px;
   width: 100%;
   height: auto;
-  transform: translateX(150px);
+  transform: translate(100px, 80px);
   mix-blend-mode: multiply;
 }
 
@@ -10681,7 +10961,7 @@ select.input-success {
 
 .hs-faq-top {
   background: #F5F9FB;
-  padding: 30px 0 0;
+  padding: 10px 0 0;
 }
 
 .hs-faq-title {
@@ -10743,18 +11023,18 @@ select.input-success {
 .hs-faq-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 10px;
 }
 
 .hs-faq-sidebar-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
+  padding: 12px 16px;
   font-size: 14px;
   font-weight: 500;
   color: #333;
-  background: transparent;
+  background: #F5F9FB;
   border-radius: 0;
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
@@ -10822,6 +11102,32 @@ select.input-success {
   padding: 18px 32px 32px;
 }
 
+/* Tab panel visibility — toggled by the top Learners/Course Creator tabs */
+.hs-faq-panel-nav {
+  display: none;
+}
+
+.hs-faq-panel-nav.active {
+  display: flex;
+}
+
+.hs-faq-panel-content {
+  display: none;
+}
+
+.hs-faq-panel-content.active {
+  display: block;
+}
+
+/* Accordion group visibility toggled by sidebar clicks */
+.hs-faq-accordion-group {
+  display: none;
+}
+
+.hs-faq-accordion-group.active {
+  display: block;
+}
+
 .hs-faq-content-col .accordion,
 .hs-faq-content-col .accordion-item {
   border: none;
@@ -10848,7 +11154,7 @@ select.input-success {
   max-height: 0;
   overflow: hidden;
   padding: 0;
-  transition: max-height 0.3s ease;
+  transition: none;
 }
 
 .hs-faq-content-col .accordion-body p {
@@ -11112,5 +11418,103 @@ select.input-success {
     width: 140px;
     order: 2;
     margin-top: 16px;
+  }
+
+  /* Edit Profile - Small Mobile */
+  .edit-profile-avatar-col {
+    width: 100%;
+  }
+
+  .profile-avatar-card {
+    border: none;
+    padding: 16px 0;
+  }
+
+  .profile-avatar-upload {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-avatar-upload img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .avatar-camera-btn {
+    width: 34px;
+    height: 34px;
+    bottom: 4px;
+    right: 4px;
+  }
+
+  .profile-card {
+    padding: 20px 16px;
+  }
+
+  .career-select-wrap {
+    max-width: 100%;
+  }
+
+  .verify-id-upload {
+    align-items: flex-start;
+  }
+
+  .verify-id-upload-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .verify-id-upload-circle i {
+    font-size: 1.5rem;
+  }
+}
+
+/* Course Details Header - Tablet */
+@media (max-width: 991px) {
+  .course-details-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .instructor-info img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .course-meta-item {
+    padding: 14px 16px;
+  }
+}
+
+/* Course Details Header - Mobile */
+@media (max-width: 575px) {
+  .course-details-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .course-details-header .description {
+    font-size: 0.9375rem;
+    margin-bottom: 20px;
+  }
+
+  .instructor-info {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .instructor-info img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .course-meta-item {
+    padding: 12px 14px;
+  }
+
+  .course-meta-label {
+    font-size: 0.75rem;
+  }
+
+  .course-meta-value {
+    font-size: 0.875rem;
   }
 }
