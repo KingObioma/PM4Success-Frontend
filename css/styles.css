@@ -10948,7 +10948,7 @@ select.input-success {
 }
 
 /* Mobile */
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .hs-hero {
     padding: 30px 0 40px;
   }
