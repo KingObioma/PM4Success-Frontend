@@ -976,10 +976,10 @@ function initCalendar() {
       .filter(function (n) { return !isNaN(n); });
 
     const today = new Date();
-    const viewYear = isNaN(initialYear) ? today.getFullYear() : initialYear;
-    const viewMonth = isNaN(initialMonth) ? today.getMonth() : initialMonth;
-    const pickerYear = viewYear;
-    const selected = {
+    let viewYear = isNaN(initialYear) ? today.getFullYear() : initialYear;
+    let viewMonth = isNaN(initialMonth) ? today.getMonth() : initialMonth;
+    let pickerYear = viewYear;
+    let selected = {
       year: viewYear,
       month: viewMonth,
       day: isNaN(initialDay) ? today.getDate() : initialDay
@@ -1116,7 +1116,7 @@ function initCalendar() {
    14. Smooth Scroll (sidebar nav)
    ============================================ */
 function initSmoothScroll() {
-  const scrollSpyPaused = false;
+  let scrollSpyPaused = false;
   const scrollLinks = document.querySelectorAll('[data-scroll-to]');
 
   scrollLinks.forEach(function (link) {
@@ -1162,7 +1162,7 @@ function initSmoothScroll() {
         const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
         const extraOffset = window.innerWidth < 768 ? 120 : 40;
         const scrollPos = window.pageYOffset + navHeight + extraOffset;
-        const current = sections[0];
+        let current = sections[0];
 
         for (let i = 0; i < sections.length; i++) {
           if (sections[i].target.offsetTop <= scrollPos) {
