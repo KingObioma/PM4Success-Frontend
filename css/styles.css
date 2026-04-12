@@ -7988,11 +7988,24 @@ h2.accomplishments-title {
 }
 
 .feedback-heading {
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 }
 
 .feedback-heading h3 {
   margin-bottom: 8px;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.feedback-heading h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
 }
 
 .feedback-textarea {
@@ -8068,17 +8081,18 @@ h2.accomplishments-title {
   width: 100%;
   padding: 14px 24px;
   font-weight: 600;
+  margin-top: 24px;
 }
 
 .feedback-illustration-col {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .feedback-illustration-col .img-feedback {
   width: 100%;
-  max-width: 440px;
+  max-width: 300px;
   height: auto;
   mix-blend-mode: multiply;
 }
@@ -10880,7 +10894,7 @@ select.input-success {
   border-radius: 50px;
   padding: 12px 20px;
   gap: 12px;
-  max-width: 580px;
+  max-width: 680px;
 }
 
 .hs-hero-search i {
@@ -11008,7 +11022,7 @@ select.input-success {
   background: #fff;
   border: none;
   border-radius: 0;
-  padding: 26px 28px;
+  padding: 26px 0 26px 28px;
 }
 
 /* Sidebar */
@@ -11085,6 +11099,8 @@ select.input-success {
 .hs-faq-content-col {
   position: relative;
   padding-left: 20px;
+  flex: 1;
+  max-width: none;
 }
 
 /* CTA row — CTA card + chat button side-by-side */
@@ -11177,15 +11193,15 @@ select.input-success {
   margin-bottom: 20px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 26px;
+  gap: 8px;
+  padding: 10px 18px;
   background-color: var(--color-primary);
   color: var(--color-white);
   border: 2px solid var(--color-primary);
   border-radius: 30px 5px 30px 5px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: var(--transition);
@@ -11200,7 +11216,7 @@ select.input-success {
 
 /* Nested CTA card */
 .hs-cta-card {
-  flex: 1 1 auto;
+  flex: 0 1 65%;
   background: #F5F9FB;
   border-radius: 10px;
   padding: 20px 24px;
@@ -11248,7 +11264,8 @@ select.input-success {
 
 .hs-cta-img {
   flex-shrink: 0;
-  width: 150px;
+  width: 100px;
+  align-self: center;
 }
 
 .hs-cta-img img {
@@ -11259,7 +11276,7 @@ select.input-success {
 /* Tablet */
 @media (max-width: 991px) {
   .hs-faq {
-    padding: 10px 0 50px;
+    padding: 0 0 50px;
   }
 
   .hs-faq-title {
@@ -11272,20 +11289,21 @@ select.input-success {
   }
 
   .hs-faq-card {
-    padding: 22px;
+    padding: 22px 10px 22px 22px;
   }
 
   .hs-faq-sidebar-col {
-    padding-right: 16px;
+    padding-right: 12px;
+    margin-left: -22px;
   }
 
   .hs-faq-content-col {
-    padding-left: 16px;
+    padding-left: 12px;
   }
 
   .hs-faq-sidebar-item {
     padding: 9px 12px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hs-cta-card {
@@ -11293,19 +11311,24 @@ select.input-success {
   }
 
   .hs-cta-img {
-    width: 120px;
+    width: 100px;
   }
 }
 
 /* Mobile */
 @media (max-width: 767px) {
   .hs-faq {
-    padding: 10px 0 50px;
+    padding: 0 0 40px;
+  }
+
+  .hs-faq-top {
+    padding: 0;
   }
 
   .hs-faq-title {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 16px;
   }
 
   .hs-faq-tabs {
@@ -11315,21 +11338,53 @@ select.input-success {
 
   .hs-faq-tab {
     flex: 1;
-    padding: 14px 12px;
-    font-size: 14px;
+    padding: 12px 10px;
+    font-size: 13px;
+    text-align: center;
   }
 
+  /* Card — no extra padding on mobile */
   .hs-faq-card {
-    padding: 20px 16px;
+    padding: 16px 0;
   }
 
+  /* Sidebar col — full width, no negative margin */
   .hs-faq-sidebar-col {
-    padding-right: 0;
-    margin-bottom: 20px;
+    padding: 0;
+    margin-left: 0;
+    margin-bottom: 16px;
   }
 
+  /* Content col — full width, reset desktop overrides */
   .hs-faq-content-col {
-    padding-left: 0;
+    padding: 0;
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Content box — clean border, proper padding */
+  .hs-faq-content-box {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 8px 16px 20px;
+  }
+
+  /* Accordion items — proper spacing */
+  .hs-faq-content-col .accordion-header {
+    padding: 14px 4px;
+    font-size: 13px;
+  }
+
+  .hs-faq-content-col .accordion-header i {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+
+  .hs-faq-content-col .accordion-body p {
+    font-size: 13px;
+    padding: 0 4px;
   }
 
   /* Sidebar becomes dropdown */
@@ -11338,12 +11393,12 @@ select.input-success {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 16px 20px;
+    padding: 14px 18px;
     background: var(--color-primary);
     color: #fff;
     border: none;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
   }
@@ -11371,54 +11426,62 @@ select.input-success {
     display: flex;
   }
 
+  .hs-faq-sidebar-item {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
   .hs-faq-sidebar-item.active {
-    padding-left: 16px;
+    padding-left: 14px;
     border-left: none;
     box-shadow: none;
   }
 
+  .hs-faq-sidebar-item.active::before {
+    display: none;
+  }
+
   /* Stacked CTA */
   .hs-cta-row {
-    position: relative;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .hs-cta-card {
     flex-direction: column;
     text-align: center;
-    padding: 28px 20px;
+    padding: 24px 20px;
+    flex: none;
+    max-width: 100%;
   }
 
-  .hs-chat-btn {
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
-    margin-bottom: 0;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    border-radius: 50%;
-    font-size: 0;
-    gap: 0;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hs-chat-btn i {
-    font-size: 1.25rem;
-  }
-
-  .hs-chat-btn span {
-    display: none;
+  .hs-cta-text h4 {
+    font-size: 15px;
   }
 
   .hs-cta-text p {
+    font-size: 12px;
+  }
+
+  .hs-cta-btn {
+    padding: 8px 22px;
     font-size: 13px;
   }
 
   .hs-cta-img {
-    width: 140px;
+    width: 100px;
     order: 2;
-    margin-top: 16px;
+    margin-top: 12px;
+  }
+
+  .hs-chat-btn {
+    align-self: center;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .feedback-illustration-col {
+    display: none;
   }
 
   /* Edit Profile - Small Mobile */

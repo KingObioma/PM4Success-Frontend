@@ -2,12 +2,13 @@
    PM4SUCCESS - Main JavaScript
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initAuthModals();
   initAuthState();
   initDropdowns();
   initAccordions();
+  initHelpSupportSidebar();
   initTabs();
   initCarousels();
   initPasswordToggles();
@@ -73,7 +74,7 @@ function initNavbar() {
     document.body.style.overflow = '';
   }
 
-  toggle.addEventListener('click', function () {
+  toggle.addEventListener('click', () => {
     const isLoggedIn = document.body.classList.contains('is-logged-in');
     const isMobile = window.innerWidth <= 767;
 
@@ -89,13 +90,13 @@ function initNavbar() {
   const userPanelBack = document.getElementById('mobileUserPanelBack');
 
   if (userMenuBtn) {
-    userMenuBtn.addEventListener('click', function () {
+    userMenuBtn.addEventListener('click', () => {
       if (mobileMenu) mobileMenu.classList.add('user-panel-open');
     });
   }
 
   if (userPanelBack) {
-    userPanelBack.addEventListener('click', function () {
+    userPanelBack.addEventListener('click', () => {
       if (mobileMenu) mobileMenu.classList.remove('user-panel-open');
     });
   }
@@ -114,7 +115,7 @@ function initNavbar() {
 
   // Set active nav link based on current page
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-nav a').forEach(function (link) {
+  document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-nav a').forEach((link) => {
     const linkPage = link.getAttribute('href');
     if (linkPage === currentPage) {
       link.classList.add('active');
@@ -129,7 +130,7 @@ function initNavbar() {
    ============================================ */
 function initAuthModals() {
   // Open modal
-  document.querySelectorAll('[data-open-modal]').forEach(function (trigger) {
+  document.querySelectorAll('[data-open-modal]').forEach((trigger) => {
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
       // Close mobile menu if open
@@ -139,7 +140,7 @@ function initAuthModals() {
       if (mobileOverlay) mobileOverlay.classList.remove('show');
 
       // Close any open modal first
-      document.querySelectorAll('.auth-modal-overlay.show, .app-modal-overlay.show').forEach(function (m) {
+      document.querySelectorAll('.auth-modal-overlay.show, .app-modal-overlay.show').forEach((m) => {
         m.classList.remove('show');
       });
 
@@ -153,7 +154,7 @@ function initAuthModals() {
   });
 
   // Close modal via X button
-  document.querySelectorAll('[data-close-modal]').forEach(function (btn) {
+  document.querySelectorAll('[data-close-modal]').forEach((btn) => {
     btn.addEventListener('click', function () {
       const modal = this.closest('.auth-modal-overlay, .app-modal-overlay');
       if (modal) {
@@ -164,7 +165,7 @@ function initAuthModals() {
   });
 
   // Close modal via overlay click
-  document.querySelectorAll('.auth-modal-overlay, .app-modal-overlay').forEach(function (overlay) {
+  document.querySelectorAll('.auth-modal-overlay, .app-modal-overlay').forEach((overlay) => {
     overlay.addEventListener('click', function (e) {
       if (e.target === this) {
         this.classList.remove('show');
@@ -188,8 +189,8 @@ function initAuthState() {
 
   // Logout handler
   const logoutLinks = document.querySelectorAll('[data-action="logout"]');
-  logoutLinks.forEach(function (link) {
-    link.addEventListener('click', function (e) {
+  logoutLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
       localStorage.setItem('pm4s_logged_in', 'false');
       window.location.href = link.getAttribute('data-redirect') || 'index.html';
@@ -198,7 +199,7 @@ function initAuthState() {
 
   // Login handler (for demo) — validation runs first via initValidation
   const loginForms = document.querySelectorAll('[data-action="login"]');
-  loginForms.forEach(function (form) {
+  loginForms.forEach((form) => {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!Validator.validateForm(form)) return;
@@ -209,12 +210,12 @@ function initAuthState() {
 
   // Signup handler (for demo) — validation runs first via initValidation
   const signupForms = document.querySelectorAll('[data-action="signup"]');
-  signupForms.forEach(function (form) {
-    form.addEventListener('submit', function (e) {
+  signupForms.forEach((form) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!Validator.validateForm(form)) return;
       // Close signup modal and open OTP modal
-      document.querySelectorAll('.auth-modal-overlay.show').forEach(function (m) {
+      document.querySelectorAll('.auth-modal-overlay.show').forEach((m) => {
         m.classList.remove('show');
       });
       const otpModal = document.getElementById('verifyOtpModal');
@@ -236,12 +237,12 @@ function initDropdowns() {
 
   if (!avatarToggle || !dropdown) return;
 
-  avatarToggle.addEventListener('click', function (e) {
+  avatarToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     dropdown.classList.toggle('show');
   });
 
-  document.addEventListener('click', function (e) {
+  document.addEventListener('click', (e) => {
     if (!dropdown.contains(e.target) && !avatarToggle.contains(e.target)) {
       dropdown.classList.remove('show');
     }
@@ -251,10 +252,38 @@ function initDropdowns() {
 /* ============================================
    4. Accordions
    ============================================ */
+function initHelpSupportSidebar() {
+  const sidebarItems = document.querySelectorAll('.hs-faq-sidebar-item[data-faq-category]');
+  const groups = document.querySelectorAll('.hs-faq-accordion-group[data-faq-category]');
+
+  if (!sidebarItems.length || !groups.length) return;
+
+  sidebarItems.forEach((item) => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      const category = this.getAttribute('data-faq-category');
+
+      sidebarItems.forEach((s) => { s.classList.remove('active'); });
+      this.classList.add('active');
+
+      groups.forEach((g) => {
+        if (g.getAttribute('data-faq-category') === category) {
+          g.classList.add('active');
+        } else {
+          g.classList.remove('active');
+          g.querySelectorAll('.accordion-item.active').forEach((ai) => {
+            ai.classList.remove('active');
+          });
+        }
+      });
+    });
+  });
+}
+
 function initAccordions() {
   const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-  accordionHeaders.forEach(function (header) {
+  accordionHeaders.forEach((header) => {
     header.addEventListener('click', function () {
       const item = this.closest('.accordion-item');
       const parent = item.parentElement;
@@ -262,7 +291,7 @@ function initAccordions() {
 
       // Close siblings if single-open mode
       if (parent.hasAttribute('data-single-open')) {
-        parent.querySelectorAll('.accordion-item.active').forEach(function (active) {
+        parent.querySelectorAll('.accordion-item.active').forEach((active) => {
           active.classList.remove('active');
         });
       }
@@ -278,7 +307,7 @@ function initAccordions() {
   // Module accordions (course content)
   const moduleHeaders = document.querySelectorAll('.module-header');
 
-  moduleHeaders.forEach(function (header) {
+  moduleHeaders.forEach((header) => {
     header.addEventListener('click', function () {
       const module = this.closest('.module-item');
       module.classList.toggle('active');
@@ -292,18 +321,18 @@ function initAccordions() {
 function initTabs() {
   const tabContainers = document.querySelectorAll('[data-tabs]');
 
-  tabContainers.forEach(function (container) {
+  tabContainers.forEach((container) => {
     const buttons = container.querySelectorAll('.tab-btn');
     const tabGroup = container.getAttribute('data-tabs');
     const contents = document.querySelectorAll('[data-tab-content="' + tabGroup + '"] .tab-content');
 
-    buttons.forEach(function (btn) {
+    buttons.forEach((btn) => {
       btn.addEventListener('click', function () {
         const target = this.getAttribute('data-tab');
 
         // Deactivate all
-        buttons.forEach(function (b) { b.classList.remove('active'); });
-        contents.forEach(function (c) { c.classList.remove('active'); });
+        buttons.forEach((b) => { b.classList.remove('active'); });
+        contents.forEach((c) => { c.classList.remove('active'); });
 
         // Activate clicked
         this.classList.add('active');
@@ -320,7 +349,7 @@ function initTabs() {
 function initCarousels() {
   const carousels = document.querySelectorAll('.carousel-wrapper');
 
-  carousels.forEach(function (carousel) {
+  carousels.forEach((carousel) => {
     const track = carousel.querySelector('.carousel-track');
     const prevBtn = carousel.querySelector('.carousel-btn-prev');
     const nextBtn = carousel.querySelector('.carousel-btn-next');
@@ -375,14 +404,14 @@ function initCarousels() {
         const dotsContainer = section.querySelector('.carousel-dots');
         if (dotsContainer) {
           const allDots = dotsContainer.querySelectorAll('.carousel-dot');
-          allDots.forEach(function (d, i) {
+          allDots.forEach((d, i) => {
             d.classList.toggle('active', i === currentPage);
           });
         }
       }
 
       // Recalculate on resize
-      window.addEventListener('resize', function () {
+      window.addEventListener('resize', () => {
         const totalPages = getTotalPages();
         if (currentPage >= totalPages) currentPage = totalPages - 1;
         goToPage(currentPage);
@@ -393,14 +422,14 @@ function initCarousels() {
       const sectionNext = section.querySelector('.carousel-btn-next');
 
       if (sectionPrev) {
-        sectionPrev.addEventListener('click', function (e) {
+        sectionPrev.addEventListener('click', (e) => {
           e.stopImmediatePropagation();
           goToPage(currentPage - 1);
         });
       }
 
       if (sectionNext) {
-        sectionNext.addEventListener('click', function (e) {
+        sectionNext.addEventListener('click', (e) => {
           e.stopImmediatePropagation();
           goToPage(currentPage + 1);
         });
@@ -411,8 +440,8 @@ function initCarousels() {
       if (dotsContainer) {
         dotsContainer.setAttribute('data-handled', 'true');
         const allDots = dotsContainer.querySelectorAll('.carousel-dot');
-        allDots.forEach(function (dot, index) {
-          dot.addEventListener('click', function () {
+        allDots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
             goToPage(index);
           });
         });
@@ -431,36 +460,36 @@ function initCarousels() {
       }
 
       if (prevBtn) {
-        prevBtn.addEventListener('click', function () {
+        prevBtn.addEventListener('click', () => {
           track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
       }
 
       if (nextBtn) {
-        nextBtn.addEventListener('click', function () {
+        nextBtn.addEventListener('click', () => {
           track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
       }
 
       // Dot indicators
       if (dots.length > 0) {
-        dots.forEach(function (dot, index) {
-          dot.addEventListener('click', function () {
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
             const children = track.children;
             if (children[index]) {
               children[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
             }
-            dots.forEach(function (d) { d.classList.remove('active'); });
+            dots.forEach((d) => { d.classList.remove('active'); });
             dot.classList.add('active');
           });
         });
 
         // Update active dot on scroll
-        track.addEventListener('scroll', function () {
+        track.addEventListener('scroll', () => {
           const scrollLeft = track.scrollLeft;
           const childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 20 : 300;
           const activeIndex = Math.round(scrollLeft / childWidth);
-          dots.forEach(function (d, i) {
+          dots.forEach((d, i) => {
             d.classList.toggle('active', i === activeIndex);
           });
         });
@@ -470,7 +499,7 @@ function initCarousels() {
 
   // Standalone carousel nav buttons with data-target (skip transform-based carousels)
   const standaloneNavBtns = document.querySelectorAll('.carousel-btn[data-target]');
-  standaloneNavBtns.forEach(function (btn) {
+  standaloneNavBtns.forEach((btn) => {
     if (btn.hasAttribute('data-handled')) return;
     btn.addEventListener('click', function () {
       const targetId = this.getAttribute('data-target');
@@ -498,7 +527,7 @@ function initCarousels() {
 
   // Standalone carousel dots (outside carousel-wrapper, skip transform-based carousels)
   const standaloneDots = document.querySelectorAll('.carousel-dots');
-  standaloneDots.forEach(function (dotsContainer) {
+  standaloneDots.forEach((dotsContainer) => {
     if (dotsContainer.hasAttribute('data-handled')) return;
     const section = dotsContainer.closest('section');
     if (!section) return;
@@ -506,19 +535,19 @@ function initCarousels() {
     if (!track) return;
     const dots = dotsContainer.querySelectorAll('.carousel-dot');
 
-    dots.forEach(function (dot, index) {
-      dot.addEventListener('click', function () {
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
         const gap = window.innerWidth <= 575 ? 12 : 20;
         const itemsPerPage = 3;
         const childWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + gap : 300;
         const scrollTo = index * itemsPerPage * childWidth;
         track.scrollTo({ left: scrollTo, behavior: 'smooth' });
-        dots.forEach(function (d) { d.classList.remove('active'); });
+        dots.forEach((d) => { d.classList.remove('active'); });
         dot.classList.add('active');
       });
     });
 
-    track.addEventListener('scroll', function () {
+    track.addEventListener('scroll', () => {
       const scrollLeft = track.scrollLeft;
       const gap = window.innerWidth <= 575 ? 12 : 20;
       const itemsPerPage = 3;
@@ -526,18 +555,18 @@ function initCarousels() {
       const pageWidth = childWidth * itemsPerPage;
       let activeIndex = Math.round(scrollLeft / pageWidth);
       if (activeIndex >= dots.length) activeIndex = 0;
-      dots.forEach(function (d, i) {
+      dots.forEach((d, i) => {
         d.classList.toggle('active', i === activeIndex);
       });
     });
 
     // Auto-loop: when scrolled to the end, jump back to start
-    track.addEventListener('scrollend', function () {
+    track.addEventListener('scrollend', () => {
       const maxScroll = track.scrollWidth - track.clientWidth;
       if (track.scrollLeft >= maxScroll - 5) {
-        setTimeout(function () {
+        setTimeout(() => {
           track.scrollTo({ left: 0, behavior: 'smooth' });
-          dots.forEach(function (d) { d.classList.remove('active'); });
+          dots.forEach((d) => { d.classList.remove('active'); });
           dots[0].classList.add('active');
         }, 2000);
       }
@@ -551,7 +580,7 @@ function initCarousels() {
 function initPasswordToggles() {
   const toggles = document.querySelectorAll('[data-toggle-password]');
 
-  toggles.forEach(function (toggle) {
+  toggles.forEach((toggle) => {
     toggle.addEventListener('click', function () {
       const targetId = this.getAttribute('data-toggle-password');
       const input = document.getElementById(targetId);
@@ -578,8 +607,8 @@ function initProgressRings() {
 
   if (rings.length === 0) return;
 
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const circle = entry.target;
         const percentage = parseFloat(circle.getAttribute('data-percentage')) || 0;
@@ -590,7 +619,7 @@ function initProgressRings() {
         circle.style.strokeDashoffset = circumference;
 
         // Trigger animation
-        requestAnimationFrame(function () {
+        requestAnimationFrame(() => {
           const offset = circumference - (percentage / 100) * circumference;
           circle.style.strokeDashoffset = offset;
         });
@@ -600,7 +629,7 @@ function initProgressRings() {
     });
   }, { threshold: 0.3 });
 
-  rings.forEach(function (ring) {
+  rings.forEach((ring) => {
     observer.observe(ring);
   });
 }
@@ -611,27 +640,27 @@ function initProgressRings() {
 function initStarRating() {
   const ratingContainers = document.querySelectorAll('.star-rating[data-interactive]');
 
-  ratingContainers.forEach(function (container) {
+  ratingContainers.forEach((container) => {
     const stars = container.querySelectorAll('i');
     const input = container.querySelector('input[type="hidden"]');
 
-    stars.forEach(function (star, index) {
-      star.addEventListener('mouseenter', function () {
+    stars.forEach((star, index) => {
+      star.addEventListener('mouseenter', () => {
         highlightStars(stars, index);
       });
 
-      star.addEventListener('click', function () {
+      star.addEventListener('click', () => {
         if (input) input.value = index + 1;
-        stars.forEach(function (s, i) {
+        stars.forEach((s, i) => {
           s.setAttribute('data-selected', i <= index ? 'true' : 'false');
         });
         highlightStars(stars, index);
       });
     });
 
-    container.addEventListener('mouseleave', function () {
+    container.addEventListener('mouseleave', () => {
       // Reset to selected state
-      stars.forEach(function (s, i) {
+      stars.forEach((s, i) => {
         const isSelected = s.getAttribute('data-selected') === 'true';
         s.classList.toggle('active', isSelected);
       });
@@ -639,7 +668,7 @@ function initStarRating() {
   });
 
   function highlightStars(stars, upToIndex) {
-    stars.forEach(function (s, i) {
+    stars.forEach((s, i) => {
       s.classList.toggle('active', i <= upToIndex);
     });
   }
@@ -651,15 +680,15 @@ function initStarRating() {
 function initNumberRating() {
   const containers = document.querySelectorAll('[data-number-rating]');
 
-  containers.forEach(function (container) {
+  containers.forEach((container) => {
     const buttons = container.querySelectorAll('.number-rating-btn');
     const input = container.querySelector('input[type="hidden"]');
 
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
         const value = btn.getAttribute('data-value');
         if (input) input.value = value;
-        buttons.forEach(function (b) {
+        buttons.forEach((b) => {
           b.classList.toggle('active', b === btn);
         });
       });
@@ -673,7 +702,7 @@ function initNumberRating() {
 function initFileUploads() {
   const uploaders = document.querySelectorAll('[data-file-upload]');
 
-  uploaders.forEach(function (uploader) {
+  uploaders.forEach((uploader) => {
     const input = uploader.querySelector('input[type="file"]');
     const preview = uploader.querySelector('.upload-preview');
     const label = uploader.querySelector('.upload-label');
@@ -690,7 +719,7 @@ function initFileUploads() {
 
         if (preview && file.type.startsWith('image/')) {
           const reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = (e) => {
             preview.src = e.target.result;
           };
           reader.readAsDataURL(file);
@@ -719,7 +748,7 @@ function initCatalogueFilters() {
   const initialCategory = activeTab ? activeTab.getAttribute('data-category') : 'popular';
 
   function filterCards(category) {
-    courseCards.forEach(function (card) {
+    courseCards.forEach((card) => {
       if (category === 'all' || card.getAttribute('data-category') === category) {
         card.style.display = '';
       } else {
@@ -736,7 +765,7 @@ function initCatalogueFilters() {
 
   // Helper: sync mobile accordions to a given category
   function syncMobile(category) {
-    mobileToggles.forEach(function (t) {
+    mobileToggles.forEach((t) => {
       const c = t.nextElementSibling;
       if (t.getAttribute('data-category') === category) {
         t.classList.add('active');
@@ -754,7 +783,7 @@ function initCatalogueFilters() {
 
   // Helper: sync desktop tabs to a given category
   function syncDesktop(category) {
-    tabs.forEach(function (t) {
+    tabs.forEach((t) => {
       if (t.getAttribute('data-category') === category) {
         t.classList.add('active');
       } else {
@@ -765,22 +794,22 @@ function initCatalogueFilters() {
   }
 
   // Desktop sidebar tabs
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
       activeCategory = tab.getAttribute('data-category');
       syncDesktop(activeCategory);
     });
   });
 
   // Mobile accordion toggles
-  mobileToggles.forEach(function (toggle) {
-    toggle.addEventListener('click', function () {
+  mobileToggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
       const content = toggle.nextElementSibling;
       const hasContent = content && content.classList.contains('catalogue-accordion-content');
       const isOpen = hasContent && content.classList.contains('open');
 
       // Close all accordions
-      mobileToggles.forEach(function (t) {
+      mobileToggles.forEach((t) => {
         t.classList.remove('active');
         const c = t.nextElementSibling;
         if (c && c.classList.contains('catalogue-accordion-content')) {
@@ -800,7 +829,7 @@ function initCatalogueFilters() {
   });
 
   // On resize: always keep both views in sync
-  window.addEventListener('resize', function () {
+  window.addEventListener('resize', () => {
     syncDesktop(activeCategory);
     syncMobile(activeCategory);
   });
@@ -811,13 +840,13 @@ function initCatalogueFilters() {
   const filterOverlay = document.querySelector('.filter-overlay');
 
   if (filterToggle && filterSidebar) {
-    filterToggle.addEventListener('click', function () {
+    filterToggle.addEventListener('click', () => {
       filterSidebar.classList.toggle('show');
       if (filterOverlay) filterOverlay.classList.toggle('show');
     });
 
     if (filterOverlay) {
-      filterOverlay.addEventListener('click', function () {
+      filterOverlay.addEventListener('click', () => {
         filterSidebar.classList.remove('show');
         filterOverlay.classList.remove('show');
       });
@@ -833,16 +862,16 @@ function initFilterDropdowns() {
   if (!wrappers.length) return;
 
   // Toggle dropdown on pill click
-  wrappers.forEach(function (wrapper) {
+  wrappers.forEach((wrapper) => {
     const btn = wrapper.querySelector('.filter-btn');
     if (!btn) return;
 
-    btn.addEventListener('click', function (e) {
+    btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const isOpen = wrapper.classList.contains('open');
 
       // Close all dropdowns first
-      wrappers.forEach(function (w) { w.classList.remove('open'); });
+      wrappers.forEach((w) => { w.classList.remove('open'); });
 
       // Toggle the clicked one
       if (!isOpen) {
@@ -877,15 +906,15 @@ function initFilterDropdowns() {
   }
 
   // Close dropdowns when clicking outside
-  document.addEventListener('click', function (e) {
+  document.addEventListener('click', (e) => {
     if (!e.target.closest('.filter-dropdown-wrapper')) {
-      wrappers.forEach(function (w) { w.classList.remove('open'); });
+      wrappers.forEach((w) => { w.classList.remove('open'); });
     }
   });
 
   // Prevent dropdown panel clicks from closing the panel
-  document.querySelectorAll('.filter-dropdown-panel').forEach(function (panel) {
-    panel.addEventListener('click', function (e) {
+  document.querySelectorAll('.filter-dropdown-panel').forEach((panel) => {
+    panel.addEventListener('click', (e) => {
       e.stopPropagation();
     });
   });
@@ -898,14 +927,14 @@ function initCartInteractions() {
   // Remove item
   const removeButtons = document.querySelectorAll('[data-action="remove-cart-item"]');
 
-  removeButtons.forEach(function (btn) {
+  removeButtons.forEach((btn) => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       const item = this.closest('.cart-item');
       if (item) {
         item.style.opacity = '0';
         item.style.transition = 'opacity 0.3s ease';
-        setTimeout(function () {
+        setTimeout(() => {
           item.remove();
           updateCartTotal();
           checkCartEmpty();
@@ -917,7 +946,7 @@ function initCartInteractions() {
   function updateCartTotal() {
     const items = document.querySelectorAll('.cart-item');
     let total = 0;
-    items.forEach(function (item) {
+    items.forEach((item) => {
       const priceEl = item.querySelector('.cart-item-price');
       if (priceEl) {
         const priceText = priceEl.textContent.replace(/[^0-9.]/g, '');
@@ -952,7 +981,7 @@ function initCalendar() {
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-  document.querySelectorAll('[data-calendar]').forEach(function (calendar) {
+  document.querySelectorAll('[data-calendar]').forEach((calendar) => {
     const grid = calendar.querySelector('[data-calendar-grid]');
     const monthLabel = calendar.querySelector('[data-calendar-month-label]');
     const selectedLabel = calendar.querySelector('[data-calendar-label]');
@@ -972,8 +1001,8 @@ function initCalendar() {
     const initialDay = parseInt(calendar.getAttribute('data-initial-day'), 10);
     const eventDates = (calendar.getAttribute('data-event-dates') || '')
       .split(',')
-      .map(function (s) { return parseInt(s.trim(), 10); })
-      .filter(function (n) { return !isNaN(n); });
+      .map((s) => { return parseInt(s.trim(), 10); })
+      .filter((n) => { return !isNaN(n); });
 
     const today = new Date();
     let viewYear = isNaN(initialYear) ? today.getFullYear() : initialYear;
@@ -990,7 +1019,7 @@ function initCalendar() {
         monthLabel.textContent = MONTH_NAMES[viewMonth] + ' ' + viewYear;
       }
 
-      grid.querySelectorAll('.ud-day').forEach(function (el) { el.remove(); });
+      grid.querySelectorAll('.ud-day').forEach((el) => { el.remove(); });
 
       const firstDay = new Date(viewYear, viewMonth, 1).getDay();
       const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
@@ -1049,7 +1078,7 @@ function initCalendar() {
       if (!pickerMonths || !pickerYearLabel) return;
       pickerYearLabel.textContent = pickerYear;
       pickerMonths.innerHTML = '';
-      MONTH_SHORT.forEach(function (name, idx) {
+      MONTH_SHORT.forEach((name, idx) => {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'ud-month-option';
@@ -1057,7 +1086,7 @@ function initCalendar() {
         if (idx === viewMonth && pickerYear === viewYear) {
           btn.classList.add('is-active');
         }
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', () => {
           viewMonth = idx;
           viewYear = pickerYear;
           closePicker();
@@ -1081,29 +1110,29 @@ function initCalendar() {
       calendar.classList.remove('is-picker-open');
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', function () { shiftMonth(-1); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { shiftMonth(1); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { shiftMonth(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { shiftMonth(1); });
 
     if (toggleBtn) {
-      toggleBtn.addEventListener('click', function () {
+      toggleBtn.addEventListener('click', () => {
         if (picker && picker.hidden) { openPicker(); } else { closePicker(); }
       });
     }
 
     if (pickerYearPrev) {
-      pickerYearPrev.addEventListener('click', function () {
+      pickerYearPrev.addEventListener('click', () => {
         pickerYear--;
         renderPicker();
       });
     }
     if (pickerYearNext) {
-      pickerYearNext.addEventListener('click', function () {
+      pickerYearNext.addEventListener('click', () => {
         pickerYear++;
         renderPicker();
       });
     }
 
-    document.addEventListener('click', function (e) {
+    document.addEventListener('click', (e) => {
       if (!calendar.contains(e.target)) closePicker();
     });
 
@@ -1119,7 +1148,7 @@ function initSmoothScroll() {
   let scrollSpyPaused = false;
   const scrollLinks = document.querySelectorAll('[data-scroll-to]');
 
-  scrollLinks.forEach(function (link) {
+  scrollLinks.forEach((link) => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('data-scroll-to');
@@ -1128,13 +1157,13 @@ function initSmoothScroll() {
       // Update active state immediately
       const nav = this.closest('.sidebar-nav');
       if (nav) {
-        nav.querySelectorAll('a').forEach(function (a) { a.classList.remove('active'); });
+        nav.querySelectorAll('a').forEach((a) => { a.classList.remove('active'); });
         this.classList.add('active');
       }
 
       // Pause scroll-spy so it doesn't override the click
       scrollSpyPaused = true;
-      setTimeout(function () { scrollSpyPaused = false; }, 800);
+      setTimeout(() => { scrollSpyPaused = false; }, 800);
 
       if (target) {
         const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
@@ -1150,13 +1179,13 @@ function initSmoothScroll() {
   if (sidebarNav) {
     const sidebarLinks = sidebarNav.querySelectorAll('a[data-scroll-to]');
     const sections = [];
-    sidebarLinks.forEach(function (link) {
+    sidebarLinks.forEach((link) => {
       const target = document.getElementById(link.getAttribute('data-scroll-to'));
       if (target) sections.push({ link: link, target: target });
     });
 
     if (sections.length) {
-      window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', () => {
         if (scrollSpyPaused) return;
 
         const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 72;
@@ -1170,7 +1199,7 @@ function initSmoothScroll() {
           }
         }
 
-        sidebarLinks.forEach(function (link) { link.classList.remove('active'); });
+        sidebarLinks.forEach((link) => { link.classList.remove('active'); });
         current.link.classList.add('active');
 
         // On mobile, scroll active link into view in horizontal nav
@@ -1196,12 +1225,12 @@ function initMobileCourseSidebar() {
 
   if (!toggleBtn || !sidebar) return;
 
-  toggleBtn.addEventListener('click', function () {
+  toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('show');
   });
 
   if (closeBtn) {
-    closeBtn.addEventListener('click', function () {
+    closeBtn.addEventListener('click', () => {
       sidebar.classList.remove('show');
     });
   }
@@ -1269,25 +1298,25 @@ function initHeroSlider() {
   const heroSlides = document.querySelectorAll('.hero-slide');
   const heroDots = document.querySelectorAll('.hero-slider-dot');
 
-  function goToHeroSlide(index) {
-    heroSlides[heroCurrent].classList.remove('active');
-    if (heroDots.length) heroDots[heroCurrent].classList.remove('active');
-    heroCurrent = index;
-    heroSlides[heroCurrent].classList.add('active');
-    if (heroDots.length) heroDots[heroCurrent].classList.add('active');
-  }
-
   if (heroSlides.length >= 2) {
     let heroCurrent = 0;
 
-    heroDots.forEach(function (dot) {
+    function goToHeroSlide(index) {
+      heroSlides[heroCurrent].classList.remove('active');
+      if (heroDots.length) heroDots[heroCurrent].classList.remove('active');
+      heroCurrent = index;
+      heroSlides[heroCurrent].classList.add('active');
+      if (heroDots.length) heroDots[heroCurrent].classList.add('active');
+    }
+
+    heroDots.forEach((dot) => {
       dot.addEventListener('click', function () {
         const slideIndex = parseInt(this.getAttribute('data-slide'));
         goToHeroSlide(slideIndex);
       });
     });
 
-    setInterval(function () {
+    setInterval(() => {
       goToHeroSlide((heroCurrent + 1) % heroSlides.length);
     }, 30000);
   }
@@ -1305,14 +1334,14 @@ function initHeroSlider() {
       if (ctaDots.length) ctaDots[ctaCurrent].classList.add('active');
     }
 
-    ctaDots.forEach(function (dot) {
+    ctaDots.forEach((dot) => {
       dot.addEventListener('click', function () {
         const slideIndex = parseInt(this.getAttribute('data-cta-slide'));
         goToCtaSlide(slideIndex);
       });
     });
 
-    setInterval(function () {
+    setInterval(() => {
       goToCtaSlide((ctaCurrent + 1) % ctaSlides.length);
     }, 30000);
   }
@@ -1337,7 +1366,7 @@ function initProgramTabs() {
 
   /* Switch the visible grid to the given category */
   function showGrid(category) {
-    allGrids.forEach(function (grid) {
+    allGrids.forEach((grid) => {
       if (grid.getAttribute('data-category') === category) {
         grid.classList.add('active');
       } else {
@@ -1348,7 +1377,7 @@ function initProgramTabs() {
 
   /* Sync desktop sidebar tabs to a category */
   function syncDesktop(category) {
-    sidebarTabs.forEach(function (t) {
+    sidebarTabs.forEach((t) => {
       if (t.getAttribute('data-category') === category) {
         t.classList.add('active');
       } else {
@@ -1360,7 +1389,7 @@ function initProgramTabs() {
 
   /* Sync mobile accordions to a category */
   function syncMobile(category) {
-    accordionToggles.forEach(function (t) {
+    accordionToggles.forEach((t) => {
       const c = t.nextElementSibling;
       if (t.getAttribute('data-category') === category) {
         t.classList.add('active');
@@ -1375,8 +1404,8 @@ function initProgramTabs() {
   /* Sidebar tabs */
   const popularTab = sidebar.querySelector('.program-tab[data-category="popular"]');
 
-  sidebarTabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
+  sidebarTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
       const category = tab.getAttribute('data-category');
       const isMobile = window.innerWidth < 768;
 
@@ -1385,7 +1414,7 @@ function initProgramTabs() {
         const isActive = tab.classList.contains('active');
 
         /* Close any open accordion */
-        accordionToggles.forEach(function (t) {
+        accordionToggles.forEach((t) => {
           t.classList.remove('active');
           t.nextElementSibling.classList.remove('open');
         });
@@ -1393,7 +1422,7 @@ function initProgramTabs() {
         if (isActive) {
           /* Collapse popular */
           tab.classList.remove('active');
-          allGrids.forEach(function (g) { g.classList.remove('active'); });
+          allGrids.forEach((g) => { g.classList.remove('active'); });
         } else {
           /* Expand popular */
           tab.classList.add('active');
@@ -1409,19 +1438,19 @@ function initProgramTabs() {
   });
 
   /* Mobile accordion toggles */
-  accordionToggles.forEach(function (toggle) {
-    toggle.addEventListener('click', function () {
+  accordionToggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
       const content = toggle.nextElementSibling;
       const isOpen = content.classList.contains('open');
 
       /* Close all accordions */
-      accordionToggles.forEach(function (t) {
+      accordionToggles.forEach((t) => {
         t.classList.remove('active');
         t.nextElementSibling.classList.remove('open');
       });
 
       /* Hide all grids and deactivate popular tab */
-      allGrids.forEach(function (g) { g.classList.remove('active'); });
+      allGrids.forEach((g) => { g.classList.remove('active'); });
       if (popularTab) popularTab.classList.remove('active');
 
       /* If already open, do nothing */
@@ -1434,7 +1463,7 @@ function initProgramTabs() {
   });
 
   /* On resize: keep both views in sync */
-  window.addEventListener('resize', function () {
+  window.addEventListener('resize', () => {
     const isMobile = window.innerWidth < 768;
 
     if (isMobile) {
@@ -1442,20 +1471,20 @@ function initProgramTabs() {
         /* Show popular grid, activate popular tab, close accordions */
         if (popularTab) popularTab.classList.add('active');
         showGrid('popular');
-        accordionToggles.forEach(function (t) {
+        accordionToggles.forEach((t) => {
           t.classList.remove('active');
           t.nextElementSibling.classList.remove('open');
         });
       } else {
         /* Hide grids, deactivate popular tab, open matching accordion */
         if (popularTab) popularTab.classList.remove('active');
-        allGrids.forEach(function (g) { g.classList.remove('active'); });
+        allGrids.forEach((g) => { g.classList.remove('active'); });
         syncMobile(activeCategory);
       }
     } else {
       /* Desktop: sync tabs and grid, close all accordions */
       syncDesktop(activeCategory);
-      accordionToggles.forEach(function (t) {
+      accordionToggles.forEach((t) => {
         t.classList.remove('active');
         t.nextElementSibling.classList.remove('open');
       });
@@ -1471,7 +1500,7 @@ function initProgramTabs() {
  * Validator — reusable validation utilities
  * All validators return { valid: boolean, message: string }
  */
-const Validator = (function () {
+const Validator = (() => {
 
   /* ------------------------------------------
      Core Validators
@@ -1640,7 +1669,7 @@ const Validator = (function () {
     let allValid = true;
     let firstInvalid = null;
 
-    fields.forEach(function (field) {
+    fields.forEach((field) => {
       const isValid = validateField(field);
       if (!isValid && !firstInvalid) {
         firstInvalid = field;
@@ -1651,14 +1680,14 @@ const Validator = (function () {
     if (!allValid) {
       // Add shake animation
       formEl.classList.add('form-shake');
-      setTimeout(function () {
+      setTimeout(() => {
         formEl.classList.remove('form-shake');
       }, 500);
 
       // Scroll to and focus the first invalid field
       if (firstInvalid) {
         firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(function () { firstInvalid.focus(); }, 300);
+        setTimeout(() => { firstInvalid.focus(); }, 300);
       }
     }
 
@@ -1723,12 +1752,12 @@ const Validator = (function () {
    */
   function wireField(field) {
     // Validate on blur
-    field.addEventListener('blur', function () {
+    field.addEventListener('blur', () => {
       validateField(field);
     });
 
     // Clear error on input (real-time correction)
-    field.addEventListener('input', function () {
+    field.addEventListener('input', () => {
       if (field.classList.contains('input-error')) {
         validateField(field);
       }
@@ -1736,7 +1765,7 @@ const Validator = (function () {
 
     // For selects, listen to change instead
     if (field.tagName === 'SELECT') {
-      field.addEventListener('change', function () {
+      field.addEventListener('change', () => {
         validateField(field);
       });
     }
@@ -1749,14 +1778,14 @@ const Validator = (function () {
     if (!formEl) return;
 
     const fields = formEl.querySelectorAll('[data-validate]');
-    fields.forEach(function (field) {
+    fields.forEach((field) => {
       wireField(field);
     });
 
     // Submit handler — only if form doesn't already have a data-action
     // (data-action forms handle submit in initAuthState)
     if (!formEl.hasAttribute('data-action')) {
-      formEl.addEventListener('submit', function (e) {
+      formEl.addEventListener('submit', (e) => {
         e.preventDefault();
         if (validateForm(formEl)) {
           // Form is valid — for demo, show a success indication
@@ -1801,7 +1830,7 @@ function initValidation() {
      ------------------------------------------ */
 
   // Login forms
-  document.querySelectorAll('[data-action="login"]').forEach(function (form) {
+  document.querySelectorAll('[data-action="login"]').forEach((form) => {
     const emailInput = form.querySelector('#login-email, [type="email"]');
     const passwordInput = form.querySelector('#login-password, [type="password"]');
     if (emailInput) emailInput.setAttribute('data-validate', 'required|email');
@@ -1810,7 +1839,7 @@ function initValidation() {
   });
 
   // Signup forms
-  document.querySelectorAll('[data-action="signup"]').forEach(function (form) {
+  document.querySelectorAll('[data-action="signup"]').forEach((form) => {
     const nameInput = form.querySelector('#signup-name, [placeholder*="full name"]');
     const emailInput = form.querySelector('#signup-email, [type="email"]');
     const passwordInput = form.querySelector('#signup-password');
@@ -1827,14 +1856,14 @@ function initValidation() {
   });
 
   // Verify OTP forms (modal)
-  document.querySelectorAll('[data-action="verify-otp"]').forEach(function (form) {
+  document.querySelectorAll('[data-action="verify-otp"]').forEach((form) => {
     const otpInput = form.querySelector('#otp-code, [placeholder*="OTP"]');
     if (otpInput) otpInput.setAttribute('data-validate', 'required|otp');
     Validator.wireForm(form);
   });
 
   // Forgot Password forms
-  document.querySelectorAll('#forgotPasswordModal form').forEach(function (form) {
+  document.querySelectorAll('#forgotPasswordModal form').forEach((form) => {
     if (form.hasAttribute('data-action')) return;
     const emailInput = form.querySelector('#forgot-email, [type="email"]');
     if (emailInput) emailInput.setAttribute('data-validate', 'required|email');
@@ -1878,7 +1907,7 @@ function initValidation() {
     const personalForm = personalInfoSection.querySelector('form');
     if (personalForm) {
       const inputs = personalForm.querySelectorAll('input, select');
-      inputs.forEach(function (input) {
+      inputs.forEach((input) => {
         const type = input.type;
         const placeholder = (input.placeholder || '').toLowerCase();
 
@@ -1914,7 +1943,7 @@ function initValidation() {
       if (idSelect && fileInput) {
         // This is the account verification form
         const formInputs = form.querySelectorAll('input:not([type="file"]), select');
-        formInputs.forEach(function (input) {
+        formInputs.forEach((input) => {
           const placeholder = (input.placeholder || '').toLowerCase();
           if (placeholder.indexOf('fullname') !== -1) {
             input.setAttribute('data-validate', 'required|name');
@@ -1927,7 +1956,7 @@ function initValidation() {
         Validator.wireForm(form);
 
         // Custom file validation on submit
-        form.addEventListener('validSubmit', function () {
+        form.addEventListener('validSubmit', () => {
           if (fileInput && !fileInput.files.length) {
             const uploadArea = fileInput.closest('.file-upload-area');
             if (uploadArea) {
@@ -1987,7 +2016,7 @@ function initValidation() {
 
       // Send feedback button handler
       if (sendBtn) {
-        sendBtn.addEventListener('click', function (e) {
+        sendBtn.addEventListener('click', (e) => {
           e.preventDefault();
           let allValid = true;
 
@@ -2017,7 +2046,7 @@ function initValidation() {
 
           if (!allValid) {
             feedbackSection.classList.add('form-shake');
-            setTimeout(function () { feedbackSection.classList.remove('form-shake'); }, 500);
+            setTimeout(() => { feedbackSection.classList.remove('form-shake'); }, 500);
           }
         });
       }
@@ -2030,7 +2059,7 @@ function initValidation() {
   const promoInput = document.querySelector('.promo-input-group input');
   const promoBtn = document.querySelector('.promo-input-group button');
   if (promoInput && promoBtn) {
-    promoBtn.addEventListener('click', function () {
+    promoBtn.addEventListener('click', () => {
       const value = promoInput.value.trim();
       if (!value) {
         promoInput.classList.add('input-error');
@@ -2051,7 +2080,7 @@ function initValidation() {
       }
     });
 
-    promoInput.addEventListener('input', function () {
+    promoInput.addEventListener('input', () => {
       if (promoInput.classList.contains('input-error') && promoInput.value.trim()) {
         promoInput.classList.remove('input-error');
         promoInput.setAttribute('aria-invalid', 'false');
@@ -2066,7 +2095,7 @@ function initValidation() {
      ------------------------------------------ */
   const billingForm = document.querySelector('.billing-form');
   if (billingForm) {
-    billingForm.addEventListener('submit', function (e) {
+    billingForm.addEventListener('submit', (e) => {
       const paymentSelected = billingForm.querySelector('input[name="payment"]:checked');
       if (!paymentSelected) {
         e.preventDefault();
@@ -2082,13 +2111,13 @@ function initValidation() {
           }
         }
         billingForm.classList.add('form-shake');
-        setTimeout(function () { billingForm.classList.remove('form-shake'); }, 500);
+        setTimeout(() => { billingForm.classList.remove('form-shake'); }, 500);
       }
     });
 
     // Clear payment error when a radio is selected
-    billingForm.querySelectorAll('input[name="payment"]').forEach(function (radio) {
-      radio.addEventListener('change', function () {
+    billingForm.querySelectorAll('input[name="payment"]').forEach((radio) => {
+      radio.addEventListener('change', () => {
         const paymentMethods = billingForm.querySelector('.payment-methods');
         if (paymentMethods) {
           paymentMethods.classList.remove('input-error');
@@ -2102,12 +2131,12 @@ function initValidation() {
   /* ------------------------------------------
      Newsletter — Footer (all pages)
      ------------------------------------------ */
-  document.querySelectorAll('.footer-newsletter').forEach(function (container) {
+  document.querySelectorAll('.footer-newsletter').forEach((container) => {
     const emailInput = container.querySelector('input[type="email"]');
     const subscribeBtn = container.querySelector('button');
     if (!emailInput || !subscribeBtn) return;
 
-    subscribeBtn.addEventListener('click', function () {
+    subscribeBtn.addEventListener('click', () => {
       const result = Validator.validateEmail(emailInput.value);
       if (!result.valid) {
         emailInput.classList.add('input-error');
@@ -2128,7 +2157,7 @@ function initValidation() {
       }
     });
 
-    emailInput.addEventListener('input', function () {
+    emailInput.addEventListener('input', () => {
       if (emailInput.classList.contains('input-error')) {
         const result = Validator.validateEmail(emailInput.value);
         if (result.valid) {
@@ -2157,7 +2186,7 @@ function initValidation() {
   const lpCurrentDots = document.querySelectorAll('.lp-current-dot');
 
   if (lpCurrentList && lpCurrentDots.length) {
-    lpCurrentList.addEventListener('scroll', function () {
+    lpCurrentList.addEventListener('scroll', () => {
       const cards = lpCurrentList.querySelectorAll('.lp-current-card');
       const scrollLeft = lpCurrentList.scrollLeft;
       const maxScroll = lpCurrentList.scrollWidth - lpCurrentList.clientWidth;
@@ -2170,13 +2199,13 @@ function initValidation() {
         activeIndex = Math.round(scrollLeft / cardWidth);
       }
 
-      lpCurrentDots.forEach(function (dot, i) {
+      lpCurrentDots.forEach((dot, i) => {
         dot.classList.toggle('active', i === activeIndex);
       });
     });
 
-    lpCurrentDots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
+    lpCurrentDots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
         const cards = lpCurrentList.querySelectorAll('.lp-current-card');
         const cardWidth = cards[0].offsetWidth + 16;
         lpCurrentList.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
@@ -2195,12 +2224,12 @@ function initMyCourses() {
   if (!tabs.length) return;
 
   /* -- Tab switching -- */
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
       const target = tab.getAttribute('data-tab');
 
-      tabs.forEach(function (t) { t.classList.remove('active'); });
-      contents.forEach(function (c) { c.classList.remove('active'); });
+      tabs.forEach((t) => { t.classList.remove('active'); });
+      contents.forEach((c) => { c.classList.remove('active'); });
 
       tab.classList.add('active');
       const panel = document.querySelector('[data-tab-content="' + target + '"]');
@@ -2209,7 +2238,7 @@ function initMyCourses() {
       /* Re-init carousels in newly visible tab */
       if (panel) {
         const carousels = panel.querySelectorAll('.mc-carousel');
-        carousels.forEach(function (carousel) {
+        carousels.forEach((carousel) => {
           initMcCarousel(carousel);
         });
       }
@@ -2220,7 +2249,7 @@ function initMyCourses() {
   const activePanel = document.querySelector('.mc-tab-content.active');
   if (activePanel) {
     const carousels = activePanel.querySelectorAll('.mc-carousel');
-    carousels.forEach(function (carousel) {
+    carousels.forEach((carousel) => {
       initMcCarousel(carousel);
     });
   }
@@ -2237,7 +2266,7 @@ function initMcCarousel(carousel) {
 
   /* Build dots */
   dotsContainer.innerHTML = '';
-  cards.forEach(function (_, i) {
+  cards.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className = 'mc-carousel-dot' + (i === 0 ? ' active' : '');
     dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
@@ -2247,19 +2276,19 @@ function initMcCarousel(carousel) {
   const dots = dotsContainer.querySelectorAll('.mc-carousel-dot');
 
   /* Update active dot on scroll */
-  track.addEventListener('scroll', function () {
+  track.addEventListener('scroll', () => {
     const scrollLeft = track.scrollLeft;
     const cardWidth = cards[0].offsetWidth + 16;
     const activeIndex = Math.round(scrollLeft / cardWidth);
 
-    dots.forEach(function (d, i) {
+    dots.forEach((d, i) => {
       d.classList.toggle('active', i === activeIndex);
     });
   });
 
   /* Dot click scrolls to card */
-  dots.forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
       const cardWidth = cards[0].offsetWidth + 16;
       track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
     });
@@ -2270,19 +2299,19 @@ function initMcCarousel(carousel) {
   let startScroll = 0;
   let isDragging = false;
 
-  track.addEventListener('touchstart', function (e) {
+  track.addEventListener('touchstart', (e) => {
     isDragging = true;
     startX = e.touches[0].pageX;
     startScroll = track.scrollLeft;
   }, { passive: true });
 
-  track.addEventListener('touchmove', function (e) {
+  track.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
     const diff = startX - e.touches[0].pageX;
     track.scrollLeft = startScroll + diff;
   }, { passive: true });
 
-  track.addEventListener('touchend', function () {
+  track.addEventListener('touchend', () => {
     isDragging = false;
     /* Snap to nearest card */
     const cardWidth = cards[0].offsetWidth + 16;
@@ -2307,7 +2336,7 @@ function initBlogCarousel() {
 
   /* Build dots */
   dotsContainer.innerHTML = '';
-  items.forEach(function (_, i) {
+  items.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className = 'rbp-carousel-dot' + (i === 0 ? ' active' : '');
     dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
@@ -2317,18 +2346,18 @@ function initBlogCarousel() {
   const dots = dotsContainer.querySelectorAll('.rbp-carousel-dot');
 
   /* Update active dot on scroll */
-  track.addEventListener('scroll', function () {
+  track.addEventListener('scroll', () => {
     const scrollLeft = track.scrollLeft;
     const cardWidth = items[0].offsetWidth + 16;
     const activeIndex = Math.round(scrollLeft / cardWidth);
-    dots.forEach(function (d, i) {
+    dots.forEach((d, i) => {
       d.classList.toggle('active', i === activeIndex);
     });
   });
 
   /* Dot click */
-  dots.forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
       const cardWidth = items[0].offsetWidth + 16;
       track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
     });
@@ -2339,19 +2368,19 @@ function initBlogCarousel() {
   let startScroll = 0;
   let isDragging = false;
 
-  track.addEventListener('touchstart', function (e) {
+  track.addEventListener('touchstart', (e) => {
     isDragging = true;
     startX = e.touches[0].pageX;
     startScroll = track.scrollLeft;
   }, { passive: true });
 
-  track.addEventListener('touchmove', function (e) {
+  track.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
     const diff = startX - e.touches[0].pageX;
     track.scrollLeft = startScroll + diff;
   }, { passive: true });
 
-  track.addEventListener('touchend', function () {
+  track.addEventListener('touchend', () => {
     isDragging = false;
     const cardWidth = items[0].offsetWidth + 16;
     const index = Math.round(track.scrollLeft / cardWidth);
@@ -2366,8 +2395,8 @@ function initPurchaseSummaryToggles() {
   const toggles = document.querySelectorAll('.purchase-summary-toggle');
   if (!toggles.length) return;
 
-  toggles.forEach(function (btn) {
-    btn.addEventListener('click', function () {
+  toggles.forEach((btn) => {
+    btn.addEventListener('click', () => {
       const content = btn.nextElementSibling;
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
@@ -2386,21 +2415,55 @@ function initPurchaseSummaryToggles() {
    Help & Support — FAQ section
    ============================================ */
 function initHelpSupportFaq() {
-  // Tabs (visual state only)
+  // Tabs — switch Learners / Course Creator panels
   const tabButtons = document.querySelectorAll('.hs-faq-tab');
-  tabButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      tabButtons.forEach(function (b) { b.classList.remove('active'); });
+  tabButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const panel = btn.getAttribute('data-tab');
+      tabButtons.forEach((b) => { b.classList.remove('active'); });
       btn.classList.add('active');
+
+      document.querySelectorAll('.hs-faq-panel-nav').forEach((nav) => {
+        nav.classList.toggle('active', nav.getAttribute('data-panel') === panel);
+      });
+      document.querySelectorAll('.hs-faq-panel-content').forEach((content) => {
+        content.classList.toggle('active', content.getAttribute('data-panel') === panel);
+      });
+
+      // Reset the active panel back to its first sidebar item + first accordion group
+      const activeNav = document.querySelector('.hs-faq-panel-nav.active');
+      if (activeNav) {
+        const navItems = activeNav.querySelectorAll('.hs-faq-sidebar-item');
+        navItems.forEach((i) => { i.classList.remove('active'); });
+        if (navItems.length) navItems[0].classList.add('active');
+      }
+      const activeContent = document.querySelector('.hs-faq-panel-content.active');
+      if (activeContent) {
+        const groups = activeContent.querySelectorAll('.hs-faq-accordion-group');
+        groups.forEach((g) => { g.classList.remove('active'); });
+        if (groups.length) groups[0].classList.add('active');
+      }
+
+      // Collapse any open accordion items when switching tabs
+      document.querySelectorAll('.hs-faq-accordion-group .accordion-item.active').forEach((ai) => {
+        ai.classList.remove('active');
+      });
+
+      // Close mobile sidebar dropdown
+      document.querySelectorAll('.hs-faq-sidebar.open').forEach((s) => {
+        s.classList.remove('open');
+      });
+      const toggle = document.querySelector('.hs-faq-sidebar-toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
     });
   });
 
   // Sidebar items (active state)
   const sidebarItems = document.querySelectorAll('.hs-faq-sidebar-item');
-  sidebarItems.forEach(function (item) {
-    item.addEventListener('click', function (e) {
+  sidebarItems.forEach((item) => {
+    item.addEventListener('click', (e) => {
       e.preventDefault();
-      sidebarItems.forEach(function (i) { i.classList.remove('active'); });
+      sidebarItems.forEach((i) => { i.classList.remove('active'); });
       item.classList.add('active');
 
       const toggleLabel = document.querySelector('.hs-faq-sidebar-toggle span');
@@ -2418,17 +2481,18 @@ function initHelpSupportFaq() {
     });
   });
 
-  // Mobile sidebar dropdown toggle
+  // Mobile sidebar dropdown toggle — targets the currently visible panel nav
   const sidebarToggle = document.querySelector('.hs-faq-sidebar-toggle');
-  const sidebarNav = document.getElementById('faqSidebarNav');
-  if (sidebarToggle && sidebarNav) {
-    sidebarToggle.addEventListener('click', function () {
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener('click', () => {
+      const activeNav = document.querySelector('.hs-faq-panel-nav.active');
+      if (!activeNav) return;
       const isOpen = sidebarToggle.getAttribute('aria-expanded') === 'true';
       if (isOpen) {
-        sidebarNav.classList.remove('open');
+        activeNav.classList.remove('open');
         sidebarToggle.setAttribute('aria-expanded', 'false');
       } else {
-        sidebarNav.classList.add('open');
+        activeNav.classList.add('open');
         sidebarToggle.setAttribute('aria-expanded', 'true');
       }
     });
@@ -2442,7 +2506,7 @@ function initAchievementsCarousel() {
   const carousels = document.querySelectorAll('[data-achievements-carousel]');
   if (!carousels.length) return;
 
-  carousels.forEach(function (carousel) {
+  carousels.forEach((carousel) => {
     const track = carousel.querySelector('.profile-achievements-track');
     const dotsContainer = carousel.querySelector('.profile-achievements-dots');
     const cards = track ? track.querySelectorAll('.profile-achievement-card') : [];
@@ -2450,12 +2514,12 @@ function initAchievementsCarousel() {
 
     // Build dot indicators
     dotsContainer.innerHTML = '';
-    cards.forEach(function (_, i) {
+    cards.forEach((_, i) => {
       const dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'profile-achievement-dot' + (i === 0 ? ' active' : '');
       dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      dot.addEventListener('click', function () {
+      dot.addEventListener('click', () => {
         const card = cards[i];
         if (!card) return;
         track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
@@ -2466,20 +2530,20 @@ function initAchievementsCarousel() {
     const dots = dotsContainer.querySelectorAll('.profile-achievement-dot');
 
     let scrollTimer = null;
-    track.addEventListener('scroll', function () {
+    track.addEventListener('scroll', () => {
       if (scrollTimer) window.cancelAnimationFrame(scrollTimer);
-      scrollTimer = window.requestAnimationFrame(function () {
+      scrollTimer = window.requestAnimationFrame(() => {
         const trackLeft = track.scrollLeft;
         let nearestIndex = 0;
         let nearestDist = Infinity;
-        cards.forEach(function (card, i) {
+        cards.forEach((card, i) => {
           const dist = Math.abs(card.offsetLeft - track.offsetLeft - trackLeft);
           if (dist < nearestDist) {
             nearestDist = dist;
             nearestIndex = i;
           }
         });
-        dots.forEach(function (d, i) {
+        dots.forEach((d, i) => {
           d.classList.toggle('active', i === nearestIndex);
         });
       });
@@ -2514,11 +2578,11 @@ function initUserProfileCurrentCourses() {
       nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
     }
 
-    prevBtn.addEventListener('click', function () {
+    prevBtn.addEventListener('click', () => {
       track.scrollBy({ left: -getStep(), behavior: 'smooth' });
     });
 
-    nextBtn.addEventListener('click', function () {
+    nextBtn.addEventListener('click', () => {
       track.scrollBy({ left: getStep(), behavior: 'smooth' });
     });
 
