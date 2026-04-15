@@ -3,38 +3,56 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbar();
-  initAuthModals();
-  initAuthState();
-  initDropdowns();
-  initAccordions();
-  initHelpSupportSidebar();
-  initMobileFaqAccordion();
-  initTabs();
-  initCarousels();
-  initPasswordToggles();
-  initProgressRings();
-  initStarRating();
-  initNumberRating();
-  initFileUploads();
-  initCatalogueFilters();
-  initFilterDropdowns();
-  initCartInteractions();
-  initCalendar();
-  initSmoothScroll();
-  initMobileCourseSidebar();
-  initPromoCountdown();
-  initHeroSlider();
-  initProgramTabs();
-  initValidation();
-  initMyCourses();
-  initBlogCarousel();
-  initPurchaseSummaryToggles();
-  initHelpSupportFaq();
-  initAchievementsCarousel();
-  initUserProfileCurrentCourses();
-  initEditDetailsModal();
-  initCareerPath();
+  const inits = [
+    initNavbar,
+    initAuthModals,
+    initAuthState,
+    initDropdowns,
+    initAccordions,
+    initLearnShowMore,
+    initSkillsShowMore,
+    initInstructorBioShowMore,
+    initHelpSupportSidebar,
+    initMobileFaqAccordion,
+    initTabs,
+    initCarousels,
+    initPasswordToggles,
+    initProgressRings,
+    initStarRating,
+    initNumberRating,
+    initFileUploads,
+    initCatalogueFilters,
+    initFilterDropdowns,
+    initCartInteractions,
+    initCalendar,
+    initSmoothScroll,
+    initMobileCourseSidebar,
+    initPromoCountdown,
+    initHeroSlider,
+    initProgramTabs,
+    initValidation,
+    initMyCourses,
+    initBlogCarousel,
+    initPurchaseSummaryToggles,
+    initHelpSupportFaq,
+    initAchievementsCarousel,
+    initUserProfileCurrentCourses,
+    initAvatarUpload,
+    initVerifyIdUpload,
+    initEditDetailsModal,
+    initCareerPath,
+    initIdTypeDropdown,
+    initDobPicker,
+    initVideoModal,
+    initCoursePlayer,
+    initAssignmentPage,
+    initAssignGradesAccordion,
+    initNnpcPageTabs,
+  ];
+
+  inits.forEach((fn) => {
+    try { fn(); } catch (e) { console.error(`${fn.name} failed:`, e); }
+  });
 });
 
 /* ============================================
@@ -207,7 +225,7 @@ function initAuthState() {
       e.preventDefault();
       if (!Validator.validateForm(form)) return;
       localStorage.setItem('pm4s_logged_in', 'true');
-      window.location.href = this.getAttribute('data-redirect') || 'dashboard.html';
+      window.location.href = 'user-profile.html';
     });
   });
 
@@ -416,6 +434,72 @@ function initAccordions() {
     header.addEventListener('click', function () {
       const module = this.closest('.module-item');
       module.classList.toggle('active');
+    });
+  });
+}
+
+/* ============================================
+   4b. Learn Show More Toggle
+   ============================================ */
+function initLearnShowMore() {
+  const toggleBtns = document.querySelectorAll('.learn-show-more');
+  if (!toggleBtns.length) return;
+
+  toggleBtns.forEach((btn) => {
+    const grid = btn.previousElementSibling;
+    if (!grid) return;
+
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.classList.contains('expanded');
+      btn.classList.toggle('expanded');
+      grid.setAttribute('data-collapsed', isExpanded ? 'true' : 'false');
+      btn.innerHTML = isExpanded
+        ? 'Show more <i class="bi bi-chevron-down"></i>'
+        : 'Show less <i class="bi bi-chevron-down"></i>';
+    });
+  });
+}
+
+/* ============================================
+   4c. Skills Show More Toggle
+   ============================================ */
+function initSkillsShowMore() {
+  const toggleBtns = document.querySelectorAll('.skills-show-more');
+  if (!toggleBtns.length) return;
+
+  toggleBtns.forEach((btn) => {
+    const grid = btn.previousElementSibling;
+    if (!grid) return;
+
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.classList.contains('expanded');
+      btn.classList.toggle('expanded');
+      grid.setAttribute('data-collapsed', isExpanded ? 'true' : 'false');
+      btn.innerHTML = isExpanded
+        ? 'Show more <i class="bi bi-chevron-down"></i>'
+        : 'Show less <i class="bi bi-chevron-down"></i>';
+    });
+  });
+}
+
+/* ============================================
+   4d. Instructor Bio Show More Toggle
+   ============================================ */
+function initInstructorBioShowMore() {
+  const toggleBtns = document.querySelectorAll('.instructor-bio-show-more');
+  if (!toggleBtns.length) return;
+
+  toggleBtns.forEach((btn) => {
+    const bioText = btn.previousElementSibling;
+    if (!bioText) return;
+
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.classList.contains('expanded');
+      btn.classList.toggle('expanded');
+      bioText.setAttribute('data-collapsed', isExpanded ? 'true' : 'false');
+      btn.innerHTML = isExpanded
+        ? 'Show more <i class="bi bi-chevron-down"></i>'
+        : 'Show less <i class="bi bi-chevron-down"></i>';
     });
   });
 }
@@ -2706,6 +2790,71 @@ function initUserProfileCurrentCourses() {
 /* ============================================
    Edit Details Modal (edit-profile.html)
    ============================================ */
+/* ============================================
+   Avatar Upload Preview (edit-profile.html)
+   ============================================ */
+function initAvatarUpload() {
+  const input = document.getElementById('avatar-upload');
+  if (!input) return;
+
+  const img = input.closest('.profile-avatar-upload').querySelector('img');
+  const hintEl = input.closest('.profile-avatar-card').querySelector('.profile-avatar-size-hint');
+  const MAX_SIZE = 2 * 1024 * 1024; // 2MB
+
+  input.addEventListener('change', () => {
+    const file = input.files[0];
+    if (!file) return;
+
+    if (file.size > MAX_SIZE) {
+      hintEl.textContent = 'File exceeds 2MB. Please choose a smaller image.';
+      hintEl.classList.add('upload-error');
+      input.value = '';
+      return;
+    }
+
+    hintEl.textContent = 'Maximum Size: 2MB';
+    hintEl.classList.remove('upload-error');
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function initVerifyIdUpload() {
+  const input = document.getElementById('verify-id-file');
+  if (!input) return;
+
+  const circle = input.closest('.verify-id-upload').querySelector('.verify-id-upload-circle');
+  const preview = circle.querySelector('.verify-id-preview');
+  const hintEl = input.closest('.verify-id-upload').querySelector('.verify-id-size-hint');
+  const MAX_SIZE = 2 * 1024 * 1024; // 2MB
+
+  input.addEventListener('change', () => {
+    const file = input.files[0];
+    if (!file) return;
+
+    if (file.size > MAX_SIZE) {
+      hintEl.textContent = 'File exceeds 2MB. Please choose a smaller image.';
+      hintEl.classList.add('upload-error');
+      input.value = '';
+      return;
+    }
+
+    hintEl.textContent = 'Maximum Size: 2MB';
+    hintEl.classList.remove('upload-error');
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      preview.src = e.target.result;
+      circle.classList.add('has-preview');
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
 function initEditDetailsModal() {
   const editBtn = document.querySelector('.profile-edit-btn');
   const overlay = document.getElementById('editDetailsModal');
@@ -2779,11 +2928,15 @@ function initEditDetailsModal() {
    Career Path Select (edit-profile.html)
    ============================================ */
 function initCareerPath() {
-  const select = document.getElementById('career-select');
+  const hiddenInput = document.getElementById('career-select');
   const tagWrap = document.querySelector('.career-tag-wrap');
   const selectedText = document.querySelector('.career-selected-text');
+  const dropdown = document.querySelector('.career-select-wrap [data-id-type-dropdown]');
 
-  if (!select || !tagWrap || !selectedText) return;
+  if (!hiddenInput || !tagWrap || !selectedText || !dropdown) return;
+
+  const options = dropdown.querySelectorAll('.id-type-dropdown-options li');
+  const valueSpan = dropdown.querySelector('.id-type-dropdown-value');
 
   const updateDisplay = (value, label) => {
     if (value) {
@@ -2794,6 +2947,10 @@ function initCareerPath() {
       selectedText.innerHTML = `Selected career: <strong>${label}</strong>`;
       tagWrap.style.display = '';
       selectedText.style.display = '';
+      // Reset dropdown display
+      valueSpan.textContent = 'Select career choice';
+      valueSpan.classList.add('is-placeholder');
+      options.forEach((o) => o.classList.remove('selected'));
       attachRemoveHandler();
     } else {
       tagWrap.style.display = 'none';
@@ -2805,17 +2962,435 @@ function initCareerPath() {
     const removeBtn = tagWrap.querySelector('.career-tag-remove');
     if (removeBtn) {
       removeBtn.addEventListener('click', () => {
-        select.value = '';
+        hiddenInput.value = '';
         tagWrap.style.display = 'none';
         selectedText.style.display = 'none';
+        valueSpan.textContent = 'Select career choice';
+        valueSpan.classList.add('is-placeholder');
       });
     }
   };
 
-  select.addEventListener('change', () => {
-    const selectedOption = select.options[select.selectedIndex];
-    updateDisplay(select.value, selectedOption.text);
+  // Listen for option clicks within the career dropdown
+  options.forEach((option) => {
+    option.addEventListener('click', () => {
+      const value = option.getAttribute('data-value');
+      const label = option.textContent;
+      hiddenInput.value = value;
+      updateDisplay(value, label);
+    });
   });
 
   attachRemoveHandler();
+}
+
+/* ============================================
+   Custom Select Dropdowns
+   ============================================ */
+function initIdTypeDropdown() {
+  const selects = document.querySelectorAll('[data-id-type-dropdown]');
+
+  selects.forEach((wrapper) => {
+    const trigger = wrapper.querySelector('.id-type-dropdown-trigger');
+    const valueSpan = wrapper.querySelector('.id-type-dropdown-value');
+    const options = wrapper.querySelectorAll('.id-type-dropdown-options li');
+    const hiddenInput = wrapper.parentElement.querySelector('input[type="hidden"]');
+
+    if (!trigger || !valueSpan || !options.length) return;
+
+    valueSpan.classList.add('is-placeholder');
+
+    trigger.addEventListener('click', () => {
+      // Close all other custom selects
+      document.querySelectorAll('[data-id-type-dropdown].open').forEach((other) => {
+        if (other !== wrapper) other.classList.remove('open');
+      });
+      wrapper.classList.toggle('open');
+    });
+
+    options.forEach((option) => {
+      option.addEventListener('click', () => {
+        const value = option.getAttribute('data-value');
+        const label = option.textContent;
+
+        valueSpan.textContent = label;
+        valueSpan.classList.remove('is-placeholder');
+        if (hiddenInput) hiddenInput.value = value;
+
+        options.forEach((o) => o.classList.remove('selected'));
+        option.classList.add('selected');
+
+        wrapper.classList.remove('open');
+      });
+    });
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-id-type-dropdown]')) {
+      document.querySelectorAll('[data-id-type-dropdown].open').forEach((s) => {
+        s.classList.remove('open');
+      });
+    }
+  });
+}
+
+/* ============================================
+   Date of Birth Picker (edit-profile.html)
+   ============================================ */
+function initDobPicker() {
+  const pickers = document.querySelectorAll('[data-dob-picker]');
+  if (!pickers.length) return;
+
+  const MONTHS = [
+    { value: '01', label: 'Jan' },
+    { value: '02', label: 'Feb' },
+    { value: '03', label: 'Mar' },
+    { value: '04', label: 'Apr' },
+    { value: '05', label: 'May' },
+    { value: '06', label: 'Jun' },
+    { value: '07', label: 'Jul' },
+    { value: '08', label: 'Aug' },
+    { value: '09', label: 'Sep' },
+    { value: '10', label: 'Oct' },
+    { value: '11', label: 'Nov' },
+    { value: '12', label: 'Dec' }
+  ];
+
+  pickers.forEach((picker) => {
+    const trigger = picker.querySelector('.dob-picker-trigger');
+    const valueSpan = picker.querySelector('.dob-picker-value');
+    const hiddenInput = picker.parentElement.querySelector('input[type="hidden"]');
+    const dayList = picker.querySelector('[data-dob-day]');
+    const monthList = picker.querySelector('[data-dob-month]');
+    const yearList = picker.querySelector('[data-dob-year]');
+    const doneBtn = picker.querySelector('.dob-picker-done');
+
+    let selectedDay = '';
+    let selectedMonth = '';
+    let selectedYear = '';
+
+    // Populate days
+    for (let d = 1; d <= 31; d++) {
+      const li = document.createElement('li');
+      li.dataset.value = String(d).padStart(2, '0');
+      li.textContent = d;
+      dayList.appendChild(li);
+    }
+
+    // Populate months
+    MONTHS.forEach((m) => {
+      const li = document.createElement('li');
+      li.dataset.value = m.value;
+      li.textContent = m.label;
+      monthList.appendChild(li);
+    });
+
+    // Populate years
+    const currentYear = new Date().getFullYear();
+    for (let y = currentYear; y >= 1930; y--) {
+      const li = document.createElement('li');
+      li.dataset.value = String(y);
+      li.textContent = y;
+      yearList.appendChild(li);
+    }
+
+    // Pre-select from existing hidden input value (YYYY-MM-DD)
+    if (hiddenInput && hiddenInput.value) {
+      const parts = hiddenInput.value.split('-');
+      if (parts.length === 3) {
+        selectedYear = parts[0];
+        selectedMonth = parts[1];
+        selectedDay = parts[2];
+
+        dayList.querySelectorAll('li').forEach((li) => {
+          if (li.dataset.value === selectedDay) li.classList.add('selected');
+        });
+        monthList.querySelectorAll('li').forEach((li) => {
+          if (li.dataset.value === selectedMonth) li.classList.add('selected');
+        });
+        yearList.querySelectorAll('li').forEach((li) => {
+          if (li.dataset.value === selectedYear) li.classList.add('selected');
+        });
+      }
+    }
+
+    // Click handler for list items
+    const wireList = (list, onSelect) => {
+      list.addEventListener('click', (e) => {
+        const li = e.target.closest('li');
+        if (!li) return;
+        list.querySelectorAll('li').forEach((item) => item.classList.remove('selected'));
+        li.classList.add('selected');
+        onSelect(li.dataset.value);
+      });
+    };
+
+    wireList(dayList, (val) => { selectedDay = val; });
+    wireList(monthList, (val) => {
+      selectedMonth = val;
+      updateDays();
+    });
+    wireList(yearList, (val) => {
+      selectedYear = val;
+      updateDays();
+    });
+
+    // Update valid days based on month/year
+    const updateDays = () => {
+      const month = parseInt(selectedMonth, 10);
+      const year = parseInt(selectedYear, 10);
+      if (month && year) {
+        const daysInMonth = new Date(year, month, 0).getDate();
+        dayList.querySelectorAll('li').forEach((li) => {
+          const dayNum = parseInt(li.dataset.value, 10);
+          li.style.display = dayNum > daysInMonth ? 'none' : '';
+        });
+        if (parseInt(selectedDay, 10) > daysInMonth) {
+          selectedDay = '';
+          dayList.querySelectorAll('li').forEach((li) => li.classList.remove('selected'));
+        }
+      }
+    };
+
+    // Toggle panel
+    trigger.addEventListener('click', () => {
+      // Close all other pickers
+      pickers.forEach((other) => {
+        if (other !== picker) other.classList.remove('open');
+      });
+      picker.classList.toggle('open');
+    });
+
+    // Done button
+    doneBtn.addEventListener('click', () => {
+      if (selectedDay && selectedMonth && selectedYear) {
+        const monthLabel = MONTHS.find((m) => m.value === selectedMonth).label;
+        const formatted = `${selectedDay}-${monthLabel}-${selectedYear}`;
+        valueSpan.textContent = formatted;
+        valueSpan.classList.remove('is-placeholder');
+        if (hiddenInput) hiddenInput.value = `${selectedYear}-${selectedMonth}-${selectedDay}`;
+      }
+      picker.classList.remove('open');
+    });
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-dob-picker]')) {
+      pickers.forEach((p) => p.classList.remove('open'));
+    }
+  });
+}
+
+/* ============================================
+   Video Preview Modal
+   ============================================ */
+function initVideoModal() {
+  const overlay = document.getElementById('video-modal');
+  if (!overlay) return;
+
+  const video = document.getElementById('video-modal-player');
+  const titleEl = overlay.querySelector('.video-modal-title');
+  const closeBtn = overlay.querySelector('.video-modal-close');
+  const playBtns = document.querySelectorAll('[data-video-src]');
+
+  if (!playBtns.length) return;
+
+  let activePlayBtn = null;
+
+  const openModal = (src, title, btn) => {
+    video.src = src;
+    titleEl.textContent = title;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    activePlayBtn = btn;
+    btn.style.display = 'none';
+    video.play();
+  };
+
+  const closeModal = () => {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    video.pause();
+    video.currentTime = 0;
+    video.removeAttribute('src');
+    video.load();
+    if (activePlayBtn) {
+      activePlayBtn.style.display = '';
+      activePlayBtn = null;
+    }
+  };
+
+  playBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const src = btn.getAttribute('data-video-src');
+      const courseTitle = document.querySelector('.course-details-header h1');
+      const title = courseTitle ? courseTitle.textContent : '';
+      openModal(src, title, btn);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+}
+
+/* ============================================
+   Course Player
+   ============================================ */
+function initCoursePlayer() {
+  const playerPage = document.querySelector('.course-player-page');
+  if (!playerPage) return;
+
+  /* Clone sidebar modules into mobile Course Content tab */
+  const mobileContentTab = document.getElementById('tab-mobile-course-content');
+  const sidebarModules = document.querySelector('.course-sidebar-modules');
+
+  if (mobileContentTab && sidebarModules) {
+    const clone = sidebarModules.cloneNode(true);
+    clone.classList.add('mobile-modules-wrap');
+    mobileContentTab.appendChild(clone);
+
+    /* Wire up module accordion on cloned elements */
+    clone.querySelectorAll('.module-header').forEach((header) => {
+      header.addEventListener('click', () => {
+        const moduleItem = header.closest('.module-item');
+        moduleItem.classList.toggle('active');
+      });
+    });
+  }
+
+  /* Mirror lecture note content into mobile tab */
+  const desktopLectureNote = document.getElementById('tab-lecture-note');
+  const mobileLectureNote = document.getElementById('tab-mobile-lecture-note');
+
+  if (desktopLectureNote && mobileLectureNote) {
+    mobileLectureNote.innerHTML = desktopLectureNote.innerHTML;
+
+    /* Re-wire file upload in cloned content */
+    mobileLectureNote.querySelectorAll('.file-upload-btn input[type="file"]').forEach((input) => {
+      input.addEventListener('change', (e) => {
+        const fileName = e.target.files[0]?.name;
+        if (fileName) {
+          const label = input.closest('.file-upload-btn');
+          label.textContent = fileName;
+          label.appendChild(input);
+        }
+      });
+    });
+  }
+
+  /* Mirror discussion content into mobile tab */
+  const desktopDiscussion = document.getElementById('tab-discussion');
+  const mobileDiscussion = document.getElementById('tab-mobile-discussion');
+
+  if (desktopDiscussion && mobileDiscussion) {
+    mobileDiscussion.innerHTML = desktopDiscussion.innerHTML;
+  }
+
+  /* Tabs are handled by the generic initTabs() via data-tabs attributes */
+
+  /* File upload display name */
+  document.querySelectorAll('.file-upload-btn input[type="file"]').forEach((input) => {
+    input.addEventListener('change', (e) => {
+      const fileName = e.target.files[0]?.name;
+      if (fileName) {
+        const label = input.closest('.file-upload-btn');
+        label.textContent = fileName;
+        label.appendChild(input);
+      }
+    });
+  });
+}
+
+/* ============================================
+   Course Player — Assignment Page
+   ============================================ */
+function initAssignmentPage() {
+  const assignmentOverview = document.querySelector('.assignment-overview');
+  if (!assignmentOverview) return;
+
+  /* Clone assignment overview content into mobile Assignment tab */
+  const mobileAssignmentTab = document.getElementById('tab-mobile-assignment-main');
+
+  if (mobileAssignmentTab) {
+    const clone = assignmentOverview.cloneNode(true);
+    mobileAssignmentTab.appendChild(clone);
+  }
+
+  /* Wire up module accordion on mobile sidebar modules */
+  const mobileSidebarTab = document.getElementById('tab-mobile-assignment-sidebar');
+
+  if (mobileSidebarTab) {
+    mobileSidebarTab.querySelectorAll('.module-header').forEach((header) => {
+      header.addEventListener('click', () => {
+        const moduleItem = header.closest('.module-item');
+        moduleItem.classList.toggle('active');
+      });
+    });
+  }
+}
+
+/* ============================================
+   Assignment Grades Accordion
+   ============================================ */
+function initAssignGradesAccordion() {
+  const section = document.querySelector('.assign-grades-section');
+  if (!section) return;
+
+  section.addEventListener('click', (e) => {
+    const header = e.target.closest('[data-toggle="assign-grade-expand"]');
+    if (!header) return;
+
+    /* Ignore clicks on the download button */
+    if (e.target.closest('.assign-grades-download')) return;
+
+    const card = header.closest('.assign-grades-card');
+    const isActive = card.classList.contains('active');
+
+    /* Close all cards */
+    section.querySelectorAll('.assign-grades-card.active').forEach((c) => {
+      c.classList.remove('active');
+    });
+
+    /* Toggle clicked card if it wasn't already open */
+    if (!isActive) {
+      card.classList.add('active');
+    }
+  });
+}
+
+/* ============================================
+   NNPC Tech — Top-Level Page Tabs
+   ============================================ */
+function initNnpcPageTabs() {
+  const tabs = document.querySelectorAll('.nnpc-page-tab');
+  const panels = document.querySelectorAll('.nnpc-panel');
+
+  if (!tabs.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = tab.getAttribute('data-nnpc-tab');
+
+      tabs.forEach((t) => { t.classList.remove('active'); });
+      panels.forEach((p) => { p.classList.remove('active'); });
+
+      tab.classList.add('active');
+      const panel = document.querySelector('[data-nnpc-panel="' + target + '"]');
+      if (panel) panel.classList.add('active');
+    });
+  });
 }

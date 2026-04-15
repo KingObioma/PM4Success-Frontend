@@ -7,7 +7,7 @@
   <title>PM4Success - Profile & Settings</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -86,14 +86,14 @@
       <div class="switch-account-panel">
         <div class="switch-account-section">
           <h6 class="switch-account-heading">NNPC Tech Scholarship</h6>
-          <a href="#" class="switch-account-item">
+          <a href="NNPC-tech.html" class="switch-account-item">
             <img src="assets/images/logo.png" alt="NNPC Tech Career Academy">
             <span>NNPC Tech Career  Academy</span>
           </a>
         </div>
         <div class="switch-account-section">
           <h6 class="switch-account-heading">Explore PM4Success</h6>
-          <a href="#" class="switch-account-item active">
+          <a href="index.html" class="switch-account-item active">
             <img src="assets/images/logo-white.png" alt="PM4Success">
             <div>
               <span>PM4Success</span>
@@ -143,8 +143,8 @@
     <!-- Logged in: Switch Account -->
     <div class="mobile-switch-account navbar-logged-in">
       <p class="mobile-switch-label">Switch Account</p>
-      <a href="#" class="mobile-switch-item">NNPC Tech Scholarship</a>
-      <a href="#" class="mobile-switch-item active">Explore PM4Success</a>
+      <a href="NNPC-tech.html" class="mobile-switch-item">NNPC Tech Scholarship</a>
+      <a href="index.html" class="mobile-switch-item active">Explore PM4Success</a>
     </div>
 
     <!-- User Menu Sub-Panel (logged-in only) -->
@@ -253,15 +253,21 @@
               </div>
               <p class="career-selected-text">Selected career: <strong>Data Analytics</strong></p>
               <div class="career-select-wrap">
-                <select class="form-select" id="career-select" aria-label="Select career choice">
-                  <option value="">Select career choice</option>
-                  <option value="data-analytics" selected>Data Analytics</option>
-                  <option value="data-science">Data Science</option>
-                  <option value="machine-learning">Machine Learning</option>
-                  <option value="software-development">Software Development</option>
-                  <option value="ui-ux-design">UI/UX Design</option>
-                  <option value="project-management">Project Management</option>
-                </select>
+                <input type="hidden" name="career-path" id="career-select" value="data-analytics">
+                <div class="id-type-dropdown" data-id-type-dropdown>
+                  <div class="id-type-dropdown-trigger">
+                    <span class="id-type-dropdown-value">Select career choice</span>
+                    <i class="bi bi-chevron-down"></i>
+                  </div>
+                  <ul class="id-type-dropdown-options">
+                    <li data-value="data-analytics">Data Analytics</li>
+                    <li data-value="data-science">Data Science</li>
+                    <li data-value="machine-learning">Machine Learning</li>
+                    <li data-value="software-development">Software Development</li>
+                    <li data-value="ui-ux-design">UI/UX Design</li>
+                    <li data-value="project-management">Project Management</li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -282,24 +288,52 @@
                     <input type="text" class="form-control" id="verify-fullname" placeholder="Enter your full name">
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label" for="verify-dob">Date of birth</label>
-                    <select class="form-select" id="verify-dob">
-                      <option value="">Select your date of birth</option>
-                    </select>
+                    <label class="form-label">Date of birth</label>
+                    <input type="hidden" name="date-of-birth" id="verify-dob" value="">
+                    <div class="dob-picker" data-dob-picker>
+                      <div class="dob-picker-trigger">
+                        <span class="dob-picker-value is-placeholder">Select your date of birth</span>
+                        <i class="bi bi-chevron-down"></i>
+                      </div>
+                      <div class="dob-picker-panel">
+                        <div class="dob-picker-selects">
+                          <div class="dob-picker-col">
+                            <label class="dob-picker-label">Day</label>
+                            <ul class="dob-picker-list" data-dob-day></ul>
+                          </div>
+                          <div class="dob-picker-col">
+                            <label class="dob-picker-label">Month</label>
+                            <ul class="dob-picker-list" data-dob-month></ul>
+                          </div>
+                          <div class="dob-picker-col">
+                            <label class="dob-picker-label">Year</label>
+                            <ul class="dob-picker-list" data-dob-year></ul>
+                          </div>
+                        </div>
+                        <button type="button" class="dob-picker-done">Done</button>
+                      </div>
+                    </div>
                   </div>
                   <div class="col-12">
-                    <label class="form-label" for="verify-id-type">ID card type</label>
-                    <select class="form-select" id="verify-id-type">
-                      <option value="">Select ID Type</option>
-                      <option value="passport">Passport</option>
-                      <option value="national-id">National ID</option>
-                      <option value="drivers-license">Driver's License</option>
-                    </select>
+                    <label class="form-label">ID card type</label>
+                    <input type="hidden" name="id-card-type" id="verify-id-type" value="">
+                    <div class="id-type-dropdown" data-id-type-dropdown>
+                      <div class="id-type-dropdown-trigger">
+                        <span class="id-type-dropdown-value">Select ID Type</span>
+                        <i class="bi bi-chevron-down"></i>
+                      </div>
+                      <ul class="id-type-dropdown-options">
+                        <li data-value="passport">International Passport</li>
+                        <li data-value="national-id">National ID</li>
+                        <li data-value="drivers-license">Driver's License</li>
+                      </ul>
+                    </div>
                   </div>
                   <div class="col-12">
                     <div class="verify-id-upload">
                       <label for="verify-id-file" class="verify-id-upload-circle">
                         <i class="bi bi-camera-fill"></i>
+                        <img class="verify-id-preview" alt="ID Preview">
                       </label>
                       <input type="file" id="verify-id-file" accept="image/*" hidden>
                       <p class="verify-id-size-hint">Maximum Size: 2MB</p>
@@ -374,8 +408,31 @@
           <input type="text" class="form-control" id="edit-address" value="9, hilary street, Ikorodu off Island." placeholder="Enter your address">
         </div>
         <div class="edit-details-field">
-          <label class="form-label" for="edit-dob">Date of Birth</label>
-          <input type="text" class="form-control" id="edit-dob" value="08/Aug/1999" placeholder="Select date of birth">
+          <label class="form-label">Date of Birth</label>
+          <input type="hidden" id="edit-dob" value="1999-08-08">
+          <div class="dob-picker" data-dob-picker>
+            <div class="dob-picker-trigger">
+              <span class="dob-picker-value">08-Aug-1999</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="dob-picker-panel">
+              <div class="dob-picker-selects">
+                <div class="dob-picker-col">
+                  <label class="dob-picker-label">Day</label>
+                  <ul class="dob-picker-list" data-dob-day></ul>
+                </div>
+                <div class="dob-picker-col">
+                  <label class="dob-picker-label">Month</label>
+                  <ul class="dob-picker-list" data-dob-month></ul>
+                </div>
+                <div class="dob-picker-col">
+                  <label class="dob-picker-label">Year</label>
+                  <ul class="dob-picker-list" data-dob-year></ul>
+                </div>
+              </div>
+              <button type="button" class="dob-picker-done">Done</button>
+            </div>
+          </div>
         </div>
         <div class="edit-details-field">
           <label class="form-label" for="edit-gender">Gender</label>

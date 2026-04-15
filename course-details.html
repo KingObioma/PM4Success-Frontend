@@ -7,7 +7,7 @@
   <title>Introduction to Data Science and Statistic Methodology - PM4Success</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -88,14 +88,14 @@
       <div class="switch-account-panel">
         <div class="switch-account-section">
           <h6 class="switch-account-heading">NNPC Tech Scholarship</h6>
-          <a href="#" class="switch-account-item">
+          <a href="NNPC-tech.html" class="switch-account-item">
             <img src="assets/images/logo.png" alt="NNPC Tech Career Academy">
             <span>NNPC Tech Career  Academy</span>
           </a>
         </div>
         <div class="switch-account-section">
           <h6 class="switch-account-heading">Explore PM4Success</h6>
-          <a href="#" class="switch-account-item active">
+          <a href="index.html" class="switch-account-item active">
             <img src="assets/images/logo-white.png" alt="PM4Success">
             <div>
               <span>PM4Success</span>
@@ -145,8 +145,8 @@
     <!-- Logged in: Switch Account -->
     <div class="mobile-switch-account navbar-logged-in">
       <p class="mobile-switch-label">Switch Account</p>
-      <a href="#" class="mobile-switch-item">NNPC Tech Scholarship</a>
-      <a href="#" class="mobile-switch-item active">Explore PM4Success</a>
+      <a href="NNPC-tech.html" class="mobile-switch-item">NNPC Tech Scholarship</a>
+      <a href="index.html" class="mobile-switch-item active">Explore PM4Success</a>
     </div>
 
     <!-- User Menu Sub-Panel (logged-in only) -->
@@ -194,7 +194,7 @@
       <div class="row g-4">
 
         <!-- Left: Main Content -->
-        <div class="col-lg-8">
+        <div class="col-lg-8 order-2 order-lg-1">
 
           <!-- Course Header -->
           <div class="course-details-header">
@@ -233,310 +233,894 @@
               </div>
               <div class="course-meta-item">
                 <span class="course-meta-label">Admission fee</span>
-                <span class="course-meta-value">#54,000</span>
+                <span class="course-meta-value">₦54,000</span>
               </div>
             </div>
           </div>
 
           <!-- What You'll Learn -->
-          <div class="learn-box">
+          <div class="learn-section">
             <h3>What you'll learn</h3>
-            <ul class="learn-list">
-              <li>Understand the fundamentals of data science, including data collection, cleaning, and exploratory data analysis techniques.</li>
-              <li>Apply statistical methods such as hypothesis testing, regression analysis, and probability distributions to real-world datasets.</li>
-              <li>Build and evaluate predictive models using Python and popular data science libraries like Pandas, NumPy, and Scikit-learn.</li>
-              <li>Communicate data-driven insights effectively through compelling visualizations and well-structured reports.</li>
-              <li>Develop a portfolio-ready capstone project that demonstrates your ability to solve business problems with data.</li>
-            </ul>
+            <div class="learn-grid" data-collapsed="true">
+              <div class="learn-grid-item">
+                <i class="bi bi-check2"></i>
+                <span>Understand The Core Concepts, Scope, And Applications Of Data Science In Various Industries.</span>
+              </div>
+              <div class="learn-grid-item">
+                <i class="bi bi-check2"></i>
+                <span>Learn How To Present Data Using Charts, Graphs, And Other Visual Aids To Effectively Communicate Insights.</span>
+              </div>
+              <div class="learn-grid-item">
+                <i class="bi bi-check2"></i>
+                <span>Learn How To Clean, Organize, And Prepare Raw Data For Analysis, Ensuring Accuracy And Consistency.</span>
+              </div>
+              <div class="learn-grid-item">
+                <i class="bi bi-check2"></i>
+                <span>Learn To Formulate And Test Hypotheses, Understand P-Values, And Interpret The Results To Make Data-Driven Decisions.</span>
+              </div>
+              <div class="learn-grid-item">
+                <i class="bi bi-check2"></i>
+                <span>Gain Insights Into Data Trends, Patterns, And Relationships Using Visual Tools Like Histograms, Scatter Plots, And Box Plots.</span>
+              </div>
+              <div class="learn-grid-item">
+                <i class="bi bi-check2"></i>
+                <span>Explore Linear And Multiple Regression Models To Identify Relationships Between Variables And Predict Outcomes.</span>
+              </div>
+            </div>
+            <button class="learn-show-more" data-target="learn-grid">Show more <i class="bi bi-chevron-down"></i></button>
           </div>
 
           <!-- Skills You'll Gain -->
           <div class="skills-section">
             <h3>Skills you'll gain</h3>
-            <div class="skills-tags mt-3">
-              <span class="tag tag-primary">Data Analysis</span>
-              <span class="tag tag-primary">Statistics</span>
-              <span class="tag tag-primary">Data Science</span>
-              <span class="tag tag-primary">Python basics</span>
-              <span class="tag tag-primary">Data Modeling</span>
-              <span class="tag tag-primary">Probability</span>
-              <span class="tag tag-primary">Communication</span>
-              <span class="tag tag-primary">Data Visualization</span>
-              <span class="tag tag-primary">Applied Math</span>
+            <div class="skills-tags" data-collapsed="true">
+              <span class="skill-tag">Data Cleaning</span>
+              <span class="skill-tag">Statistical Analysis</span>
+              <span class="skill-tag">Data Visualization</span>
+              <span class="skill-tag">Hypothesis Testing</span>
+              <span class="skill-tag">Regression Modeling</span>
+              <span class="skill-tag">Problem-solving</span>
+              <span class="skill-tag">Tool Proficiency</span>
+              <span class="skill-tag">Machine Learning Basics</span>
+              <span class="skill-tag">Data Communication</span>
+              <span class="skill-tag">Regression Modeling</span>
             </div>
+            <button class="skills-show-more" data-target=".skills-tags">
+              Show more <i class="bi bi-chevron-down"></i>
+            </button>
           </div>
 
           <!-- Course Content -->
-          <div class="mb-4">
-            <h3 class="mb-3">Course content</h3>
-
-            <!-- Module 1 -->
-            <div class="accordion-item active">
-              <button class="accordion-header">
-                <span>Module 1: Introduction to Data Science</span>
-                <i class="bi bi-chevron-down"></i>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <ul class="learn-list">
-                    <li>What is Data Science?</li>
-                    <li>The Data Science Lifecycle</li>
-                    <li>Types Of Data</li>
-                    <li>Overview of Tools and Technologies</li>
-                  </ul>
-                </div>
+          <div class="course-content-section">
+            <h3>Course content</h3>
+            <div class="course-content-meta">
+              <div class="course-content-stats">
+                <span>12 Sections</span>
+                <span class="meta-divider">|</span>
+                <span>120 Lectures</span>
+                <span class="meta-divider">|</span>
+                <span>55h 10m total length</span>
               </div>
+              <a href="#" class="course-preview-link">Preview Course</a>
             </div>
 
-            <!-- Module 2 -->
-            <div class="accordion-item">
-              <button class="accordion-header">
-                <span>Module 2: Foundations of Statistics</span>
-                <i class="bi bi-chevron-down"></i>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <ul class="learn-list">
-                    <li>Descriptive Statistics and Data Summarization</li>
-                    <li>Probability Distributions</li>
-                    <li>Hypothesis Testing and Confidence Intervals</li>
-                    <li>Correlation and Regression Basics</li>
-                  </ul>
+            <div class="course-modules" data-single-open>
+              <!-- Module 1 -->
+              <div class="accordion-item active">
+                <button class="accordion-header">
+                  <span>Module 1: Introduction to Data Science</span>
+                  <i class="bi bi-plus"></i>
+                </button>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">What Is Data Science?</a>
+                      <span class="lesson-duration">01:57</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">The Data Science Lifecycle</a>
+                      <span class="lesson-duration">05:43</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Types Of Data</a>
+                      <span class="lesson-duration">02:43</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Key Roles In Data Science</a>
+                      <span class="lesson-duration">12:03</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Introduction To Big Data</a>
+                      <span class="lesson-duration">09:04</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Applications Of Data Science</a>
+                      <span class="lesson-duration">02:04</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Ethics In Data Science</a>
+                      <span class="lesson-duration">20:19</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Tools For Data Science</a>
+                      <span class="lesson-duration">09:53</span>
+                    </div>
+                    <div class="lesson-row lesson-row-quiz">
+                      <i class="bi bi-question-circle-fill"></i>
+                      <span class="lesson-title-plain">Practice Test</span>
+                      <span class="lesson-duration">9 questions</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Module 3 -->
-            <div class="accordion-item">
-              <button class="accordion-header">
-                <span>Module 3: Data Wrangling and Cleaning</span>
-                <i class="bi bi-chevron-down"></i>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <ul class="learn-list">
-                    <li>Working with Missing and Inconsistent Data</li>
-                    <li>Data Transformation Techniques</li>
-                    <li>Using Pandas for Data Manipulation</li>
-                    <li>Merging and Reshaping Datasets</li>
-                  </ul>
+              <!-- Module 2 -->
+              <div class="accordion-item">
+                <button class="accordion-header">
+                  <span>Module 2: Basic Statistics and Probability</span>
+                  <i class="bi bi-plus"></i>
+                </button>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Descriptive Statistics and Data Summarization</a>
+                      <span class="lesson-duration">08:12</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Probability Distributions</a>
+                      <span class="lesson-duration">10:45</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Hypothesis Testing and Confidence Intervals</a>
+                      <span class="lesson-duration">14:30</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Correlation and Regression Basics</a>
+                      <span class="lesson-duration">11:20</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Module 4 -->
-            <div class="accordion-item">
-              <button class="accordion-header">
-                <span>Module 4: Data Visualization and Communication</span>
-                <i class="bi bi-chevron-down"></i>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <ul class="learn-list">
-                    <li>Principles of Effective Data Visualization</li>
-                    <li>Visualization with Matplotlib and Seaborn</li>
-                    <li>Building Interactive Dashboards</li>
-                    <li>Storytelling with Data</li>
-                  </ul>
+              <!-- Module 3 -->
+              <div class="accordion-item">
+                <button class="accordion-header">
+                  <span>Module 3: Data Collection Methods</span>
+                  <i class="bi bi-plus"></i>
+                </button>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Working with Missing and Inconsistent Data</a>
+                      <span class="lesson-duration">07:15</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Data Transformation Techniques</a>
+                      <span class="lesson-duration">09:30</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Using Pandas for Data Manipulation</a>
+                      <span class="lesson-duration">12:10</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Merging and Reshaping Datasets</a>
+                      <span class="lesson-duration">08:55</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Module 5 -->
-            <div class="accordion-item">
-              <button class="accordion-header">
-                <span>Module 5: Predictive Modeling and Capstone Project</span>
-                <i class="bi bi-chevron-down"></i>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <ul class="learn-list">
-                    <li>Introduction to Machine Learning Concepts</li>
-                    <li>Building and Evaluating Predictive Models</li>
-                    <li>Model Selection and Validation</li>
-                    <li>Capstone Project: End-to-End Data Science Workflow</li>
-                  </ul>
+              <!-- Module 4 -->
+              <div class="accordion-item">
+                <button class="accordion-header">
+                  <span>Module 4: Data Cleaning and Preparation</span>
+                  <i class="bi bi-plus"></i>
+                </button>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Principles of Effective Data Visualization</a>
+                      <span class="lesson-duration">06:40</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Visualization with Matplotlib and Seaborn</a>
+                      <span class="lesson-duration">15:20</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Building Interactive Dashboards</a>
+                      <span class="lesson-duration">11:05</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Storytelling with Data</a>
+                      <span class="lesson-duration">09:15</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Module 5 -->
+              <div class="accordion-item">
+                <button class="accordion-header">
+                  <span>Module 5: Exploratory Data Analysis (EDA)</span>
+                  <i class="bi bi-plus"></i>
+                </button>
+                <div class="accordion-body">
+                  <div class="accordion-body-inner">
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Introduction to Machine Learning Concepts</a>
+                      <span class="lesson-duration">10:30</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Building and Evaluating Predictive Models</a>
+                      <span class="lesson-duration">13:45</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Model Selection and Validation</a>
+                      <span class="lesson-duration">08:20</span>
+                    </div>
+                    <div class="lesson-row">
+                      <i class="bi bi-play-btn-fill"></i>
+                      <a href="#" class="lesson-title">Capstone Project: End-to-End Data Science Workflow</a>
+                      <span class="lesson-duration">18:00</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Course Requirements -->
-          <div class="mb-4">
-            <h3 class="mb-3">Course Requirements</h3>
-            <ul class="learn-list">
-              <li>Basic understanding of mathematics (algebra and introductory calculus)</li>
-              <li>Familiarity with any programming language (Python recommended)</li>
-              <li>A computer with internet access and the ability to install software</li>
-              <li>No prior data science experience required -- this course starts from the fundamentals</li>
-            </ul>
+          <div class="course-requirements-section">
+            <h3>Course Requirements</h3>
+            <div class="requirements-grid">
+              <div class="requirements-group">
+                <h4 class="requirements-group-title">Technical Requirements</h4>
+                <ul class="requirements-list">
+                  <li><i class="bi bi-check2"></i> Basic Understanding Of Math &amp; Statistics</li>
+                  <li><i class="bi bi-check2"></i> Foundational Programming Knowledge</li>
+                  <li><i class="bi bi-check2"></i> Comfort With Analytical Thinking</li>
+                </ul>
+              </div>
+              <div class="requirements-group">
+                <h4 class="requirements-group-title">Software Needed</h4>
+                <ul class="requirements-list">
+                  <li><i class="bi bi-check2"></i> Python Programming Language</li>
+                  <li><i class="bi bi-check2"></i> Jupyter Notebook</li>
+                  <li><i class="bi bi-check2"></i> Anaconda Distribution</li>
+                  <li><i class="bi bi-check2"></i> Data Visualization Tools</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <!-- Accreditation and Certificates -->
-          <div class="mb-4">
-            <h3 class="mb-3">Accreditation and Certificates</h3>
-            <p>Upon successful completion of this course, you will receive a verified certificate of completion from PM4Success, accredited by Bright Future University. This certificate demonstrates your proficiency in data science fundamentals and statistical methodology, and can be shared on your LinkedIn profile or included in your professional portfolio. Our accreditation is recognized by leading employers and academic institutions worldwide.</p>
+          <div class="accreditation-section">
+            <h3>Accreditation and Certificates</h3>
+            <p class="accreditation-intro">Upon Completing The Introduction To Data Science And Statistical Methodology Course, Students Will Receive A Professional Certificate That Is Recognized And Valued In The Industry. This Certificate Demonstrates Your Mastery Of Foundational Data Science Concepts And Hands-On Experience With Essential Tools And Techniques.</p>
+            <div class="accreditation-grid">
+              <div class="accreditation-group">
+                <h4 class="accreditation-group-title">Certificate of Completion</h4>
+                <ul class="accreditation-list">
+                  <li>
+                    <i class="bi bi-check2"></i>
+                    <span>Digital Certificate: Upon Successful Completion Of The Course, You Will Receive A Personalized, Verifiable Digital Certificate That Can Be Shared On Professional Platforms Such As LinkedIn Or Included In Your Resume.</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check2"></i>
+                    <span>Industry-Recognized: This Certificate Showcases Your Commitment To Learning And Your Expertise In Data Science, Statistical Analysis, And Data-Driven Problem Solving.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="accreditation-group">
+                <h4 class="accreditation-group-title">Credly Badge:</h4>
+                <ul class="accreditation-list">
+                  <li>
+                    <i class="bi bi-check2"></i>
+                    <span>Verified Credly Badge: In Addition To The Certificate, You Will Earn A Credly Digital Badge. This Badge Is A Visual Representation Of Your Skills And Achievements, And Can Easily Be Shared Across Platforms Like LinkedIn, Facebook, Or Even Embedded In Your Email Signature.</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check2"></i>
+                    <span>Portable And Shareable: Credly Badges Are Portable And Allow Potential Employers To Verify Your Credentials With Just A Click.</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check2"></i>
+                    <span>Skill Endorsement: The Badge Verifies Key Competencies, Such As Data Analysis, Statistical Methodologies, And Proficiency In Tools Like Python And R.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonials -->
+          <div class="course-testimonials-section">
+            <div class="course-testimonials-rating">
+              <span class="course-testimonials-score">4.6</span>
+              <span class="stars">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </span>
+            </div>
+            <div class="course-testimonials-grid">
+              <div class="course-testimonial-card">
+                <div class="course-testimonial-header">
+                  <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="course-testimonial-avatar">
+                  <div>
+                    <h5 class="course-testimonial-name">Jessica Harpe</h5>
+                    <div class="course-testimonial-meta">
+                      <span class="stars stars-sm">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </span>
+                      <span class="course-testimonial-date">2 days ago</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="course-testimonial-text">The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions...</p>
+              </div>
+              <div class="course-testimonial-card">
+                <div class="course-testimonial-header">
+                  <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="course-testimonial-avatar">
+                  <div>
+                    <h5 class="course-testimonial-name">Jessica Harpe</h5>
+                    <div class="course-testimonial-meta">
+                      <span class="stars stars-sm">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </span>
+                      <span class="course-testimonial-date">2 days ago</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="course-testimonial-text">The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions...</p>
+              </div>
+              <div class="course-testimonial-card">
+                <div class="course-testimonial-header">
+                  <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="course-testimonial-avatar">
+                  <div>
+                    <h5 class="course-testimonial-name">Jessica Harpe</h5>
+                    <div class="course-testimonial-meta">
+                      <span class="stars stars-sm">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </span>
+                      <span class="course-testimonial-date">2 days ago</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="course-testimonial-text">The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions...</p>
+              </div>
+              <div class="course-testimonial-card">
+                <div class="course-testimonial-header">
+                  <img src="assets/images/avatars/testimonial-avatar.png" alt="Jessica Harpe" class="course-testimonial-avatar">
+                  <div>
+                    <h5 class="course-testimonial-name">Jessica Harpe</h5>
+                    <div class="course-testimonial-meta">
+                      <span class="stars stars-sm">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </span>
+                      <span class="course-testimonial-date">2 days ago</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="course-testimonial-text">The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts. I now feel confident working with large datasets and making data-driven decisions...</p>
+              </div>
+            </div>
           </div>
 
           <!-- Instructor's Bio -->
-          <div class="mb-4">
-            <h3 class="mb-3">Instructor</h3>
-            <div class="d-flex align-items-start gap-3 mb-3">
-              <img src="assets/images/avatars/instructor-avatar.png" alt="Dr. Emily Thompson" class="img-instructor">
-              <div>
-                <h5 class="mb-1">Dr. Emily Thompson</h5>
-                <p class="text-small text-color-secondary">Ph.D. in Computer Science | AI &amp; Data Science Instructor</p>
-              </div>
+          <div class="instructor-bio-section">
+            <h3>Instructor's bio</h3>
+            <div class="instructor-bio-header">
+              <img src="assets/images/avatars/instructor-avatar.png" alt="Dr. Emily Thompson" class="instructor-bio-avatar">
+              <ul class="instructor-bio-stats">
+                <li><i class="bi bi-star-fill"></i> 4.6 Instructor Rating</li>
+                <li><i class="bi bi-people-fill"></i> 23,897 Reviews</li>
+                <li><i class="bi bi-people-fill"></i> 283,521 Students</li>
+                <li><i class="bi bi-play-circle-fill"></i> 4 Courses</li>
+              </ul>
             </div>
-            <p>Dr. Emily Thompson is an accomplished data scientist and educator with over 15 years of experience in academia and industry. She holds a Ph.D. in Computer Science from Stanford University and has published extensively in the fields of machine learning and statistical modeling. Dr. Thompson has previously worked as a senior data scientist at leading tech companies and now dedicates her time to helping students build practical, career-ready data science skills. Her teaching style emphasizes hands-on learning and real-world application.</p>
+            <h4 class="instructor-bio-name">Dr. Emily Thompson</h4>
+            <p class="instructor-bio-roles">Senior Data Scientist <span class="role-divider">|</span> Machine Learning Specialist <span class="role-divider">|</span> Educator</p>
+            <div class="instructor-bio-text" data-collapsed="true">
+              <p>Dr. Emma Caldwell is a seasoned data scientist with over 10 years of experience in data analysis, machine learning, and statistical modeling. she has worked across diverse industries including healthcare, finance, and tech, where she has applied data-driven insights to solve complex problems. with a phd in data science from mit, emma specializes in building machine learning models, predictive analytics, and data visualization. as a passionate educator, she brings her extensive real-world experience into the classroom, making complex topics accessible to learners of all levels. emma's teaching approach focuses on blending theory with hands-on learning, ens...</p>
+            </div>
+            <button class="instructor-bio-show-more">
+              Show more <i class="bi bi-chevron-down"></i>
+            </button>
           </div>
 
           <!-- Similar Courses -->
-          <div class="mb-4">
-            <h3 class="mb-3">Similar Courses</h3>
-            <div class="carousel-wrapper">
-              <button class="carousel-btn carousel-btn-prev"><i class="bi bi-chevron-left"></i></button>
-              <div class="carousel-track">
-                <!-- Similar Course 1 -->
-                <div class="course-card course-card-fixed">
-                  <img src="assets/images/courses/course-thumb-2.png" alt="Advanced Data Analytics" class="course-card-img">
-                  <div class="course-card-body">
-                    <span class="course-card-provider">Bright Future University</span>
-                    <h5 class="course-card-title">Advanced Data Analytics and Visualization</h5>
-                    <div class="course-card-meta">
-                      <span><i class="bi bi-clock"></i> 10 Weeks</span>
-                      <span><i class="bi bi-laptop"></i> Online</span>
-                    </div>
-                    <p class="course-card-instructor">Dr. Emily Thompson</p>
-                    <div class="course-card-rating">
-                      <span class="rating-score">4.5</span>
-                      <span class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-half"></i>
-                      </span>
-                      <span class="rating-count">(12,340)</span>
-                    </div>
-                    <div class="course-card-footer">
-                      <a href="course-details.html" class="course-card-link">View Program</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Similar Course 2 -->
-                <div class="course-card course-card-fixed">
-                  <img src="assets/images/courses/course-thumb-3.png" alt="Machine Learning Fundamentals" class="course-card-img">
-                  <div class="course-card-body">
-                    <span class="course-card-provider">Bright Future University</span>
-                    <h5 class="course-card-title">Machine Learning Fundamentals with Python</h5>
-                    <div class="course-card-meta">
-                      <span><i class="bi bi-clock"></i> 14 Weeks</span>
-                      <span><i class="bi bi-laptop"></i> Online</span>
-                    </div>
-                    <p class="course-card-instructor">Prof. James Carter</p>
-                    <div class="course-card-rating">
-                      <span class="rating-score">4.7</span>
-                      <span class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-half"></i>
-                      </span>
-                      <span class="rating-count">(8,215)</span>
-                    </div>
-                    <div class="course-card-footer">
-                      <a href="course-details.html" class="course-card-link">View Program</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Similar Course 3 -->
-                <div class="course-card course-card-fixed">
-                  <img src="assets/images/courses/course-thumb-4.png" alt="Statistical Analysis" class="course-card-img">
-                  <div class="course-card-body">
-                    <span class="course-card-provider">Bright Future University</span>
-                    <h5 class="course-card-title">Statistical Analysis for Business Decisions</h5>
-                    <div class="course-card-meta">
-                      <span><i class="bi bi-clock"></i> 8 Weeks</span>
-                      <span><i class="bi bi-laptop"></i> Online</span>
-                    </div>
-                    <p class="course-card-instructor">Dr. Sarah Mitchell</p>
-                    <div class="course-card-rating">
-                      <span class="rating-score">4.4</span>
-                      <span class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star"></i>
-                      </span>
-                      <span class="rating-count">(5,672)</span>
-                    </div>
-                    <div class="course-card-footer">
-                      <a href="course-details.html" class="course-card-link">View Program</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Similar Course 4 -->
-                <div class="course-card course-card-fixed">
-                  <img src="assets/images/courses/course-thumb-5.png" alt="Python for Data Science" class="course-card-img">
-                  <div class="course-card-body">
-                    <span class="course-card-provider">Bright Future University</span>
-                    <h5 class="course-card-title">Python for Data Science and Automation</h5>
-                    <div class="course-card-meta">
-                      <span><i class="bi bi-clock"></i> 10 Weeks</span>
-                      <span><i class="bi bi-laptop"></i> Online</span>
-                    </div>
-                    <p class="course-card-instructor">Dr. Emily Thompson</p>
-                    <div class="course-card-rating">
-                      <span class="rating-score">4.8</span>
-                      <span class="stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span class="rating-count">(15,890)</span>
-                    </div>
-                    <div class="course-card-footer">
-                      <a href="course-details.html" class="course-card-link">View Program</a>
-                    </div>
-                  </div>
+          <section class="section top-courses-section">
+            <div class="container">
+              <div class="section-heading-row">
+                <h2>
+                  <span class="heading-lg">Similar Courses</span>
+                  <span class="heading-sm">Similar Courses</span>
+                </h2>
+                <div class="carousel-nav-btns">
+                  <button class="carousel-btn carousel-btn-prev" data-target="top-courses-track"><i class="bi bi-chevron-left"></i></button>
+                  <button class="carousel-btn carousel-btn-next" data-target="top-courses-track"><i class="bi bi-chevron-right"></i></button>
                 </div>
               </div>
-              <button class="carousel-btn carousel-btn-next"><i class="bi bi-chevron-right"></i></button>
+              <div class="carousel-wrapper top-courses-carousel">
+                <div class="carousel-track" id="top-courses-track">
+                  <!-- Top Course 1 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;45,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 2 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;45,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 3 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;45,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 4 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-4.png" alt="Data Analytics" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;35,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 5 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-5.png" alt="UI Design" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;42,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 6 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-6.png" alt="Management" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;28,500</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 7 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-7.png" alt="Advanced Analytics" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;55,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 8 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-8.png" alt="Business Intelligence" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;32,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 9 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-9.png" alt="Machine Learning" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;48,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 10 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;39,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 11 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;46,500</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                  <!-- Top Course 12 -->
+                  <a href="course-details.html" class="course-card-wrapper course-card-carousel">
+                    <div class="course-card">
+                      <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="course-card-img">
+                      <div class="course-card-body">
+                        <h5 class="course-card-title">Introduction to Data Science and Statistic Methodology</h5>
+                        <div class="course-card-meta">
+                          <span>12 Weeks</span>
+                          <span>Online</span>
+                          <span>Weekdays</span>
+                        </div>
+                        <p class="course-card-instructor">Dr. Emily Thompson</p>
+                        <div class="course-card-rating">
+                          <span class="rating-score">4.6</span>
+                          <span class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                          </span>
+                          <span class="rating-count">(961,432)</span>
+                        </div>
+                        <div class="course-card-price">&#8358;51,000</div>
+                      </div>
+                    </div>
+                  <div class="course-card-hover">
+                    <h4>What you'll learn</h4>
+                    <ul>
+                      <li>Learn the foundational concepts of data, including types of data (qualitative and quantitative), and how to collect, organize, and store it for analysis.</li>
+                      <li>Gain skills in visualizing and summarizing data using charts, graphs, and descriptive statistics to uncover trends, patterns, and insights.</li>
+                      <li>Master the essential steps of cleaning and preprocessing raw data, handling missing values, removing outliers, and preparing datasets for analysis.</li>
+                    </ul>
+                    <button class="course-card-hover-btn">Save to Watchlist</button>
+                  </div>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
 
         </div>
 
         <!-- Right: Sidebar -->
-        <div class="col-lg-4">
+        <div class="col-lg-4 order-1 order-lg-2">
           <div class="course-sidebar">
             <div class="course-sidebar-card">
-              <div class="course-sidebar-price">#44,000</div>
-              <a href="cart.html" class="btn btn-primary w-100 mb-2">Add to Cart</a>
-              <a href="#" class="btn btn-outline w-100 mb-3">Save to Watchlist</a>
+              <!-- Video Thumbnail -->
+              <div class="course-sidebar-video">
+                <img src="assets/images/courses/course-thumb-1.png" alt="Course preview">
+                <button class="course-sidebar-play" data-video-src="assets/videos/course-preview.mp4" aria-label="Play course preview">
+                  <i class="bi bi-play-fill"></i>
+                </button>
+              </div>
 
-              <div class="course-sidebar-meta">
-                <div class="course-sidebar-meta-item">
-                  <i class="bi bi-patch-check"></i>
-                  <span>Certificate of Completion</span>
+              <!-- Scrollable Content -->
+              <div class="course-sidebar-scroll">
+                <!-- Price -->
+                <div class="course-sidebar-price">₦54,000</div>
+
+                <!-- This course includes -->
+                <div class="course-sidebar-includes">
+                  <h4>This course includes:</h4>
+                  <ul>
+                    <li><i class="bi bi-play-btn-fill"></i> 55 hours on-demand video</li>
+                    <li><i class="bi bi-question-circle-fill"></i> 4 practice test</li>
+                    <li><i class="bi bi-file-earmark-fill"></i> 15 articles</li>
+                    <li><i class="bi bi-download"></i> 112 downloadable resources</li>
+                    <li><i class="bi bi-phone"></i> Access on mobile and laptop</li>
+                    <li><i class="bi bi-infinity"></i> Full lifetime access</li>
+                    <li><i class="bi bi-trophy-fill"></i> Certificate of completion</li>
+                  </ul>
                 </div>
-                <div class="course-sidebar-meta-item">
-                  <i class="bi bi-clock"></i>
-                  <span>12 Weeks Duration</span>
+
+                <!-- Credly Checkbox -->
+                <div class="course-sidebar-credly">
+                  <label class="credly-label">
+                    <input type="checkbox" checked>
+                    <span>Select this to receive a Credly batch</span>
+                  </label>
                 </div>
-                <div class="course-sidebar-meta-item">
-                  <i class="bi bi-bar-chart"></i>
-                  <span>Beginner Level</span>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="course-sidebar-actions">
+                <div class="course-sidebar-btn-row">
+                  <a href="cart.html" class="btn btn-outline">Add to cart</a>
+                  <a href="#" class="btn btn-outline">Save to Watchlist</a>
                 </div>
-                <div class="course-sidebar-meta-item">
-                  <i class="bi bi-unlock"></i>
-                  <span>Full Lifetime Access</span>
-                </div>
+                <a href="#" class="btn btn-primary w-100">Buy now</a>
               </div>
             </div>
           </div>
@@ -805,6 +1389,24 @@
         <div class="auth-footer">
           Remember your password? <a href="#" data-open-modal="loginModal">Log in</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Preview Modal -->
+  <div class="video-modal-overlay" id="video-modal">
+    <div class="video-modal-container">
+      <div class="video-modal-header">
+        <div class="video-modal-header-text">
+          <span class="video-modal-label">Course preview</span>
+          <h3 class="video-modal-title"></h3>
+        </div>
+        <button class="video-modal-close" aria-label="Close video preview">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="video-modal-body">
+        <video id="video-modal-player" controls></video>
       </div>
     </div>
   </div>
