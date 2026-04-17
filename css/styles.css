@@ -1514,11 +1514,13 @@ body.is-logged-in .navbar-search {
 .program-grid.active {
   display: flex;
   flex-wrap: wrap;
+  overflow: visible;
 }
 
 .programs-section .course-card-link {
   display: none;
 }
+
 
 .program-categories-mobile {
   display: none;
@@ -8363,7 +8365,7 @@ input#verify-fullname {
   flex: 1;
   margin-left: 12px;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-text);
   white-space: nowrap;
   overflow: hidden;
@@ -8396,6 +8398,7 @@ input#verify-fullname {
 
 .course-player-progress-label {
   font-size: 0.8125rem;
+  font-weight: 600;
   color: var(--color-text);
   white-space: nowrap;
 }
@@ -8455,9 +8458,9 @@ input#verify-fullname {
   flex-shrink: 0;
   border-right: 1px solid var(--color-border);
   overflow-y: auto;
-  height: calc(100vh - var(--navbar-height));
+  height: calc(100vh - var(--navbar-height) - 24px);
   position: sticky;
-  top: var(--navbar-height);
+  top: calc(var(--navbar-height) + 12px);
   background-color: var(--color-white);
 }
 
@@ -10505,13 +10508,6 @@ input#verify-fullname {
     border-top: none;
   }
 
-  .programs-section .course-card-hover {
-    display: none !important;
-  }
-
-  .programs-section .course-card-wrapper:hover .course-card {
-    transform: none;
-  }
 
   /* Top Courses - Tablet */
   .heading-lg {
