@@ -218,10 +218,10 @@
         </div>
 
         <!-- Module 3 (active/expanded) -->
-        <div class="module-item active">
+        <div class="module-item active current">
           <button class="module-header">
             <div class="module-header-left">
-              <i class="bi bi-check-circle module-check"></i>
+              <i class="bi bi-check-circle-fill module-check"></i>
               <div>
                 <span class="module-title">Module 3</span>
                 <span class="module-meta">2/9 | 45min</span>
@@ -395,24 +395,65 @@
       <h4 class="course-lesson-title">Types Of Data</h4>
 
       <!-- Video Player -->
-      <div class="video-player">
-        <img src="assets/images/courses/course-banner-1.jpg" alt="Types Of Data - Video Lecture">
+      <div class="video-player" id="course-video-player">
+        <div class="video-thumbnail" id="video-thumbnail">
+          <img src="assets/images/courses/course-thumb-1.png" alt="Types Of Data - Video Lecture">
+          <button class="video-play-btn" id="video-play-btn" aria-label="Play video">
+            <i class="bi bi-play-fill"></i>
+          </button>
+        </div>
+        <video id="course-video" src="assets/videos/course-preview.mp4" data-video="player"></video>
+        <div class="video-pause-overlay" id="video-pause-overlay" aria-hidden="true">
+          <button class="video-play-btn" aria-label="Resume video">
+            <i class="bi bi-play-fill"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Video Scrubber -->
+      <div class="video-scrubber" data-video-scrubber>
+        <div class="video-scrubber-track" data-video-scrubber-track>
+          <div class="video-scrubber-fill" data-video-scrubber-fill></div>
+          <div class="video-scrubber-thumb" data-video-scrubber-thumb></div>
+        </div>
       </div>
 
       <!-- Video Controls -->
       <div class="video-controls">
         <div class="video-controls-left">
-          <button aria-label="Play"><i class="bi bi-play-fill"></i></button>
-          <button aria-label="Rewind"><i class="bi bi-arrow-counterclockwise"></i></button>
-          <button aria-label="Forward"><i class="bi bi-arrow-clockwise"></i></button>
-          <button aria-label="Volume"><i class="bi bi-volume-up-fill"></i></button>
-          <span class="video-time">0:02 / 09:44</span>
+          <button data-video-control="play" aria-label="Play"><i class="bi bi-play-fill"></i></button>
+          <button data-video-control="rewind" aria-label="Rewind 10 seconds" class="video-skip-btn"><i class="bi bi-arrow-counterclockwise"></i><span class="video-skip-label">10</span></button>
+          <button data-video-control="forward" aria-label="Forward 10 seconds" class="video-skip-btn"><i class="bi bi-arrow-clockwise"></i><span class="video-skip-label">10</span></button>
+          <button data-video-control="volume" aria-label="Toggle mute"><i class="bi bi-volume-up-fill"></i></button>
+          <span class="video-time" data-video-time>0:00 / 0:00</span>
         </div>
         <div class="video-controls-right">
-          <button aria-label="Captions"><i class="bi bi-eye"></i></button>
-          <button aria-label="Speed"><i class="bi bi-speedometer2"></i></button>
-          <button aria-label="Settings"><i class="bi bi-gear"></i></button>
-          <button aria-label="Fullscreen"><i class="bi bi-fullscreen"></i></button>
+          <div class="video-speed-wrapper" data-video-speed-wrapper>
+            <button data-video-control="speed" aria-label="Playback speed" aria-haspopup="true" aria-expanded="false">
+              <i class="bi bi-speedometer2"></i>
+            </button>
+            <ul class="video-speed-menu" data-video-speed-menu role="menu">
+              <li><button data-speed="0.5" role="menuitem">0.5×</button></li>
+              <li><button data-speed="1" role="menuitem" class="active">1×</button></li>
+              <li><button data-speed="1.25" role="menuitem">1.25×</button></li>
+              <li><button data-speed="1.5" role="menuitem">1.5×</button></li>
+              <li><button data-speed="2" role="menuitem">2×</button></li>
+            </ul>
+          </div>
+          <div class="video-settings-wrapper" data-video-settings-wrapper>
+            <button data-video-control="settings" aria-label="Settings" aria-haspopup="true" aria-expanded="false">
+              <i class="bi bi-gear"></i>
+            </button>
+            <ul class="video-settings-menu" data-video-settings-menu role="menu">
+              <li>
+                <button data-video-setting="loop" role="menuitem">
+                  <span>Loop</span>
+                  <span class="video-setting-toggle" data-video-loop-indicator>Off</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <button data-video-control="fullscreen" aria-label="Toggle fullscreen"><i class="bi bi-fullscreen"></i></button>
         </div>
       </div>
 
@@ -470,12 +511,166 @@
 
         <!-- Discussion Forum Tab -->
         <div class="tab-content" id="tab-discussion">
-          <p>Discussion forum content will appear here.</p>
+
+          <div class="discussion-post">
+            <div class="discussion-post-header">
+              <img src="assets/images/avatars/aliyu-avatar.png" alt="Ademola John">
+              <div class="discussion-post-body">
+                <h6>Ademola John</h6>
+                <p>Can You Provide Examples Of Real-World Applications Where The Data Analytics Techniques We're Learning Can Be Applied? How Can We Approach Such Scenarios To Ensure Accurate Analysis?</p>
+                <div class="discussion-actions">
+                  <button aria-label="Like"><i class="bi bi-hand-thumbs-up-fill"></i> 43</button>
+                  <button aria-label="Dislike"><i class="bi bi-hand-thumbs-down-fill"></i> 01</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="discussion-post">
+            <div class="discussion-post-header">
+              <img src="assets/images/avatars/aliyu-avatar.png" alt="Ademola John">
+              <div class="discussion-post-body">
+                <h6>Ademola John</h6>
+                <p>Can You Provide Examples Of Real-World Applications Where The Data Analytics Techniques We're Learning Can Be Applied? How Can We Approach Such Scenarios To Ensure Accurate Analysis?</p>
+                <div class="discussion-actions">
+                  <button aria-label="Like"><i class="bi bi-hand-thumbs-up-fill"></i> 43</button>
+                  <button aria-label="Dislike"><i class="bi bi-hand-thumbs-down-fill"></i> 01</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="discussion-post">
+            <div class="discussion-post-header">
+              <img src="assets/images/avatars/aliyu-avatar.png" alt="Ademola John">
+              <div class="discussion-post-body">
+                <h6>Ademola John</h6>
+                <p>Can You Provide Examples Of Real-World Applications Where The Data Analytics Techniques We're Learning Can Be Applied? How Can We Approach Such Scenarios To Ensure Accurate Analysis?</p>
+                <div class="discussion-actions">
+                  <button aria-label="Like"><i class="bi bi-hand-thumbs-up-fill"></i> 43</button>
+                  <button aria-label="Dislike"><i class="bi bi-hand-thumbs-down-fill"></i> 01</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="discussion-post">
+            <div class="discussion-post-header">
+              <img src="assets/images/avatars/aliyu-avatar.png" alt="Ademola John">
+              <div class="discussion-post-body">
+                <h6>Ademola John</h6>
+                <p>Can You Provide Examples Of Real-World Applications Where The Data Analytics Techniques We're Learning Can Be Applied? How Can We Approach Such Scenarios To Ensure Accurate Analysis?</p>
+                <div class="discussion-actions">
+                  <button aria-label="Like"><i class="bi bi-hand-thumbs-up-fill"></i> 43</button>
+                  <button aria-label="Dislike"><i class="bi bi-hand-thumbs-down-fill"></i> 01</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="discussion-input">
+            <img src="assets/images/avatars/aliyu-avatar.png" alt="Your avatar">
+            <input type="text" placeholder="Ask Your Question Here...">
+            <button class="discussion-send-btn" aria-label="Send">
+              <i class="bi bi-send-fill"></i>
+            </button>
+          </div>
+
         </div>
 
         <!-- Achievements Tab -->
         <div class="tab-content" id="tab-achievements">
-          <p>Achievements content will appear here.</p>
+
+          <!-- Module 1: Completed -->
+          <div class="achievement-row">
+            <div class="achievement-row-left">
+              <img src="assets/images/courses/course-thumb-1.png" alt="Module 1">
+              <div class="achievement-module-info">
+                <div class="achievement-module-name">
+                  <span class="achievement-module-title completed">Module 1</span>
+                  <i class="bi bi-check-circle-fill achievement-check"></i>
+                </div>
+                <span class="achievement-module-status">Completed: 9/9</span>
+              </div>
+            </div>
+            <div class="achievement-row-right">
+              <span class="achievement-batch-label">Batch Earned <i class="bi bi-award-fill"></i></span>
+              <span class="achievement-batch-pct">20%</span>
+            </div>
+          </div>
+
+          <!-- Module 2: Completed -->
+          <div class="achievement-row">
+            <div class="achievement-row-left">
+              <img src="assets/images/courses/course-thumb-2.png" alt="Module 2">
+              <div class="achievement-module-info">
+                <div class="achievement-module-name">
+                  <span class="achievement-module-title completed">Module 2</span>
+                  <i class="bi bi-check-circle-fill achievement-check"></i>
+                </div>
+                <span class="achievement-module-status">Completed: 9/9</span>
+              </div>
+            </div>
+            <div class="achievement-row-right">
+              <span class="achievement-batch-label">Batch Earned <i class="bi bi-award-fill"></i></span>
+              <span class="achievement-batch-pct">10%</span>
+            </div>
+          </div>
+
+          <!-- Module 3: In-Progress -->
+          <div class="achievement-row">
+            <div class="achievement-row-left">
+              <img src="assets/images/courses/course-thumb-3.png" alt="Module 3">
+              <div class="achievement-module-info">
+                <div class="achievement-module-name">
+                  <span class="achievement-module-title in-progress">Module 3</span>
+                  <i class="bi bi-check-circle-fill achievement-check"></i>
+                </div>
+                <span class="achievement-module-status">In-Progress: 2/9</span>
+              </div>
+            </div>
+            <div class="achievement-row-right">
+              <span class="achievement-batch-label">Batch Earned <i class="bi bi-award-fill"></i></span>
+              <span class="achievement-batch-pct">0%</span>
+            </div>
+          </div>
+
+          <!-- Module 4: Pending -->
+          <div class="achievement-row">
+            <div class="achievement-row-left">
+              <img src="assets/images/courses/course-thumb-4.png" alt="Module 4">
+              <div class="achievement-module-info">
+                <div class="achievement-module-name">
+                  <span class="achievement-module-title pending">Module 4</span>
+                  <i class="bi bi-check-circle achievement-check pending"></i>
+                </div>
+                <span class="achievement-module-status">Pending: 0/9</span>
+              </div>
+            </div>
+            <div class="achievement-row-right">
+              <span class="achievement-batch-label">Batch Earned <i class="bi bi-award-fill"></i></span>
+              <span class="achievement-batch-pct">0%</span>
+            </div>
+          </div>
+
+          <!-- Module 5: Pending -->
+          <div class="achievement-row">
+            <div class="achievement-row-left">
+              <img src="assets/images/courses/course-thumb-5.png" alt="Module 5">
+              <div class="achievement-module-info">
+                <div class="achievement-module-name">
+                  <span class="achievement-module-title pending">Module 5</span>
+                  <i class="bi bi-check-circle achievement-check pending"></i>
+                </div>
+                <span class="achievement-module-status">Pending: 0/9</span>
+              </div>
+            </div>
+            <div class="achievement-row-right">
+              <span class="achievement-batch-label">Batch Earned <i class="bi bi-award-fill"></i></span>
+              <span class="achievement-batch-pct">0%</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -488,7 +683,7 @@
           <!-- Shares content with desktop lecture note -->
         </div>
         <div class="tab-content" id="tab-mobile-discussion">
-          <p>Discussion forum content will appear here.</p>
+          <!-- Shares content with desktop discussion tab -->
         </div>
       </div>
     </div>

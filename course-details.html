@@ -1406,7 +1406,20 @@
         </button>
       </div>
       <div class="video-modal-body">
-        <video id="video-modal-player" controls></video>
+        <div class="video-modal-player-wrap">
+          <div class="video-modal-thumbnail" id="video-modal-thumbnail">
+            <img id="video-modal-thumb-img" src="assets/images/courses/course-thumb-1.png" alt="Course preview thumbnail">
+            <button class="video-play-btn" aria-label="Play course preview">
+              <i class="bi bi-play-fill"></i>
+            </button>
+          </div>
+          <video id="video-modal-player" controls></video>
+          <div class="video-pause-overlay" id="video-modal-pause-overlay" aria-hidden="true">
+            <button class="video-play-btn" aria-label="Resume video">
+              <i class="bi bi-play-fill"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

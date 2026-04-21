@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initAssignmentPage,
     initAssignGradesAccordion,
     initNnpcPageTabs,
+    initVideoThumbnailPlayer,
+    initCustomVideoControls,
+    initDiscussionForum,
   ];
 
   inits.forEach((fn) => {
@@ -433,7 +436,12 @@ function initAccordions() {
   moduleHeaders.forEach((header) => {
     header.addEventListener('click', function () {
       const module = this.closest('.module-item');
-      module.classList.toggle('active');
+      const isActive = module.classList.toggle('active');
+      const icon = this.querySelector('i.bi-chevron-down, i.bi-chevron-up');
+      if (icon) {
+        icon.classList.toggle('bi-chevron-down', !isActive);
+        icon.classList.toggle('bi-chevron-up', isActive);
+      }
     });
   });
 }
@@ -3194,10 +3202,17 @@ function initVideoModal() {
   const titleEl = overlay.querySelector('.video-modal-title');
   const closeBtn = overlay.querySelector('.video-modal-close');
   const playBtns = document.querySelectorAll('[data-video-src]');
+  const thumbnail = document.getElementById('video-modal-thumbnail');
+  const pauseOverlay = document.getElementById('video-modal-pause-overlay');
 
   if (!playBtns.length) return;
 
   let activePlayBtn = null;
+
+  const showThumbnail = () => {
+    if (thumbnail) thumbnail.classList.remove('hidden');
+    if (pauseOverlay) pauseOverlay.classList.remove('visible');
+  };
 
   const openModal = (src, title, btn) => {
     video.src = src;
@@ -3205,7 +3220,8 @@ function initVideoModal() {
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
     activePlayBtn = btn;
-    btn.style.display = 'none';
+    if (thumbnail) thumbnail.classList.add('hidden');
+    if (pauseOverlay) pauseOverlay.classList.remove('visible');
     video.play();
   };
 
@@ -3216,11 +3232,32 @@ function initVideoModal() {
     video.currentTime = 0;
     video.removeAttribute('src');
     video.load();
+    showThumbnail();
     if (activePlayBtn) {
-      activePlayBtn.style.display = '';
       activePlayBtn = null;
     }
   };
+
+  if (thumbnail) {
+    thumbnail.addEventListener('click', () => {
+      thumbnail.classList.add('hidden');
+      video.play();
+    });
+  }
+
+  if (pauseOverlay) {
+    pauseOverlay.addEventListener('click', () => {
+      video.play();
+    });
+  }
+
+  video.addEventListener('pause', () => {
+    if (!video.ended) pauseOverlay.classList.add('visible');
+  });
+
+  video.addEventListener('play', () => {
+    pauseOverlay.classList.remove('visible');
+  });
 
   playBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -3268,6 +3305,18 @@ function initCoursePlayer() {
         const moduleItem = header.closest('.module-item');
         moduleItem.classList.toggle('active');
       });
+    });
+  }
+
+  /* Course Material header toggle */
+  const sidebarToggleBtn = document.querySelector('.course-sidebar-toggle');
+  if (sidebarToggleBtn && sidebarModules) {
+    sidebarToggleBtn.addEventListener('click', () => {
+      const isCollapsed = sidebarModules.classList.toggle('collapsed');
+      const icon = sidebarToggleBtn.querySelector('i');
+      icon.classList.toggle('bi-chevron-down', !isCollapsed);
+      icon.classList.toggle('bi-chevron-up', isCollapsed);
+      sidebarToggleBtn.setAttribute('aria-expanded', String(!isCollapsed));
     });
   }
 
@@ -3392,5 +3441,361 @@ function initNnpcPageTabs() {
       const panel = document.querySelector('[data-nnpc-panel="' + target + '"]');
       if (panel) panel.classList.add('active');
     });
+  });
+}
+
+/* ============================================
+   Course Video Thumbnail Player
+   ============================================ */
+function initVideoThumbnailPlayer() {
+  const thumbnail = document.getElementById('video-thumbnail');
+  const video = document.getElementById('course-video');
+  const playBtn = document.getElementById('video-play-btn');
+  const pauseOverlay = document.getElementById('video-pause-overlay');
+
+  if (!thumbnail || !video || !playBtn || !pauseOverlay) return;
+
+  const startVideo = () => {
+    thumbnail.classList.add('hidden');
+    video.classList.add('visible');
+    video.play();
+  };
+
+  thumbnail.addEventListener('click', startVideo);
+
+  video.addEventListener('pause', () => {
+    if (!video.ended) pauseOverlay.classList.add('visible');
+  });
+
+  video.addEventListener('play', () => {
+    pauseOverlay.classList.remove('visible');
+  });
+
+  pauseOverlay.addEventListener('click', () => {
+    video.play();
+  });
+}
+
+/* ============================================
+   Custom Video Controls
+   ============================================ */
+function initCustomVideoControls() {
+  const video = document.querySelector('[data-video="player"]');
+  if (!video) return;
+
+  const playBtn       = document.querySelector('[data-video-control="play"]');
+  const rewindBtn     = document.querySelector('[data-video-control="rewind"]');
+  const forwardBtn    = document.querySelector('[data-video-control="forward"]');
+  const volumeBtn     = document.querySelector('[data-video-control="volume"]');
+  const timeDisplay   = document.querySelector('[data-video-time]');
+  const captionsBtn   = document.querySelector('[data-video-control="captions"]');
+  const speedBtn      = document.querySelector('[data-video-control="speed"]');
+  const speedMenu     = document.querySelector('[data-video-speed-menu]');
+  const speedWrapper  = document.querySelector('[data-video-speed-wrapper]');
+  const fullscreenBtn  = document.querySelector('[data-video-control="fullscreen"]');
+  const settingsBtn    = document.querySelector('[data-video-control="settings"]');
+  const settingsMenu   = document.querySelector('[data-video-settings-menu]');
+  const settingsWrapper = document.querySelector('[data-video-settings-wrapper]');
+  const loopIndicator  = document.querySelector('[data-video-loop-indicator]');
+  const scrubberTrack = document.querySelector('[data-video-scrubber-track]');
+  const scrubberFill  = document.querySelector('[data-video-scrubber-fill]');
+  const scrubberThumb = document.querySelector('[data-video-scrubber-thumb]');
+  const videoPlayer   = document.getElementById('course-video-player');
+
+  if (!playBtn) return;
+
+  const formatTime = (secs) => {
+    if (isNaN(secs) || secs < 0) return '0:00';
+    const m = Math.floor(secs / 60);
+    const s = Math.floor(secs % 60);
+    return `${m}:${s.toString().padStart(2, '0')}`;
+  };
+
+  const syncPlayIcon = () => {
+    const icon = playBtn.querySelector('i');
+    if (!icon) return;
+    if (video.paused || video.ended) {
+      icon.className = 'bi bi-play-fill';
+      playBtn.setAttribute('aria-label', 'Play');
+    } else {
+      icon.className = 'bi bi-pause-fill';
+      playBtn.setAttribute('aria-label', 'Pause');
+    }
+  };
+
+  const updateScrubber = () => {
+    if (!scrubberFill || !scrubberThumb || !video.duration) return;
+    const pct = (video.currentTime / video.duration) * 100;
+    scrubberFill.style.width = `${pct}%`;
+    scrubberThumb.style.left = `${pct}%`;
+  };
+
+  const updateTimeDisplay = () => {
+    if (!timeDisplay) return;
+    timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+  };
+
+  // All state driven from video events — keeps sync with initVideoThumbnailPlayer automatic
+  video.addEventListener('play',  syncPlayIcon);
+  video.addEventListener('pause', syncPlayIcon);
+  video.addEventListener('ended', syncPlayIcon);
+
+  // Click on video to toggle play/pause
+  video.addEventListener('click', () => {
+    if (video.paused || video.ended) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  video.addEventListener('timeupdate', () => {
+    updateScrubber();
+    updateTimeDisplay();
+  });
+
+  video.addEventListener('loadedmetadata', updateTimeDisplay);
+
+  document.addEventListener('fullscreenchange', () => {
+    const icon = fullscreenBtn && fullscreenBtn.querySelector('i');
+    if (!icon) return;
+    if (document.fullscreenElement) {
+      icon.className = 'bi bi-fullscreen-exit';
+      fullscreenBtn.setAttribute('aria-label', 'Exit fullscreen');
+    } else {
+      icon.className = 'bi bi-fullscreen';
+      fullscreenBtn.setAttribute('aria-label', 'Toggle fullscreen');
+    }
+  });
+
+  // Play / Pause
+  playBtn.addEventListener('click', () => {
+    if (video.paused || video.ended) {
+      const thumbnail = document.getElementById('video-thumbnail');
+      if (thumbnail && !thumbnail.classList.contains('hidden')) {
+        thumbnail.classList.add('hidden');
+        video.classList.add('visible');
+      }
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  // Rewind 10s
+  rewindBtn && rewindBtn.addEventListener('click', () => {
+    video.currentTime = Math.max(0, video.currentTime - 10);
+  });
+
+  // Forward 10s
+  forwardBtn && forwardBtn.addEventListener('click', () => {
+    video.currentTime = Math.min(video.duration || 0, video.currentTime + 10);
+  });
+
+  // Volume toggle
+  volumeBtn && volumeBtn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    const icon = volumeBtn.querySelector('i');
+    if (!icon) return;
+    icon.className = video.muted ? 'bi bi-volume-mute-fill' : 'bi bi-volume-up-fill';
+    volumeBtn.setAttribute('aria-label', video.muted ? 'Unmute' : 'Mute');
+  });
+
+  // Speed dropdown toggle
+  speedBtn && speedBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = speedMenu.classList.toggle('open');
+    speedBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  speedMenu && speedMenu.querySelectorAll('[data-speed]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      video.playbackRate = parseFloat(btn.dataset.speed);
+      speedMenu.querySelectorAll('[data-speed]').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      speedMenu.classList.remove('open');
+      speedBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (speedWrapper && !speedWrapper.contains(e.target)) {
+      speedMenu && speedMenu.classList.remove('open');
+      speedBtn && speedBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Captions toggle
+  captionsBtn && captionsBtn.addEventListener('click', () => {
+    const tracks = video.textTracks;
+    if (!tracks || tracks.length === 0) return;
+    const track = tracks[0];
+    const icon = captionsBtn.querySelector('i');
+    if (track.mode === 'showing') {
+      track.mode = 'hidden';
+      if (icon) icon.className = 'bi bi-eye-slash';
+      captionsBtn.setAttribute('aria-label', 'Show captions');
+    } else {
+      track.mode = 'showing';
+      if (icon) icon.className = 'bi bi-eye';
+      captionsBtn.setAttribute('aria-label', 'Hide captions');
+    }
+  });
+
+  // Settings dropdown toggle
+  settingsBtn && settingsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = settingsMenu.classList.toggle('open');
+    settingsBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Loop toggle
+  const loopBtn = settingsMenu && settingsMenu.querySelector('[data-video-setting="loop"]');
+  loopBtn && loopBtn.addEventListener('click', () => {
+    video.loop = !video.loop;
+    if (loopIndicator) {
+      loopIndicator.textContent = video.loop ? 'On' : 'Off';
+      loopIndicator.classList.toggle('on', video.loop);
+    }
+  });
+
+  // Close settings menu on outside click
+  document.addEventListener('click', (e) => {
+    if (settingsWrapper && !settingsWrapper.contains(e.target)) {
+      settingsMenu && settingsMenu.classList.remove('open');
+      settingsBtn && settingsBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Fullscreen — on the container so custom controls stay in view
+  fullscreenBtn && fullscreenBtn.addEventListener('click', () => {
+    const container = videoPlayer || video.closest('.video-player');
+    if (!document.fullscreenElement) {
+      container && container.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  });
+
+  // Scrubber — drag supported across mouse and touch
+  let isScrubbing = false;
+
+  const scrubToPosition = (e) => {
+    if (!video.duration) return;
+    const rect = scrubberTrack.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    video.currentTime = pct * video.duration;
+    updateScrubber();
+    updateTimeDisplay();
+  };
+
+  scrubberTrack && scrubberTrack.addEventListener('mousedown', (e) => {
+    isScrubbing = true;
+    scrubToPosition(e);
+  });
+
+  scrubberTrack && scrubberTrack.addEventListener('touchstart', (e) => {
+    isScrubbing = true;
+    scrubToPosition(e);
+  }, { passive: true });
+
+  document.addEventListener('mousemove', (e) => { if (isScrubbing) scrubToPosition(e); });
+  document.addEventListener('touchmove', (e) => { if (isScrubbing) scrubToPosition(e); }, { passive: true });
+  document.addEventListener('mouseup',  () => { isScrubbing = false; });
+  document.addEventListener('touchend', () => { isScrubbing = false; });
+}
+
+/* ============================================
+   Discussion Forum
+   ============================================ */
+function initDiscussionForum() {
+  const forum = document.getElementById('tab-discussion');
+  if (!forum) return;
+
+  // --- Like / Dislike ---
+  const wireVoteButtons = (post) => {
+    const [likeBtn, dislikeBtn] = post.querySelectorAll('.discussion-actions button');
+    if (!likeBtn || !dislikeBtn) return;
+
+    const getCount = (btn) => {
+      const text = btn.lastChild.textContent.trim();
+      return parseInt(text, 10) || 0;
+    };
+
+    const setCount = (btn, count) => {
+      btn.lastChild.textContent = ` ${count}`;
+    };
+
+    const activate = (btn) => btn.classList.add('active');
+    const deactivate = (btn) => btn.classList.remove('active');
+
+    likeBtn.addEventListener('click', () => {
+      if (likeBtn.classList.contains('active')) {
+        deactivate(likeBtn);
+        setCount(likeBtn, getCount(likeBtn) - 1);
+      } else {
+        activate(likeBtn);
+        setCount(likeBtn, getCount(likeBtn) + 1);
+        if (dislikeBtn.classList.contains('active')) {
+          deactivate(dislikeBtn);
+          setCount(dislikeBtn, getCount(dislikeBtn) - 1);
+        }
+      }
+    });
+
+    dislikeBtn.addEventListener('click', () => {
+      if (dislikeBtn.classList.contains('active')) {
+        deactivate(dislikeBtn);
+        setCount(dislikeBtn, getCount(dislikeBtn) - 1);
+      } else {
+        activate(dislikeBtn);
+        setCount(dislikeBtn, getCount(dislikeBtn) + 1);
+        if (likeBtn.classList.contains('active')) {
+          deactivate(likeBtn);
+          setCount(likeBtn, getCount(likeBtn) - 1);
+        }
+      }
+    });
+  };
+
+  forum.querySelectorAll('.discussion-post').forEach(wireVoteButtons);
+
+  // --- Submit new question ---
+  const input = forum.querySelector('.discussion-input input');
+  const sendBtn = forum.querySelector('.discussion-send-btn');
+  const avatarSrc = forum.querySelector('.discussion-input img').getAttribute('src');
+
+  const buildPost = (text) => {
+    const post = document.createElement('div');
+    post.className = 'discussion-post';
+    post.innerHTML = `
+      <div class="discussion-post-header">
+        <img src="${avatarSrc}" alt="You">
+        <div class="discussion-post-body">
+          <h6>You</h6>
+          <p>${text}</p>
+          <div class="discussion-actions">
+            <button aria-label="Like"><i class="bi bi-hand-thumbs-up-fill"></i> 0</button>
+            <button aria-label="Dislike"><i class="bi bi-hand-thumbs-down-fill"></i> 0</button>
+          </div>
+        </div>
+      </div>`;
+    return post;
+  };
+
+  const submitQuestion = () => {
+    const text = input.value.trim();
+    if (!text) return;
+    const post = buildPost(text);
+    forum.querySelector('.discussion-post').before(post);
+    wireVoteButtons(post);
+    input.value = '';
+  };
+
+  sendBtn.addEventListener('click', submitQuestion);
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') submitQuestion();
   });
 }
