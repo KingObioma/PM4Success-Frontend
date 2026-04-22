@@ -3297,7 +3297,8 @@ function initCoursePlayer() {
   if (mobileContentTab && sidebarModules) {
     const clone = sidebarModules.cloneNode(true);
     clone.classList.add('mobile-modules-wrap');
-    mobileContentTab.appendChild(clone);
+    const deadlinesInfo = mobileContentTab.querySelector('.course-info-sidebar');
+    mobileContentTab.insertBefore(clone, deadlinesInfo || null);
 
     /* Wire up module accordion on cloned elements */
     clone.querySelectorAll('.module-header').forEach((header) => {

@@ -14389,10 +14389,6 @@ select.input-success {
     padding: 0 16px 24px;
   }
 
-  .course-lesson-title {
-    display: none;
-  }
-
   /* Video player full width, no border radius on mobile */
   .video-player {
     border-radius: 0;
