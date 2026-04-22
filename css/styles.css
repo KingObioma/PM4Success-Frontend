@@ -8458,7 +8458,7 @@ input#verify-fullname {
 }
 
 .course-sidebar-panel {
-  width: var(--sidebar-width);
+  width: clamp(220px, 30%, 360px);
   flex-shrink: 0;
   border-right: 1px solid var(--color-border);
   overflow-y: auto;
@@ -10983,10 +10983,6 @@ input#verify-fullname {
   }
 }
 
-  .course-sidebar-panel {
-    width: 220px;
-  }
-
   .course-main-content {
     padding: 20px;
   }
@@ -12549,6 +12545,60 @@ input#verify-fullname {
   .export-all-btn i {
     font-size: 1.1em;
     -webkit-text-stroke: 1px;
+  }
+
+  /* Hide desktop tabs, show mobile tabs */
+  .course-player-tabs {
+    display: none;
+  }
+
+  .course-player-tabs-mobile {
+    display: flex;
+    gap: 16px;
+    border-bottom: 2px solid var(--color-border);
+    margin-bottom: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .course-player-tabs-mobile .tab-btn {
+    padding: 10px 4px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .course-player-tabs-mobile .tab-btn.active {
+    color: var(--color-text);
+    font-weight: 600;
+    border-bottom-color: var(--color-text);
+  }
+
+  /* Show mobile tab content, hide desktop tab content */
+  [data-tab-content="course-player"] {
+    display: none;
+  }
+
+  [data-tab-content="course-player-mobile"] {
+    display: block;
+  }
+
+  /* Module items inside mobile Course Content tab */
+  .mobile-modules-wrap .module-header {
+    margin: 6px 0;
+    width: 100%;
+    padding: 10px 14px;
+  }
+
+  .mobile-modules-wrap .lesson-item {
+    padding: 8px 14px 8px 20px;
   }
 
   .course-sidebar-panel {
@@ -14372,60 +14422,6 @@ select.input-success {
     height: 10px;
   }
 
-  /* Hide desktop tabs, show mobile tabs */
-  .course-player-tabs {
-    display: none;
-  }
-
-  .course-player-tabs-mobile {
-    display: flex;
-    gap: 16px;
-    border-bottom: 2px solid var(--color-border);
-    margin-bottom: 20px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .course-player-tabs-mobile .tab-btn {
-    padding: 10px 4px;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--color-text-secondary);
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    cursor: pointer;
-    transition: var(--transition-fast);
-    white-space: nowrap;
-  }
-
-  .course-player-tabs-mobile .tab-btn.active {
-    color: var(--color-text);
-    font-weight: 600;
-    border-bottom-color: var(--color-text);
-  }
-
-  /* Show mobile tab content, hide desktop tab content */
-  [data-tab-content="course-player"] {
-    display: none;
-  }
-
-  [data-tab-content="course-player-mobile"] {
-    display: block;
-  }
-
-  /* Module items inside mobile Course Content tab */
-  .mobile-modules-wrap .module-header {
-    margin: 6px 0;
-    width: 100%;
-    padding: 10px 14px;
-  }
-
-  .mobile-modules-wrap .lesson-item {
-    padding: 8px 14px 8px 20px;
-  }
-
   /* PDF items stack tighter */
   .pdf-download-item {
     gap: 12px;
@@ -14448,7 +14444,7 @@ select.input-success {
 }
 
 /* Hide mobile tab content on desktop/tablet */
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   [data-tab-content="course-player-mobile"] {
     display: none;
   }

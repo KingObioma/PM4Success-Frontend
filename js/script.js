@@ -3712,90 +3712,77 @@ function initCustomVideoControls() {
 function initDiscussionForum() {
   const forum = document.getElementById('tab-discussion');
   if (!forum) return;
+  const mobileForum = document.getElementById('tab-mobile-discussion');
 
-  // --- Like / Dislike ---
-  const wireVoteButtons = (post) => {
-    const [likeBtn, dislikeBtn] = post.querySelectorAll('.discussion-actions button');
-    if (!likeBtn || !dislikeBtn) return;
+  const getCount = (btn) => parseInt(btn.lastChild.textContent.trim(), 10) || 0;
+  const setCount = (btn, count) => { btn.lastChild.textContent = ` ${count}`; };
 
-    const getCount = (btn) => {
-      const text = btn.lastChild.textContent.trim();
-      return parseInt(text, 10) || 0;
-    };
+  const handleVoteClick = (btn) => {
+    const actions = btn.closest('.discussion-actions');
+    if (!actions) return;
+    const [likeBtn, dislikeBtn] = actions.querySelectorAll('button');
+    const isLike = btn === likeBtn;
+    const activeBtn = isLike ? likeBtn : dislikeBtn;
+    const otherBtn = isLike ? dislikeBtn : likeBtn;
 
-    const setCount = (btn, count) => {
-      btn.lastChild.textContent = ` ${count}`;
-    };
-
-    const activate = (btn) => btn.classList.add('active');
-    const deactivate = (btn) => btn.classList.remove('active');
-
-    likeBtn.addEventListener('click', () => {
-      if (likeBtn.classList.contains('active')) {
-        deactivate(likeBtn);
-        setCount(likeBtn, getCount(likeBtn) - 1);
-      } else {
-        activate(likeBtn);
-        setCount(likeBtn, getCount(likeBtn) + 1);
-        if (dislikeBtn.classList.contains('active')) {
-          deactivate(dislikeBtn);
-          setCount(dislikeBtn, getCount(dislikeBtn) - 1);
-        }
+    if (activeBtn.classList.contains('active')) {
+      activeBtn.classList.remove('active');
+      setCount(activeBtn, getCount(activeBtn) - 1);
+    } else {
+      activeBtn.classList.add('active');
+      setCount(activeBtn, getCount(activeBtn) + 1);
+      if (otherBtn.classList.contains('active')) {
+        otherBtn.classList.remove('active');
+        setCount(otherBtn, getCount(otherBtn) - 1);
       }
-    });
-
-    dislikeBtn.addEventListener('click', () => {
-      if (dislikeBtn.classList.contains('active')) {
-        deactivate(dislikeBtn);
-        setCount(dislikeBtn, getCount(dislikeBtn) - 1);
-      } else {
-        activate(dislikeBtn);
-        setCount(dislikeBtn, getCount(dislikeBtn) + 1);
-        if (likeBtn.classList.contains('active')) {
-          deactivate(likeBtn);
-          setCount(likeBtn, getCount(likeBtn) - 1);
-        }
-      }
-    });
+    }
   };
 
-  forum.querySelectorAll('.discussion-post').forEach(wireVoteButtons);
+  const wireForumContainer = (container) => {
+    // Event delegation covers existing posts and dynamically added ones
+    container.addEventListener('click', (e) => {
+      const btn = e.target.closest('.discussion-actions button');
+      if (btn) handleVoteClick(btn);
+    });
 
-  // --- Submit new question ---
-  const input = forum.querySelector('.discussion-input input');
-  const sendBtn = forum.querySelector('.discussion-send-btn');
-  const avatarSrc = forum.querySelector('.discussion-input img').getAttribute('src');
+    const input = container.querySelector('.discussion-input input');
+    const sendBtn = container.querySelector('.discussion-send-btn');
+    if (!input || !sendBtn) return;
 
-  const buildPost = (text) => {
-    const post = document.createElement('div');
-    post.className = 'discussion-post';
-    post.innerHTML = `
-      <div class="discussion-post-header">
-        <img src="${avatarSrc}" alt="You">
-        <div class="discussion-post-body">
-          <h6>You</h6>
-          <p>${text}</p>
-          <div class="discussion-actions">
-            <button aria-label="Like"><i class="bi bi-hand-thumbs-up-fill"></i> 0</button>
-            <button aria-label="Dislike"><i class="bi bi-hand-thumbs-down-fill"></i> 0</button>
+    const avatarSrc = container.querySelector('.discussion-input img')?.getAttribute('src') ?? '';
+
+    const buildPost = (text) => {
+      const post = document.createElement('div');
+      post.className = 'discussion-post';
+      post.innerHTML = `
+        <div class="discussion-post-header">
+          <img src="${avatarSrc}" alt="You">
+          <div class="discussion-post-body">
+            <h6>You</h6>
+            <p>${text}</p>
+            <div class="discussion-actions">
+              <button aria-label="Like"><i class="bi bi-hand-thumbs-up-fill"></i> 0</button>
+              <button aria-label="Dislike"><i class="bi bi-hand-thumbs-down-fill"></i> 0</button>
+            </div>
           </div>
-        </div>
-      </div>`;
-    return post;
+        </div>`;
+      return post;
+    };
+
+    const submitQuestion = () => {
+      const text = input.value.trim();
+      if (!text) return;
+      const firstPost = container.querySelector('.discussion-post');
+      if (firstPost) firstPost.before(buildPost(text));
+      input.value = '';
+    };
+
+    sendBtn.addEventListener('click', submitQuestion);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitQuestion();
+    });
   };
 
-  const submitQuestion = () => {
-    const text = input.value.trim();
-    if (!text) return;
-    const post = buildPost(text);
-    forum.querySelector('.discussion-post').before(post);
-    wireVoteButtons(post);
-    input.value = '';
-  };
-
-  sendBtn.addEventListener('click', submitQuestion);
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') submitQuestion();
-  });
+  wireForumContainer(forum);
+  if (mobileForum) wireForumContainer(mobileForum);
 }
