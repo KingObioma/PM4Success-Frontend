@@ -3348,6 +3348,14 @@ function initCoursePlayer() {
     mobileDiscussion.innerHTML = desktopDiscussion.innerHTML;
   }
 
+  /* Mirror achievements content into mobile tab */
+  const desktopAchievements = document.getElementById('tab-achievements');
+  const mobileAchievements = document.getElementById('tab-mobile-achievements');
+
+  if (desktopAchievements && mobileAchievements) {
+    mobileAchievements.innerHTML = desktopAchievements.innerHTML;
+  }
+
   /* Tabs are handled by the generic initTabs() via data-tabs attributes */
 
   /* File upload display name */
