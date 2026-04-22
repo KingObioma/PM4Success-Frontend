@@ -6189,6 +6189,50 @@ body.is-logged-in .navbar-search {
   }
 }
 
+/* Purchase Success Modal */
+.purchase-success-modal {
+  max-width: 480px;
+}
+
+.purchase-success-body {
+  padding: 40px;
+}
+
+.purchase-success-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.purchase-success-body p {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.purchase-success-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.purchase-success-actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 575.98px) {
+  .purchase-success-body {
+    padding: 28px 24px;
+  }
+
+  .purchase-success-actions {
+    flex-direction: column;
+  }
+}
+
 /* Section title with underline */
 .section-title-underline {
   position: relative;

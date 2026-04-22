@@ -196,7 +196,7 @@
         <div class="col-lg-11">
           <!-- Billing Details -->
           <h2 class="mb-4">Billing details</h2>
-          <form class="billing-form" action="purchase-success.html" novalidate>
+          <form class="billing-form" action="#" novalidate>
             <div class="form-group">
               <label class="form-label" for="billing-fullname">Fullname</label>
               <input type="text" class="form-control" id="billing-fullname" name="fullname" value="John Doe" required>
@@ -451,6 +451,21 @@
 
         <div class="auth-footer">
           Remember your password? <a href="#" data-open-modal="loginModal">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Purchase Success Modal -->
+  <div class="app-modal-overlay" id="purchaseSuccessModal">
+    <div class="app-modal purchase-success-modal">
+      <div class="purchase-success-body">
+        <h4 class="purchase-success-title">Your course purchase was successful!</h4>
+        <p>We're excited to be part of your learning journey, let's achieve great things together.</p>
+        <p>Ready to level up your skills? Start your course now and take the first step toward success!</p>
+        <div class="purchase-success-actions">
+          <a href="course-content.html" class="btn btn-primary">Start learning now</a>
+          <a href="index.html" class="btn btn-outline-dark">Back to homepage</a>
         </div>
       </div>
     </div>

@@ -2293,9 +2293,9 @@ function initValidation() {
   const billingForm = document.querySelector('.billing-form');
   if (billingForm) {
     billingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
       const paymentSelected = billingForm.querySelector('input[name="payment"]:checked');
       if (!paymentSelected) {
-        e.preventDefault();
         const paymentMethods = billingForm.querySelector('.payment-methods');
         if (paymentMethods) {
           paymentMethods.classList.add('input-error');
@@ -2309,7 +2309,10 @@ function initValidation() {
         }
         billingForm.classList.add('form-shake');
         setTimeout(() => { billingForm.classList.remove('form-shake'); }, 500);
+        return;
       }
+      const modal = document.getElementById('purchaseSuccessModal');
+      if (modal) modal.classList.add('show');
     });
 
     // Clear payment error when a radio is selected
