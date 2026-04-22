@@ -14443,6 +14443,32 @@ select.input-success {
     margin-top: 24px;
     padding-top: 20px;
   }
+
+  /* Discussion Forum */
+  .discussion-post-body {
+    min-width: 0;
+  }
+
+  .discussion-post-body p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .discussion-post-header img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .discussion-input img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .discussion-send-btn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
 }
 
 /* Hide mobile tab content on desktop/tablet */
