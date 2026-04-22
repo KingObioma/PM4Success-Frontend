@@ -14464,6 +14464,10 @@ select.input-success {
     height: 32px;
   }
 
+  .discussion-input input {
+    min-width: 0;
+  }
+
   .discussion-send-btn {
     width: 36px;
     height: 36px;
