@@ -12558,7 +12558,13 @@ input#verify-fullname {
     border-bottom: 2px solid var(--color-border);
     margin-bottom: 20px;
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .course-player-tabs-mobile::-webkit-scrollbar {
+    display: none;
   }
 
   .course-player-tabs-mobile .tab-btn {
@@ -14834,6 +14840,9 @@ select.input-success {
   }
 
   .assign-grades-module-right {
+    width: 100%;
+    flex-shrink: 1;
+    justify-content: space-between;
     gap: 16px;
   }
 }
@@ -14885,6 +14894,7 @@ select.input-success {
   .assign-grades-module-right {
     width: 100%;
     flex-shrink: 1;
+    justify-content: space-between;
     gap: 12px;
   }
 }
