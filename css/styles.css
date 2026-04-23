@@ -12621,7 +12621,7 @@ input#verify-fullname {
     background: none;
     border: none;
     cursor: pointer;
-    transition: var(--transition-fast);
+    transition: color 0.15s ease;
     white-space: nowrap;
   }
 
