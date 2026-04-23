@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="course-player-mode">
 
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
@@ -27,24 +27,36 @@
             <img src="assets/images/logo.png" alt="PM4Success">
           </a>
 
-          <!-- Course Title (course content page only) -->
-          <span class="course-player-title">Introduction to Data Science and Statistic Methodology</span>
-
         </div>
 
         <div class="navbar-right">
-          <!-- Progress Ring (course content page only) -->
-          <div class="course-player-progress">
-            <svg class="progress-ring-sm" viewBox="0 0 40 40">
-              <circle cx="20" cy="20" r="16" fill="none" stroke="#1a5276" stroke-width="4"
-                stroke-dasharray="5 3.38" stroke-linecap="butt"/>
-              <text x="20" y="21" text-anchor="middle" class="progress-ring-text-sm" dominant-baseline="middle">55%</text>
-            </svg>
-            <span class="course-player-progress-label">Your Progress</span>
+          <!-- Search -->
+          <div class="navbar-search">
+            <i class="bi bi-mic search-icon-left"></i>
+            <input type="text" placeholder="search courses" aria-label="Search courses">
+            <i class="bi bi-search search-icon-right"></i>
+          </div>
+
+          <!-- Nav Links -->
+          <ul class="navbar-nav">
+            <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
+            <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+
+          <!-- Actions: Logged Out -->
+          <div class="navbar-actions navbar-logged-out">
+            <a href="#" class="nav-link nav-login-link" data-open-modal="loginModal">Login</a>
+            <a href="#" class="btn btn-enroll" data-open-modal="signupModal">Enroll Now</a>
           </div>
 
           <!-- Actions: Logged In -->
           <div class="navbar-actions navbar-logged-in">
+            <a href="cart.html" class="nav-icon-btn">
+              <i class="bi bi-cart-fill"></i>
+              <span class="badge-count">4</span>
+            </a>
             <a href="notifications.html" class="nav-icon-btn">
               <i class="bi bi-bell-fill"></i>
             </a>
@@ -158,7 +170,57 @@
   </div>
 
 
-  <!-- ========== COURSE CONTENT ========== -->
+  <!-- ========== COURSE PLAYER BAR ========== -->
+  <div class="course-player-bar">
+    <div class="course-player-bar-inner">
+      <div class="course-player-bar-left">
+        <button class="navbar-toggle" aria-label="Toggle menu">
+          <i class="bi bi-list"></i>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/images/logo.png" alt="PM4Success">
+        </a>
+        <span class="course-player-title">Introduction to Data Science and Statistic Methodology</span>
+      </div>
+      <div class="course-player-bar-right">
+        <div class="course-player-progress">
+          <svg class="progress-ring-sm" viewBox="0 0 36 36">
+            <circle cx="18" cy="18" r="15.5" fill="none" stroke="#e5e7eb" stroke-width="3"/>
+            <circle cx="18" cy="18" r="15.5" fill="none" stroke="#1a5276" stroke-width="3"
+              stroke-dasharray="97.39" stroke-dashoffset="43.83" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+            <text x="18" y="19.5" text-anchor="middle" class="progress-ring-text-sm" dominant-baseline="middle">55%</text>
+          </svg>
+          <span class="course-player-progress-label">Your Progress</span>
+        </div>
+        <a href="notifications.html" class="nav-icon-btn">
+          <i class="bi bi-bell-fill"></i>
+        </a>
+        <div class="position-relative">
+          <div class="nav-avatar">
+            <span class="nav-avatar-initial">A</span>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile player bar -->
+    <div class="course-player-bar-mobile">
+      <a href="course-content.html" class="course-player-back">
+        <i class="bi bi-arrow-left"></i>
+      </a>
+      <span class="course-player-mobile-title">Quiz/Assignment</span>
+      <div class="course-player-bar-mobile-right">
+        <a href="cart.html" class="nav-icon-btn">
+          <i class="bi bi-cart-fill"></i>
+        </a>
+        <a href="notifications.html" class="nav-icon-btn">
+          <i class="bi bi-bell-fill"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ASSIGNMENT OVERVIEW ========== -->
   <main class="course-player-page">
 
     <!-- Left Sidebar -->
@@ -172,10 +234,10 @@
 
       <div class="course-sidebar-modules">
         <!-- Module 1 -->
-        <div class="module-item completed">
+        <div class="module-item">
           <button class="module-header">
             <div class="module-header-left">
-              <i class="bi bi-check-circle-fill module-check"></i>
+              <i class="bi bi-check-circle-fill module-check completed"></i>
               <div>
                 <span class="module-title">Module 1</span>
                 <span class="module-meta">9/9 | 45min</span>
@@ -195,10 +257,10 @@
         </div>
 
         <!-- Module 2 -->
-        <div class="module-item completed">
+        <div class="module-item">
           <button class="module-header">
             <div class="module-header-left">
-              <i class="bi bi-check-circle-fill module-check"></i>
+              <i class="bi bi-check-circle-fill module-check completed"></i>
               <div>
                 <span class="module-title">Module 2</span>
                 <span class="module-meta">9/9 | 45min</span>
@@ -218,10 +280,10 @@
         </div>
 
         <!-- Module 3 (active/expanded) -->
-        <div class="module-item active current">
+        <div class="module-item active">
           <button class="module-header">
             <div class="module-header-left">
-              <i class="bi bi-check-circle-fill module-check"></i>
+              <i class="bi bi-check-circle-fill module-check in-progress"></i>
               <div>
                 <span class="module-title">Module 3</span>
                 <span class="module-meta">2/9 | 45min</span>
@@ -258,46 +320,46 @@
                 <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
               </div>
             </a>
-            <a href="#" class="lesson-item completed">
-              <i class="bi bi-check-circle-fill lesson-check"></i>
-              <div class="lesson-info">
-                <span class="lesson-title">Introduction To Big Data</span>
-                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
-              </div>
-            </a>
-            <a href="#" class="lesson-item completed">
-              <i class="bi bi-check-circle-fill lesson-check"></i>
-              <div class="lesson-info">
-                <span class="lesson-title">Introduction To Big Data</span>
-                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
-              </div>
-            </a>
-            <a href="#" class="lesson-item completed">
-              <i class="bi bi-check-circle-fill lesson-check"></i>
-              <div class="lesson-info">
-                <span class="lesson-title">Introduction To Big Data</span>
-                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
-              </div>
-            </a>
-            <a href="#" class="lesson-item completed">
-              <i class="bi bi-check-circle-fill lesson-check"></i>
-              <div class="lesson-info">
-                <span class="lesson-title">Introduction To Big Data</span>
-                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
-              </div>
-            </a>
-            <a href="#" class="lesson-item completed">
-              <i class="bi bi-check-circle-fill lesson-check"></i>
-              <div class="lesson-info">
-                <span class="lesson-title">Introduction To Big Data</span>
-                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
-              </div>
-            </a>
-             <a href="#" class="lesson-item active">
+            <a href="#" class="lesson-item">
               <i class="bi bi-circle lesson-check"></i>
               <div class="lesson-info">
+                <span class="lesson-title">Introduction To Big Data</span>
+                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+              </div>
+            </a>
+            <a href="#" class="lesson-item">
+              <i class="bi bi-circle lesson-check"></i>
+              <div class="lesson-info">
+                <span class="lesson-title">Introduction To Big Data</span>
+                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+              </div>
+            </a>
+            <a href="#" class="lesson-item">
+              <i class="bi bi-circle lesson-check"></i>
+              <div class="lesson-info">
+                <span class="lesson-title">Introduction To Big Data</span>
+                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+              </div>
+            </a>
+            <a href="#" class="lesson-item">
+              <i class="bi bi-circle lesson-check"></i>
+              <div class="lesson-info">
+                <span class="lesson-title">Introduction To Big Data</span>
+                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+              </div>
+            </a>
+            <a href="#" class="lesson-item">
+              <i class="bi bi-circle lesson-check"></i>
+              <div class="lesson-info">
+                <span class="lesson-title">Introduction To Big Data</span>
+                <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+              </div>
+            </a>
+            <a href="assignment.html" class="lesson-item quiz-item active">
+              <i class="bi bi-check-circle-fill lesson-check"></i>
+              <div class="lesson-info">
                 <span class="lesson-title">Quiz/Assignment</span>
-                <span class="lesson-duration"><i class="bi bi-file-earmark-text-fill"></i> 30 min</span>
+                <span class="lesson-duration"><i class="bi bi-file-earmark-fill"></i> 30 min</span>
               </div>
             </a>
           </div>
@@ -307,7 +369,7 @@
         <div class="module-item">
           <button class="module-header">
             <div class="module-header-left">
-              <i class="bi bi-check-circle module-check"></i>
+              <i class="bi bi-check-circle-fill module-check in-progress"></i>
               <div>
                 <span class="module-title">Module 4</span>
                 <span class="module-meta">2/9 | 45min</span>
@@ -330,7 +392,7 @@
         <div class="module-item">
           <button class="module-header">
             <div class="module-header-left">
-              <i class="bi bi-check-circle module-check"></i>
+              <i class="bi bi-check-circle-fill module-check in-progress"></i>
               <div>
                 <span class="module-title">Module 5</span>
                 <span class="module-meta">2/9 | 45min</span>
@@ -352,51 +414,320 @@
 
       <!-- Deadlines & Info -->
       <div class="course-info-sidebar">
-        <div class="sidebar-info-row">
-          <i class="bi bi-geo-alt-fill"></i>
+        <div class="info-item">
+          <i class="bi bi-geo-alt"></i>
           <span>Start date: July 20, 2024</span>
         </div>
-
-        <div class="sidebar-deadlines-timeline">
-          <span class="deadlines-label">Your next deadlines</span>
-
-          <div class="deadline-entry">
-            <div class="deadline-dot"></div>
-            <div class="deadline-content">
+        <div class="info-item">
+          <span>Your next deadlines:</span>
+        </div>
+        <div class="info-item info-item-indent">
+          <div class="deadline-item">
+            <div class="deadline-line deadline-line-red"></div>
+            <div>
               <span class="deadline-type">Graded Quiz: Driving Strategy and Innovation</span>
               <span class="deadline-badge overdue">Overdue</span>
             </div>
           </div>
-
-          <div class="deadline-entry">
-            <div class="deadline-dot"></div>
-            <div class="deadline-content">
+        </div>
+        <div class="info-item info-item-indent">
+          <div class="deadline-item">
+            <div class="deadline-line deadline-line-orange"></div>
+            <div>
               <span class="deadline-type">Graded Assignment</span>
               <span class="deadline-label">Graded Quiz: Understanding Communication Style</span>
               <span class="deadline-badge due-soon">Due in 2 days</span>
             </div>
           </div>
-
-          <div class="deadline-entry">
-            <div class="deadline-dot"></div>
-            <div class="deadline-content">
+        </div>
+        <div class="info-item info-item-indent">
+          <div class="deadline-item">
+            <div class="deadline-line deadline-line-gray"></div>
+            <div>
               <span class="deadline-type">Graded Assignment</span>
             </div>
           </div>
         </div>
-
-        <div class="sidebar-info-row">
-          <i class="bi bi-card-checklist"></i>
+        <div class="info-item">
+          <i class="bi bi-calendar3"></i>
           <span>Estimated end date: October 7, 2024</span>
         </div>
       </div>
+
+      <!-- Grades Link -->
+      <div class="course-sidebar-grades">
+        <h5>Grades</h5>
+      </div>
     </aside>
 
-     <!-- Right Main Content -->
-  
+    <!-- Right Main Content -->
+    <div class="course-main-content">
 
+      <!-- Mobile Tabs (includes Course Content tab) -->
+      <div class="assignment-tabs-mobile" data-tabs="assignment-mobile">
+        <button class="tab-btn" data-tab="tab-mobile-assignment-sidebar">Course Content</button>
+        <button class="tab-btn active" data-tab="tab-mobile-assignment-main">Assignment</button>
+      </div>
+
+      <!-- Mobile Tab Contents -->
+      <div data-tab-content="assignment-mobile">
+        <!-- Course Content Tab (sidebar content on mobile) -->
+        <div class="tab-content" id="tab-mobile-assignment-sidebar">
+          <div class="mobile-modules-wrap">
+            <!-- Module 1 -->
+            <div class="module-item">
+              <button class="module-header">
+                <div class="module-header-left">
+                  <i class="bi bi-check-circle-fill module-check completed"></i>
+                  <div>
+                    <span class="module-title">Module 1</span>
+                    <span class="module-meta">9/9 | 45min</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="module-body">
+                <a href="#" class="lesson-item completed">
+                  <i class="bi bi-check-circle-fill lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Introduction to Data Science</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-item">
+              <button class="module-header">
+                <div class="module-header-left">
+                  <i class="bi bi-check-circle-fill module-check completed"></i>
+                  <div>
+                    <span class="module-title">Module 2</span>
+                    <span class="module-meta">9/9 | 45min</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="module-body">
+                <a href="#" class="lesson-item completed">
+                  <i class="bi bi-check-circle-fill lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Data Analysis Fundamentals</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Module 3 (active/expanded) -->
+            <div class="module-item active">
+              <button class="module-header">
+                <div class="module-header-left">
+                  <i class="bi bi-check-circle-fill module-check in-progress"></i>
+                  <div>
+                    <span class="module-title">Module 3</span>
+                    <span class="module-meta">2/9 | 45min</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-up"></i>
+              </button>
+              <div class="module-body">
+                <a href="#" class="lesson-item completed">
+                  <i class="bi bi-check-circle-fill lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">What Is Data Science?</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="#" class="lesson-item completed">
+                  <i class="bi bi-check-circle-fill lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">The Data Science Lifecycle</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="#" class="lesson-item completed">
+                  <i class="bi bi-check-circle-fill lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Types Of Data</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="#" class="lesson-item completed">
+                  <i class="bi bi-check-circle-fill lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Key Roles In Data Science</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="#" class="lesson-item">
+                  <i class="bi bi-circle lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Introduction To Big Data</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="#" class="lesson-item">
+                  <i class="bi bi-circle lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Introduction To Big Data</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="#" class="lesson-item">
+                  <i class="bi bi-circle lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Introduction To Big Data</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="#" class="lesson-item">
+                  <i class="bi bi-circle lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Introduction To Big Data</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="#" class="lesson-item">
+                  <i class="bi bi-circle lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Introduction To Big Data</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+                <a href="assignment.html" class="lesson-item quiz-item active">
+                  <i class="bi bi-check-circle-fill lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Quiz/Assignment</span>
+                    <span class="lesson-duration"><i class="bi bi-file-earmark-fill"></i> 30 min</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module-item">
+              <button class="module-header">
+                <div class="module-header-left">
+                  <i class="bi bi-check-circle-fill module-check in-progress"></i>
+                  <div>
+                    <span class="module-title">Module 4</span>
+                    <span class="module-meta">2/9 | 45min</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="module-body">
+                <a href="#" class="lesson-item">
+                  <i class="bi bi-circle lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Advanced Data Concepts</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module-item">
+              <button class="module-header">
+                <div class="module-header-left">
+                  <i class="bi bi-check-circle-fill module-check in-progress"></i>
+                  <div>
+                    <span class="module-title">Module 5</span>
+                    <span class="module-meta">2/9 | 45min</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="module-body">
+                <a href="#" class="lesson-item">
+                  <i class="bi bi-circle lesson-check"></i>
+                  <div class="lesson-info">
+                    <span class="lesson-title">Data Visualization Basics</span>
+                    <span class="lesson-duration"><i class="bi bi-play-btn-fill"></i> 4 min</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Assignment Main Content Tab -->
+        <div class="tab-content active" id="tab-mobile-assignment-main">
+          <!-- Content inserted via JS or duplicated — kept empty for mobile reflow -->
+        </div>
+      </div>
+
+      <!-- Assignment Content (visible on desktop/tablet, moves into tab on mobile) -->
+      <div class="assignment-overview" data-tab-content="assignment-desktop">
+        <!-- Quiz Banner -->
+        <div class="assignment-banner">
+          <img src="assets/images/misc/quiz-banner.png" alt="Quiz">
+        </div>
+
+        <!-- Title & Instructor -->
+        <h2 class="assignment-title">Module 1: Fundamentals of Data Analytics &ndash; Knowledge Check</h2>
+        <p class="assignment-instructor">Dr. Emily Thompson</p>
+
+        <!-- Description -->
+        <div class="assignment-description">
+          <p>In this module, we will dive into the basics of data analysis, learning how to clean, process, and analyze datasets. Our focus will be on understanding patterns, trends, and insights using industry-standard tools. By the end of this module, you should have a solid understanding of how to explore and validate data before making key decisions.</p>
+        </div>
+
+        <!-- Instructions -->
+        <div class="assignment-section">
+          <h4>Instructions</h4>
+          <ul>
+            <li>Complete each step of the analysis.</li>
+            <li>Reflect on your findings.</li>
+            <li>Validate your insights.</li>
+            <li>Discuss your results.</li>
+          </ul>
+        </div>
+
+        <!-- MCQ Checklist -->
+        <div class="assignment-section">
+          <h4>MCQ Checklist</h4>
+          <ul>
+            <li>Review all relevant sections of the module before attempting the MCQ.</li>
+            <li>Ensure you understand how to clean and process data as discussed.</li>
+            <li>Double-check the accuracy of your analysis and conclusions.</li>
+            <li>Make sure to complete all required tasks in the notebook before proceeding to the MCQ.</li>
+          </ul>
+        </div>
+
+        <!-- Quiz Details Card -->
+        <div class="assignment-details-card">
+          <h5>Quiz details</h5>
+          <div class="assignment-details-row">
+            <div class="assignment-detail">
+              <span class="assignment-detail-label">Due</span>
+              <span class="assignment-detail-value">Oct 25, 11:50 PM WAT</span>
+            </div>
+            <div class="assignment-detail">
+              <span class="assignment-detail-label">Attempts</span>
+              <span class="assignment-detail-value">3 left (3 attempts every 8 hours)</span>
+            </div>
+            <div class="assignment-detail-action">
+              <a href="quiz.html" class="btn btn-outline-assignment">Continue</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Your Grade Card -->
+        <div class="assignment-grade-card">
+          <h5>Your grade</h5>
+          <p>You haven't submitted this yet. We keep your highest score.</p>
+          <span class="assignment-grade-score">&ndash;&ndash;</span>
+        </div>
+      </div>
+
+    </div>
   </main>
 
+ 
 
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
