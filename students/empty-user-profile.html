@@ -1,16 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PM4Success - Profile & Settings</title>
+  <title>PM4Success - Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+
+  </div>
 
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
@@ -24,7 +26,7 @@
 
           <!-- Brand -->
           <a href="index.html" class="navbar-brand">
-            <img src="assets/images/logo.png" alt="PM4Success">
+            <img src="../assets/images/logo.png" alt="PM4Success">
           </a>
 
         </div>
@@ -87,14 +89,14 @@
         <div class="switch-account-section">
           <h6 class="switch-account-heading">NNPC Tech Scholarship</h6>
           <a href="NNPC-tech.html" class="switch-account-item">
-            <img src="assets/images/logo.png" alt="NNPC Tech Career Academy">
+            <img src="../assets/images/logo.png" alt="NNPC Tech Career Academy">
             <span>NNPC Tech Career  Academy</span>
           </a>
         </div>
         <div class="switch-account-section">
           <h6 class="switch-account-heading">Explore PM4Success</h6>
           <a href="index.html" class="switch-account-item active">
-            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <img src="../assets/images/logo-white.png" alt="PM4Success">
             <div>
               <span>PM4Success</span>
               <small>All courses</small>
@@ -112,7 +114,7 @@
 
     <!-- Logged out header -->
     <div class="mobile-menu-header navbar-logged-out">
-      <img src="assets/images/logo.png" alt="PM4Success">
+      <img src="../assets/images/logo.png" alt="PM4Success">
     </div>
 
     <!-- Logged in header -->
@@ -171,275 +173,274 @@
 
 
 
-  <!-- ========== PROFILE & SETTINGS ========== -->
-  <section class="edit-profile-section">
+  <!-- ========== PROFILE WELCOME BANNER ========== -->
+  <section class="profile-welcome">
+    <img src="../assets/images/illustrations/character1.png" alt="" class="profile-welcome-bg-character">
+
     <div class="container">
-      <h2 class="edit-profile-heading">Profile & settings</h2>
+      <div class="profile-welcome-grid">
 
-      <!-- Profile Tabs -->
-      <div class="tabs" data-tabs="profile">
-        <button class="tab-btn active" data-tab="info-tab">Info</button>
-        <button class="tab-btn" data-tab="password-tab">Password</button>
-      </div>
-
-      <div data-tab-content="profile">
-      <!-- ===== INFO TAB ===== -->
-      <div class="tab-content active" id="info-tab">
-
-        <!-- Avatar + Personal Info Row -->
-        <div class="edit-profile-top-row">
-          <!-- Avatar Upload -->
-          <div class="edit-profile-avatar-col">
-            <div class="profile-card profile-avatar-card">
-              <div class="profile-avatar-upload">
-                <img src="assets/images/avatars/aliyu-avatar.png" alt="Profile Photo">
-                <label for="avatar-upload" class="avatar-camera-btn">
-                  <i class="bi bi-camera-fill"></i>
-                </label>
-                <input type="file" id="avatar-upload" accept="image/*" hidden>
-              </div>
-              <p class="profile-avatar-size-hint">Maximum Size: 2MB</p>
-            </div>
+        <!-- Left: avatar + verified + edit button -->
+        <aside class="profile-welcome-aside">
+          <div class="profile-welcome-avatar">
+            <img src="../assets/images/avatars/aliyu-avatar.png" alt="Aliyu Unuagbokhe">
           </div>
-
-          <!-- Personal Information -->
-          <div class="edit-profile-info-col">
-            <div class="profile-card">
-              <div class="profile-card-header">
-                <h3>Personal Information</h3>
-                <button type="button" class="profile-edit-btn" aria-label="Edit personal information">
-                  <i class="bi bi-pencil-square"></i>
-                </button>
-              </div>
-              <form action="#" method="POST" id="personal-info-form">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label" for="profile-fullname">Fullname</label>
-                    <input type="text" class="form-control" id="profile-fullname" value="Mike James" readonly>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" for="profile-email">Email</label>
-                    <input type="email" class="form-control" id="profile-email" value="Johndeo@gmail.com" readonly>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" for="profile-phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="profile-phone" value="09012766531" readonly>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" for="profile-address">Address</label>
-                    <input type="text" class="form-control" id="profile-address" value="9, hilary street, ikorodu off island." readonly>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" for="profile-dob">Date of Birth</label>
-                    <input type="text" class="form-control" id="profile-dob" value="08/Aug/1999" readonly>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" for="profile-gender">Gender</label>
-                    <input type="text" class="form-control" id="profile-gender" value="Male" readonly>
-                  </div>
-                </div>
-              </form>
-            </div>
-
-            <!-- Career Path Section -->
-            <div class="profile-card">
-              <h3 class="profile-card-title">Career Path</h3>
-              <p class="profile-card-desc">Explore the right path for your future! Whether you're starting fresh or looking to grow, discover careers that match your skills, interests, and goals. Take the next step toward success today</p>
-              <div class="career-tag-wrap">
-                <span class="career-tag">
-                  <button type="button" class="career-tag-remove" aria-label="Remove Data Analytics"><i class="bi bi-x-lg"></i></button>
-                  Data Analytics
-                </span>
-              </div>
-              <p class="career-selected-text">Selected career: <strong>Data Analytics</strong></p>
-              <div class="career-select-wrap">
-                <input type="hidden" name="career-path" id="career-select" value="data-analytics">
-                <div class="id-type-dropdown" data-id-type-dropdown>
-                  <div class="id-type-dropdown-trigger">
-                    <span class="id-type-dropdown-value">Select career choice</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="id-type-dropdown-options">
-                    <li data-value="data-analytics">Data Analytics</li>
-                    <li data-value="data-science">Data Science</li>
-                    <li data-value="machine-learning">Machine Learning</li>
-                    <li data-value="software-development">Software Development</li>
-                    <li data-value="ui-ux-design">UI/UX Design</li>
-                    <li data-value="project-management">Project Management</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Verify Account Section -->
-            <div class="profile-card">
-              <h3 class="profile-card-title">Verify Account</h3>
-              <p class="verify-subtitle">Verify Your Identity. Upload Front & Back Of Your ID</p>
-              <p class="profile-card-desc">To ensure the security of your account and compliance with our verification standards, we require both the front and back images of your government-issued ID. This helps us confirm your identity and prevent fraudulent activity.</p>
-              <ul class="verify-requirements">
-                <li>Make sure both sides of your ID are clear and legible.</li>
-                <li>The name on your ID must match your profile name exactly.</li>
-                <li>Only government-issued IDs (Passport, National ID, Driver's License) are accepted.</li>
-              </ul>
-              <form action="#" method="POST" id="verify-account-form">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label" for="verify-fullname">Fullname</label>
-                    <input type="text" class="form-control" id="verify-fullname" placeholder="Enter your full name">
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Date of birth</label>
-                    <input type="hidden" name="date-of-birth" id="verify-dob" value="">
-                    <div class="dob-picker" data-dob-picker>
-                      <div class="dob-picker-trigger">
-                        <span class="dob-picker-value is-placeholder">Select your date of birth</span>
-                        <i class="bi bi-chevron-down"></i>
-                      </div>
-                      <div class="dob-picker-panel">
-                        <div class="dob-picker-selects">
-                          <div class="dob-picker-col">
-                            <label class="dob-picker-label">Day</label>
-                            <ul class="dob-picker-list" data-dob-day></ul>
-                          </div>
-                          <div class="dob-picker-col">
-                            <label class="dob-picker-label">Month</label>
-                            <ul class="dob-picker-list" data-dob-month></ul>
-                          </div>
-                          <div class="dob-picker-col">
-                            <label class="dob-picker-label">Year</label>
-                            <ul class="dob-picker-list" data-dob-year></ul>
-                          </div>
-                        </div>
-                        <button type="button" class="dob-picker-done">Done</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label">ID card type</label>
-                    <input type="hidden" name="id-card-type" id="verify-id-type" value="">
-                    <div class="id-type-dropdown" data-id-type-dropdown>
-                      <div class="id-type-dropdown-trigger">
-                        <span class="id-type-dropdown-value">Select ID Type</span>
-                        <i class="bi bi-chevron-down"></i>
-                      </div>
-                      <ul class="id-type-dropdown-options">
-                        <li data-value="passport">International Passport</li>
-                        <li data-value="national-id">National ID</li>
-                        <li data-value="drivers-license">Driver's License</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="verify-id-upload">
-                      <label for="verify-id-file" class="verify-id-upload-circle">
-                        <i class="bi bi-camera-fill"></i>
-                        <img class="verify-id-preview" alt="ID Preview">
-                      </label>
-                      <input type="file" id="verify-id-file" accept="image/*" hidden>
-                      <p class="verify-id-size-hint">Maximum Size: 2MB</p>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Verify account</button>
-                  </div>
-                </div>
-              </form>
-            </div>
+          <div class="profile-welcome-verified-row">
+            <span class="profile-welcome-verified">Verified <i class="bi bi-patch-check-fill"></i></span>
+            <a href="edit-profile.html" class="profile-welcome-edit-icon" aria-label="Edit profile">
+              <i class="bi bi-pencil-square"></i>
+            </a>
           </div>
-        </div>
-      </div>
+          <a href="edit-profile.html" class="btn btn-primary profile-welcome-edit-btn">Edit profile</a>
+        </aside>
 
-      <!-- ===== PASSWORD TAB ===== -->
-      <div class="tab-content" id="password-tab">
-        <div class="profile-card">
-          <h3 class="profile-card-title">Change Password</h3>
-          <form action="#" method="POST" id="change-password-form">
-            <div class="mb-3">
-              <label class="form-label" for="current-password">Current Password</label>
-              <div class="input-group">
-                <input type="password" class="form-control" id="current-password" placeholder="Enter current password">
-                <i class="bi bi-eye input-group-icon" data-toggle-password="current-password"></i>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="new-password">New Password</label>
-              <div class="input-group">
-                <input type="password" class="form-control" id="new-password" placeholder="Enter new password">
-                <i class="bi bi-eye input-group-icon" data-toggle-password="new-password"></i>
-              </div>
-            </div>
-            <div class="mb-4">
-              <label class="form-label" for="confirm-new-password">Reconfirm New Password</label>
-              <div class="input-group">
-                <input type="password" class="form-control" id="confirm-new-password" placeholder="Re-type new password">
-                <i class="bi bi-eye input-group-icon" data-toggle-password="confirm-new-password"></i>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Change password</button>
-          </form>
+        <!-- Right: welcome heading, achievements, view-all -->
+        <div class="profile-welcome-main">
+          <h1 class="profile-welcome-title">Welcome Aliyu Unuagbokhe</h1>
+
+          <!-- Empty State -->
+        <div class="empty-state my-courses-empty">
+          <img src="../assets/images/illustrations/speech-bubble.png" alt="No courses">
+          <h3>No Enrolled Courses</h3>
+          <p>You haven't enrolled in any courses yet. Ready to start learning? Browse our courses and take the first step toward your goals!</p>
+          <a href="course-catalogue.html" class="btn btn-outline">Start a Course</a>
         </div>
-      </div>
+
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ========== EDIT DETAILS MODAL ========== -->
-  <div class="edit-details-overlay" id="editDetailsModal">
-    <div class="edit-details-modal">
-      <button type="button" class="edit-details-close" aria-label="Close modal">
-        <i class="bi bi-x-lg"></i>
-      </button>
-      <h3 class="edit-details-title">Edit Details</h3>
-      <form action="#" method="POST" id="edit-details-form">
-        <div class="edit-details-field">
-          <label class="form-label" for="edit-fullname">Fullname</label>
-          <input type="text" class="form-control" id="edit-fullname" value="Mike James">
+
+
+   <!-- ========== ACTIVITY FEED ========== -->
+  <section class="section section-bg">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Activity Feed</h2>
+      </div>
+      <h4 class="rbp-subheading">Recent blog post</h4>
+
+      <!-- Desktop/Tablet grid -->
+      <div class="rbp-grid">
+        <div class="rbp-item">
+          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
         </div>
-        <div class="edit-details-field">
-          <label class="form-label" for="edit-email">Email</label>
-          <input type="email" class="form-control edit-field-readonly" id="edit-email" value="Johndeo@gmail.com" readonly>
+        <div class="rbp-item">
+          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
         </div>
-        <div class="edit-details-field">
-          <label class="form-label" for="edit-phone">Phone Number</label>
-          <input type="tel" class="form-control" id="edit-phone" value="09012766531" placeholder="Enter your phone number">
+        <div class="rbp-item">
+          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
         </div>
-        <div class="edit-details-field">
-          <label class="form-label" for="edit-address">Address</label>
-          <input type="text" class="form-control" id="edit-address" value="9, hilary street, Ikorodu off Island." placeholder="Enter your address">
+        <div class="rbp-item">
+          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
         </div>
-        <div class="edit-details-field">
-          <label class="form-label">Date of Birth</label>
-          <input type="hidden" id="edit-dob" value="1999-08-08">
-          <div class="dob-picker" data-dob-picker>
-            <div class="dob-picker-trigger">
-              <span class="dob-picker-value">08-Aug-1999</span>
-              <i class="bi bi-chevron-down"></i>
-            </div>
-            <div class="dob-picker-panel">
-              <div class="dob-picker-selects">
-                <div class="dob-picker-col">
-                  <label class="dob-picker-label">Day</label>
-                  <ul class="dob-picker-list" data-dob-day></ul>
-                </div>
-                <div class="dob-picker-col">
-                  <label class="dob-picker-label">Month</label>
-                  <ul class="dob-picker-list" data-dob-month></ul>
-                </div>
-                <div class="dob-picker-col">
-                  <label class="dob-picker-label">Year</label>
-                  <ul class="dob-picker-list" data-dob-year></ul>
-                </div>
-              </div>
-              <button type="button" class="dob-picker-done">Done</button>
-            </div>
+        <div class="rbp-item">
+          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
+        </div>
+      </div>
+
+      <!-- Mobile carousel -->
+      <div class="rbp-carousel">
+        <div class="rbp-carousel-track">
+          <div class="rbp-item">
+            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
+          </div>
+          <div class="rbp-item">
+            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
+          </div>
+          <div class="rbp-item">
+            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
+          </div>
+          <div class="rbp-item">
+            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
+          </div>
+          <div class="rbp-item">
+            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
+            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
           </div>
         </div>
-        <div class="edit-details-field">
-          <label class="form-label" for="edit-gender">Gender</label>
-          <input type="text" class="form-control" id="edit-gender" value="Male" placeholder="Select gender">
+        <div class="rbp-carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWLY UPDATED COURSES ========== -->
+  <section class="section section-bg nuc-section">
+    <div class="container">
+      <h4 class="rbp-subheading">Newly updated courses</h4>
+
+      <!-- Desktop/Tablet grid -->
+      <div class="nuc-grid">
+        <div class="nuc-card">
+          <img src="../assets/images/courses/course-thumb-1.png" alt="Data Science" class="nuc-card-img">
+          <div class="nuc-card-body">
+            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
+            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+            <div class="nuc-card-extra">
+              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
+              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
+              <div class="nuc-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                <span class="rating-count">(167,423)</span>
+              </div>
+              <p class="nuc-card-price">&#8358;52,000</p>
+            </div>
+            <a href="course-details.html" class="nuc-card-link">View Program</a>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Save change</button>
-      </form>
+
+        <div class="nuc-card">
+          <img src="../assets/images/courses/course-thumb-2.png" alt="Programming" class="nuc-card-img">
+          <div class="nuc-card-body">
+            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
+            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+            <div class="nuc-card-extra">
+              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
+              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
+              <div class="nuc-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                <span class="rating-count">(167,423)</span>
+              </div>
+              <p class="nuc-card-price">&#8358;52,000</p>
+            </div>
+            <a href="course-details.html" class="nuc-card-link">View Program</a>
+          </div>
+        </div>
+
+        <div class="nuc-card">
+          <img src="../assets/images/courses/course-thumb-3.png" alt="Analytics" class="nuc-card-img">
+          <div class="nuc-card-body">
+            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
+            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+            <div class="nuc-card-extra">
+              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
+              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
+              <div class="nuc-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                <span class="rating-count">(167,423)</span>
+              </div>
+              <p class="nuc-card-price">&#8358;52,000</p>
+            </div>
+            <a href="course-details.html" class="nuc-card-link">View Program</a>
+          </div>
+        </div>
+
+        <div class="nuc-card">
+          <img src="../assets/images/courses/course-thumb-4.png" alt="Machine Learning" class="nuc-card-img">
+          <div class="nuc-card-body">
+            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
+            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+            <div class="nuc-card-extra">
+              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
+              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
+              <div class="nuc-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                <span class="rating-count">(167,423)</span>
+              </div>
+              <p class="nuc-card-price">&#8358;52,000</p>
+            </div>
+            <a href="course-details.html" class="nuc-card-link">View Program</a>
+          </div>
+        </div>
+
+        <div class="nuc-card">
+          <img src="../assets/images/courses/course-thumb-5.png" alt="Data Cleaning" class="nuc-card-img">
+          <div class="nuc-card-body">
+            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
+            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
+            <div class="nuc-card-extra">
+              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
+              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
+              <div class="nuc-card-rating">
+                <span class="rating-score">4.6</span>
+                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                <span class="rating-count">(167,423)</span>
+              </div>
+              <p class="nuc-card-price">&#8358;52,000</p>
+            </div>
+            <a href="course-details.html" class="nuc-card-link">View Program</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ALL DEADLINES MODAL ========== -->
+  <div class="app-modal-overlay" id="allDeadlinesModal" role="dialog" aria-modal="true" aria-labelledby="allDeadlinesTitle">
+    <div class="app-modal app-modal-deadlines">
+      <div class="app-modal-header">
+        <h3 class="app-modal-title" id="allDeadlinesTitle">All Upcoming Deadlines</h3>
+        <button type="button" class="app-modal-close" data-close-modal aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="app-modal-body">
+        <div class="ud-deadline-list">
+          <article class="ud-deadline-card">
+            <h5 class="ud-deadline-title">Module 2 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
+            <div class="ud-deadline-tags">
+              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
+              <span class="ud-tag">30 min</span>
+            </div>
+            <p class="ud-deadline-overdue">Overdue AUG 17</p>
+          </article>
+          <article class="ud-deadline-card">
+            <h5 class="ud-deadline-title">Module 3 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
+            <div class="ud-deadline-tags">
+              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
+              <span class="ud-tag">30 min</span>
+            </div>
+            <p class="ud-deadline-overdue">Overdue AUG 17</p>
+          </article>
+          <article class="ud-deadline-card">
+            <h5 class="ud-deadline-title">Module 4 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
+            <div class="ud-deadline-tags">
+              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
+              <span class="ud-tag">30 min</span>
+            </div>
+            <p class="ud-deadline-overdue">Overdue AUG 17</p>
+          </article>
+          <article class="ud-deadline-card">
+            <h5 class="ud-deadline-title">Module 5 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
+            <div class="ud-deadline-tags">
+              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
+              <span class="ud-tag">30 min</span>
+            </div>
+            <p class="ud-deadline-overdue">Overdue AUG 17</p>
+          </article>
+          <article class="ud-deadline-card">
+            <h5 class="ud-deadline-title">Module 6 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
+            <div class="ud-deadline-tags">
+              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
+              <span class="ud-tag">30 min</span>
+            </div>
+            <p class="ud-deadline-overdue">Overdue AUG 17</p>
+          </article>
+          <article class="ud-deadline-card">
+            <h5 class="ud-deadline-title">Module 7 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
+            <div class="ud-deadline-tags">
+              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
+              <span class="ud-tag">30 min</span>
+            </div>
+            <p class="ud-deadline-overdue">Overdue AUG 17</p>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -447,6 +448,7 @@
   <footer class="footer">
     <div class="container">
       <div class="row g-4">
+        <!-- Quick Link -->
         <div class="col-lg-3 col-md-6">
           <h5>Quick Link</h5>
           <div class="footer-links">
@@ -462,6 +464,7 @@
             <a href="help-support.html">Help</a>
           </div>
         </div>
+        <!-- Community & Resources -->
         <div class="col-lg-3 col-md-6">
           <h5>Community</h5>
           <div class="footer-links">
@@ -476,6 +479,7 @@
             <a href="#">Webinars</a>
           </div>
         </div>
+        <!-- Join Us Today -->
         <div class="col-lg-3 col-md-6">
           <h5>Join Us Today!</h5>
           <div class="footer-links">
@@ -485,9 +489,10 @@
             <a href="contact.html">Contact Us for License</a>
           </div>
         </div>
+        <!-- Brand & Contact -->
         <div class="col-lg-3 col-md-6">
           <div class="footer-brand">
-            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <img src="../assets/images/logo-white.png" alt="PM4Success">
             <div class="footer-contact">
               <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
               <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
@@ -501,6 +506,7 @@
           </div>
         </div>
       </div>
+
       <!-- Bottom Bar -->
       <div class="footer-bottom">
         <div class="row align-items-center g-3">
@@ -517,14 +523,14 @@
             <div class="footer-bottom-right">
               <div class="footer-certified">
                 <span>Certified</span>
-                <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+                <img src="../assets/images/misc/credly-badge.png" alt="Credly Certified">
               </div>
               <div class="footer-apps">
                 <a href="#" class="footer-app-btn">
-                  <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+                  <img src="../assets/images/icons/android-icon.png" alt="Android"> Get our android app
                 </a>
                 <a href="#" class="footer-app-btn">
-                  <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our IOS app
+                  <img src="../assets/images/icons/apple-icon.png" alt="iOS"> Get our IOS app
                 </a>
               </div>
             </div>
@@ -701,6 +707,6 @@
     </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>

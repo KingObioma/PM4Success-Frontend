@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart - PM4Success</title>
+  <title>PM4Success - Notifications</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
 
           <!-- Brand -->
           <a href="index.html" class="navbar-brand">
-            <img src="assets/images/logo.png" alt="PM4Success">
+            <img src="../assets/images/logo.png" alt="PM4Success">
           </a>
 
         </div>
@@ -89,14 +89,14 @@
         <div class="switch-account-section">
           <h6 class="switch-account-heading">NNPC Tech Scholarship</h6>
           <a href="NNPC-tech.html" class="switch-account-item">
-            <img src="assets/images/logo.png" alt="NNPC Tech Career Academy">
+            <img src="../assets/images/logo.png" alt="NNPC Tech Career Academy">
             <span>NNPC Tech Career  Academy</span>
           </a>
         </div>
         <div class="switch-account-section">
           <h6 class="switch-account-heading">Explore PM4Success</h6>
           <a href="index.html" class="switch-account-item active">
-            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <img src="../assets/images/logo-white.png" alt="PM4Success">
             <div>
               <span>PM4Success</span>
               <small>All courses</small>
@@ -114,7 +114,7 @@
 
     <!-- Logged out header -->
     <div class="mobile-menu-header navbar-logged-out">
-      <img src="assets/images/logo.png" alt="PM4Success">
+      <img src="../assets/images/logo.png" alt="PM4Success">
     </div>
 
     <!-- Logged in header -->
@@ -172,213 +172,156 @@
   </div>
 
 
-<!-- BREADCRUMB -->
-  <div class="container cart-breadcrumb-wrap">
-    <nav class="breadcrumb-nav">
-      <div class="breadcrumb">
-        <a href="index.html"><i class="bi bi-house-fill"></i></a>
-        <span class="separator"><i class="bi bi-chevron-right"></i></span>
-        <a href="course-catalogue.html">Course Catalogue</a>
-        <span class="separator"><i class="bi bi-chevron-right"></i></span>
-        <a href="#">AI & Machine Learning</a>
-        <span class="separator"><i class="bi bi-chevron-right"></i></span>
-        <a href="course-details.html">Introduction to Data Science and Statistic Methodology</a>
-        <span class="separator"><i class="bi bi-chevron-right"></i></span>
-        <span class="current">Cart</span>
-      </div>
-    </nav>
-  </div>
 
-  <!-- CART CONTENT -->
-  <section class="section-sm">
+  <!-- ========== NOTIFICATIONS ========== -->
+  <section class="notifications-page">
     <div class="container">
-      <!-- Cart with items -->
-      <div class="cart-content">
-        <div class="row g-4">
-          <!-- Cart Items -->
-          <div class="col-lg-8">
-            <!-- Mobile-only: Total summary at top -->
-            <div class="cart-mobile-summary">
-              <div class="cart-mobile-total">
-                <span>Total:</span>
-                <span class="cart-mobile-total-current">&#8358;54,000</span>
-                <span class="cart-mobile-total-original">&#8358;75,900</span>
-                <span class="cart-mobile-total-discount">40% off</span>
-              </div>
-              <a href="#" class="cart-toggle-codes" data-action="toggle-codes">Hide Codes</a>
-              <hr class="cart-mobile-divider">
-              <div class="cart-mobile-promo">
-                <h5 class="cart-mobile-promo-title">Promotions</h5>
-                <div class="promo-input-group">
-                  <input type="text" placeholder="Enter Coupon" aria-label="Coupon code">
-                  <button type="button">Apply</button>
-                </div>
-              </div>
-              <h4 class="cart-items-heading">4 Courses in Cart</h4>
-            </div>
+      <h2 class="notifications-heading">Notifications</h2>
 
-            <div class="cart-item" data-course-id="1">
-              <img src="assets/images/courses/course-thumb-1.png" alt="Course" class="cart-item-img">
-              <div class="cart-item-body">
-                <span class="cart-item-university">Bright Future University</span>
-                <h5 class="cart-item-title"><a href="course-details.html">Introduction to Data Science and Statistic Methodology</a></h5>
-                <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
-                <div class="cart-item-meta">12 Weeks  |  Online  |  Weekdays...</div>
-                <p class="course-card-instructor">Dr. Emily Thompson</p>
-                <div class="course-card-rating">
-                  <span class="rating-score">4.6</span>
-                  <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
-                  <span class="rating-count">(167,423)</span>
-                </div>
-                <div class="cart-item-bottom-row">
-                  <span class="cart-item-level">Beginner</span>
-                  <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
-                </div>
-                <div class="cart-item-price-row">
-                  <span class="cart-item-price-inline">&#8358;52,000</span>
-                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
-                </div>
-              </div>
-              <div class="cart-item-price">&#8358;52,000</div>
-            </div>
-
-            <div class="cart-item" data-course-id="2">
-              <img src="assets/images/courses/course-thumb-2.png" alt="Course" class="cart-item-img">
-              <div class="cart-item-body">
-                <span class="cart-item-university">Bright Future University</span>
-                <h5 class="cart-item-title"><a href="course-details.html">Introduction to Data Science and Statistic Methodology</a></h5>
-                <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
-                <div class="cart-item-meta">12 Weeks  |  Online  |  Weekdays...</div>
-                <p class="course-card-instructor">Dr. Emily Thompson</p>
-                <div class="course-card-rating">
-                  <span class="rating-score">4.6</span>
-                  <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
-                  <span class="rating-count">(167,423)</span>
-                </div>
-                <div class="cart-item-bottom-row">
-                  <span class="cart-item-level">Beginner</span>
-                  <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
-                </div>
-                <div class="cart-item-price-row">
-                  <span class="cart-item-price-inline">&#8358;52,000</span>
-                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
-                </div>
-              </div>
-              <div class="cart-item-price">&#8358;52,000</div>
-            </div>
-
-            <div class="cart-item" data-course-id="3">
-              <img src="assets/images/courses/course-thumb-3.png" alt="Course" class="cart-item-img">
-              <div class="cart-item-body">
-                <span class="cart-item-university">Bright Future University</span>
-                <h5 class="cart-item-title"><a href="course-details.html">Introduction to Data Science and Statistic Methodology</a></h5>
-                <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
-                <div class="cart-item-meta">12 Weeks  |  Online  |  Weekdays...</div>
-                <p class="course-card-instructor">Dr. Emily Thompson</p>
-                <div class="course-card-rating">
-                  <span class="rating-score">4.6</span>
-                  <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
-                  <span class="rating-count">(167,423)</span>
-                </div>
-                <div class="cart-item-bottom-row">
-                  <span class="cart-item-level">Beginner</span>
-                  <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
-                </div>
-                <div class="cart-item-price-row">
-                  <span class="cart-item-price-inline">&#8358;52,000</span>
-                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
-                </div>
-              </div>
-              <div class="cart-item-price">&#8358;52,000</div>
-            </div>
-
-            <div class="cart-item" data-course-id="4">
-              <img src="assets/images/courses/course-thumb-4.png" alt="Course" class="cart-item-img">
-              <div class="cart-item-body">
-                <span class="cart-item-university">Bright Future University</span>
-                <h5 class="cart-item-title"><a href="course-details.html">Introduction to Data Science and Statistic Methodology</a></h5>
-                <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
-                <div class="cart-item-meta">12 Weeks  |  Online  |  Weekdays...</div>
-                <p class="course-card-instructor">Dr. Emily Thompson</p>
-                <div class="course-card-rating">
-                  <span class="rating-score">4.6</span>
-                  <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
-                  <span class="rating-count">(167,423)</span>
-                </div>
-                <div class="cart-item-bottom-row">
-                  <span class="cart-item-level">Beginner</span>
-                  <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
-                </div>
-                <div class="cart-item-price-row">
-                  <span class="cart-item-price-inline">&#8358;52,000</span>
-                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
-                </div>
-              </div>
-              <div class="cart-item-price">&#8358;52,000</div>
-            </div>
-
-            <!-- Mobile-only: Checkout button at bottom -->
-            <div class="cart-mobile-checkout">
-              <a href="checkout.html" class="btn btn-primary btn-block btn-lg">Proceed to Checkout</a>
-            </div>
+      <div class="notification-list">
+        <!-- Notification 1 - Unread -->
+        <button type="button" class="notification-card unread" data-status="unread" data-open-modal="notificationModal">
+          <img src="../assets/images/misc/notification-avatar.png" alt="Notification" class="notification-avatar">
+          <div class="notification-body">
+            <h5>System Update</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts...</p>
+            <span class="notification-time">2 days ago</span>
           </div>
+          <span class="notification-dot unread-dot"></span>
+        </button>
 
-          <!-- Cart Sidebar -->
-          <div class="col-lg-4 cart-sidebar">
-            <div class="cart-sidebar-card">
-              <div class="promo-box">
-                <h5>Promotion</h5>
-                <p class="text-secondary text-small">Unlock your potential with expert led courses join today and start learning</p>
-                <div class="promo-input-group">
-                  <input type="text" placeholder="Enter Coupon" aria-label="Coupon code">
-                  <button type="button">Apply</button>
-                </div>
-              </div>
-              <div class="cart-total">
-                <span class="cart-total-label">Total</span>
-                <span class="cart-total-amount">&#8358;54,000</span>
-              </div>
-              <a href="checkout.html" class="btn btn-primary btn-block btn-lg">Proceed to Checkout</a>
-            </div>
+        <!-- Notification 2 - Unread -->
+        <button type="button" class="notification-card unread" data-status="unread" data-open-modal="notificationModal">
+          <img src="../assets/images/misc/notification-avatar.png" alt="Notification" class="notification-avatar">
+          <div class="notification-body">
+            <h5>System Update</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts...</p>
+            <span class="notification-time">2 days ago</span>
+          </div>
+          <span class="notification-dot unread-dot"></span>
+        </button>
+
+        <!-- Notification 3 - Unread -->
+        <button type="button" class="notification-card unread" data-status="unread" data-open-modal="notificationModal">
+          <img src="../assets/images/misc/notification-avatar.png" alt="Notification" class="notification-avatar">
+          <div class="notification-body">
+            <h5>System Update</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts...</p>
+            <span class="notification-time">2 days ago</span>
+          </div>
+          <span class="notification-dot unread-dot"></span>
+        </button>
+
+        <!-- Notification 4 - Read -->
+        <button type="button" class="notification-card" data-status="read" data-open-modal="notificationModal">
+          <img src="../assets/images/misc/notification-avatar.png" alt="Notification" class="notification-avatar">
+          <div class="notification-body">
+            <h5>System Update</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts...</p>
+            <span class="notification-time">2 days ago</span>
+          </div>
+          <span class="notification-dot read-dot"></span>
+        </button>
+
+        <!-- Notification 5 - Read -->
+        <button type="button" class="notification-card" data-status="read" data-open-modal="notificationModal">
+          <img src="../assets/images/misc/notification-avatar.png" alt="Notification" class="notification-avatar">
+          <div class="notification-body">
+            <h5>System Update</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts...</p>
+            <span class="notification-time">2 days ago</span>
+          </div>
+          <span class="notification-dot read-dot"></span>
+        </button>
+
+        <!-- Notification 6 - Read -->
+        <button type="button" class="notification-card" data-status="read" data-open-modal="notificationModal">
+          <img src="../assets/images/misc/notification-avatar.png" alt="Notification" class="notification-avatar">
+          <div class="notification-body">
+            <h5>System Update</h5>
+            <p>The Data Analysis course was a game-changer for me. The hands-on exercises and real-world applications made it easy to grasp complex concepts...</p>
+            <span class="notification-time">2 days ago</span>
+          </div>
+          <span class="notification-dot read-dot"></span>
+        </button>
+      </div>
+
+      <!-- ========== NOTIFICATION MODAL ========== -->
+      <div class="auth-modal-overlay notification-modal-overlay" id="notificationModal">
+        <div class="auth-modal notification-modal">
+          <button class="auth-close" data-close-modal aria-label="Close"><i class="bi bi-x-lg"></i></button>
+          <div class="notification-modal-body">
+            <h3 class="notification-modal-title">System Update in Progress</h3>
+            <p>We are currently performing a system update to enhance performance, improve security, and introduce new features. During this time, you may experience temporary downtime or limited access to certain functionalities.</p>
+            <p><strong>Expected Duration:</strong> January 1st, 2024 12am to January 5th, 2024<br>
+              <strong>What's New:</strong> [Briefly mention key improvements]<br>
+              <strong>Action Required:</strong> No action needed on your part. Your data and settings remain safe.</p>
+            <p>Thank you for your patience and understanding. If you have any concerns, please contact <a href="mailto:support@example.com">support@example.com</a>.</p>
+            <p>Expected Duration: January 1st, 2024 12am to January 5th, 2024<br>
+              What's New: [Briefly mention key improvements]<br>
+              Action Required: No action needed on your part. Your data and settings remain safe.</p>
+            <p>Thank you for your patience and understanding. If you have any concerns, please contact <a href="mailto:support@example.com">support@example.com</a>.</p>
+            <p class="notification-modal-closing">We'll notify you once the update is complete!</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-3 col-md-6">
           <h5>Quick Link</h5>
           <div class="footer-links">
-            <a href="about.html">About Us</a><a href="course-catalogue.html">Course Catalogue</a><a href="learning-paths.html">My Learning Paths</a><a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a>
+            <a href="course-catalogue.html">Course Catalogue</a>
+            <a href="learning-paths.html">My Learning Paths</a>
+            <a href="contact.html">Contact</a>
           </div>
           <h5 class="mt-4">More</h5>
           <div class="footer-links">
-            <a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms & Conditions</a><a href="help-support.html">Help</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="help-support.html">Help</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <h5>Community</h5>
-          <div class="footer-links"><a href="#">Blog</a><a href="#">Alumni Community</a><a href="#">FAQs</a></div>
+          <div class="footer-links">
+            <a href="#">Blog</a>
+            <a href="#">Alumni Community</a>
+            <a href="#">FAQs</a>
+          </div>
           <h5 class="mt-4">Resources</h5>
-          <div class="footer-links"><a href="#">Success Stories</a><a href="#">Career Support</a><a href="#">Webinars</a></div>
+          <div class="footer-links">
+            <a href="#">Success Stories</a>
+            <a href="#">Career Support</a>
+            <a href="#">Webinars</a>
+          </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <h5>Join Us Today!</h5>
-          <div class="footer-links"><a href="#" data-open-modal="signupModal">Sign Up as a Learner</a><a href="#">Sign Up for Career Path</a><a href="#">Become an Instructor</a><a href="contact.html">Contact Us for License</a></div>
+          <div class="footer-links">
+            <a href="#" data-open-modal="signupModal">Sign Up as a Learner</a>
+            <a href="#">Sign Up for Career Path</a>
+            <a href="#">Become an Instructor</a>
+            <a href="contact.html">Contact Us for License</a>
+          </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <div class="footer-brand">
-            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <img src="../assets/images/logo-white.png" alt="PM4Success">
             <div class="footer-contact">
               <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
               <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
             </div>
             <div class="footer-social">
-              <a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-twitter"></i></a><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-youtube"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
             </div>
           </div>
         </div>
@@ -399,14 +342,14 @@
             <div class="footer-bottom-right">
               <div class="footer-certified">
                 <span>Certified</span>
-                <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+                <img src="../assets/images/misc/credly-badge.png" alt="Credly Certified">
               </div>
               <div class="footer-apps">
                 <a href="#" class="footer-app-btn">
-                  <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+                  <img src="../assets/images/icons/android-icon.png" alt="Android"> Get our android app
                 </a>
                 <a href="#" class="footer-app-btn">
-                  <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our IOS app
+                  <img src="../assets/images/icons/apple-icon.png" alt="iOS"> Get our IOS app
                 </a>
               </div>
             </div>
@@ -414,7 +357,9 @@
         </div>
       </div>
     </div>
-    <div class="footer-copyright">&copy; 2024 PM4SUCCESS. All Rights Reserved.</div>
+    <div class="footer-copyright">
+      &copy; 2024 PM4SUCCESS. All Rights Reserved.
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -581,6 +526,6 @@
     </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>

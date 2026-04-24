@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PM4Success - Dashboard</title>
+  <title>Cart - PM4Success</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
 
           <!-- Brand -->
           <a href="index.html" class="navbar-brand">
-            <img src="assets/images/logo.png" alt="PM4Success">
+            <img src="../assets/images/logo.png" alt="PM4Success">
           </a>
 
         </div>
@@ -89,14 +89,14 @@
         <div class="switch-account-section">
           <h6 class="switch-account-heading">NNPC Tech Scholarship</h6>
           <a href="NNPC-tech.html" class="switch-account-item">
-            <img src="assets/images/logo.png" alt="NNPC Tech Career Academy">
+            <img src="../assets/images/logo.png" alt="NNPC Tech Career Academy">
             <span>NNPC Tech Career  Academy</span>
           </a>
         </div>
         <div class="switch-account-section">
           <h6 class="switch-account-heading">Explore PM4Success</h6>
           <a href="index.html" class="switch-account-item active">
-            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <img src="../assets/images/logo-white.png" alt="PM4Success">
             <div>
               <span>PM4Success</span>
               <small>All courses</small>
@@ -114,7 +114,7 @@
 
     <!-- Logged out header -->
     <div class="mobile-menu-header navbar-logged-out">
-      <img src="assets/images/logo.png" alt="PM4Success">
+      <img src="../assets/images/logo.png" alt="PM4Success">
     </div>
 
     <!-- Logged in header -->
@@ -172,341 +172,217 @@
   </div>
 
 
-
-  <!-- ========== PROFILE WELCOME BANNER ========== -->
-  <section class="profile-welcome">
-    <img src="assets/images/illustrations/character1.png" alt="" class="profile-welcome-bg-character">
-
-    <div class="container">
-      <div class="profile-welcome-grid">
-
-        <!-- Left: avatar + verified + edit button -->
-        <aside class="profile-welcome-aside">
-          <div class="profile-welcome-avatar">
-            <img src="assets/images/avatars/aliyu-avatar.png" alt="Aliyu Unuagbokhe">
-          </div>
-          <div class="profile-welcome-verified-row">
-            <span class="profile-welcome-verified">Verified <i class="bi bi-patch-check-fill"></i></span>
-            <a href="edit-profile.html" class="profile-welcome-edit-icon" aria-label="Edit profile">
-              <i class="bi bi-pencil-square"></i>
-            </a>
-          </div>
-          <a href="edit-profile.html" class="btn btn-primary profile-welcome-edit-btn">Edit profile</a>
-        </aside>
-
-        <!-- Right: welcome heading, achievements, view-all -->
-        <div class="profile-welcome-main">
-          <h1 class="profile-welcome-title">Welcome Aliyu Unuagbokhe</h1>
-
-          <!-- Empty State -->
-        <div class="empty-state my-courses-empty">
-          <img src="assets/images/illustrations/speech-bubble.png" alt="No courses">
-          <h3>No Enrolled Courses</h3>
-          <p>You haven't enrolled in any courses yet. Ready to start learning? Browse our courses and take the first step toward your goals!</p>
-          <a href="course-catalogue.html" class="btn btn-outline">Start a Course</a>
-        </div>
-
-        </div>
-
+<!-- BREADCRUMB -->
+  <div class="container cart-breadcrumb-wrap">
+    <nav class="breadcrumb-nav">
+      <div class="breadcrumb">
+        <a href="index.html"><i class="bi bi-house-fill"></i></a>
+        <span class="separator"><i class="bi bi-chevron-right"></i></span>
+        <a href="course-catalogue.html">Course Catalogue</a>
+        <span class="separator"><i class="bi bi-chevron-right"></i></span>
+        <a href="#">AI & Machine Learning</a>
+        <span class="separator"><i class="bi bi-chevron-right"></i></span>
+        <a href="course-details.html">Introduction to Data Science and Statistic Methodology</a>
+        <span class="separator"><i class="bi bi-chevron-right"></i></span>
+        <span class="current">Cart</span>
       </div>
-    </div>
-  </section>
-
-
-
-   <!-- ========== ACTIVITY FEED ========== -->
-  <section class="section section-bg">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Activity Feed</h2>
-      </div>
-      <h4 class="rbp-subheading">Recent blog post</h4>
-
-      <!-- Desktop/Tablet grid -->
-      <div class="rbp-grid">
-        <div class="rbp-item">
-          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-        </div>
-        <div class="rbp-item">
-          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-        </div>
-        <div class="rbp-item">
-          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-        </div>
-        <div class="rbp-item">
-          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-        </div>
-        <div class="rbp-item">
-          <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-          <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-        </div>
-      </div>
-
-      <!-- Mobile carousel -->
-      <div class="rbp-carousel">
-        <div class="rbp-carousel-track">
-          <div class="rbp-item">
-            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-          </div>
-          <div class="rbp-item">
-            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-          </div>
-          <div class="rbp-item">
-            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-          </div>
-          <div class="rbp-item">
-            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-          </div>
-          <div class="rbp-item">
-            <a href="#" class="rbp-title">A Deep Dive into AWS Certification and the solution Architect Exam</a>
-            <p class="rbp-meta"><span class="rbp-author">John Doe</span> <span class="rbp-time">10 mins ago</span></p>
-          </div>
-        </div>
-        <div class="rbp-carousel-dots"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== NEWLY UPDATED COURSES ========== -->
-  <section class="section section-bg nuc-section">
-    <div class="container">
-      <h4 class="rbp-subheading">Newly updated courses</h4>
-
-      <!-- Desktop/Tablet grid -->
-      <div class="nuc-grid">
-        <div class="nuc-card">
-          <img src="assets/images/courses/course-thumb-1.png" alt="Data Science" class="nuc-card-img">
-          <div class="nuc-card-body">
-            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
-            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
-            <div class="nuc-card-extra">
-              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
-              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
-              <div class="nuc-card-rating">
-                <span class="rating-score">4.6</span>
-                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
-                <span class="rating-count">(167,423)</span>
-              </div>
-              <p class="nuc-card-price">&#8358;52,000</p>
-            </div>
-            <a href="course-details.html" class="nuc-card-link">View Program</a>
-          </div>
-        </div>
-
-        <div class="nuc-card">
-          <img src="assets/images/courses/course-thumb-2.png" alt="Programming" class="nuc-card-img">
-          <div class="nuc-card-body">
-            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
-            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
-            <div class="nuc-card-extra">
-              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
-              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
-              <div class="nuc-card-rating">
-                <span class="rating-score">4.6</span>
-                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
-                <span class="rating-count">(167,423)</span>
-              </div>
-              <p class="nuc-card-price">&#8358;52,000</p>
-            </div>
-            <a href="course-details.html" class="nuc-card-link">View Program</a>
-          </div>
-        </div>
-
-        <div class="nuc-card">
-          <img src="assets/images/courses/course-thumb-3.png" alt="Analytics" class="nuc-card-img">
-          <div class="nuc-card-body">
-            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
-            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
-            <div class="nuc-card-extra">
-              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
-              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
-              <div class="nuc-card-rating">
-                <span class="rating-score">4.6</span>
-                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
-                <span class="rating-count">(167,423)</span>
-              </div>
-              <p class="nuc-card-price">&#8358;52,000</p>
-            </div>
-            <a href="course-details.html" class="nuc-card-link">View Program</a>
-          </div>
-        </div>
-
-        <div class="nuc-card">
-          <img src="assets/images/courses/course-thumb-4.png" alt="Machine Learning" class="nuc-card-img">
-          <div class="nuc-card-body">
-            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
-            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
-            <div class="nuc-card-extra">
-              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
-              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
-              <div class="nuc-card-rating">
-                <span class="rating-score">4.6</span>
-                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
-                <span class="rating-count">(167,423)</span>
-              </div>
-              <p class="nuc-card-price">&#8358;52,000</p>
-            </div>
-            <a href="course-details.html" class="nuc-card-link">View Program</a>
-          </div>
-        </div>
-
-        <div class="nuc-card">
-          <img src="assets/images/courses/course-thumb-5.png" alt="Data Cleaning" class="nuc-card-img">
-          <div class="nuc-card-body">
-            <p class="nuc-card-provider">BRIGHT FUTURE UNIVERSITY</p>
-            <h5 class="nuc-card-title">Introduction to Data Science and Statistic Methodology</h5>
-            <div class="nuc-card-extra">
-              <div class="nuc-card-meta">12 Weeks <span class="mc-meta-sep">|</span> Online <span class="mc-meta-sep">|</span> Weekdays...</div>
-              <p class="nuc-card-instructor">Dr. Emily Thompson</p>
-              <div class="nuc-card-rating">
-                <span class="rating-score">4.6</span>
-                <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
-                <span class="rating-count">(167,423)</span>
-              </div>
-              <p class="nuc-card-price">&#8358;52,000</p>
-            </div>
-            <a href="course-details.html" class="nuc-card-link">View Program</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== ALL DEADLINES MODAL ========== -->
-  <div class="app-modal-overlay" id="allDeadlinesModal" role="dialog" aria-modal="true" aria-labelledby="allDeadlinesTitle">
-    <div class="app-modal app-modal-deadlines">
-      <div class="app-modal-header">
-        <h3 class="app-modal-title" id="allDeadlinesTitle">All Upcoming Deadlines</h3>
-        <button type="button" class="app-modal-close" data-close-modal aria-label="Close">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
-      <div class="app-modal-body">
-        <div class="ud-deadline-list">
-          <article class="ud-deadline-card">
-            <h5 class="ud-deadline-title">Module 2 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
-            <div class="ud-deadline-tags">
-              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
-              <span class="ud-tag">30 min</span>
-            </div>
-            <p class="ud-deadline-overdue">Overdue AUG 17</p>
-          </article>
-          <article class="ud-deadline-card">
-            <h5 class="ud-deadline-title">Module 3 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
-            <div class="ud-deadline-tags">
-              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
-              <span class="ud-tag">30 min</span>
-            </div>
-            <p class="ud-deadline-overdue">Overdue AUG 17</p>
-          </article>
-          <article class="ud-deadline-card">
-            <h5 class="ud-deadline-title">Module 4 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
-            <div class="ud-deadline-tags">
-              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
-              <span class="ud-tag">30 min</span>
-            </div>
-            <p class="ud-deadline-overdue">Overdue AUG 17</p>
-          </article>
-          <article class="ud-deadline-card">
-            <h5 class="ud-deadline-title">Module 5 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
-            <div class="ud-deadline-tags">
-              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
-              <span class="ud-tag">30 min</span>
-            </div>
-            <p class="ud-deadline-overdue">Overdue AUG 17</p>
-          </article>
-          <article class="ud-deadline-card">
-            <h5 class="ud-deadline-title">Module 6 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
-            <div class="ud-deadline-tags">
-              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
-              <span class="ud-tag">30 min</span>
-            </div>
-            <p class="ud-deadline-overdue">Overdue AUG 17</p>
-          </article>
-          <article class="ud-deadline-card">
-            <h5 class="ud-deadline-title">Module 7 Graded Quiz: Introduction to Data Science and Statistic Methodology.</h5>
-            <div class="ud-deadline-tags">
-              <span class="ud-tag"><i class="bi bi-file-earmark-text"></i> Graded Assignment</span>
-              <span class="ud-tag">30 min</span>
-            </div>
-            <p class="ud-deadline-overdue">Overdue AUG 17</p>
-          </article>
-        </div>
-      </div>
-    </div>
+    </nav>
   </div>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- CART CONTENT -->
+  <section class="section-sm">
+    <div class="container">
+      <!-- Cart with items -->
+      <div class="cart-content">
+        <div class="row g-4">
+          <!-- Cart Items -->
+          <div class="col-lg-8">
+            <!-- Mobile-only: Total summary at top -->
+            <div class="cart-mobile-summary">
+              <div class="cart-mobile-total">
+                <span>Total:</span>
+                <span class="cart-mobile-total-current">&#8358;54,000</span>
+                <span class="cart-mobile-total-original">&#8358;75,900</span>
+                <span class="cart-mobile-total-discount">40% off</span>
+              </div>
+              <a href="#" class="cart-toggle-codes" data-action="toggle-codes">Hide Codes</a>
+              <hr class="cart-mobile-divider">
+              <div class="cart-mobile-promo">
+                <h5 class="cart-mobile-promo-title">Promotions</h5>
+                <div class="promo-input-group">
+                  <input type="text" placeholder="Enter Coupon" aria-label="Coupon code">
+                  <button type="button">Apply</button>
+                </div>
+              </div>
+              <h4 class="cart-items-heading">4 Courses in Cart</h4>
+            </div>
+
+            <div class="cart-item" data-course-id="1">
+              <img src="../assets/images/courses/course-thumb-1.png" alt="Course" class="cart-item-img">
+              <div class="cart-item-body">
+                <span class="cart-item-university">Bright Future University</span>
+                <h5 class="cart-item-title"><a href="course-details.html">Introduction to Data Science and Statistic Methodology</a></h5>
+                <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
+                <div class="cart-item-meta">12 Weeks  |  Online  |  Weekdays...</div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                  <span class="rating-count">(167,423)</span>
+                </div>
+                <div class="cart-item-bottom-row">
+                  <span class="cart-item-level">Beginner</span>
+                  <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
+                </div>
+                <div class="cart-item-price-row">
+                  <span class="cart-item-price-inline">&#8358;52,000</span>
+                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                </div>
+              </div>
+              <div class="cart-item-price">&#8358;52,000</div>
+            </div>
+
+            <div class="cart-item" data-course-id="2">
+              <img src="../assets/images/courses/course-thumb-2.png" alt="Course" class="cart-item-img">
+              <div class="cart-item-body">
+                <span class="cart-item-university">Bright Future University</span>
+                <h5 class="cart-item-title"><a href="course-details.html">Introduction to Data Science and Statistic Methodology</a></h5>
+                <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
+                <div class="cart-item-meta">12 Weeks  |  Online  |  Weekdays...</div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                  <span class="rating-count">(167,423)</span>
+                </div>
+                <div class="cart-item-bottom-row">
+                  <span class="cart-item-level">Beginner</span>
+                  <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
+                </div>
+                <div class="cart-item-price-row">
+                  <span class="cart-item-price-inline">&#8358;52,000</span>
+                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                </div>
+              </div>
+              <div class="cart-item-price">&#8358;52,000</div>
+            </div>
+
+            <div class="cart-item" data-course-id="3">
+              <img src="../assets/images/courses/course-thumb-3.png" alt="Course" class="cart-item-img">
+              <div class="cart-item-body">
+                <span class="cart-item-university">Bright Future University</span>
+                <h5 class="cart-item-title"><a href="course-details.html">Introduction to Data Science and Statistic Methodology</a></h5>
+                <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
+                <div class="cart-item-meta">12 Weeks  |  Online  |  Weekdays...</div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                  <span class="rating-count">(167,423)</span>
+                </div>
+                <div class="cart-item-bottom-row">
+                  <span class="cart-item-level">Beginner</span>
+                  <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
+                </div>
+                <div class="cart-item-price-row">
+                  <span class="cart-item-price-inline">&#8358;52,000</span>
+                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                </div>
+              </div>
+              <div class="cart-item-price">&#8358;52,000</div>
+            </div>
+
+            <div class="cart-item" data-course-id="4">
+              <img src="../assets/images/courses/course-thumb-4.png" alt="Course" class="cart-item-img">
+              <div class="cart-item-body">
+                <span class="cart-item-university">Bright Future University</span>
+                <h5 class="cart-item-title"><a href="course-details.html">Introduction to Data Science and Statistic Methodology</a></h5>
+                <p class="cart-item-desc">Learn the basics of data analysis and become an expert in excel.</p>
+                <div class="cart-item-meta">12 Weeks  |  Online  |  Weekdays...</div>
+                <p class="course-card-instructor">Dr. Emily Thompson</p>
+                <div class="course-card-rating">
+                  <span class="rating-score">4.6</span>
+                  <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                  <span class="rating-count">(167,423)</span>
+                </div>
+                <div class="cart-item-bottom-row">
+                  <span class="cart-item-level">Beginner</span>
+                  <a href="#" class="remove-btn remove-btn-desktop" data-action="remove-cart-item">Remove</a>
+                </div>
+                <div class="cart-item-price-row">
+                  <span class="cart-item-price-inline">&#8358;52,000</span>
+                  <a href="#" class="remove-btn" data-action="remove-cart-item">Remove</a>
+                </div>
+              </div>
+              <div class="cart-item-price">&#8358;52,000</div>
+            </div>
+
+            <!-- Mobile-only: Checkout button at bottom -->
+            <div class="cart-mobile-checkout">
+              <a href="checkout.html" class="btn btn-primary btn-block btn-lg">Proceed to Checkout</a>
+            </div>
+          </div>
+
+          <!-- Cart Sidebar -->
+          <div class="col-lg-4 cart-sidebar">
+            <div class="cart-sidebar-card">
+              <div class="promo-box">
+                <h5>Promotion</h5>
+                <p class="text-secondary text-small">Unlock your potential with expert led courses join today and start learning</p>
+                <div class="promo-input-group">
+                  <input type="text" placeholder="Enter Coupon" aria-label="Coupon code">
+                  <button type="button">Apply</button>
+                </div>
+              </div>
+              <div class="cart-total">
+                <span class="cart-total-label">Total</span>
+                <span class="cart-total-amount">&#8358;54,000</span>
+              </div>
+              <a href="checkout.html" class="btn btn-primary btn-block btn-lg">Proceed to Checkout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="row g-4">
-        <!-- Quick Link -->
         <div class="col-lg-3 col-md-6">
           <h5>Quick Link</h5>
           <div class="footer-links">
-            <a href="about.html">About Us</a>
-            <a href="course-catalogue.html">Course Catalogue</a>
-            <a href="learning-paths.html">My Learning Paths</a>
-            <a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a><a href="course-catalogue.html">Course Catalogue</a><a href="learning-paths.html">My Learning Paths</a><a href="contact.html">Contact</a>
           </div>
           <h5 class="mt-4">More</h5>
           <div class="footer-links">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="terms-conditions.html">Terms & Conditions</a>
-            <a href="help-support.html">Help</a>
+            <a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms & Conditions</a><a href="help-support.html">Help</a>
           </div>
         </div>
-        <!-- Community & Resources -->
         <div class="col-lg-3 col-md-6">
           <h5>Community</h5>
-          <div class="footer-links">
-            <a href="#">Blog</a>
-            <a href="#">Alumni Community</a>
-            <a href="#">FAQs</a>
-          </div>
+          <div class="footer-links"><a href="#">Blog</a><a href="#">Alumni Community</a><a href="#">FAQs</a></div>
           <h5 class="mt-4">Resources</h5>
-          <div class="footer-links">
-            <a href="#">Success Stories</a>
-            <a href="#">Career Support</a>
-            <a href="#">Webinars</a>
-          </div>
+          <div class="footer-links"><a href="#">Success Stories</a><a href="#">Career Support</a><a href="#">Webinars</a></div>
         </div>
-        <!-- Join Us Today -->
         <div class="col-lg-3 col-md-6">
           <h5>Join Us Today!</h5>
-          <div class="footer-links">
-            <a href="#" data-open-modal="signupModal">Sign Up as a Learner</a>
-            <a href="#">Sign Up for Career Path</a>
-            <a href="#">Become an Instructor</a>
-            <a href="contact.html">Contact Us for License</a>
-          </div>
+          <div class="footer-links"><a href="#" data-open-modal="signupModal">Sign Up as a Learner</a><a href="#">Sign Up for Career Path</a><a href="#">Become an Instructor</a><a href="contact.html">Contact Us for License</a></div>
         </div>
-        <!-- Brand & Contact -->
         <div class="col-lg-3 col-md-6">
           <div class="footer-brand">
-            <img src="assets/images/logo-white.png" alt="PM4Success">
+            <img src="../assets/images/logo-white.png" alt="PM4Success">
             <div class="footer-contact">
               <a href="mailto:PM4Success@Gmail.com"><i class="bi bi-envelope"></i> PM4Success@Gmail.com</a>
               <a href="tel:+23456734875"><i class="bi bi-telephone"></i> +234 5673 4875</a>
             </div>
             <div class="footer-social">
-              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-              <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-twitter"></i></a><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-youtube"></i></a>
             </div>
           </div>
         </div>
       </div>
-
       <!-- Bottom Bar -->
       <div class="footer-bottom">
         <div class="row align-items-center g-3">
@@ -523,14 +399,14 @@
             <div class="footer-bottom-right">
               <div class="footer-certified">
                 <span>Certified</span>
-                <img src="assets/images/misc/credly-badge.png" alt="Credly Certified">
+                <img src="../assets/images/misc/credly-badge.png" alt="Credly Certified">
               </div>
               <div class="footer-apps">
                 <a href="#" class="footer-app-btn">
-                  <img src="assets/images/icons/android-icon.png" alt="Android"> Get our android app
+                  <img src="../assets/images/icons/android-icon.png" alt="Android"> Get our android app
                 </a>
                 <a href="#" class="footer-app-btn">
-                  <img src="assets/images/icons/apple-icon.png" alt="iOS"> Get our IOS app
+                  <img src="../assets/images/icons/apple-icon.png" alt="iOS"> Get our IOS app
                 </a>
               </div>
             </div>
@@ -538,9 +414,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-copyright">
-      &copy; 2024 PM4SUCCESS. All Rights Reserved.
-    </div>
+    <div class="footer-copyright">&copy; 2024 PM4SUCCESS. All Rights Reserved.</div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -707,6 +581,6 @@
     </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>
