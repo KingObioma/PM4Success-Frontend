@@ -8828,7 +8828,7 @@ input#verify-fullname {
 /* Video player area */
 .course-main-content {
   flex: 1;
-  padding: 24px 32px;
+  padding: 0;
   overflow-y: auto;
   min-width: 0;
   border-left: 1px solid var(--color-border);
@@ -8836,6 +8836,7 @@ input#verify-fullname {
   margin-right: 24px;
   margin-top: 60px;
   margin-bottom: 60px;
+  align-self: flex-start;
 }
 
 .course-lesson-title {
@@ -10090,20 +10091,18 @@ input#verify-fullname {
 
 /* Assignment overview main content */
 .assignment-overview {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .assignment-banner {
-  margin-bottom: 24px;
-  margin-left: -32px;
-  margin-right: -32px;
-  width: calc(100% + 64px);
-  height: 200px;
+  width: 100%;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin:-55px 0px;
 }
 
 .assignment-banner img {
@@ -10123,7 +10122,8 @@ input#verify-fullname {
 
 .assignment-instructor {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  font-weight: 600;
+  color: var(--color-text);
   margin-bottom: 24px;
 }
 
@@ -10133,12 +10133,15 @@ input#verify-fullname {
 
 .assignment-description p {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: #444;
   line-height: 1.7;
 }
 
 .assignment-section {
   margin-bottom: 24px;
+  background: none;
+  padding: 0;
+  border-radius: 0;
 }
 
 .assignment-section h4 {
@@ -10151,19 +10154,20 @@ input#verify-fullname {
 .assignment-section ul {
   padding-left: 20px;
   margin: 0;
+  list-style-type: disc;
 }
 
 .assignment-section li {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: #444;
   line-height: 1.7;
   margin-bottom: 4px;
 }
 
 /* Quiz details card */
 .assignment-details-card {
-  background-color: var(--color-bg-light);
-  border: 1px solid var(--color-border);
+  background-color: #F5F9FB;
+  border: none;
   border-radius: var(--radius-md);
   padding: 20px 24px;
   margin-bottom: 24px;
@@ -10174,8 +10178,6 @@ input#verify-fullname {
   font-weight: 700;
   color: var(--color-text);
   margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--color-border);
 }
 
 .assignment-details-row {
@@ -10204,14 +10206,14 @@ input#verify-fullname {
 
 .btn-outline-assignment {
   display: inline-block;
-  padding: 8px 24px;
+  padding: 10px 24px;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-white);
-  text-decoration: none;
+  color: #717171;
+  border: 1px solid #717171;
+  border-radius: 6px;
+  background: transparent;
+  text-decoration: underline;
   transition: var(--transition-fast);
 }
 
@@ -10222,17 +10224,18 @@ input#verify-fullname {
 
 /* Your grade card */
 .assignment-grade-card {
-  background-color: var(--color-bg-light);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  background: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   padding: 20px 24px;
+  margin-top: 64px;
+  margin-bottom: 40px;
 }
 
 .assignment-grade-card h5 {
   font-size: 0.9375rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text);
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .assignment-grade-card p {
@@ -11043,6 +11046,10 @@ input#verify-fullname {
 }
 
   .course-main-content {
+    padding: 0;
+  }
+
+  .assignment-overview {
     padding: 20px;
   }
 
@@ -14448,6 +14455,10 @@ select.input-success {
   }
 
   .course-main-content {
+    padding: 0;
+  }
+
+  .assignment-overview {
     padding: 0 16px 24px;
   }
 
