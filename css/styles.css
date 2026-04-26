@@ -10484,7 +10484,7 @@ input#verify-fullname {
   font-size: 0.8125rem;
   color: var(--color-text);
   line-height: 1.8;
-  list-style-type: decimal;
+  list-style-type: disc;
 }
 
 .quiz-order-area {
@@ -10567,6 +10567,7 @@ input#verify-fullname {
 .quiz-match-definitions ol {
   padding-left: 20px;
   margin: 0;
+  list-style-type: decimal;
 }
 
 .quiz-match-definitions li {
