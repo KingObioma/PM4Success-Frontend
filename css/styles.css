@@ -10283,6 +10283,7 @@ input#verify-fullname {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  flex: 1;
   min-width: 0;
 }
 
@@ -10335,6 +10336,7 @@ input#verify-fullname {
   color: var(--color-text-secondary);
   white-space: nowrap;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .quiz-due-label {
@@ -11074,8 +11076,7 @@ input#verify-fullname {
   /* Quiz Page - Tablet */
   .quiz-header-inner {
     padding: 12px 20px;
-    flex-wrap: wrap;
-    gap: 8px;
+    gap: 12px;
   }
 
   .quiz-header-left {
