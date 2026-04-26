@@ -10607,7 +10607,7 @@ input#verify-fullname {
   display: block;
   max-width: 320px;
   width: 100%;
-  margin: 0 auto 20px;
+  margin: 0 0 20px 32px;
   border-radius: var(--radius-md);
 }
 
