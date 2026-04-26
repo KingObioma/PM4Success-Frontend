@@ -10603,6 +10603,14 @@ input#verify-fullname {
   line-height: 1.4;
 }
 
+.quiz-math-img {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto 20px;
+  border-radius: var(--radius-md);
+}
+
 /* Honesty declaration */
 .quiz-declaration {
   padding: 32px 0 20px;
