@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initVideoThumbnailPlayer,
     initCustomVideoControls,
     initDiscussionForum,
+    initQuizTimer,
   ];
 
   inits.forEach((fn) => {
@@ -3797,4 +3798,43 @@ function initDiscussionForum() {
 
   wireForumContainer(forum);
   if (mobileForum) wireForumContainer(mobileForum);
+}
+
+/* ============================================
+   Quiz Timer
+   ============================================ */
+function initQuizTimer() {
+  const timerEl = document.querySelector('[data-timer="quiz-timer"]');
+  if (!timerEl) return;
+
+  const textEl = timerEl.querySelector('.progress-ring-text-sm');
+  if (!textEl) return;
+
+  const duration = parseInt(timerEl.getAttribute('data-duration'), 10);
+  if (isNaN(duration) || duration <= 0) return;
+
+  let remaining = duration;
+
+  const format = (secs) => {
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    return `${m}:${String(s).padStart(2, '0')}`;
+  };
+
+  textEl.textContent = format(remaining);
+
+  const interval = setInterval(() => {
+    remaining -= 1;
+
+    if (remaining <= 300) timerEl.classList.add('quiz-timer-warning');
+
+    if (remaining <= 0) {
+      clearInterval(interval);
+      textEl.textContent = '0:00';
+      timerEl.classList.add('quiz-timer-expired');
+      return;
+    }
+
+    textEl.textContent = format(remaining);
+  }, 1000);
 }

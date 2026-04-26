@@ -18,140 +18,6 @@
     <p class="device-gate-message">Please open this quiz on a tablet or larger screen to continue.</p>
   </div>
 
-  <!-- ========== NAVBAR ========== -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-inner">
-        <div class="navbar-left">
-          <button class="navbar-toggle" aria-label="Toggle menu">
-            <i class="bi bi-list"></i>
-          </button>
-          <a href="index.html" class="navbar-brand">
-            <img src="../assets/images/logo.png" alt="PM4Success">
-          </a>
-        </div>
-
-        <div class="navbar-right">
-          <div class="navbar-search">
-            <i class="bi bi-mic search-icon-left"></i>
-            <input type="text" placeholder="search courses" aria-label="Search courses">
-            <i class="bi bi-search search-icon-right"></i>
-          </div>
-
-          <ul class="navbar-nav">
-            <li><a href="course-catalogue.html" class="nav-link">Course Catalogue</a></li>
-            <li><a href="learning-paths.html" class="nav-link">My Career Path</a></li>
-            <li><a href="about.html" class="nav-link">About Us</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-          </ul>
-
-          <div class="navbar-actions navbar-logged-out">
-            <a href="#" class="nav-link nav-login-link" data-open-modal="loginModal">Login</a>
-            <a href="#" class="btn btn-enroll" data-open-modal="signupModal">Enroll Now</a>
-          </div>
-
-          <div class="navbar-actions navbar-logged-in">
-            <a href="cart.html" class="nav-icon-btn">
-              <i class="bi bi-cart-fill"></i>
-              <span class="badge-count">4</span>
-            </a>
-            <a href="notifications.html" class="nav-icon-btn">
-              <i class="bi bi-bell-fill"></i>
-            </a>
-            <div class="position-relative">
-              <div class="nav-avatar">
-                <span class="nav-avatar-initial">A</span>
-                <i class="bi bi-chevron-down"></i>
-              </div>
-              <div class="user-dropdown">
-                <a href="my-courses.html"><i class="bi bi-journal-bookmark-fill"></i> My Courses</a>
-                <a href="user-profile.html"><i class="bi bi-person-fill"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
-                <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
-                <a href="purchases.html"><i class="bi bi-credit-card-fill"></i> My Purchase</a>
-                <a href="accomplishments.html"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
-                <a href="progress-report.html"><i class="bi bi-graph-up-arrow"></i> Progress Report</a>
-                <a href="help-support.html"><i class="bi bi-question-circle-fill"></i> Help Center</a>
-                <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="switch-account-overlay"></div>
-      <div class="switch-account-panel">
-        <div class="switch-account-section">
-          <h6 class="switch-account-heading">NNPC Tech Scholarship</h6>
-          <a href="NNPC-tech.html" class="switch-account-item">
-            <img src="../assets/images/logo.png" alt="NNPC Tech Career Academy">
-            <span>NNPC Tech Career  Academy</span>
-          </a>
-        </div>
-        <div class="switch-account-section">
-          <h6 class="switch-account-heading">Explore PM4Success</h6>
-          <a href="index.html" class="switch-account-item active">
-            <img src="../assets/images/logo-white.png" alt="PM4Success">
-            <div>
-              <span>PM4Success</span>
-              <small>All courses</small>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-
-  <!-- ========== MOBILE MENU ========== -->
-  <div class="mobile-menu-overlay"></div>
-  <div class="mobile-menu">
-    <div class="mobile-menu-header navbar-logged-out">
-      <img src="../assets/images/logo.png" alt="PM4Success">
-    </div>
-    <button type="button" class="mobile-menu-header-user navbar-logged-in" id="mobileUserMenuBtn">
-      <div class="mobile-user-avatar">
-        <span>AU</span>
-      </div>
-      <div class="mobile-user-info">
-        <strong>Hi, Aliyu Unuagbokhe</strong>
-        <small>Welcome back</small>
-      </div>
-      <span class="mobile-user-arrow"><i class="bi bi-chevron-right"></i></span>
-    </button>
-    <div class="mobile-menu-nav">
-      <a href="course-catalogue.html">Course Catalogue</a>
-      <a href="learning-paths.html">My Career Path</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="mobile-menu-footer navbar-logged-out">
-      <a href="#" class="mobile-signin-link" data-open-modal="loginModal">Sign In</a>
-    </div>
-    <div class="mobile-switch-account navbar-logged-in">
-      <p class="mobile-switch-label">Switch Account</p>
-      <a href="NNPC-tech.html" class="mobile-switch-item">NNPC Tech Scholarship</a>
-      <a href="index.html" class="mobile-switch-item active">Explore PM4Success</a>
-    </div>
-    <div class="mobile-user-panel navbar-logged-in">
-      <button type="button" class="mobile-user-panel-back" id="mobileUserPanelBack">
-        <i class="bi bi-chevron-left"></i> Menu
-      </button>
-      <nav class="mobile-user-panel-nav">
-        <a href="my-courses.html"><i class="bi bi-journal-check"></i> My Courses</a>
-        <a href="user-profile.html">
-          <span><i class="bi bi-person-fill"></i> Profile</span>
-          <span class="mobile-user-panel-badge">Not Verified <i class="bi bi-gear-fill"></i></span>
-        </a>
-        <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
-        <a href="purchases.html"><i class="bi bi-wallet2"></i> My Purchase</a>
-        <a href="accomplishments.html"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
-        <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
-        <a href="help-support.html"><i class="bi bi-question-circle-fill"></i> Help Center</a>
-        <a href="#" class="mobile-user-panel-logout" data-action="logout"><i class="bi bi-box-arrow-right"></i> Log Out</a>
-      </nav>
-    </div>
-  </div>
-
 
   <!-- ========== QUIZ HEADER BAR ========== -->
   <header class="quiz-header">
@@ -165,20 +31,17 @@
           <span class="quiz-header-meta">Graded Assignment: 30 min</span>
         </div>
       </div>
+      <div class="quiz-header-due">
+        <span class="quiz-due-label">Due</span> Oct 21, 11:50 PM WAT
+      </div>
       <div class="quiz-header-right">
-        <div class="quiz-header-due">
-          <span class="quiz-due-label">Due</span> Oct 21, 11:50 PM WAT
-        </div>
         <div class="quiz-header-timer">
           <span class="quiz-timer-label">Time left</span>
-          <div class="quiz-timer-circle" data-timer="quiz-timer">
-            <svg viewBox="0 0 40 40">
-              <circle cx="20" cy="20" r="18" fill="none" stroke="#e5e7eb" stroke-width="2"/>
-              <circle cx="20" cy="20" r="18" fill="none" stroke="#1a5276" stroke-width="2"
-                stroke-dasharray="113.1" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 20 20)"/>
-            </svg>
-            <span class="quiz-timer-text">14:59</span>
-          </div>
+          <svg class="progress-ring-sm" viewBox="0 0 40 40" data-timer="quiz-timer" data-duration="899">
+            <circle cx="20" cy="20" r="16" fill="none" stroke="#1a5276" stroke-width="4"
+              stroke-dasharray="5 3.38" stroke-linecap="butt"/>
+            <text x="20" y="21" text-anchor="middle" class="progress-ring-text-sm" dominant-baseline="middle">14:59</text>
+          </svg>
         </div>
       </div>
     </div>
