@@ -10613,7 +10613,7 @@ input#verify-fullname {
 
 .quiz-math-card {
   display: inline-block;
-  background-color: #f3f4f6;
+  background-color: #c9c5b8;
   border-radius: var(--radius-md);
   padding: 16px 24px;
   margin: 0 0 20px 32px;
@@ -10622,6 +10622,7 @@ input#verify-fullname {
 .quiz-math-card .quiz-math-img {
   margin: 0;
   display: block;
+  mix-blend-mode: multiply;
 }
 
 .quiz-math-img--grayscale {
@@ -10680,7 +10681,66 @@ input#verify-fullname {
 }
 
 /* ============================================
-   41. Utility Classes (Inline Style Replacements)
+   41. Quiz Review Modal
+   ============================================ */
+#reviewModal .auth-modal {
+  min-height: auto;
+  padding: 40px 48px;
+}
+
+.quiz-review-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.quiz-review-body {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.quiz-review-list {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.quiz-review-list li {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  list-style-type: disc;
+  margin-bottom: 8px;
+}
+
+.quiz-review-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.quiz-review-cancel {
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: var(--transition-fast);
+}
+
+.quiz-review-cancel:hover {
+  background-color: var(--color-bg);
+}
+
+/* ============================================
+   42. Utility Classes (Inline Style Replacements)
    ============================================ */
 
 /* Contact page section padding */
