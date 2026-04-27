@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const inits = [
     initNavbar,
     initAuthModals,
+    initQuizReviewModal,
     initAuthState,
     initDropdowns,
     initAccordions,
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initVideoModal,
     initCoursePlayer,
     initAssignmentPage,
+    initAssignmentModals,
     initAssignGradesAccordion,
     initNnpcPageTabs,
     initVideoThumbnailPlayer,
@@ -201,7 +203,24 @@ function initAuthModals() {
 }
 
 /* ============================================
-   2. Auth State
+   2. Quiz Review Modal — confirm submit
+   ============================================ */
+function initQuizReviewModal() {
+  document.querySelectorAll('[data-action="confirm-quiz-submit"]').forEach((btn) => {
+    btn.addEventListener('click', function () {
+      const overlay = this.closest('.auth-modal-overlay');
+      if (overlay) {
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+      const form = document.querySelector('.quiz-form');
+      if (form) form.submit();
+    });
+  });
+}
+
+/* ============================================
+   3. Auth State
    ============================================ */
 function initAuthState() {
   const isLoggedIn = localStorage.getItem('pm4s_logged_in') === 'true';
@@ -3402,6 +3421,22 @@ function initAssignmentPage() {
       });
     });
   }
+}
+
+/* ============================================
+   Assignment Page Modals
+   ============================================ */
+function initAssignmentModals() {
+  const fileInput = document.getElementById('assignmentFileInput');
+  if (!fileInput) return;
+
+  const fileNameEl = document.getElementById('assignmentFileName');
+
+  fileInput.addEventListener('change', function () {
+    if (this.files && this.files.length > 0) {
+      if (fileNameEl) fileNameEl.textContent = this.files[0].name;
+    }
+  });
 }
 
 /* ============================================

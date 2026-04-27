@@ -8828,7 +8828,7 @@ input#verify-fullname {
 /* Video player area */
 .course-main-content {
   flex: 1;
-  padding: 0;
+  padding: 0 24px;
   overflow-y: auto;
   min-width: 0;
   border-left: 1px solid var(--color-border);
@@ -11115,7 +11115,7 @@ input#verify-fullname {
   }
 
   .course-main-content {
-    padding: 0;
+    padding: 0 24px;
   }
 
   .assignment-overview {
@@ -14545,19 +14545,20 @@ select.input-success {
   }
 
   .course-main-content {
-    padding: 0;
+    padding: 0 24px;
+    margin-right: 0;
   }
 
   .assignment-overview {
     padding: 16px 32px 24px;
   }
 
-  /* Video player full width, no border radius on mobile */
+  /* Video player full width on mobile */
   .video-player {
     border-radius: 0;
-    margin-left: -16px;
-    margin-right: -16px;
-    width: calc(100% + 32px);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
 
   .video-controls {
@@ -15243,5 +15244,85 @@ select.input-success {
     padding: 32px 24px;
     text-align: center;
     background: #fff;
+  }
+}
+
+/* ============================================
+   Assignment Page Modals (Upload + New Attempt)
+   ============================================ */
+#uploadAssignmentModal,
+#newAttemptModal {
+  align-items: center;
+}
+
+.assignment-upload-modal,
+.assignment-attempt-modal {
+  min-height: auto;
+  border-radius: 12px;
+  padding: 36px 40px;
+}
+
+.assignment-modal-title,
+.assignment-attempt-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.assignment-modal-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.assignment-modal-desc,
+.assignment-attempt-body {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.assignment-upload-area {
+  margin-top: 8px;
+}
+
+.assignment-file-input {
+  display: none;
+}
+
+.assignment-file-name {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin: 6px 0 0;
+}
+
+.assignment-attempt-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.assignment-attempt-continue {
+  padding: 10px 32px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+@media (max-width: 575.98px) {
+  .assignment-attempt-actions {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .assignment-attempt-actions .btn,
+  .assignment-attempt-actions .quiz-review-cancel {
+    width: 100%;
+    text-align: center;
   }
 }

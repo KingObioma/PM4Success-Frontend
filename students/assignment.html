@@ -306,6 +306,13 @@
                 <span class="lesson-duration"><i class="bi bi-file-earmark-text-fill"></i> 30 min</span>
               </div>
             </a>
+            <a href="#" class="lesson-item" data-open-modal="uploadAssignmentModal">
+              <i class="bi bi-circle lesson-check"></i>
+              <div class="lesson-info">
+                <span class="lesson-title">Integrated Project: Notebook</span>
+                <span class="lesson-duration"><i class="bi bi-file-earmark-arrow-up-fill"></i> Upload</span>
+              </div>
+            </a>
           </div>
         </div>
 
@@ -453,7 +460,7 @@
               <span class="assignment-detail-value">3 left (3 attempts every 8 hours)</span>
             </div>
             <div class="assignment-detail-action">
-              <a href="quiz.html" class="btn btn-outline-assignment">Continue</a>
+              <button type="button" class="btn btn-outline-assignment" data-open-modal="newAttemptModal">Continue</button>
             </div>
           </div>
         </div>
@@ -726,6 +733,37 @@
         <div class="auth-footer">
           Remember your password? <a href="#" data-open-modal="loginModal">Log in</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== UPLOAD ASSIGNMENT MODAL ========== -->
+  <div class="auth-modal-overlay" id="uploadAssignmentModal">
+    <div class="auth-modal assignment-upload-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <h5 class="assignment-modal-title">Assignment details</h5>
+      <p class="assignment-modal-name">Integrated Project: Understanding and trusting data (Part 2). Notebook</p>
+      <p class="assignment-modal-desc">Upload your assignment here to showcase your progress and understanding. Ensure your file meets the required format and guidelines before submitting. We're excited to see your work</p>
+      <form data-action="upload-assignment" novalidate>
+        <div class="file-upload-area assignment-upload-area">
+          <input type="file" id="assignmentFileInput" name="assignmentFile" class="assignment-file-input" accept=".pdf,.doc,.docx,.ipynb,.zip">
+          <label for="assignmentFileInput" class="file-upload-btn">Upload file</label>
+        </div>
+        <p class="assignment-file-name" id="assignmentFileName" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== NEW ATTEMPT MODAL ========== -->
+  <div class="auth-modal-overlay" id="newAttemptModal">
+    <div class="auth-modal assignment-attempt-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <h5 class="assignment-attempt-title">Start new attempt?</h5>
+      <p class="assignment-attempt-body">When you submit a new attempt it will replace your previous submission. This new attempt will only replace your previous grade if it's higher.</p>
+      <p class="assignment-attempt-body">You will have <strong>2 attempts left</strong> after this one. After that, you will have to wait <strong>8hrs</strong> before you can try again.</p>
+      <div class="assignment-attempt-actions">
+        <a href="first-quiz.html" class="btn btn-primary assignment-attempt-continue">Continue</a>
+        <button type="button" class="quiz-review-cancel" data-close-modal>Cancel</button>
       </div>
     </div>
   </div>

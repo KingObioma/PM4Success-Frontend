@@ -332,7 +332,7 @@
       </div>
 
       <!-- Submit -->
-      <button type="submit" class="btn quiz-submit-btn">Submit quiz</button>
+      <button type="button" class="btn quiz-submit-btn" data-open-modal="reviewModal">Submit quiz</button>
 
     </form>
   </main>
@@ -432,6 +432,25 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ========== REVIEW MODAL ========== -->
+  <div class="auth-modal-overlay" id="reviewModal">
+    <div class="auth-modal">
+      <button class="auth-close" data-close-modal><i class="bi bi-x-lg"></i></button>
+      <h2 class="quiz-review-title">Review Answers Option</h2>
+      <p class="quiz-review-body">Before you submit your quiz, you will have the opportunity to review your answers and make any necessary changes. This feature allows you to:</p>
+      <ul class="quiz-review-list">
+        <li><strong>Double-check your responses</strong>: Ensure that you have answered all questions accurately.</li>
+        <li><strong>Go back to any skipped or uncertain questions</strong>: Take a moment to review areas where you were unsure.</li>
+        <li><strong>Make edits before final submission</strong>: Modify your answers if needed, based on your understanding.</li>
+      </ul>
+      <p class="quiz-review-body">Once you're confident with your answers, click Submit to finalize your responses.</p>
+      <div class="quiz-review-actions">
+        <button type="button" class="btn quiz-submit-btn" data-action="confirm-quiz-submit">Submit quiz</button>
+        <button type="button" class="quiz-review-cancel" data-close-modal>Cancel</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ========== LOGIN MODAL ========== -->
   <div class="auth-modal-overlay" id="loginModal">
