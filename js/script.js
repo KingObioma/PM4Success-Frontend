@@ -293,6 +293,25 @@ function initDropdowns() {
   });
 }
 
+function initAdminNavDropdown() {
+  const navUser = document.querySelector('.la-nav-user');
+  if (!navUser) return;
+
+  const dropdown = navUser.closest('.position-relative')?.querySelector('.user-dropdown');
+  if (!dropdown) return;
+
+  navUser.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('show');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !navUser.contains(e.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
+}
+
 /* ============================================
    4. Accordions
    ============================================ */

@@ -12,60 +12,50 @@
 </head>
 <body>
 
-  </div>
-
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-inner">
+
         <div class="navbar-left">
+          <!-- Hamburger (mobile only) -->
+          <button class="navbar-toggle" type="button" aria-label="Toggle navigation menu">
+            <i class="bi bi-list"></i>
+          </button>
           <!-- Brand -->
           <a href="index.html" class="navbar-brand">
             <img src="../assets/images/logo.png" alt="PM4Success">
           </a>
-
         </div>
 
         <div class="navbar-right">
-       
-
           <!-- Nav Links -->
           <ul class="navbar-nav">
-            <li><a href="course-catalogue.html" class="nav-link">Home</a></li>
-            <li><a href="learning-paths.html" class="nav-link">Team</a></li>
-            <li><a href="about.html" class="nav-link">Message</a></li>
-            <li><a href="about.html" class="nav-link">Analytics</a></li>
-            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="#" class="nav-link">Team</a></li>
+            <li><a href="#" class="nav-link">Message</a></li>
+            <li><a href="#" class="nav-link">Analytics</a></li>
+            <li><a href="#" class="nav-link">Contact Us</a></li>
           </ul>
 
-          <!-- Actions: Logged Out -->
-          <div class="navbar-actions navbar-logged-out">
-            <a href="#" class="nav-link nav-login-link" data-open-modal="loginModal">Login</a>
-            <a href="#" class="btn btn-enroll" data-open-modal="signupModal">Enroll Now</a>
-          </div>
-
-          <!-- Actions: Logged In -->
-          <div class="navbar-actions navbar-logged-in">
-            <div class="position-relative">
-              <div class="nav-avatar">
-                <span class="nav-avatar-initial">P</span>
-                <i class="bi bi-chevron-down"></i>
+          <!-- Admin User Block -->
+          <div class="position-relative">
+            <div class="la-nav-user">
+              <div class="la-nav-avatar">PM</div>
+              <div class="la-nav-user-info">
+                <span class="la-nav-user-name">PM4Success International</span>
+                <span class="la-nav-user-role">Admin <i class="bi bi-chevron-down"></i></span>
               </div>
-              <!-- User Dropdown -->
-              <div class="user-dropdown">
-                <a href="my-courses.html"><i class="bi bi-journal-bookmark-fill"></i> My Courses</a>
-                <a href="user-profile.html"><i class="bi bi-person-fill"></i> Profile <span class="dropdown-badge">Not Verified</span></a>
-                <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
-                <a href="purchases.html"><i class="bi bi-credit-card-fill"></i> My Purchase</a>
-                <a href="accomplishments.html"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
-                <a href="progress-report.html"><i class="bi bi-graph-up-arrow"></i> Progress Report</a>
-                <a href="help-support.html"><i class="bi bi-question-circle-fill"></i> Help Center</a>
-                <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
-              </div>
+            </div>
+            <div class="user-dropdown">
+              <a href="#"><i class="bi bi-person-fill"></i> My Profile</a>
+              <a href="#"><i class="bi bi-gear-fill"></i> Settings</a>
+              <a href="#" data-action="logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
             </div>
           </div>
         </div>
-      </div>      
+
+      </div>
     </div>
   </nav>
 
@@ -74,66 +64,137 @@
   <div class="mobile-menu-overlay"></div>
   <div class="mobile-menu">
 
-    <!-- Logged out header -->
-    <div class="mobile-menu-header navbar-logged-out">
-      <img src="../assets/images/logo.png" alt="PM4Success">
-    </div>
-
-    <!-- Logged in header -->
-    <button type="button" class="mobile-menu-header-user navbar-logged-in" id="mobileUserMenuBtn">
-      <div class="mobile-user-avatar">
-        <span>AU</span>
-      </div>
+    <!-- Admin user info header -->
+    <div class="la-mobile-user-block">
+      <div class="mobile-user-avatar la-mobile-avatar">PM</div>
       <div class="mobile-user-info">
-        <strong>Hi, Aliyu Unuagbokhe</strong>
-        <small>Welcome back</small>
+        <strong>PM4Success International</strong>
+        <small>Admin</small>
       </div>
-      <span class="mobile-user-arrow"><i class="bi bi-chevron-right"></i></span>
-    </button>
+    </div>
 
-    <!-- Nav links (both states) -->
+    <!-- Nav links -->
     <div class="mobile-menu-nav">
-      <a href="course-catalogue.html">Course Catalogue</a>
-      <a href="learning-paths.html">My Career Path</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="#">Team</a>
+      <a href="#">Message</a>
+      <a href="#">Analytics</a>
+      <a href="#">Contact Us</a>
     </div>
 
-    <!-- Logged out footer -->
-    <div class="mobile-menu-footer navbar-logged-out">
-      <a href="#" class="mobile-signin-link" data-open-modal="loginModal">Sign In</a>
-    </div>
-
-    <!-- Logged in: Switch Account -->
-    <div class="mobile-switch-account navbar-logged-in">
-      <p class="mobile-switch-label">Switch Account</p>
-      <a href="NNPC-tech.html" class="mobile-switch-item">NNPC Tech Scholarship</a>
-      <a href="index.html" class="mobile-switch-item active">Explore PM4Success</a>
-    </div>
-
-    <!-- User Menu Sub-Panel (logged-in only) -->
-    <div class="mobile-user-panel navbar-logged-in">
-      <button type="button" class="mobile-user-panel-back" id="mobileUserPanelBack">
-        <i class="bi bi-chevron-left"></i> Menu
-      </button>
-      <nav class="mobile-user-panel-nav">
-        <a href="my-courses.html"><i class="bi bi-journal-check"></i> My Courses</a>
-        <a href="user-profile.html">
-          <span><i class="bi bi-person-fill"></i> Profile</span>
-          <span class="mobile-user-panel-badge">Not Verified <i class="bi bi-gear-fill"></i></span>
-        </a>
-        <a href="learning-paths.html"><i class="bi bi-signpost-split-fill"></i> Career Path</a>
-        <a href="purchases.html"><i class="bi bi-wallet2"></i> My Purchase</a>
-        <a href="accomplishments.html"><i class="bi bi-trophy-fill"></i> Accomplishments</a>
-        <a href="progress-report.html"><i class="bi bi-graph-up"></i> Progress Report</a>
-        <a href="help-support.html"><i class="bi bi-question-circle-fill"></i> Help Center</a>
-        <a href="#" class="mobile-user-panel-logout" data-action="logout"><i class="bi bi-box-arrow-right"></i> Log Out</a>
-      </nav>
+    <!-- Logout -->
+    <div class="mobile-menu-footer la-mobile-footer">
+      <a href="#" class="la-mobile-logout" data-action="logout">
+        <i class="bi bi-box-arrow-left"></i> Log Out
+      </a>
     </div>
 
   </div>
 
 
+  <!-- ========== LICENSE OVERVIEW SECTION ========== -->
+  <main>
+    <section class="la-overview-section">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="la-overview-header">
+          <h2 class="la-overview-title">License Overview</h2>
+          <a href="#" class="la-overview-period">Last 90 days</a>
+        </div>
+        <hr class="la-overview-divider">
+
+        <!-- Stats Row 1: 2 columns -->
+        <div class="la-stats-row la-stats-row--2col">
+          <div class="la-stat-item">
+            <div class="la-stat-icon la-stat-icon--blue">
+              <i class="bi bi-file-earmark-text"></i>
+            </div>
+            <div class="la-stat-content">
+              <span class="la-stat-label">Learners Making Progress</span>
+              <div class="la-stat-bottom">
+                <p class="la-stat-value"><strong>182</strong> learners</p>
+                <span class="la-stat-change">+100% from previous 90 days</span>
+              </div>
+            </div>
+          </div>
+          <div class="la-stat-item">
+            <div class="la-stat-icon la-stat-icon--blue">
+              <i class="bi bi-stopwatch"></i>
+            </div>
+            <div class="la-stat-content">
+              <span class="la-stat-label">Learning Hours</span>
+              <div class="la-stat-bottom">
+                <p class="la-stat-value"><strong>5,679</strong> hours</p>
+                <span class="la-stat-change">+100% from previous 90 days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Row 2: 3 columns -->
+        <div class="la-stats-row la-stats-row--3col">
+          <div class="la-stat-item">
+            <div class="la-stat-icon la-stat-icon--green">
+              <i class="bi bi-play-circle"></i>
+            </div>
+            <div class="la-stat-content">
+              <span class="la-stat-label">Videos Watched</span>
+              <div class="la-stat-bottom">
+                <p class="la-stat-value"><strong>18,122</strong> videos</p>
+                <span class="la-stat-change">+100% from previous 90 days</span>
+              </div>
+            </div>
+          </div>
+          <div class="la-stat-item">
+            <div class="la-stat-icon la-stat-icon--green">
+              <i class="bi bi-book"></i>
+            </div>
+            <div class="la-stat-content">
+              <span class="la-stat-label">Readings</span>
+              <div class="la-stat-bottom">
+                <p class="la-stat-value"><strong>13,122</strong> readings</p>
+                <span class="la-stat-change">+100% from previous 90 days</span>
+              </div>
+            </div>
+          </div>
+          <div class="la-stat-item">
+            <div class="la-stat-icon la-stat-icon--green">
+              <i class="bi bi-clipboard-check"></i>
+            </div>
+            <div class="la-stat-content">
+              <span class="la-stat-label">Assignment Taken</span>
+              <div class="la-stat-bottom">
+                <p class="la-stat-value"><strong>12,982</strong> assessments</p>
+                <span class="la-stat-change">+100% from previous 90 days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="la-overview-divider">
+
+        <!-- License body -->
+        <div class="la-overview-body">
+          <p class="la-overview-summary">
+            In the past <strong>90 days</strong>, your organization had <strong>1,061 enrollments(+100%)</strong>. empower your learner's growth and development by assigning top content across PM4Success
+          </p>
+          <ul class="la-license-details">
+            <li class="la-license-detail">License Type: <strong>Specialization Based</strong></li>
+            <li class="la-license-detail">Number of License: <strong>999</strong></li>
+            <li class="la-license-detail">Number of License Remaining: <strong>352</strong></li>
+            <li class="la-license-detail">Activation Date: <strong>12/12/2024</strong></li>
+            <li class="la-license-detail">Expiring Date: <strong>12/12/2025</strong></li>
+          </ul>
+          <div class="la-overview-actions">
+            <a href="#" class="la-btn-renew">Renew License</a>
+            <a href="#" class="la-btn-upgrade">Upgrade License</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
 
 
   <!-- ========== FOOTER ========== -->

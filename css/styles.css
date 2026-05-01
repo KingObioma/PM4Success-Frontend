@@ -15335,3 +15335,349 @@ select.input-success {
     text-align: center;
   }
 }
+
+
+/* ============================================
+   Licensed Admin — License Overview Section
+   ============================================ */
+.la-overview-section {
+  padding: 40px 0 60px;
+  margin-top: 60px;
+  background: #fafcfd;
+}
+
+.la-overview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.la-overview-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.la-overview-period {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #2986cc;
+}
+
+.la-overview-divider {
+  border: none;
+  border-top: 2px solid #d1d5db;
+  margin: 0 0 32px;
+}
+
+/* Stats rows */
+.la-stats-row--2col {
+  display: flex;
+  justify-content: flex-start;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.la-stats-row--3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* Stat item: icon left, content right */
+.la-stat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.la-stat-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+.la-stat-icon--blue {
+  background-color: rgba(26, 82, 118, 0.1);
+  color: var(--color-primary);
+}
+
+.la-stat-icon--green {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: var(--color-success);
+}
+
+.la-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.la-stat-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  display: block;
+}
+
+/* Row 1: value then change stacked */
+.la-stats-row--2col .la-stat-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Row 2: value + change inline */
+.la-stats-row--3col .la-stat-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.la-stat-value {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.la-stat-value strong {
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.la-stat-change {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* License body */
+.la-overview-body {
+  padding-top: 4px;
+}
+
+.la-overview-summary {
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.la-license-details {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.la-license-detail {
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.la-overview-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.la-btn-renew,
+.la-btn-upgrade {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.la-btn-renew {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 2px solid var(--color-primary);
+}
+
+.la-btn-renew:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-white);
+}
+
+.la-btn-upgrade {
+  background-color: var(--color-bg-lighter);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+}
+
+.la-btn-upgrade:hover {
+  background-color: var(--color-border);
+  color: var(--color-text);
+}
+
+/* Tablet (576px – 991px) */
+@media (max-width: 991px) {
+  .la-stats-row--3col {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .la-stats-row--3col .la-stat-item:last-child {
+    grid-column: 1;
+  }
+
+  /* Revert to stacked on tablet since each item is narrower */
+  .la-stats-row--3col .la-stat-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+
+/* Mobile (below 576px) */
+@media (max-width: 575px) {
+  .la-overview-section {
+    padding: 24px 0 40px;
+  }
+
+  .la-stats-row--2col,
+  .la-stats-row--3col {
+    grid-template-columns: 1fr;
+  }
+
+  .la-stats-row--3col .la-stat-item:last-child {
+    grid-column: auto;
+  }
+
+  .la-overview-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .la-btn-renew,
+  .la-btn-upgrade {
+    width: 100%;
+  }
+}
+
+
+/* ============================================
+   Licensed Admin — Navbar
+   ============================================ */
+
+/* Admin user block: avatar + org name + role */
+.la-nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+  background-color: var(--color-white);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.la-nav-user:hover {
+  background-color: var(--color-bg-light);
+}
+
+.la-nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.la-nav-user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.la-nav-user-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.la-nav-user-role {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.la-nav-user-role .bi-chevron-down {
+  font-size: 0.625rem;
+  color: var(--color-primary);
+}
+
+/* Admin mobile menu user block */
+.la-mobile-user-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.la-mobile-avatar {
+  background-color: var(--color-dark);
+}
+
+.la-mobile-footer {
+  margin-top: auto;
+}
+
+.la-mobile-logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+
+.la-mobile-logout:hover {
+  color: var(--color-danger);
+  opacity: 0.8;
+}
+
+/* Tablet: tighten user block text slightly */
+@media (max-width: 991px) {
+  .la-nav-user-name {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Mobile: hide nav links and user block — hamburger handles nav */
+@media (max-width: 767px) {
+  .la-nav-user {
+    display: none;
+  }
+}
