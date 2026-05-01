@@ -15695,3 +15695,293 @@ select.input-success {
     display: none;
   }
 }
+
+
+/* ============================================
+   Licensed Admin — Team Program Overview
+   ============================================ */
+
+.la-team-section {
+  padding: 48px 0 64px;
+  background: var(--color-white);
+}
+
+/* Header */
+.la-team-header {
+  margin-bottom: 28px;
+}
+
+.la-team-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 6px;
+}
+
+.la-team-subtitle {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Stat Cards: 3-column grid */
+.la-team-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.la-team-card {
+  background: #e4edf5;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.la-team-card-label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.la-team-card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.1;
+  flex: 1;
+  padding-bottom: 16px;
+}
+
+.la-team-card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border: 1.5px solid #555;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-white);
+  align-self: flex-start;
+  transition: var(--transition-fast);
+}
+
+.la-team-card-btn:hover {
+  background: var(--color-bg-lighter);
+  color: var(--color-text);
+}
+
+/* Engagement Funnel */
+.la-funnel-section {
+  margin-bottom: 0;
+}
+
+.la-funnel-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 24px;
+}
+
+/* Top funnel stats: 3 columns */
+.la-funnel-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.la-funnel-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.la-funnel-stat-label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.la-funnel-stat-desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.la-funnel-stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: 6px;
+}
+
+/* Funnel chart: 3 colored bars inside a clip-path trapezoid */
+.la-funnel-chart {
+  display: flex;
+  height: 90px;
+  clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+  margin-bottom: 24px;
+}
+
+.la-funnel-bar {
+  flex: 1;
+}
+
+.la-funnel-bar--1 { background: #0f3d6b; }
+.la-funnel-bar--2 { background: #3a7db5; }
+.la-funnel-bar--3 { background: #9ab8cc; }
+
+/* Bottom funnel stats + action buttons: 3 columns */
+.la-funnel-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.la-funnel-bottom-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.la-funnel-bottom-label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.la-funnel-bottom-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+/* Funnel bottom action buttons */
+.la-team-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border: 1.5px solid #555;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-white);
+  align-self: flex-start;
+  transition: var(--transition-fast);
+}
+
+.la-team-action-btn:hover {
+  background: var(--color-bg-lighter);
+  color: var(--color-text);
+}
+
+.la-team-action-btn--primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.la-team-action-btn--primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-white);
+}
+
+/* Create Team Program CTA */
+.la-team-cta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+
+.la-btn-create-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 28px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.la-btn-create-team:hover {
+  background: var(--color-primary-hover);
+  color: var(--color-white);
+}
+
+/* Tablet (576px – 991px): 3-col layout maintained, minor spacing adjustments */
+@media (max-width: 991px) {
+  .la-team-cards {
+    gap: 14px;
+  }
+
+  .la-funnel-stats {
+    gap: 16px;
+  }
+
+  .la-funnel-chart {
+    height: 80px;
+  }
+
+  .la-funnel-bottom {
+    gap: 16px;
+  }
+}
+
+/* Mobile (below 576px): single column throughout */
+@media (max-width: 575px) {
+  .la-team-section {
+    padding: 32px 0 48px;
+  }
+
+  .la-team-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .la-team-card-btn {
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .la-funnel-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .la-funnel-chart {
+    height: 60px;
+  }
+
+  .la-funnel-bottom {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .la-team-action-btn {
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .la-team-cta {
+    justify-content: stretch;
+  }
+
+  .la-btn-create-team {
+    width: 100%;
+    justify-content: center;
+  }
+}
