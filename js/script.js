@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initQuizReviewModal,
     initAuthState,
     initDropdowns,
+    initAdminNavDropdown,
     initAccordions,
     initLearnShowMore,
     initSkillsShowMore,

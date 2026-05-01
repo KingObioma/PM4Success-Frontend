@@ -15341,8 +15341,8 @@ select.input-success {
    Licensed Admin — License Overview Section
    ============================================ */
 .la-overview-section {
-  padding: 40px 0 60px;
-  margin-top: 60px;
+  padding: 40px 0 24px;
+  margin: 60px 0px;
   background: #fafcfd;
 }
 
@@ -15355,7 +15355,7 @@ select.input-success {
 
 .la-overview-title {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text);
   margin: 0;
 }
@@ -15467,10 +15467,15 @@ select.input-success {
 }
 
 .la-overview-summary {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--color-text);
   line-height: 1.7;
   margin-bottom: 20px;
+}
+
+.la-overview-summary strong,
+.la-license-detail strong {
+  font-weight: 600;
 }
 
 .la-license-details {
@@ -15586,7 +15591,6 @@ select.input-success {
   gap: 10px;
   cursor: pointer;
   padding: 6px 12px;
-  border: 2px solid var(--color-primary);
   border-radius: 10px;
   background-color: var(--color-white);
   transition: var(--transition-fast);
@@ -15602,7 +15606,7 @@ select.input-success {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-full);
-  background-color: var(--color-dark);
+  background-color: var(--color-primary);
   color: var(--color-white);
   display: flex;
   align-items: center;
@@ -15647,7 +15651,8 @@ select.input-success {
 }
 
 .la-mobile-avatar {
-  background-color: var(--color-dark);
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .la-mobile-footer {
@@ -15675,8 +15680,17 @@ select.input-success {
   }
 }
 
+/* Admin hamburger: hidden on desktop and tablet, shown on mobile only */
+.la-navbar .navbar-toggle {
+  display: none !important;
+}
+
 /* Mobile: hide nav links and user block — hamburger handles nav */
 @media (max-width: 767px) {
+  .la-navbar .navbar-toggle {
+    display: flex !important;
+  }
+
   .la-nav-user {
     display: none;
   }
