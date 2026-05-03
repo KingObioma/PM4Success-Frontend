@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCustomVideoControls,
     initDiscussionForum,
     initQuizTimer,
+    initProgramMenus,
   ];
 
   inits.forEach((fn) => {
@@ -3892,4 +3893,38 @@ function initQuizTimer() {
 
     textEl.textContent = format(remaining);
   }, 1000);
+}
+
+/* ============================================
+   Team Program List — 3-dot menu
+   ============================================ */
+function initProgramMenus() {
+  try {
+    const btns = document.querySelectorAll('.la-program-menu-btn');
+    if (!btns.length) return;
+
+    const closeAll = (except) => {
+      btns.forEach(b => {
+        if (b === except) return;
+        const dd = b.nextElementSibling;
+        if (dd) dd.classList.remove('is-open');
+        b.setAttribute('aria-expanded', 'false');
+      });
+    };
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdown = btn.nextElementSibling;
+        const isOpen = dropdown.classList.contains('is-open');
+        closeAll(btn);
+        dropdown.classList.toggle('is-open', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    document.addEventListener('click', () => closeAll(null));
+  } catch (err) {
+    console.error('initProgramMenus:', err);
+  }
 }
