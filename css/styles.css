@@ -4831,9 +4831,9 @@ body.is-logged-in .navbar-search {
   background-color: var(--color-white);
   border-radius: 0;
   width: 100%;
-  max-width: 560px;
+  max-width: 680px;
   min-height: 100vh;
-  padding: 60px 60px;
+  padding: 60px 80px;
   position: relative;
 }
 
@@ -4853,7 +4853,7 @@ body.is-logged-in .navbar-search {
 
 .auth-container {
   width: 100%;
-  max-width: 430px;
+  max-width: 520px;
   position: relative;
   margin: 0 auto;
 }
@@ -4889,6 +4889,7 @@ body.is-logged-in .navbar-search {
 .auth-container h1 {
   text-align: center;
   font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
@@ -4897,6 +4898,15 @@ body.is-logged-in .navbar-search {
   font-size: 0.8125rem;
   color: var(--color-text-secondary);
   margin-bottom: 32px;
+}
+
+.auth-container .auth-login-role {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  text-decoration: underline;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .auth-social-btn {
