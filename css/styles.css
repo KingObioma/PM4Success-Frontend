@@ -15697,6 +15697,32 @@ select.input-success {
 }
 
 
+/* Licensed Admin — Auth State Visibility */
+.la-nav-logged-in-block {
+  display: none;
+}
+
+body.is-logged-in .la-nav-logged-in-block {
+  display: flex;
+  align-items: center;
+}
+
+.la-mobile-user-block {
+  display: none;
+}
+
+body.is-logged-in .la-mobile-user-block {
+  display: flex;
+}
+
+.la-mobile-footer {
+  display: none;
+}
+
+body.is-logged-in .la-mobile-footer {
+  display: block;
+}
+
 /* ============================================
    Licensed Admin — Team Program Overview
    ============================================ */
