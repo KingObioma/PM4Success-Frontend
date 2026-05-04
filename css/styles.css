@@ -3478,7 +3478,7 @@ body.is-logged-in .navbar-search {
   .section-contact .col-md-5,
   .section-contact .col-md-7 {
     flex: 0 0 100%;
-    max-width: 10rat0%;
+    max-width: 100%;
   }
 
   .contact-heading {
