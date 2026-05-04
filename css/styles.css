@@ -3476,7 +3476,7 @@ body.is-logged-in .navbar-search {
 
 @media (max-width: 767px) {
   .section-contact .col-md-5,
-  .section-contact .col-md-7 l{
+  .section-contact .col-md-7 {
     flex: 0 0 100%;
     max-width: 100%;
   }
