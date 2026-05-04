@@ -3506,6 +3506,7 @@ body.is-logged-in .navbar-search {
     align-items: center;
     justify-content: center;
     margin-top: 0;
+    margin-right: 30px;
   }
 
   .contact-chat-btn i {
@@ -16423,5 +16424,77 @@ body.is-logged-in .la-mobile-footer {
     top: 16px;
     right: 16px;
     align-self: auto;
+  }
+}
+
+/* ============================================
+   LA — Message Page: Send Message Section
+   ============================================ */
+.la-msg-section {
+  padding: 40px 0;
+  background: var(--color-white);
+}
+
+.la-msg-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  padding: 28px 32px;
+}
+
+.la-msg-intro-text {
+  flex: 1;
+}
+
+.la-msg-intro-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.la-msg-intro-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 620px;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .la-msg-intro {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .la-msg-intro-title {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+  .la-msg-section {
+    padding: 24px 0;
+  }
+
+  .la-msg-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .la-msg-intro-text {
+    width: 100%;
+  }
+
+  .la-btn-create-msg {
+    width: 100%;
+    justify-content: center;
   }
 }
